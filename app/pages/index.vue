@@ -5,7 +5,6 @@
     <NewsSection />
     <ProductSection :scroll-y="scrollY" />
     <CollaborateSection />
-    <StatsSection />
     <AboutSection />
     <CrewSection />
     <FooterSection />
