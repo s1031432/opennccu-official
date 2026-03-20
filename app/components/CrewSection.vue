@@ -123,6 +123,7 @@ const teamRoles = [
 ]
 
 const teamMembers = [
+  { name: '黃翊唐', role: 'Founder', initials: 'YT', gradientClass: 'from-[#FFD700] to-[#F5A623]' },
   { name: '范愷祐', role: 'LEAD', initials: 'KY', gradientClass: 'from-[#4ECBA5] to-[#2EA87E]' },
   { name: '林子晴', role: 'PM', initials: 'TQ', gradientClass: 'from-[#6CB4EE] to-[#4A90D9]' },
   { name: '陳柏翰', role: 'BE', initials: 'BH', gradientClass: 'from-[#7C6EDB] to-[#5B4FC7]' },
