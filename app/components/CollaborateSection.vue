@@ -16,10 +16,17 @@
       <!-- Section title -->
       <h2
         class="text-center mb-16"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #4ECBA5;"
       >
         與我們合作
       </h2>
+
+      <!-- Carousel pagination dots -->
+      <div class="flex justify-end gap-2 mb-4 pr-4">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#4ECBA5]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#d9d9d9]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#d9d9d9]"></span>
+      </div>
 
       <!-- Collaboration showcase card -->
       <div class="bg-white/50 backdrop-blur-sm border border-white/60 rounded-3xl overflow-hidden shadow-sm mb-20">

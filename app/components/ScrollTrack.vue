@@ -1,378 +1,291 @@
 <template>
   <ClientOnly>
-    <canvas
-      ref="canvasEl"
-      class="fixed inset-0 z-20 pointer-events-none"
-      :style="{ width: '100vw', height: '100vh' }"
-    />
+    <div class="fixed inset-0 z-20 pointer-events-none overflow-hidden">
+      <svg
+        :width="vw"
+        :height="vh"
+        :viewBox="`0 0 ${vw} ${vh}`"
+        class="absolute inset-0"
+      >
+        <defs>
+          <filter id="track-groove" x="-10%" y="-10%" width="120%" height="120%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur" />
+            <feOffset dx="0" dy="1" result="offsetBlur" />
+            <feFlood flood-color="white" flood-opacity="0.6" result="white" />
+            <feComposite in="white" in2="offsetBlur" operator="in" result="highlight" />
+            <feMerge>
+              <feMergeNode in="highlight" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <filter id="track-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        <g :style="{ transform: `translateY(${-scrollY}px)` }">
+          <!-- Hidden reference path for arc-length sampling -->
+          <path class="track-path-ref" :d="fullTrackPath" fill="none" stroke="none" />
+
+          <!-- Outer groove shadow -->
+          <path :d="fullTrackPath" fill="none" stroke="#c8c8c8"
+            stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.25"
+            filter="url(#track-groove)" />
+          <!-- Inner channel -->
+          <path :d="fullTrackPath" fill="none" stroke="#e0e0e0"
+            stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.45" />
+          <!-- Center line -->
+          <path :d="fullTrackPath" fill="none" stroke="#d0d0d0"
+            stroke-width="1" stroke-linecap="round" stroke-opacity="0.3" />
+
+          <!-- Progress glow -->
+          <path :d="fullTrackPath" fill="none" stroke="#4ECBA5" stroke-opacity="0.2"
+            stroke-width="10" stroke-linecap="round" stroke-linejoin="round"
+            :stroke-dasharray="totalPathLen"
+            :stroke-dashoffset="totalPathLen * (1 - smoothProgress)"
+            filter="url(#track-glow)" />
+          <!-- Progress line -->
+          <path :d="fullTrackPath" fill="none" stroke="#4ECBA5" stroke-opacity="0.5"
+            stroke-width="3" stroke-linecap="round"
+            :stroke-dasharray="totalPathLen"
+            :stroke-dashoffset="totalPathLen * (1 - smoothProgress)" />
+
+          <!-- Waypoint dots -->
+          <circle
+            v-for="(pt, i) in waypoints" :key="`wp-${i}`"
+            :cx="pt.x" :cy="pt.y" r="4"
+            :fill="smoothProgress >= pt.t ? '#4ECBA5' : '#d4d4d4'"
+            :fill-opacity="smoothProgress >= pt.t ? 0.6 : 0.3"
+            stroke="white" stroke-width="1.5" stroke-opacity="0.5"
+          />
+        </g>
+      </svg>
+
+      <!-- Marble -->
+      <div class="absolute" :style="marbleStyle">
+        <MarbleBall :size="MARBLE_SIZE" :rotation="marbleRotation" variant="mint" />
+      </div>
+    </div>
   </ClientOnly>
 </template>
 
 <script setup lang="ts">
-import * as THREE from 'three'
+const MARBLE_SIZE = 32
 
-const canvasEl = ref<HTMLCanvasElement | null>(null)
-
-// ── scroll state ────────────────────────────────────────────────────────────
 const scrollY     = ref(0)
-const progress    = ref(0)
-let   totalHeight = 1000
-let   vh          = window?.innerHeight ?? 800
-let   vw          = window?.innerWidth  ?? 1200
+const vw          = ref(1200)
+const vh          = ref(800)
+const totalHeight = ref(4000)
 
-// ── spring SHM state ────────────────────────────────────────────────────────
-let springT      = 0
-let springV0     = 0
-let springActive = false
-let lastScrollY  = 0
-let scrollVel    = 0
-let lastScrollTime = 0
-let atBottomSince  = -1
-let springBounce   = 0   // extra Y offset from spring
+// ── Inertia spring system ────────────────────────────────────────────────────
+// targetProgress = actual scroll position
+// smoothProgress = displayed position with momentum
+let targetProgress = 0
+let smoothVelocity = 0
+const smoothProgress = ref(0)
+let animating = false
+let rafId = 0
 
-const SPRING_OMEGA = 9
-const SPRING_GAMMA = 3.2
+const SPRING_STIFFNESS = 0.08   // how fast it catches up
+const SPRING_DAMPING   = 0.72   // <1 means overshoot (bouncy), closer to 1 = less bounce
+const MIN_DELTA        = 0.00005
 
-// ── Three.js objects ────────────────────────────────────────────────────────
-let renderer: THREE.WebGLRenderer
-let scene:    THREE.Scene
-let camera:   THREE.OrthographicCamera
-let rafId:    number
-
-// Track curve
-let trackCurve: THREE.CatmullRomCurve3
-let trackPoints: THREE.Vector3[] = []
-const CURVE_SEGMENTS = 300
-
-// Track tube mesh
-let trackTube:    THREE.Mesh
-let trackGlow:    THREE.Mesh
-let progressTube: THREE.Mesh
-
-// Marble group
-let marbleGroup: THREE.Group
-let marbleMesh:  THREE.Mesh
-let marbleRotX = 0
-let lastMarblePos = new THREE.Vector3()
-let totalDist = 0
-
-// Waypoint spheres
-let waypointMeshes: THREE.Mesh[] = []
-
-// ── Build waypoints in world coordinates ────────────────────────────────────
-function getWaypoints(): THREE.Vector3[] {
-  // xFrac, yFrac — yFrac can exceed 1 (the track extends into scrollable area)
-  const defs = [
-    [0.65, 0.00], [0.55, 0.10], [0.72, 0.20],
-    [0.87, 0.33], [0.72, 0.46], [0.55, 0.33],
-    [0.72, 0.20], [0.50, 0.55], [0.62, 0.66],
-    [0.76, 0.76], [0.91, 0.86], [0.76, 0.96],
-    [0.60, 0.86], [0.76, 0.76], [0.45, 1.08],
-    [0.55, 1.22], [0.40, 1.42], [0.50, 1.58],
-    [0.62, 1.72], [0.48, 1.88], [0.40, 2.00],
-  ]
-  return defs.map(([xf, yf]) => new THREE.Vector3(
-    xf * vw,
-    yf * totalHeight,
-    0,
-  ))
+function startAnimation() {
+  if (animating) return
+  animating = true
+  tickAnimation()
 }
 
-// ── Create track materials ───────────────────────────────────────────────────
-function makeTrackMaterials() {
-  // outer groove: gray transparent
-  const outer = new THREE.MeshBasicMaterial({
-    color: 0xd1d5db,
-    transparent: true,
-    opacity: 0.35,
-    side: THREE.DoubleSide,
-  })
-  // inner channel: lighter
-  const inner = new THREE.MeshBasicMaterial({
-    color: 0xe5e7eb,
-    transparent: true,
-    opacity: 0.5,
-    side: THREE.DoubleSide,
-  })
-  // progress: mint green with glow
-  const prog = new THREE.MeshBasicMaterial({
-    color: 0x4ECBA5,
-    transparent: true,
-    opacity: 0.6,
-    side: THREE.DoubleSide,
-  })
-  return { outer, inner, prog }
-}
+function tickAnimation() {
+  const diff = targetProgress - smoothProgress.value
+  // Spring force
+  smoothVelocity += diff * SPRING_STIFFNESS
+  // Damping
+  smoothVelocity *= SPRING_DAMPING
 
-// ── Build marble (glass sphere look) ─────────────────────────────────────────
-function buildMarble() {
-  marbleGroup = new THREE.Group()
-  const R = 14
+  smoothProgress.value = Math.max(0, Math.min(1, smoothProgress.value + smoothVelocity))
 
-  // Main sphere with Phong shading for glass look
-  const geo = new THREE.SphereGeometry(R, 48, 48)
-  const mat = new THREE.MeshPhongMaterial({
-    color:       0x4ECBA5,
-    emissive:    0x1a5e42,
-    specular:    0xffffff,
-    shininess:   200,
-    transparent: true,
-    opacity:     0.88,
-  })
-  marbleMesh = new THREE.Mesh(geo, mat)
-  marbleGroup.add(marbleMesh)
+  // Update marble rotation based on movement
+  updateMarbleRotation()
 
-  // Inner swirl sphere (mint lighter)
-  const swirlGeo = new THREE.SphereGeometry(R * 0.72, 24, 24)
-  const swirlMat = new THREE.MeshPhongMaterial({
-    color:       0x7EDCBA,
-    transparent: true,
-    opacity:     0.3,
-    side:        THREE.BackSide,
-  })
-  marbleGroup.add(new THREE.Mesh(swirlGeo, swirlMat))
-
-  // Specular highlight (small white sphere offset top-left)
-  const specGeo = new THREE.SphereGeometry(R * 0.28, 16, 16)
-  const specMat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.75 })
-  const specMesh = new THREE.Mesh(specGeo, specMat)
-  specMesh.position.set(-R * 0.35, R * 0.42, R * 0.6)
-  marbleGroup.add(specMesh)
-
-  // Small secondary highlight
-  const spec2Geo = new THREE.SphereGeometry(R * 0.1, 8, 8)
-  const spec2Mat = new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.5 })
-  const spec2Mesh = new THREE.Mesh(spec2Geo, spec2Mat)
-  spec2Mesh.position.set(R * 0.2, R * 0.55, R * 0.65)
-  marbleGroup.add(spec2Mesh)
-
-  scene.add(marbleGroup)
-}
-
-// ── Build lights ──────────────────────────────────────────────────────────────
-function buildLights() {
-  const ambient = new THREE.AmbientLight(0xffffff, 0.6)
-  scene.add(ambient)
-
-  const dirLight = new THREE.DirectionalLight(0xffffff, 1.2)
-  dirLight.position.set(-200, -400, 500)
-  scene.add(dirLight)
-
-  const rimLight = new THREE.DirectionalLight(0x4ECBA5, 0.5)
-  rimLight.position.set(300, 200, -200)
-  scene.add(rimLight)
-
-  const pointLight = new THREE.PointLight(0x4ECBA5, 0.8, 600)
-  pointLight.position.set(vw * 0.5, vh * 0.5, 200)
-  scene.add(pointLight)
-}
-
-// ── Build the track tube ─────────────────────────────────────────────────────
-function buildTrack() {
-  // Remove old
-  if (trackTube)    { scene.remove(trackTube);    trackTube.geometry.dispose() }
-  if (trackGlow)    { scene.remove(trackGlow);    trackGlow.geometry.dispose() }
-  if (progressTube) { scene.remove(progressTube); progressTube.geometry.dispose() }
-  waypointMeshes.forEach(m => { scene.remove(m); m.geometry.dispose() })
-  waypointMeshes = []
-
-  trackPoints = getWaypoints()
-  trackCurve  = new THREE.CatmullRomCurve3(trackPoints, false, 'catmullrom', 0.5)
-
-  const mats = makeTrackMaterials()
-
-  // Outer groove tube
-  const outerGeo = new THREE.TubeGeometry(trackCurve, CURVE_SEGMENTS, 11, 10, false)
-  trackGlow = new THREE.Mesh(outerGeo, mats.outer)
-  scene.add(trackGlow)
-
-  // Inner channel tube
-  const innerGeo = new THREE.TubeGeometry(trackCurve, CURVE_SEGMENTS, 7, 10, false)
-  trackTube = new THREE.Mesh(innerGeo, mats.inner)
-  scene.add(trackTube)
-
-  // Waypoint spheres
-  const wpGeo = new THREE.SphereGeometry(5, 12, 12)
-  trackPoints.forEach((pt) => {
-    const m = new THREE.Mesh(wpGeo, new THREE.MeshBasicMaterial({
-      color: 0xd1d5db, transparent: true, opacity: 0.5
-    }))
-    m.position.copy(pt)
-    scene.add(m)
-    waypointMeshes.push(m)
-  })
-}
-
-// ── Build progress tube (partial) ────────────────────────────────────────────
-function updateProgressTube(p: number) {
-  if (progressTube) { scene.remove(progressTube); progressTube.geometry.dispose() }
-  const clamped = Math.min(Math.max(p, 0), 1)
-  if (clamped <= 0) return
-
-  // Build a sub-curve from 0..p
-  const N = Math.max(2, Math.floor(clamped * CURVE_SEGMENTS))
-  const subPts: THREE.Vector3[] = []
-  for (let i = 0; i <= N; i++) {
-    subPts.push(trackCurve.getPointAt(i / N * clamped))
-  }
-  const subCurve = new THREE.CatmullRomCurve3(subPts, false, 'catmullrom', 0.5)
-  const geo = new THREE.TubeGeometry(subCurve, N, 5, 10, false)
-  const mat = new THREE.MeshBasicMaterial({ color: 0x4ECBA5, transparent: true, opacity: 0.55 })
-  progressTube = new THREE.Mesh(geo, mat)
-  scene.add(progressTube)
-
-  // Update waypoint colors
-  waypointMeshes.forEach((m, i) => {
-    const t = i / (waypointMeshes.length - 1)
-    ;(m.material as THREE.MeshBasicMaterial).color.setHex(t <= clamped ? 0x4ECBA5 : 0xd1d5db)
-  })
-}
-
-// ── Camera converts world y (0=top, growing down) to NDC ─────────────────────
-// We use an orthographic camera that matches pixel coords,
-// then pan it with scrollY (just shift camera top edge)
-function updateCamera() {
-  const top    = scrollY.value
-  const bottom = scrollY.value + vh
-  camera.top    = -top
-  camera.bottom = -(bottom)
-  camera.left   = 0
-  camera.right  = vw
-  camera.near   = -1000
-  camera.far    = 1000
-  camera.updateProjectionMatrix()
-}
-
-// ── Spring helpers ────────────────────────────────────────────────────────────
-function startSpring(v0: number) {
-  springActive = true
-  springT  = 0
-  springV0 = Math.max(Math.abs(v0) * 0.25, 10)
-}
-
-// ── Animation loop ─────────────────────────────────────────────────────────
-function animate() {
-  rafId = requestAnimationFrame(animate)
-
-  // Advance spring
-  if (springActive) {
-    springT += 1 / 60
-    const omegaD = Math.sqrt(Math.max(SPRING_OMEGA**2 - SPRING_GAMMA**2, 0.1))
-    springBounce = (springV0 / omegaD) * Math.exp(-SPRING_GAMMA * springT) * Math.sin(omegaD * springT)
-    if (Math.abs(springBounce) < 0.3 && springT > 0.2) {
-      springBounce = 0
-      springActive = false
-    }
-  }
-
-  const p = Math.min(progress.value, 1)
-  updateProgressTube(p)
-
-  // Marble position along curve
-  const pt = trackCurve.getPointAt(p)
-  const bounce = p >= 0.98 ? springBounce : 0
-  marbleGroup.position.set(pt.x, pt.y + bounce, 0)
-
-  // Marble rotation: accumulate distance
-  const dx = pt.x - lastMarblePos.x
-  const dy = pt.y - lastMarblePos.y
-  const dist = Math.sqrt(dx*dx + dy*dy)
-  totalDist += dist
-  marbleRotX += dist / 14 // circumference / (2πR) = 1/R; rotation in rad
-  marbleMesh.rotation.z = -marbleRotX   // roll direction
-  lastMarblePos.copy(pt)
-
-  // Slight wobble swirl rotation
-  marbleMesh.rotation.y = Math.sin(Date.now() * 0.001) * 0.2
-
-  updateCamera()
-  renderer.render(scene, camera)
-}
-
-// ── Init Three.js ─────────────────────────────────────────────────────────────
-function init() {
-  const canvas = canvasEl.value!
-  vw  = window.innerWidth
-  vh  = window.innerHeight
-  totalHeight = document.documentElement.scrollHeight
-
-  renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true })
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  renderer.setSize(vw, vh)
-  renderer.setClearColor(0x000000, 0)
-
-  scene = new THREE.Scene()
-
-  // Orthographic: maps pixel coords directly
-  camera = new THREE.OrthographicCamera(0, vw, 0, -vh, -1000, 1000)
-  camera.position.z = 100
-  updateCamera()
-
-  buildLights()
-  buildTrack()
-  buildMarble()
-
-  lastMarblePos = trackCurve.getPointAt(0)
-  marbleGroup.position.copy(lastMarblePos)
-
-  animate()
-}
-
-// ── Scroll & resize ──────────────────────────────────────────────────────────
-function onScroll() {
-  const now = performance.now()
-  const dt  = Math.max(now - lastScrollTime, 1)
-  scrollVel = (window.scrollY - lastScrollY) / dt * 1000
-  lastScrollY   = window.scrollY
-  lastScrollTime = now
-
-  scrollY.value     = window.scrollY
-  totalHeight       = document.documentElement.scrollHeight
-  const maxScroll   = totalHeight - vh
-  progress.value    = maxScroll > 0 ? window.scrollY / maxScroll : 0
-
-  if (progress.value >= 0.98) {
-    if (atBottomSince < 0) {
-      atBottomSince = now
-      startSpring(scrollVel)
-    }
+  if (Math.abs(diff) > MIN_DELTA || Math.abs(smoothVelocity) > MIN_DELTA) {
+    rafId = requestAnimationFrame(tickAnimation)
   } else {
-    atBottomSince = -1
+    smoothProgress.value = targetProgress
+    animating = false
   }
+}
+
+// ── Waypoints — gentle flowing diagonal matching Figma ──────────────────────
+// Figma shows a smooth diagonal line from upper-right through the page,
+// with gentle S-curves flowing through sections
+const waypointsDef = [
+  [0.90, 0.00],   // Start top-right (hero diagonal)
+  [0.78, 0.07],   // Flow through hero
+  [0.62, 0.15],   // Diagonal continues
+  [0.50, 0.24],   // Reaching center (news area)
+  [0.42, 0.34],   // Gentle curve left (product section)
+  [0.38, 0.44],   // Left of center
+  [0.44, 0.54],   // Gentle curve back right (case studies)
+  [0.55, 0.64],   // Right of center
+  [0.58, 0.72],   // Through about section
+  [0.48, 0.82],   // Curve back center
+  [0.35, 0.90],   // Moving left (crew section)
+  [0.22, 1.00],   // End bottom-left
+]
+
+const waypoints = computed(() =>
+  waypointsDef.map(([xf, yf], i) => ({
+    x: xf * vw.value,
+    y: yf * totalHeight.value,
+    t: i / (waypointsDef.length - 1),
+  }))
+)
+
+// ── SVG path (smooth quadratic Bézier) ──────────────────────────────────────
+const fullTrackPath = computed(() => {
+  const pts = waypoints.value
+  if (pts.length < 2) return ''
+  let d = `M ${pts[0].x.toFixed(1)} ${pts[0].y.toFixed(1)}`
+  for (let i = 1; i < pts.length - 1; i++) {
+    const mid = { x: (pts[i].x + pts[i+1].x) / 2, y: (pts[i].y + pts[i+1].y) / 2 }
+    d += ` Q ${pts[i].x.toFixed(1)} ${pts[i].y.toFixed(1)} ${mid.x.toFixed(1)} ${mid.y.toFixed(1)}`
+  }
+  const last = pts[pts.length - 1]
+  d += ` L ${last.x.toFixed(1)} ${last.y.toFixed(1)}`
+  return d
+})
+
+// ── Path length (approximate for dasharray) ─────────────────────────────────
+const totalPathLen = computed(() => {
+  const pts = waypoints.value
+  let len = 0
+  for (let i = 1; i < pts.length; i++) {
+    const dx = pts[i].x - pts[i-1].x
+    const dy = pts[i].y - pts[i-1].y
+    len += Math.sqrt(dx*dx + dy*dy)
+  }
+  return len * 1.15 // account for curve being longer than straight segments
+})
+
+// ── Arc-length parameterized position via DOM path ──────────────────────────
+let arcSamples: { len: number; x: number; y: number }[] = []
+let totalArcLen = 1000
+
+function buildArcTable() {
+  const el = document.querySelector('.track-path-ref') as SVGPathElement | null
+  if (!el) return
+  const total = el.getTotalLength()
+  totalArcLen = total
+  const N = 500
+  arcSamples = []
+  for (let i = 0; i <= N; i++) {
+    const len = (i / N) * total
+    const pt  = el.getPointAtLength(len)
+    arcSamples.push({ len, x: pt.x, y: pt.y })
+  }
+}
+
+function pointAtProgress(p: number): { x: number; y: number } {
+  if (!arcSamples.length) {
+    // fallback: linear interpolation along waypoints
+    const pts = waypoints.value
+    const t   = Math.min(Math.max(p, 0), 1) * (pts.length - 1)
+    const i   = Math.min(Math.floor(t), pts.length - 2)
+    const f   = t - i
+    return { x: pts[i].x + (pts[i+1].x - pts[i].x) * f, y: pts[i].y + (pts[i+1].y - pts[i].y) * f }
+  }
+  const targetLen = Math.min(Math.max(p, 0), 1) * totalArcLen
+  let lo = 0, hi = arcSamples.length - 1
+  while (lo < hi) {
+    const mid = (lo + hi) >> 1
+    if (arcSamples[mid].len < targetLen) lo = mid + 1
+    else hi = mid
+  }
+  const idx = Math.min(lo, arcSamples.length - 1)
+  // Interpolate between samples for smoother positioning
+  if (idx > 0 && idx < arcSamples.length) {
+    const a = arcSamples[idx - 1]
+    const b = arcSamples[idx]
+    const segLen = b.len - a.len
+    if (segLen > 0) {
+      const f = (targetLen - a.len) / segLen
+      return { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f }
+    }
+  }
+  return arcSamples[idx]
+}
+
+// ── Marble rotation via arc distance ────────────────────────────────────────
+const marbleRotation = ref(0)
+let totalDist = 0
+let lastPos   = { x: 0, y: 0 }
+
+function updateMarbleRotation() {
+  const pt = pointAtProgress(smoothProgress.value)
+  const dx = pt.x - lastPos.x
+  const dy = pt.y - lastPos.y
+  const dist = Math.sqrt(dx*dx + dy*dy)
+  if (dist > 0.1) {
+    // Direction-aware rotation: roll forward when scrolling down, backward when up
+    const direction = dy >= 0 ? 1 : -1
+    totalDist += dist * direction
+    marbleRotation.value = (totalDist / (Math.PI * MARBLE_SIZE)) * 360
+    lastPos = pt
+  }
+}
+
+const marbleStyle = computed(() => {
+  const pt   = pointAtProgress(smoothProgress.value)
+  const half = MARBLE_SIZE / 2
+  return {
+    left: `${pt.x - half}px`,
+    top:  `${pt.y - scrollY.value - half}px`,
+  }
+})
+
+// ── Scroll handler ──────────────────────────────────────────────────────────
+function onScroll() {
+  scrollY.value     = window.scrollY
+  totalHeight.value = document.documentElement.scrollHeight
+  const maxScroll   = totalHeight.value - vh.value
+  targetProgress    = maxScroll > 0 ? window.scrollY / maxScroll : 0
+
+  startAnimation()
 }
 
 function onResize() {
-  vw = window.innerWidth
-  vh = window.innerHeight
-  totalHeight = document.documentElement.scrollHeight
-  renderer.setSize(vw, vh)
-  camera.right  = vw
-  camera.bottom = -vh
-  camera.updateProjectionMatrix()
-  buildTrack()
-  lastMarblePos = trackCurve.getPointAt(Math.min(progress.value, 1))
+  vw.value = window.innerWidth
+  vh.value = window.innerHeight
+  totalHeight.value = document.documentElement.scrollHeight
+  nextTick(() => buildArcTable())
 }
 
-// ── Lifecycle ─────────────────────────────────────────────────────────────────
 onMounted(() => {
+  vw.value = window.innerWidth
+  vh.value = window.innerHeight
+  totalHeight.value = document.documentElement.scrollHeight
+
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', onResize, { passive: true })
+
   nextTick(() => {
-    if (!canvasEl.value) return
-    totalHeight = document.documentElement.scrollHeight
-    init()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onResize, { passive: true })
-    // re-measure after full paint
     setTimeout(() => {
-      totalHeight = document.documentElement.scrollHeight
-      buildTrack()
-    }, 500)
+      buildArcTable()
+      lastPos = pointAtProgress(0)
+    }, 300)
+  })
+
+  window.addEventListener('load', () => {
+    totalHeight.value = document.documentElement.scrollHeight
+    nextTick(() => buildArcTable())
   })
 })
 
 onUnmounted(() => {
-  cancelAnimationFrame(rafId)
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('resize', onResize)
-  renderer?.dispose()
+  cancelAnimationFrame(rafId)
 })
 </script>

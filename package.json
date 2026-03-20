@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify/vue": "^5.0.0",
     "@types/three": "^0.183.1",
     "nuxt": "^4.4.2",
     "three": "^0.183.2",
