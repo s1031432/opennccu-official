@@ -1,39 +1,10 @@
 <template>
-  <section class="relative py-24 bg-[#f0f0f0] overflow-hidden min-h-screen">
+  <section class="relative py-24 overflow-hidden min-h-screen">
     <div class="max-w-6xl mx-auto px-6 relative">
       <!-- Top area: title + glass cards -->
       <div class="flex flex-col lg:flex-row items-start gap-12 mb-24">
         <!-- Left side: decorative curve + title -->
         <div class="lg:w-1/2 relative">
-          <!-- Large decorative mint green curved line -->
-          <svg
-            class="absolute -left-20 -top-20 w-[400px] h-[700px] pointer-events-none"
-            viewBox="0 0 400 700"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <!-- Main swooping curve from top-left down -->
-            <path
-              d="M 100 0 Q 380 50 350 200 Q 320 350 200 350 Q 80 350 80 480 Q 80 610 100 700"
-              stroke="#9ee8c8"
-              stroke-width="18"
-              stroke-linecap="round"
-              fill="none"
-              opacity="0.6"
-            />
-            <!-- Inner thinner line -->
-            <path
-              d="M 80 0 Q 360 40 330 190 Q 300 340 180 340 Q 60 340 60 470 Q 60 600 80 700"
-              stroke="#cef5e6"
-              stroke-width="8"
-              stroke-linecap="round"
-              fill="none"
-              opacity="0.3"
-            />
-            <!-- Small circle endpoint -->
-            <circle cx="100" cy="700" r="6" fill="#9ee8c8" opacity="0.5" />
-          </svg>
-
           <h2
             class="relative z-10 mb-12 pl-16 pt-16"
             style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060;"
@@ -79,7 +50,7 @@
       </div>
 
       <!-- Team role cards grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
         <div
           v-for="role in teamRoles"
           :key="role.name"
@@ -100,20 +71,42 @@
         </div>
       </div>
 
-      <!-- JOIN US! button -->
-      <div class="flex justify-start pl-4">
-        <a
-          href="#"
-          class="inline-flex items-center justify-center w-36 h-36 rounded-full border-2 border-[#d9d9d9] text-[#aeaeb2] hover:border-[#4ECBA5] hover:text-[#4ECBA5] transition-colors"
+      <!-- Team members -->
+      <div class="mb-20">
+        <h3
+          class="text-center mb-12"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: 36px; font-weight: 300; color: #aeaeb2;"
         >
-          <span
-            class="text-xl font-semibold tracking-wide text-center leading-tight"
-            style="font-family: 'Montserrat', sans-serif;"
+          核心成員
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div
+            v-for="member in teamMembers"
+            :key="member.name"
+            class="group text-center"
           >
-            JOIN<br />US !
-          </span>
-        </a>
+            <div class="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br overflow-hidden border-2 border-white/60 shadow-md group-hover:shadow-lg group-hover:scale-105 transition-all flex items-center justify-center"
+              :class="member.gradientClass"
+            >
+              <span
+                class="text-2xl font-bold text-white"
+                style="font-family: 'Montserrat', sans-serif;"
+              >{{ member.initials }}</span>
+            </div>
+            <p
+              class="font-medium text-[#606060] mb-1"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px;"
+            >{{ member.name }}</p>
+            <p
+              class="text-[#aeaeb2]"
+              style="font-family: 'Montserrat', sans-serif; font-size: 13px;"
+            >{{ member.role }}</p>
+          </div>
+        </div>
       </div>
+
+      <!-- JOIN US button placeholder (visual drawn in ScrollTrack SVG) -->
+      <div id="join-us-btn" class="w-36 h-36 ml-4"></div>
     </div>
   </section>
 </template>
@@ -127,5 +120,16 @@ const teamRoles = [
   { name: 'BE', description: '後端工程師，建構穩定可靠的系統架構與 API' },
   { name: 'Insight Team', description: '洞察團隊，透過數據分析與使用者研究驅動產品決策' },
   { name: 'MKT', description: '行銷團隊，負責品牌推廣、社群經營與內容產出' },
+]
+
+const teamMembers = [
+  { name: '范愷祐', role: 'LEAD', initials: 'KY', gradientClass: 'from-[#4ECBA5] to-[#2EA87E]' },
+  { name: '林子晴', role: 'PM', initials: 'TQ', gradientClass: 'from-[#6CB4EE] to-[#4A90D9]' },
+  { name: '陳柏翰', role: 'BE', initials: 'BH', gradientClass: 'from-[#7C6EDB] to-[#5B4FC7]' },
+  { name: '王筱涵', role: 'UI', initials: 'XH', gradientClass: 'from-[#F2A7C3] to-[#D87BA0]' },
+  { name: '張宇恆', role: 'BE', initials: 'YH', gradientClass: 'from-[#FFB366] to-[#E6913D]' },
+  { name: '李佩璇', role: 'Product', initials: 'PX', gradientClass: 'from-[#7EDCBA] to-[#4ECBA5]' },
+  { name: '吳承翰', role: 'Insight', initials: 'CH', gradientClass: 'from-[#A8B8D8] to-[#7A8FC4]' },
+  { name: '黃思穎', role: 'MKT', initials: 'SY', gradientClass: 'from-[#F5C26B] to-[#E0A644]' },
 ]
 </script>

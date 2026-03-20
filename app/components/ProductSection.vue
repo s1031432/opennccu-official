@@ -1,5 +1,5 @@
 <template>
-  <section id="products" class="py-24 relative overflow-hidden bg-[#f0f0f0]">
+  <section id="products" class="py-24 relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-6 relative">
       <!-- Title -->
       <h2
@@ -28,31 +28,6 @@
 
         <!-- Phone mockups center -->
         <div class="flex justify-center items-end gap-6 h-[520px] relative z-10">
-
-          <!-- Floating marbles around phones -->
-          <div class="absolute left-16 top-8 z-20"
-            :style="{ transform: `translateY(${-scrollY * 0.06}px) rotate(${scrollY * 0.4}deg)` }">
-            <MarbleBall :size="65" :rotation="scrollY * 0.6" variant="sage" />
-          </div>
-
-          <div class="absolute left-36 bottom-20 z-20"
-            :style="{ transform: `translateY(${scrollY * 0.04}px)` }">
-            <!-- Weather marble -->
-            <div class="w-20 h-20 rounded-full bg-white/60 backdrop-blur-sm border border-white/70 flex flex-col items-center justify-center shadow-xl">
-              <span class="text-2xl">⛅</span>
-              <span class="text-xs text-[#4ECBA5] font-bold mt-0.5">20°</span>
-            </div>
-          </div>
-
-          <div class="absolute right-12 top-16 z-20"
-            :style="{ transform: `translateY(${-scrollY * 0.08}px)` }">
-            <MarbleBall :size="80" :rotation="scrollY * -0.7" variant="teal" />
-          </div>
-
-          <div class="absolute right-32 bottom-16 z-20"
-            :style="{ transform: `translateY(${scrollY * 0.05}px)` }">
-            <MarbleBall :size="50" :rotation="scrollY * 0.9" variant="mint" />
-          </div>
 
           <!-- Phone 1 (back, slightly tilted) -->
           <div class="relative z-10" :style="{ transform: `translateY(${-scrollY * 0.02}px) rotate(-6deg)` }">

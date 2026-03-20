@@ -1,5 +1,5 @@
 <template>
-  <section id="about" class="relative py-24 bg-[#f0f0f0] overflow-hidden">
+  <section id="about" class="relative py-24 overflow-hidden">
     <!-- Subtle diagonal decorative lines -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div
@@ -40,74 +40,63 @@
       <!-- Separator line -->
       <div class="w-full h-[1px] bg-[#d9d9d9] mb-24"></div>
 
-      <!-- Timeline + Z-shape photo layout with organic flowing curves -->
+      <!-- Timeline -->
       <div class="relative">
-        <!-- Organic flowing connecting curves (SVG ribbons) -->
-        <svg
-          class="absolute inset-0 w-full h-full pointer-events-none"
-          viewBox="0 0 1100 1600"
-          preserveAspectRatio="none"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <!-- Main flowing ribbon curve from timeline card through photos -->
-          <path
-            d="M 200 120 C 350 180, 500 200, 650 180 C 800 160, 850 250, 750 340 C 650 430, 350 400, 250 500 C 150 600, 300 680, 500 660 C 700 640, 850 700, 800 820 C 750 940, 400 900, 300 1000 C 200 1100, 450 1200, 600 1180 C 750 1160, 850 1300, 700 1400"
-            stroke="#d9d9d9"
-            stroke-width="1.5"
-            stroke-opacity="0.6"
-          />
-          <!-- Secondary thinner curve -->
-          <path
-            d="M 250 100 C 400 160, 550 180, 700 160 C 850 140, 900 230, 800 320 C 700 410, 400 380, 300 480 C 200 580, 350 660, 550 640 C 750 620, 900 680, 850 800"
-            stroke="#e2e2e2"
-            stroke-width="0.8"
-            stroke-opacity="0.5"
-          />
-        </svg>
+        <!-- Vertical timeline line -->
+        <div class="absolute left-1/2 top-0 bottom-0 w-[1px] bg-[#d9d9d9] hidden lg:block"></div>
 
-        <!-- Timeline card -->
-        <div class="mb-28 relative z-10">
-          <div class="max-w-md">
-            <div class="bg-[#d9d9d9]/40 backdrop-blur-sm rounded-2xl p-8">
-              <h3
-                class="mb-4"
-                style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 300; color: #606060;"
-              >
-                2020
-              </h3>
-              <p
-                class="leading-relaxed mb-3"
-                style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 300; color: #606060;"
-              >
-                OpenNCCU，一群熱愛開發和設計的政大學生所發起的非營利組織！
-              </p>
-              <p
-                class="leading-relaxed"
-                style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 300; color: #606060;"
-              >
-                我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源。
-              </p>
+        <div
+          v-for="(item, idx) in timelineItems"
+          :key="item.year"
+          class="mb-20 relative z-10"
+        >
+          <div
+            class="flex flex-col lg:flex-row items-start gap-8"
+            :class="idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'"
+          >
+            <!-- Timeline card -->
+            <div class="lg:w-1/2" :class="idx % 2 === 0 ? 'lg:pr-16' : 'lg:pl-16'">
+              <div class="bg-white/50 backdrop-blur-sm border border-white/60 rounded-2xl p-8 hover:shadow-lg transition-all">
+                <h3
+                  class="mb-4"
+                  style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 300; color: #4ECBA5;"
+                >
+                  {{ item.year }}
+                </h3>
+                <h4
+                  class="mb-3"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 500; color: #606060;"
+                >
+                  {{ item.title }}
+                </h4>
+                <p
+                  class="leading-relaxed"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 18px; font-weight: 300; color: #aeaeb2;"
+                >
+                  {{ item.description }}
+                </p>
+              </div>
+            </div>
+            <!-- Photo placeholder -->
+            <div class="lg:w-1/2" :class="idx % 2 === 0 ? 'lg:pl-16' : 'lg:pr-16'">
+              <div class="w-full h-[240px] bg-[#d9d9d9]/60 rounded-2xl shadow-sm flex items-center justify-center overflow-hidden">
+                <div class="text-center">
+                  <svg class="w-12 h-12 mx-auto mb-3 text-[#aeaeb2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <circle cx="8.5" cy="8.5" r="1.5" />
+                    <path d="M21 15l-5-5L5 21" />
+                  </svg>
+                  <span
+                    class="text-[#aeaeb2]"
+                    style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px;"
+                  >{{ item.photoLabel }}</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Z-shape photo layout -->
-        <!-- Photo 1 - right aligned -->
-        <div class="flex justify-end pr-12 mb-20 relative z-10">
-          <div class="w-[420px] h-[260px] bg-[#d9d9d9] rounded-2xl shadow-sm" />
-        </div>
-        <!-- Photo 2 - left aligned -->
-        <div class="flex justify-start pl-8 mb-20 relative z-10">
-          <div class="w-[380px] h-[280px] bg-[#d9d9d9] rounded-2xl shadow-sm" />
-        </div>
-        <!-- Photo 3 - right aligned -->
-        <div class="flex justify-end pr-8 mb-20 relative z-10">
-          <div class="w-[400px] h-[260px] bg-[#d9d9d9] rounded-2xl shadow-sm" />
-        </div>
-        <!-- Photo 4 - left aligned -->
-        <div class="flex justify-start pl-12 relative z-10">
-          <div class="w-[360px] h-[280px] bg-[#d9d9d9] rounded-2xl shadow-sm" />
+          <!-- Timeline dot (desktop only) -->
+          <div class="hidden lg:block absolute left-1/2 -translate-x-1/2 top-10 w-4 h-4 rounded-full bg-[#4ECBA5] border-4 border-[#f0f0f0]"></div>
         </div>
       </div>
     </div>
@@ -115,4 +104,36 @@
 </template>
 
 <script setup lang="ts">
+const timelineItems = [
+  {
+    year: '2020',
+    title: '草創時期',
+    description: '一群熱愛開發和設計的政大學生發起 OpenNCCU，從優化校園數位體驗出發，打造專屬政大的數位工具並推廣開放資源。',
+    photoLabel: '創始團隊合照',
+  },
+  {
+    year: '2022',
+    title: '產品成形',
+    description: '推出第一款正式產品「政大課表」，整合校務系統選課資料，提供直覺化的課程查詢與排課體驗，累計千人使用。',
+    photoLabel: '產品發表活動',
+  },
+  {
+    year: '2024',
+    title: '服務拓展',
+    description: '「政大吃什麼」上線，運用校園周邊餐廳資料幫助學生解決每日用餐選擇困難。同年團隊擴展至 20 人規模。',
+    photoLabel: '團隊工作坊',
+  },
+  {
+    year: '2025',
+    title: '校園合作深化',
+    description: '與職涯中心合作推出徵才月數位集點工具，當日活躍使用者突破 3,500 人，獲得校方肯定與更多合作機會。',
+    photoLabel: '徵才月活動現場',
+  },
+  {
+    year: '2026',
+    title: '持續前行',
+    description: '全新官網改版上線，籌備更多校園數位服務。我們相信每一個小工具，都能為政大人的校園生活帶來改變。',
+    photoLabel: '新版官網設計稿',
+  },
+]
 </script>

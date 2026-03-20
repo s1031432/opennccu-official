@@ -1,5 +1,5 @@
 <template>
-  <section id="collaborate" class="relative py-24 bg-[#f0f0f0] overflow-hidden">
+  <section id="collaborate" class="relative py-24 overflow-hidden">
     <!-- Subtle diagonal decorative lines -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div
@@ -183,19 +183,36 @@
         >
           合作夥伴
         </h3>
-        <div class="flex justify-center items-center gap-8 flex-wrap">
+        <div class="flex justify-center items-center gap-6 flex-wrap">
           <div
-            v-for="i in 6"
-            :key="i"
-            class="w-16 h-16 rounded-full bg-[#d9d9d9]/50 border border-white/60 flex items-center justify-center"
+            v-for="partner in partners"
+            :key="partner.name"
+            class="group flex flex-col items-center gap-2"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#aeaeb2" stroke-width="1.5">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M8 12h8M12 8v8" />
-            </svg>
+            <div class="w-16 h-16 rounded-full bg-white/60 border border-white/70 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all">
+              <span
+                class="text-xs font-bold text-[#606060] text-center leading-tight px-1"
+                style="font-family: 'Noto Sans TC', sans-serif;"
+              >{{ partner.short }}</span>
+            </div>
+            <span
+              class="text-xs text-[#aeaeb2] opacity-0 group-hover:opacity-100 transition-opacity"
+              style="font-family: 'Noto Sans TC', sans-serif;"
+            >{{ partner.name }}</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+const partners = [
+  { name: '政大職涯中心', short: '職涯' },
+  { name: '政大學生會', short: '學生會' },
+  { name: '政大圖書館', short: '圖書館' },
+  { name: '政大資科系', short: '資科' },
+  { name: '政大創聯會', short: '創聯' },
+  { name: '政大計算機中心', short: '計中' },
+]
+</script>

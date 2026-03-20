@@ -1,94 +1,376 @@
 <template>
   <ClientOnly>
-    <div class="fixed inset-0 z-20 pointer-events-none overflow-hidden">
+    <div class="hidden md:block fixed inset-0 pointer-events-none" style="z-index: 0;">
       <svg
         :width="vw"
         :height="vh"
         :viewBox="`0 0 ${vw} ${vh}`"
         class="absolute inset-0"
+        overflow="visible"
       >
         <defs>
-          <filter id="track-groove" x="-10%" y="-10%" width="120%" height="120%">
-            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur" />
-            <feOffset dx="0" dy="1" result="offsetBlur" />
-            <feFlood flood-color="white" flood-opacity="0.6" result="white" />
-            <feComposite in="white" in2="offsetBlur" operator="in" result="highlight" />
-            <feMerge>
-              <feMergeNode in="highlight" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
+          <!-- Neumorphic groove: gray -->
+          <filter id="neGray" x="-10%" y="-10%" width="130%" height="130%"
+            filterUnits="objectBoundingBox" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="bg"/>
+            <feColorMatrix in="SourceAlpha" type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="8" dy="8"/>
+            <feGaussianBlur stdDeviation="7.5"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix"
+              values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.4 0"/>
+            <feBlend in2="bg" result="dropShadow"/>
+            <feBlend in="SourceGraphic" in2="dropShadow" result="shape"/>
+            <feColorMatrix in="SourceAlpha" type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="ha"/>
+            <feOffset dx="8" dy="8"/>
+            <feGaussianBlur stdDeviation="7.5"/>
+            <feComposite in2="ha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/>
+            <feBlend in2="shape"/>
           </filter>
-          <filter id="track-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="4" result="blur"/>
-            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          <!-- Neumorphic groove: green -->
+          <filter id="neGreen" x="-10%" y="-10%" width="130%" height="130%"
+            filterUnits="objectBoundingBox" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="bg"/>
+            <feColorMatrix in="SourceAlpha" type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="8" dy="8"/>
+            <feGaussianBlur stdDeviation="7.5"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix"
+              values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.4 0"/>
+            <feBlend in2="bg" result="dropShadow"/>
+            <feBlend in="SourceGraphic" in2="dropShadow" result="shape"/>
+            <feColorMatrix in="SourceAlpha" type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="ha"/>
+            <feOffset dx="8" dy="8"/>
+            <feGaussianBlur stdDeviation="7.5"/>
+            <feComposite in2="ha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0"/>
+            <feBlend in2="shape"/>
+          </filter>
+          <!-- Figma ball filter (diiif) -->
+          <filter id="figBall" x="-50%" y="-50%" width="200%" height="200%"
+            filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="bg"/>
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="dilated"/>
+            <feOffset dx="1" dy="1" in="dilated" result="offDil"/>
+            <feGaussianBlur stdDeviation="2.5" in="offDil" result="blurred"/>
+            <feComposite in="blurred" in2="SourceAlpha" operator="out" result="shadow"/>
+            <feColorMatrix type="matrix" in="shadow"
+              values="0 0 0 0 0.75 0 0 0 0 0.92 0 0 0 0 0.85 0 0 0 0.3 0" result="cShadow"/>
+            <feBlend in="cShadow" in2="bg" result="dropShadow"/>
+            <feBlend in="SourceGraphic" in2="dropShadow" result="shape"/>
+            <feColorMatrix in="SourceAlpha" type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="ha1"/>
+            <feOffset dx="-5" dy="-5"/>
+            <feGaussianBlur stdDeviation="5"/>
+            <feComposite in2="ha1" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix"
+              values="0 0 0 0 0.65 0 0 0 0 0.88 0 0 0 0 0.78 0 0 0 0.5 0"/>
+            <feBlend mode="multiply" in2="shape" result="inner1"/>
+            <feColorMatrix in="SourceAlpha" type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="ha2"/>
+            <feOffset dx="3" dy="3"/>
+            <feGaussianBlur stdDeviation="5"/>
+            <feComposite in2="ha2" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix"
+              values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.9 0"/>
+            <feBlend in2="inner1" result="inner2"/>
+            <feColorMatrix in="SourceAlpha" type="matrix"
+              values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="ha3"/>
+            <feOffset dx="1" dy="0.5"/>
+            <feGaussianBlur stdDeviation="1"/>
+            <feComposite in2="ha3" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix"
+              values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+            <feBlend in2="inner2" result="inner3"/>
+            <feGaussianBlur stdDeviation="1.5" in="inner3"/>
           </filter>
         </defs>
 
-        <g :style="{ transform: `translateY(${-scrollY}px)` }">
-          <!-- Hidden reference path for arc-length sampling -->
-          <path class="track-path-ref" :d="fullTrackPath" fill="none" stroke="none" />
+        <g :style="{ transform: `translateY(${-scrollY}px)`, willChange: 'transform' }">
+          <!-- Brand mark group: SVG coords → page coords via transform -->
+          <g :transform="brandTransform">
 
-          <!-- Outer groove shadow -->
-          <path :d="fullTrackPath" fill="none" stroke="#c8c8c8"
-            stroke-width="8" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.25"
-            filter="url(#track-groove)" />
-          <!-- Inner channel -->
-          <path :d="fullTrackPath" fill="none" stroke="#e0e0e0"
-            stroke-width="5" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.45" />
-          <!-- Center line -->
-          <path :d="fullTrackPath" fill="none" stroke="#d0d0d0"
-            stroke-width="1" stroke-linecap="round" stroke-opacity="0.3" />
+            <!-- ═══ Layer 1: Gray grooves ═══ -->
+            <g filter="url(#neGray)">
+              <path d="M2198 -1798L907.389 740.131C900.401 753.867 901.927 770.395 911.31 782.62L1060.5 977"
+                stroke="#F0F0F0" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </g>
+            <g filter="url(#neGray)">
+              <path d="M1171 328L1318.6 519.579C1328.1 531.909 1329.58 548.63 1322.4 562.441L1090 1009.5"
+                stroke="#F0F0F0" stroke-width="30" stroke-linecap="round" fill="none"/>
+            </g>
+            <g filter="url(#neGray)">
+              <path d="M1419.5 1100L1267.33 899.224C1257.97 886.879 1256.58 870.241 1263.77 856.516L1375.5 643C1393.17 617.333 1442.63 571.5 1500 571.5C1549 571.5 1583.5 590.5 1599 602.5C1612.17 612.694 1635 633 1651 673.5C1667 714 1661.5 761 1643.5 796C1629.1 824 1315.5 1436.33 1160.5 1739"
+                stroke="#F0F0F0" stroke-width="30" stroke-linecap="round" fill="none"/>
+            </g>
 
-          <!-- Progress glow -->
-          <path :d="fullTrackPath" fill="none" stroke="#4ECBA5" stroke-opacity="0.2"
-            stroke-width="10" stroke-linecap="round" stroke-linejoin="round"
-            :stroke-dasharray="totalPathLen"
-            :stroke-dashoffset="totalPathLen * (1 - smoothProgress)"
-            filter="url(#track-glow)" />
-          <!-- Progress line -->
-          <path :d="fullTrackPath" fill="none" stroke="#4ECBA5" stroke-opacity="0.5"
-            stroke-width="3" stroke-linecap="round"
-            :stroke-dasharray="totalPathLen"
-            :stroke-dashoffset="totalPathLen * (1 - smoothProgress)" />
+            <!-- ═══ Extension: right track groove to footer ═══ -->
+            <path :d="extensionPath"
+              stroke="#F0F0F0" stroke-width="30" stroke-linecap="round" fill="none"
+              style="filter: drop-shadow(4px 4px 5px rgba(0,0,0,0.06)) drop-shadow(-3px -3px 4px rgba(255,255,255,0.8))"/>
 
-          <!-- Waypoint dots -->
-          <circle
-            v-for="(pt, i) in waypoints" :key="`wp-${i}`"
-            :cx="pt.x" :cy="pt.y" r="4"
-            :fill="smoothProgress >= pt.t ? '#4ECBA5' : '#d4d4d4'"
-            :fill-opacity="smoothProgress >= pt.t ? 0.6 : 0.3"
-            stroke="white" stroke-width="1.5" stroke-opacity="0.5"
-          />
+            <!-- ═══ Layer 2: Green overlays ═══ -->
+            <g filter="url(#neGreen)">
+              <path d="M1171 222.5L907.404 740.124C900.408 753.863 901.93 770.4 911.317 782.63L1060.5 977"
+                stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </g>
+            <g filter="url(#neGreen)">
+              <path d="M1171 328L1318.6 519.579C1328.1 531.909 1329.58 548.63 1322.4 562.441L1090 1009.5"
+                stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" fill="none"/>
+            </g>
+            <g filter="url(#neGreen)">
+              <path d="M1419.5 1100L1267.33 899.224C1257.97 886.879 1256.58 870.241 1263.77 856.516L1375.5 643C1393.17 617.333 1442.63 571.5 1500 571.5C1549 571.5 1583.5 590.5 1599 602.5C1612.17 612.694 1635 633 1651 673.5"
+                stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" fill="none"/>
+            </g>
+
+            <!-- ═══ Green trail: follows marble down the right arm + extension ═══ -->
+            <path class="green-trail-ref" :d="marblePath"
+              stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="butt" fill="none"
+              :stroke-dasharray="greenTrailDash"
+              :stroke-dashoffset="0"/>
+
+            <!-- ═══ Balls ═══ -->
+            <g filter="url(#figBall)">
+              <circle cx="1171" cy="222" r="8" fill="#F7F7F7"/>
+            </g>
+            <g filter="url(#figBall)">
+              <circle cx="1090" cy="1009" r="8" fill="white"/>
+            </g>
+
+            <!-- ═══ Marble path (hidden, for arc-length sampling) ═══ -->
+            <path class="track-path-ref" :d="marblePath" fill="none" stroke="none" />
+
+            <!-- ═══ Glass marble ═══ -->
+            <g filter="url(#figBall)">
+              <circle :cx="marblePos.x" :cy="marblePos.y" r="8" fill="white"/>
+            </g>
+
+            <!-- ═══ JOIN US button border + text (brand-mark SVG coords) ═══ -->
+            <g v-if="orbitCenterSvg">
+              <circle :cx="orbitCenterSvg.x" :cy="orbitCenterSvg.y" :r="btnRadiusSvg"
+                stroke="#d9d9d9" stroke-width="3" fill="none"/>
+              <text :x="orbitCenterSvg.x" :y="orbitCenterSvg.y - 12"
+                text-anchor="middle" dominant-baseline="middle"
+                fill="#aeaeb2" font-family="'Montserrat', sans-serif"
+                :font-size="(20 / bmScale).toFixed(1)" font-weight="600" letter-spacing="2">JOIN</text>
+              <text :x="orbitCenterSvg.x" :y="orbitCenterSvg.y + 22"
+                text-anchor="middle" dominant-baseline="middle"
+                fill="#aeaeb2" font-family="'Montserrat', sans-serif"
+                :font-size="(20 / bmScale).toFixed(1)" font-weight="600" letter-spacing="2">US !</text>
+              <a href="#">
+                <circle :cx="orbitCenterSvg.x" :cy="orbitCenterSvg.y" :r="btnRadiusSvg"
+                  fill="transparent" style="cursor: pointer; pointer-events: auto;"/>
+              </a>
+            </g>
+
+          </g>
         </g>
       </svg>
-
-      <!-- Marble -->
-      <div class="absolute" :style="marbleStyle">
-        <MarbleBall :size="MARBLE_SIZE" :rotation="marbleRotation" variant="mint" />
-      </div>
     </div>
   </ClientOnly>
 </template>
 
 <script setup lang="ts">
-const MARBLE_SIZE = 32
-
 const scrollY     = ref(0)
 const vw          = ref(1200)
 const vh          = ref(800)
 const totalHeight = ref(4000)
 
+// ── Brand mark positioning (measured from hero-content div) ─────────────────
+const bmLeft  = ref(800)
+const bmTop   = ref(200)
+const bmScale = ref(0.82)
+
+const brandTransform = computed(() => {
+  const s = bmScale.value
+  const tx = bmLeft.value - 800 * s
+  const ty = bmTop.value + 100 * s
+  return `translate(${tx.toFixed(1)}, ${ty.toFixed(1)}) scale(${s.toFixed(4)})`
+})
+
+// ── Coordinate helpers ──────────────────────────────────────────────────────
+function svgTransformOrigin() {
+  const s = bmScale.value
+  return { tx: bmLeft.value - 800 * s, ty: bmTop.value + 100 * s, s }
+}
+
+function pageToSvg(px: number, py: number): { x: number; y: number } | null {
+  const { tx, ty, s } = svgTransformOrigin()
+  if (s <= 0) return null
+  return { x: (px - tx) / s, y: (py - ty) / s }
+}
+
+function measureBrandMark() {
+  const el = document.getElementById('hero-content')
+  if (!el) return
+  const rect = el.getBoundingClientRect()
+  const isLg = vw.value >= 1024
+  const widthFrac = isLg ? 0.48 : 0.55
+  const containerWidth = rect.width * widthFrac
+
+  bmLeft.value = rect.right - containerWidth + window.scrollX - containerWidth * 0.08
+  bmTop.value  = rect.top + window.scrollY - rect.height * 0.7
+  bmScale.value = containerWidth / 900
+
+  measureJoinUs()
+  nextTick(() => buildArcTable())
+}
+
+// ── Footer Y in SVG coords ──────────────────────────────────────────────────
+const footerSvgY = computed(() => {
+  const s = bmScale.value
+  if (s <= 0) return 2000
+  return (totalHeight.value - bmTop.value) / s - 100
+})
+
+// ── JOIN US button position ─────────────────────────────────────────────────
+const joinUsPage = ref({ cx: 0, cy: 0, btnR: 70, orbitR: 76 })
+
+function measureJoinUs() {
+  const el = document.getElementById('join-us-btn')
+  if (!el) return
+  const rect = el.getBoundingClientRect()
+  joinUsPage.value = {
+    cx: rect.left + rect.width / 2 + window.scrollX,
+    cy: rect.top + rect.height / 2 + window.scrollY,
+    btnR: rect.width / 2,
+    orbitR: rect.width / 2 + 6,
+  }
+}
+
+// ── Orbit geometry in brand-mark SVG coords ─────────────────────────────────
+const orbitCenterSvg = computed(() => {
+  const jp = joinUsPage.value
+  return jp.cx > 0 ? pageToSvg(jp.cx, jp.cy) : null
+})
+
+const orbitRadiusSvg = computed(() => {
+  const s = bmScale.value
+  return s > 0 ? joinUsPage.value.orbitR / s : 0
+})
+
+const btnRadiusSvg = computed(() => {
+  const s = bmScale.value
+  return s > 0 ? joinUsPage.value.btnR / s : 0
+})
+
+const ORBIT_ENTRY_ANGLE = 0              // 3 o'clock
+const ORBIT_EXIT_ANGLE  = -Math.PI / 3   // ~1 o'clock
+
+function orbitPointSvg(angle: number) {
+  const c = orbitCenterSvg.value
+  const r = orbitRadiusSvg.value
+  if (!c || r <= 0) return null
+  return { x: c.x + r * Math.cos(angle), y: c.y + r * Math.sin(angle) }
+}
+
+const orbitEntrySvg = computed(() => orbitPointSvg(ORBIT_ENTRY_ANGLE))
+const orbitExitSvg  = computed(() => orbitPointSvg(ORBIT_EXIT_ANGLE))
+
+// ── Shared extension waypoint data ──────────────────────────────────────────
+// x values and fractional y multipliers shared between extensionPath and marblePath
+const EXT_WAYPOINTS: [number, number][] = [
+  [1140,  0.008], [1125,  0.018],
+  [1100,  0.03],  [1000,  0.10],  [950,   0.18],  [900,   0.28],
+  [850,   0.36],  [750,   0.42],
+  [550,   0.48],  [500,   0.52],
+  [800,   0.54],  [1300,  0.57],
+  [800,   0.59],  [450,   0.62],
+  [800,   0.64],  [1300,  0.67],
+  [800,   0.69],  [450,   0.72],
+  [500,   0.76],  [400,   0.78],  [350,   0.795],
+  [500,   0.81],  [650,   0.82],
+  [500,   0.835], [350,   0.85],  [300,   0.87],
+  [350,   0.89],  [400,   0.91],  [300,   0.91],
+]
+
+function buildExtWaypoints(baseY: number, range: number): { x: number; y: number }[] {
+  return EXT_WAYPOINTS.map(([x, f]) => ({ x, y: baseY + range * f }))
+}
+
+function appendOrbitArc(pts: { x: number; y: number }[]): string {
+  const entry = orbitEntrySvg.value
+  const exit  = orbitExitSvg.value
+  const r     = orbitRadiusSvg.value
+
+  if (entry) {
+    pts.push({ x: entry.x, y: entry.y - 50 })
+    pts.push(entry)
+  }
+
+  let d = buildSmoothPath(pts)
+
+  if (exit && r > 0) {
+    d += ` A ${r.toFixed(1)} ${r.toFixed(1)} 0 1 1 ${exit.x.toFixed(1)} ${exit.y.toFixed(1)}`
+  }
+
+  return d
+}
+
+// ── Extension path ──────────────────────────────────────────────────────────
+const extensionPath = computed(() => {
+  const startY = 1739
+  const range = footerSvgY.value - startY
+  if (range <= 0) return ''
+
+  const pts = [{ x: 1160.5, y: startY }, ...buildExtWaypoints(startY, range)]
+  return appendOrbitArc(pts)
+})
+
+// ── Marble path ─────────────────────────────────────────────────────────────
+const svgRightArm: [number, number][] = [
+  [1651, 673.5], [1660, 737], [1643.5, 796],
+  [1603, 876], [1512, 1053], [1393, 1284], [1269, 1527], [1160.5, 1739],
+]
+
+const marblePath = computed(() => {
+  const range = footerSvgY.value - 1739
+  const allPts = [
+    ...svgRightArm.map(([x, y]) => ({ x, y })),
+    ...(range > 0 ? buildExtWaypoints(1739, range) : []),
+  ]
+  return appendOrbitArc(allPts)
+})
+
+// ── Path building ───────────────────────────────────────────────────────────
+function buildSmoothPath(pts: { x: number; y: number }[]): string {
+  if (pts.length < 2) return ''
+  const segs = [`M ${pts[0].x.toFixed(1)} ${pts[0].y.toFixed(1)}`]
+  for (let i = 1; i < pts.length - 1; i++) {
+    const mx = ((pts[i].x + pts[i + 1].x) / 2).toFixed(1)
+    const my = ((pts[i].y + pts[i + 1].y) / 2).toFixed(1)
+    segs.push(`Q ${pts[i].x.toFixed(1)} ${pts[i].y.toFixed(1)} ${mx} ${my}`)
+  }
+  const last = pts[pts.length - 1]
+  segs.push(`L ${last.x.toFixed(1)} ${last.y.toFixed(1)}`)
+  return segs.join(' ')
+}
+
+// ── Green trail dash ────────────────────────────────────────────────────────
+const greenTrailDash = computed(() => {
+  const p = smoothProgress.value
+  if (totalArcLen <= 0 || p < 0.008 || (p < 0.03 && smoothVelocity <= 0)) return '0 99999'
+  const revealed = p * totalArcLen
+  return `${revealed.toFixed(1)} ${(totalArcLen + 100).toFixed(1)}`
+})
+
 // ── Inertia spring system ────────────────────────────────────────────────────
-// targetProgress = actual scroll position
-// smoothProgress = displayed position with momentum
 let targetProgress = 0
 let smoothVelocity = 0
 const smoothProgress = ref(0)
 let animating = false
 let rafId = 0
 
-const SPRING_STIFFNESS = 0.08   // how fast it catches up
-const SPRING_DAMPING   = 0.72   // <1 means overshoot (bouncy), closer to 1 = less bounce
+const SPRING_STIFFNESS = 0.045
+const SPRING_DAMPING   = 0.82
 const MIN_DELTA        = 0.00005
 
 function startAnimation() {
@@ -98,16 +380,19 @@ function startAnimation() {
 }
 
 function tickAnimation() {
+  if (targetProgress <= 0 && smoothProgress.value < 0.02) {
+    smoothProgress.value = 0; smoothVelocity = 0; animating = false; return
+  }
+  if (targetProgress >= 1 && smoothProgress.value > 0.98) {
+    smoothProgress.value = 1; smoothVelocity = 0; animating = false; return
+  }
+
   const diff = targetProgress - smoothProgress.value
-  // Spring force
   smoothVelocity += diff * SPRING_STIFFNESS
-  // Damping
   smoothVelocity *= SPRING_DAMPING
-
-  smoothProgress.value = Math.max(0, Math.min(1, smoothProgress.value + smoothVelocity))
-
-  // Update marble rotation based on movement
-  updateMarbleRotation()
+  const next = smoothProgress.value + smoothVelocity
+  smoothProgress.value = Math.max(0, Math.min(1, next))
+  if ((smoothProgress.value <= 0 && smoothVelocity < 0) || (smoothProgress.value >= 1 && smoothVelocity > 0)) smoothVelocity = 0
 
   if (Math.abs(diff) > MIN_DELTA || Math.abs(smoothVelocity) > MIN_DELTA) {
     rafId = requestAnimationFrame(tickAnimation)
@@ -117,59 +402,7 @@ function tickAnimation() {
   }
 }
 
-// ── Waypoints — gentle flowing diagonal matching Figma ──────────────────────
-// Figma shows a smooth diagonal line from upper-right through the page,
-// with gentle S-curves flowing through sections
-const waypointsDef = [
-  [0.90, 0.00],   // Start top-right (hero diagonal)
-  [0.78, 0.07],   // Flow through hero
-  [0.62, 0.15],   // Diagonal continues
-  [0.50, 0.24],   // Reaching center (news area)
-  [0.42, 0.34],   // Gentle curve left (product section)
-  [0.38, 0.44],   // Left of center
-  [0.44, 0.54],   // Gentle curve back right (case studies)
-  [0.55, 0.64],   // Right of center
-  [0.58, 0.72],   // Through about section
-  [0.48, 0.82],   // Curve back center
-  [0.35, 0.90],   // Moving left (crew section)
-  [0.22, 1.00],   // End bottom-left
-]
-
-const waypoints = computed(() =>
-  waypointsDef.map(([xf, yf], i) => ({
-    x: xf * vw.value,
-    y: yf * totalHeight.value,
-    t: i / (waypointsDef.length - 1),
-  }))
-)
-
-// ── SVG path (smooth quadratic Bézier) ──────────────────────────────────────
-const fullTrackPath = computed(() => {
-  const pts = waypoints.value
-  if (pts.length < 2) return ''
-  let d = `M ${pts[0].x.toFixed(1)} ${pts[0].y.toFixed(1)}`
-  for (let i = 1; i < pts.length - 1; i++) {
-    const mid = { x: (pts[i].x + pts[i+1].x) / 2, y: (pts[i].y + pts[i+1].y) / 2 }
-    d += ` Q ${pts[i].x.toFixed(1)} ${pts[i].y.toFixed(1)} ${mid.x.toFixed(1)} ${mid.y.toFixed(1)}`
-  }
-  const last = pts[pts.length - 1]
-  d += ` L ${last.x.toFixed(1)} ${last.y.toFixed(1)}`
-  return d
-})
-
-// ── Path length (approximate for dasharray) ─────────────────────────────────
-const totalPathLen = computed(() => {
-  const pts = waypoints.value
-  let len = 0
-  for (let i = 1; i < pts.length; i++) {
-    const dx = pts[i].x - pts[i-1].x
-    const dy = pts[i].y - pts[i-1].y
-    len += Math.sqrt(dx*dx + dy*dy)
-  }
-  return len * 1.15 // account for curve being longer than straight segments
-})
-
-// ── Arc-length parameterized position via DOM path ──────────────────────────
+// ── Arc-length parameterized position ───────────────────────────────────────
 let arcSamples: { len: number; x: number; y: number }[] = []
 let totalArcLen = 1000
 
@@ -188,14 +421,7 @@ function buildArcTable() {
 }
 
 function pointAtProgress(p: number): { x: number; y: number } {
-  if (!arcSamples.length) {
-    // fallback: linear interpolation along waypoints
-    const pts = waypoints.value
-    const t   = Math.min(Math.max(p, 0), 1) * (pts.length - 1)
-    const i   = Math.min(Math.floor(t), pts.length - 2)
-    const f   = t - i
-    return { x: pts[i].x + (pts[i+1].x - pts[i].x) * f, y: pts[i].y + (pts[i+1].y - pts[i].y) * f }
-  }
+  if (!arcSamples.length) return { x: 1644, y: 795 }
   const targetLen = Math.min(Math.max(p, 0), 1) * totalArcLen
   let lo = 0, hi = arcSamples.length - 1
   while (lo < hi) {
@@ -204,7 +430,6 @@ function pointAtProgress(p: number): { x: number; y: number } {
     else hi = mid
   }
   const idx = Math.min(lo, arcSamples.length - 1)
-  // Interpolate between samples for smoother positioning
   if (idx > 0 && idx < arcSamples.length) {
     const a = arcSamples[idx - 1]
     const b = arcSamples[idx]
@@ -217,49 +442,143 @@ function pointAtProgress(p: number): { x: number; y: number } {
   return arcSamples[idx]
 }
 
-// ── Marble rotation via arc distance ────────────────────────────────────────
-const marbleRotation = ref(0)
-let totalDist = 0
-let lastPos   = { x: 0, y: 0 }
+// ── Bounce animation ────────────────────────────────────────────────────────
+const bounceX = ref(0)
+const bounceY = ref(0)
+let bounceActive = false
+let bounceStartTime = 0
+let bounceRafId = 0
+let wasAtEnd = false
 
-function updateMarbleRotation() {
-  const pt = pointAtProgress(smoothProgress.value)
-  const dx = pt.x - lastPos.x
-  const dy = pt.y - lastPos.y
-  const dist = Math.sqrt(dx*dx + dy*dy)
-  if (dist > 0.1) {
-    // Direction-aware rotation: roll forward when scrolling down, backward when up
-    const direction = dy >= 0 ? 1 : -1
-    totalDist += dist * direction
-    marbleRotation.value = (totalDist / (Math.PI * MARBLE_SIZE)) * 360
-    lastPos = pt
-  }
+let bounceVelX = 0, bounceVelY = 0
+let bouncePosX = 0, bouncePosY = 0
+let bounceContainerR = 80
+let bounceBtnOffsetX = 0, bounceBtnOffsetY = 0
+
+const BOUNCE_GRAVITY = 500
+const BOUNCE_RESTITUTION = 0.6
+const BOUNCE_FRICTION = 0.92
+const BALL_R = 8
+
+function resetBounce() {
+  wasAtEnd = false
+  bounceActive = false
+  bounceX.value = 0
+  bounceY.value = 0
+  bouncePosX = 0; bouncePosY = 0
+  bounceVelX = 0; bounceVelY = 0
+  cancelAnimationFrame(bounceRafId)
 }
 
-const marbleStyle = computed(() => {
-  const pt   = pointAtProgress(smoothProgress.value)
-  const half = MARBLE_SIZE / 2
-  return {
-    left: `${pt.x - half}px`,
-    top:  `${pt.y - scrollY.value - half}px`,
+function startBounce() {
+  if (bounceActive) return
+  bounceActive = true
+  bounceStartTime = performance.now()
+  const endPos = pointAtProgress(1)
+  const btnEl = document.getElementById('join-us-btn')
+  const { tx, ty, s } = svgTransformOrigin()
+  if (btnEl && s > 0) {
+    const btnRect = btnEl.getBoundingClientRect()
+    bounceContainerR = (btnRect.width / 2 - 4) / s
+    const btnVpCx = btnRect.left + btnRect.width / 2
+    const btnVpCy = btnRect.top + btnRect.height / 2
+    const endVpX = tx + endPos.x * s
+    const endVpY = ty + endPos.y * s - scrollY.value
+    bounceBtnOffsetX = (btnVpCx - endVpX) / s
+    bounceBtnOffsetY = (btnVpCy - endVpY) / s
+  } else {
+    bounceContainerR = 60
+    bounceBtnOffsetX = 0
+    bounceBtnOffsetY = 40
   }
+  bouncePosX = 0; bouncePosY = 0
+  bounceVelX = 80; bounceVelY = 20
+  tickBounce()
+}
+
+function tickBounce() {
+  const now = performance.now()
+  const dt = Math.min((now - bounceStartTime) / 1000, 0.05)
+  bounceStartTime = now
+
+  bounceVelY += BOUNCE_GRAVITY * dt
+  bouncePosX += bounceVelX * dt
+  bouncePosY += bounceVelY * dt
+
+  const cx = bounceBtnOffsetX
+  const cy = bounceBtnOffsetY
+  const dx = bouncePosX - cx
+  const dy = bouncePosY - cy
+  const dist = Math.sqrt(dx * dx + dy * dy)
+
+  if (dist + BALL_R > bounceContainerR) {
+    const nx = dx / dist
+    const ny = dy / dist
+    bouncePosX -= nx * (dist + BALL_R - bounceContainerR)
+    bouncePosY -= ny * (dist + BALL_R - bounceContainerR)
+    const vDotN = bounceVelX * nx + bounceVelY * ny
+    if (vDotN > 0) {
+      bounceVelX -= (1 + BOUNCE_RESTITUTION) * vDotN * nx
+      bounceVelY -= (1 + BOUNCE_RESTITUTION) * vDotN * ny
+      const ttx = -ny, tty = nx
+      const vDotT = bounceVelX * ttx + bounceVelY * tty
+      bounceVelX -= vDotT * (1 - BOUNCE_FRICTION) * ttx
+      bounceVelY -= vDotT * (1 - BOUNCE_FRICTION) * tty
+    }
+  }
+
+  if (Math.abs(bounceVelY) < 4 && Math.abs(bounceVelX) < 4 &&
+      bouncePosY >= cy + bounceContainerR * 0.5) {
+    bouncePosX = cx; bouncePosY = cy + bounceContainerR - BALL_R
+    bounceX.value = bouncePosX; bounceY.value = bouncePosY
+    bounceActive = false
+    return
+  }
+
+  bounceX.value = bouncePosX
+  bounceY.value = bouncePosY
+  bounceRafId = requestAnimationFrame(tickBounce)
+}
+
+// ── Marble position ──────────────────────────────────────────────────────────
+const marblePos = computed(() => {
+  const p = smoothProgress.value
+  const pos = pointAtProgress(p)
+
+  if (p >= 0.99) {
+    if (!wasAtEnd) {
+      wasAtEnd = true
+      nextTick(() => startBounce())
+    }
+    return { x: pos.x + bounceX.value, y: pos.y + bounceY.value }
+  }
+
+  if (wasAtEnd) resetBounce()
+  return pos
 })
 
-// ── Scroll handler ──────────────────────────────────────────────────────────
+// ── Scroll / resize handlers ────────────────────────────────────────────────
+let joinMeasuredOnScroll = false
+const onLoadHandler = () => {
+  totalHeight.value = document.documentElement.scrollHeight
+  measureBrandMark()
+}
+
 function onScroll() {
   scrollY.value     = window.scrollY
   totalHeight.value = document.documentElement.scrollHeight
   const maxScroll   = totalHeight.value - vh.value
-  targetProgress    = maxScroll > 0 ? window.scrollY / maxScroll : 0
-
+  const startOffset = vh.value * 0.45
+  targetProgress    = maxScroll > 0 ? Math.max(0, Math.min(1, (window.scrollY - startOffset) / (maxScroll - startOffset))) : 0
   startAnimation()
+  if (!joinMeasuredOnScroll) { measureJoinUs(); joinMeasuredOnScroll = true }
 }
 
 function onResize() {
   vw.value = window.innerWidth
   vh.value = window.innerHeight
   totalHeight.value = document.documentElement.scrollHeight
-  nextTick(() => buildArcTable())
+  measureBrandMark()
 }
 
 onMounted(() => {
@@ -269,23 +588,20 @@ onMounted(() => {
 
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('resize', onResize, { passive: true })
+  window.addEventListener('load', onLoadHandler)
 
   nextTick(() => {
-    setTimeout(() => {
-      buildArcTable()
-      lastPos = pointAtProgress(0)
-    }, 300)
-  })
-
-  window.addEventListener('load', () => {
-    totalHeight.value = document.documentElement.scrollHeight
-    nextTick(() => buildArcTable())
+    measureBrandMark()
+    setTimeout(() => measureBrandMark(), 300)
+    setTimeout(() => measureBrandMark(), 1000)
   })
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('resize', onResize)
+  window.removeEventListener('load', onLoadHandler)
   cancelAnimationFrame(rafId)
+  cancelAnimationFrame(bounceRafId)
 })
 </script>

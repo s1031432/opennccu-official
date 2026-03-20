@@ -1,5 +1,5 @@
 <template>
-  <section class="py-20 bg-gradient-to-b from-white to-gray-50">
+  <section class="relative py-20">
     <div class="max-w-6xl mx-auto px-6">
       <!-- Stats -->
       <div class="grid grid-cols-2 gap-8 max-w-lg mx-auto text-center mb-20">
