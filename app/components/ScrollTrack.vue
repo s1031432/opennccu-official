@@ -502,9 +502,9 @@ let bouncePosX = 0, bouncePosY = 0
 let bounceContainerR = 80
 let bounceBtnOffsetX = 0, bounceBtnOffsetY = 0
 
-const BOUNCE_GRAVITY = 500
-const BOUNCE_RESTITUTION = 0.6
-const BOUNCE_FRICTION = 0.92
+const BOUNCE_GRAVITY = 250
+const BOUNCE_RESTITUTION = 0.45
+const BOUNCE_FRICTION = 0.88
 const BALL_R = 8
 
 function resetBounce() {
@@ -539,7 +539,7 @@ function startBounce() {
     bounceBtnOffsetY = 40
   }
   bouncePosX = 0; bouncePosY = 0
-  bounceVelX = 80; bounceVelY = 20
+  bounceVelX = 40; bounceVelY = 10
   tickBounce()
 }
 
@@ -576,11 +576,11 @@ function tickBounce() {
 
   // When velocity gets low, give the ball a random kick to keep it moving
   const speed = Math.sqrt(bounceVelX * bounceVelX + bounceVelY * bounceVelY)
-  if (speed < 15) {
+  if (speed < 10) {
     const angle = Math.random() * Math.PI * 2
-    const kick = 40 + Math.random() * 60
+    const kick = 20 + Math.random() * 30
     bounceVelX += Math.cos(angle) * kick
-    bounceVelY += Math.sin(angle) * kick - 30 // bias upward
+    bounceVelY += Math.sin(angle) * kick - 15 // bias upward
   }
 
   bounceX.value = bouncePosX
@@ -616,8 +616,9 @@ function onScroll() {
   scrollY.value     = window.scrollY
   totalHeight.value = document.documentElement.scrollHeight
   const maxScroll   = totalHeight.value - vh.value
-  const startOffset = vh.value * 0.1
-  const scrollP     = maxScroll > 0 ? Math.max(0, Math.min(1, (window.scrollY - startOffset) / (maxScroll - startOffset))) : 0
+  const rawP        = maxScroll > 0 ? Math.max(0, Math.min(1, window.scrollY / maxScroll)) : 0
+  // Power curve: faster at the start so marble rolls down sooner
+  const scrollP     = Math.pow(rawP, 0.92)
   // Keep marble at least at loop top so it doesn't roll back into the junction
   targetProgress    = Math.max(scrollP, loopTopProgress)
   startAnimation()
