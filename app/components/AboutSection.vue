@@ -142,6 +142,6 @@ const timelineItems = [
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.04);
   border: none;
-  border-radius: 24px;
+  border-radius: 30px;
 }
 </style>

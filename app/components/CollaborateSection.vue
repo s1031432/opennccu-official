@@ -57,8 +57,8 @@
                 class="text-white"
                 style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 0.96px;"
               >了解更多</span>
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" class="-rotate-90">
-                <path d="M16 6L16 26M16 6L8 14M16 6L24 14" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                <path d="M6 16H26M26 16L18 8M26 16L18 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
           </div>
