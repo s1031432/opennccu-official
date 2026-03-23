@@ -104,7 +104,7 @@
           >
             當日活躍使用者
           </p>
-          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 600;">
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 600; color: #4ECBA5;">
             3,500+
           </p>
         </div>
@@ -115,7 +115,7 @@
           >
             使用次數
           </p>
-          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 600;">
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 600; color: #4ECBA5;">
             15,000+
           </p>
         </div>
@@ -201,13 +201,6 @@ const partners = [
 
 .cta-btn:hover {
   filter: brightness(1.05);
-}
-
-.stats-gradient {
-  background: linear-gradient(176deg, rgb(148, 204, 185) 5%, rgb(63, 164, 182) 95%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .carousel-arrow {

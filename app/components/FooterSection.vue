@@ -5,7 +5,7 @@
         <!-- Logo & Copyright -->
         <div class="flex flex-col gap-2 shrink-0">
           <img src="/assets/logo-with-title.svg" alt="Open NCCU" class="h-[47px] w-auto object-contain object-left" />
-          <p style="font-family: 'Outfit', sans-serif; font-size: 14px; color: #f0f0f0;">
+          <p style="font-family: 'Outfit', sans-serif; font-size: 14px; color: #b0b0b0;">
             &copy; 2026 Copyright. All Right Reserved.
           </p>
         </div>
@@ -14,7 +14,7 @@
         <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[120px]">
           <!-- Community -->
           <div class="flex flex-col gap-5">
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; letter-spacing: 1px;">
               COMMUNITY
             </h4>
             <div class="flex items-center gap-5">
@@ -22,14 +22,14 @@
                 target="_blank" rel="noopener noreferrer"
                 class="text-white hover:text-[#4ECBA5] transition-colors"
                 :aria-label="s.label">
-                <Icon :icon="s.icon" width="30" height="30" />
+                <Icon :icon="s.icon" width="22" height="22" />
               </a>
             </div>
           </div>
 
           <!-- Resource -->
           <div class="flex flex-col gap-5">
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; letter-spacing: 1px;">
               RESOURCE
             </h4>
             <div class="flex items-center gap-5">
@@ -37,14 +37,14 @@
                 target="_blank" rel="noopener noreferrer"
                 class="text-white hover:text-[#4ECBA5] transition-colors"
                 :aria-label="r.label">
-                <Icon :icon="r.icon" width="30" height="30" />
+                <Icon :icon="r.icon" width="22" height="22" />
               </a>
             </div>
           </div>
 
           <!-- Report -->
           <div class="flex flex-col gap-5">
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; letter-spacing: 1px;">
               REPORT
             </h4>
             <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 transition-all whitespace-nowrap bg-white hover:bg-gray-100">
