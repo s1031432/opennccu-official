@@ -1,5 +1,5 @@
 <template>
-  <section class="relative py-6 overflow-hidden">
+  <section class="relative py-16 md:py-20 overflow-hidden">
     <!-- Diagonal decorative bands per Figma (large subtle stripes, not thin lines) -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div
@@ -43,7 +43,7 @@
         </div>
 
         <!-- Scrollable news cards -->
-        <div class="flex-1 overflow-x-auto pt-4 pb-4 scrollbar-hide">
+        <div class="flex-1 overflow-x-auto pt-6 pb-4 scrollbar-hide overflow-y-visible">
           <div class="flex gap-4" style="min-width: max-content;">
             <a
               v-for="news in activeItems"
@@ -53,9 +53,9 @@
               :rel="news.url ? 'noopener noreferrer' : undefined"
               class="news-card rounded-[16px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all hover:-translate-y-1 relative block no-underline rotate-[2deg]"
             >
-              <!-- New badge (top right) -->
-              <div v-if="news.isNew" class="absolute right-[16px] top-[28px]">
-                <div class="new-badge rounded-[6px] px-2.5 py-0.5 flex items-center justify-center">
+              <!-- New badge (top right, protruding above card per Figma) -->
+              <div v-if="news.isNew" class="absolute right-[16px] -top-[12px]">
+                <div class="new-badge rounded-[8px] px-3 py-1 flex items-center justify-center">
                   <span
                     class="text-white"
                     style="font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.72px;"

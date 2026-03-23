@@ -66,8 +66,7 @@
                   {{ item.year }}
                 </h3>
                 <p
-                  class="leading-relaxed"
-                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; color: #606060; letter-spacing: 0.96px;"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; color: #606060; letter-spacing: 0.96px; line-height: 1.8;"
                 >
                   {{ item.description }}
                 </p>
