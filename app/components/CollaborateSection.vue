@@ -141,8 +141,7 @@
               <img
                 :src="partner.logo"
                 :alt="partner.name"
-                class="relative z-10 w-[96px] h-[96px] object-contain rounded-full group-hover:opacity-100 transition-opacity duration-300"
-                :style="partner.opacity ? `opacity: ${partner.opacity / 100}` : ''"
+                class="partner-logo relative z-10 w-[96px] h-[96px] object-contain rounded-full transition-all duration-300"
               />
             </div>
             <span
@@ -165,22 +164,33 @@ import { ref } from 'vue'
 const showDetail = ref(false)
 const partners = [
   { name: '政大通', logo: '/assets/partner-nccupass.png' },
-  { name: 'InternX', logo: '/assets/partner-internx.png', opacity: 45 },
-  { name: '政大考古題交流', logo: '/assets/partner-exam.png', opacity: 70 },
+  { name: 'InternX', logo: '/assets/partner-internx.png' },
+  { name: '政大考古題交流', logo: '/assets/partner-exam.png' },
   { name: 'GDG', logo: '/assets/partner-gdg.png' },
-  { name: '政大學生會', logo: '/assets/partner-nccusa.png', opacity: 50 },
-  { name: '政大學生議會', logo: '/assets/partner-sc.png', opacity: 70 },
+  { name: '政大學生會', logo: '/assets/partner-nccusa.png' },
+  { name: '政大學生議會', logo: '/assets/partner-sc.png' },
 ]
 </script>
 
 <style scoped>
 .collaborate-card {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(8px);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.7) 0%,
+      rgba(230, 245, 255, 0.5) 20%,
+      rgba(255, 230, 250, 0.3) 40%,
+      rgba(255, 255, 255, 0.6) 55%,
+      rgba(230, 255, 240, 0.4) 70%,
+      rgba(245, 230, 255, 0.3) 85%,
+      rgba(255, 255, 255, 0.7) 100%
+    );
+  backdrop-filter: blur(12px);
   box-shadow:
     7px 6px 7px -6px rgba(0, 0, 0, 0.08),
     6px 6px 18px -14px rgba(135, 135, 135, 0.3),
-    -5px -5px 15px 0px #fcfcfc;
+    -5px -5px 15px 0px #fcfcfc,
+    inset 0 0 60px rgba(255, 255, 255, 0.3);
 }
 
 .cta-btn {
@@ -239,5 +249,15 @@ const partners = [
     -3px -3px 8px rgba(255, 255, 255, 0.8),
     3px 3px 8px rgba(0, 0, 0, 0.05);
   background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.6));
+}
+
+.partner-logo {
+  filter: grayscale(100%);
+  opacity: 0.6;
+}
+
+.group:hover .partner-logo {
+  filter: grayscale(0%);
+  opacity: 1;
 }
 </style>
