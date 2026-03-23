@@ -69,7 +69,7 @@
                   style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px;"
                 >{{ news.date }}</span>
                 <p
-                  class="text-[#3e3e3e] font-bold line-clamp-1"
+                  class="text-[#3d3d3d] font-bold line-clamp-1"
                   style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; letter-spacing: 2.4px;"
                 >{{ news.title }}</p>
                 <p
@@ -113,18 +113,25 @@ const activeItems = computed(() =>
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
 .news-badge-pill {
-  border: 1.5px solid #cccccc;
-  background: transparent;
+  background: #ffffff;
+  border: none;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .news-card {
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.85) 20%, rgba(245, 245, 245, 0.6) 89%);
-  border: 2px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.92) 20%, rgba(248, 248, 248, 0.75) 89%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 2px 8px 0 rgba(0, 0, 0, 0.06),
+    0 1px 3px 0 rgba(0, 0, 0, 0.03);
 }
 
 .news-card:hover {
-  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 4px 16px 0 rgba(0, 0, 0, 0.10),
+    0 2px 6px 0 rgba(0, 0, 0, 0.04);
   transform: rotate(2deg) translateY(-2px);
 }
 

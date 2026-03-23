@@ -25,39 +25,38 @@
         與我們合作
       </h2>
 
-      <!-- Carousel pagination dots -->
-      <div class="flex justify-end gap-3 mb-6 pr-4">
-        <span class="pagination-dot-active w-[35px] h-[12px] rounded-full bg-[#81edb9]"></span>
-        <span class="pagination-dot w-[20px] h-[12px] rounded-full bg-[#aeaeb2]"></span>
-        <span class="pagination-dot w-[20px] h-[12px] rounded-full bg-[#aeaeb2]"></span>
-      </div>
-
       <!-- Collaboration showcase card -->
       <div class="collaborate-card rounded-[20px] overflow-hidden mb-20 relative">
+        <!-- Carousel pagination dots (inside card, top-right per Figma) -->
+        <div class="absolute top-5 right-6 flex items-center gap-2 z-10">
+          <span class="w-[10px] h-[10px] rounded-full bg-[#4ECBA5]"></span>
+          <span class="w-[10px] h-[10px] rounded-full bg-[#d0d0d0]"></span>
+          <span class="w-[10px] h-[10px] rounded-full bg-[#d0d0d0]"></span>
+        </div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[637px]">
           <!-- Left: text content -->
           <div class="lg:col-span-4 p-10 lg:p-[75px] flex flex-col justify-center">
             <h3
               class="mb-3"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 32px; font-weight: 700; color: #606060; letter-spacing: 2px;"
             >
               徵才月
             </h3>
             <p
-              class="leading-[50px] mb-10"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #aeaeb2; letter-spacing: 1.12px;"
+              class="leading-[1.7] mb-10"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 300; color: #aeaeb2; letter-spacing: 0.5px;"
             >
               職涯中心與OpenNCCU 合作推出的「數位集點工具」，將學生的參與紀錄與問卷回饋集中化管理，協助學生隨時掌握積點進度與線上兌獎，獲得更直覺的抽獎參與體驗。
             </p>
             <button
-              class="cta-btn inline-flex items-center gap-2 rounded-full px-8 py-4 w-fit"
+              class="cta-btn inline-flex items-center gap-2 rounded-full px-6 py-3 w-fit"
               @click="showDetail = true"
             >
               <span
                 class="text-white"
-                style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 0.96px;"
+                style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0.5px;"
               >了解更多</span>
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
                 <path d="M6 16H26M26 16L18 8M26 16L18 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
@@ -215,16 +214,6 @@ const partners = [
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(8px);
   border-radius: 0 20px 20px 0;
-}
-
-.pagination-dot-active {
-  box-shadow:
-    inset -4px -4px 5px 0px rgba(59, 58, 118, 0.2),
-    inset 2px 2px 2px 0px rgba(255, 255, 255, 0.4);
-}
-
-.pagination-dot {
-  box-shadow: inset 0px 2.3px 2.3px 0px rgba(0, 0, 0, 0.1);
 }
 
 .detail-fade-enter-active,

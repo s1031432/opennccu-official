@@ -47,11 +47,11 @@
             <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
               REPORT
             </h4>
-            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1 rounded-full px-5 py-2.5 transition-all whitespace-nowrap border border-white/80 hover:border-white hover:bg-white/10">
-              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #ffffff;">
+            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 transition-all whitespace-nowrap bg-white hover:bg-gray-100">
+              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3d3d3d;">
                 問題回報表單
               </span>
-              <Icon icon="tabler:arrow-up" width="18" height="18" class="text-white rotate-45" />
+              <Icon icon="tabler:arrow-up" width="16" height="16" class="text-[#3d3d3d] rotate-45" />
             </a>
           </div>
         </div>
