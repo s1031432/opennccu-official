@@ -1,10 +1,18 @@
 <template>
   <section class="relative py-6 overflow-hidden">
-    <!-- Subtle diagonal decorative line -->
+    <!-- Subtle diagonal decorative lines per Figma -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div
-        class="absolute w-[1px] bg-white/50"
-        style="height: 200%; top: -30%; right: 25%; transform: rotate(-32deg); transform-origin: top center;"
+        class="absolute w-[1px] bg-white/40"
+        style="height: 200%; top: -30%; right: 20%; transform: rotate(-32deg); transform-origin: top center;"
+      />
+      <div
+        class="absolute w-[1px] bg-white/30"
+        style="height: 200%; top: -30%; right: 40%; transform: rotate(-32deg); transform-origin: top center;"
+      />
+      <div
+        class="absolute w-[1px] bg-white/20"
+        style="height: 200%; top: -30%; right: 60%; transform: rotate(-32deg); transform-origin: top center;"
       />
     </div>
 
@@ -12,27 +20,38 @@
       <div class="flex items-center gap-4">
         <!-- Left labels -->
         <div class="flex-shrink-0 flex flex-col items-start w-[217px] gap-2">
-          <!-- 最新消息 pill badge -->
-          <div class="news-badge-pill flex items-center justify-center px-8 py-4 rounded-full">
+          <button
+            class="flex items-center justify-center px-8 py-4 rounded-full transition-all"
+            :class="activeTab === 'news' ? 'news-badge-pill' : ''"
+            @click="activeTab = 'news'"
+          >
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400; color: #606060;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
+              :style="{ color: activeTab === 'news' ? '#606060' : '#aeaeb2' }"
             >最新消息</span>
-          </div>
-          <!-- 新聞報導 label -->
-          <div class="flex items-center justify-center px-8 py-4">
+          </button>
+          <button
+            class="flex items-center justify-center px-8 py-4 rounded-full transition-all"
+            :class="activeTab === 'press' ? 'news-badge-pill' : ''"
+            @click="activeTab = 'press'"
+          >
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400; color: #aeaeb2;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
+              :style="{ color: activeTab === 'press' ? '#606060' : '#aeaeb2' }"
             >新聞報導</span>
-          </div>
+          </button>
         </div>
 
         <!-- Scrollable news cards -->
-        <div class="flex-1 overflow-x-auto pb-4 scrollbar-hide">
+        <div class="flex-1 overflow-x-auto pt-4 pb-4 scrollbar-hide">
           <div class="flex gap-4" style="min-width: max-content;">
-            <div
-              v-for="news in newsItems"
+            <a
+              v-for="news in activeItems"
               :key="news.id"
-              class="news-card rounded-[20px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all hover:-translate-y-1 relative"
+              :href="news.url || '#'"
+              :target="news.url ? '_blank' : undefined"
+              :rel="news.url ? 'noopener noreferrer' : undefined"
+              class="news-card rounded-[20px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all hover:-translate-y-1 relative block no-underline rotate-[2deg]"
             >
               <!-- Card content -->
               <div class="absolute left-[32px] top-[63px] w-[329px] flex flex-col gap-1">
@@ -58,7 +77,7 @@
                   >New</span>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -67,12 +86,25 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue'
+
+const activeTab = ref<'news' | 'press'>('news')
+
 const newsItems = [
-  { id: 1, date: '2026.03.15', isNew: true, title: '徵才月集點工具正式上線', description: '與職涯中心合作推出數位集點系統，參加徵才月活動即可累積點數兌換精美好禮！' },
-  { id: 2, date: '2026.02.20', isNew: true, title: 'Open NCCU 官網全新改版', description: '全新視覺設計搭配互動動畫，帶來更現代化的瀏覽體驗，快來看看我們的新面貌！' },
-  { id: 3, date: '2026.01.08', isNew: false, title: '2025 年度回顧：成長與展望', description: '回顧過去一年的成果，Open NCCU 服務累計超過 15,000 次使用，感謝所有政大人的支持。' },
-  { id: 4, date: '2025.11.12', isNew: false, title: '「政大吃什麼」新增外送比價功能', description: '不只幫你決定吃什麼，現在還能比較各平台外送價格，幫你省荷包！' },
+  { id: 1, date: '2026.03.15', isNew: true, title: '徵才月集點工具正式上線', description: '與職涯中心合作推出數位集點系統，參加徵才月活動即可累積點數兌換精美好禮！', url: null },
+  { id: 2, date: '2026.02.20', isNew: true, title: 'Open NCCU 官網全新改版', description: '全新視覺設計搭配互動動畫，帶來更現代化的瀏覽體驗，快來看看我們的新面貌！', url: null },
+  { id: 3, date: '2026.01.08', isNew: false, title: '2025 年度回顧：成長與展望', description: '回顧過去一年的成果，Open NCCU 服務累計超過 15,000 次使用，感謝所有政大人的支持。', url: null },
+  { id: 4, date: '2025.11.12', isNew: false, title: '「政大吃什麼」新增外送比價功能', description: '不只幫你決定吃什麼，現在還能比較各平台外送價格，幫你省荷包！', url: null },
 ]
+
+const pressItems = [
+  { id: 101, date: '2024.08.30', isNew: false, title: '學生自發打造 OPEN NCCU APP　創造政大人專屬的數位體驗', description: '廣電系學生范愷祐領導的 Open NCCU 團隊，開發專為政大學生設計的應用程式，已累積 4,530 名用戶。', url: 'https://www.nccu.edu.tw/p/406-1000-17528,r17.php?Lang=zh-tw' },
+  { id: 102, date: '2024.01.01', isNew: false, title: 'Dcard — Open NCCU 相關討論', description: '政大學生在 Dcard 上討論 Open NCCU 的使用心得與功能建議。', url: 'https://www.dcard.tw/f/nccu/p/260990796' },
+]
+
+const activeItems = computed(() =>
+  activeTab.value === 'news' ? newsItems : pressItems
+)
 </script>
 
 <style scoped>
@@ -85,8 +117,8 @@ const newsItems = [
 }
 
 .news-card {
-  background: linear-gradient(165deg, rgb(255, 255, 255) 20%, rgba(255, 255, 255, 0) 89%);
-  border: 3.4px solid white;
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.7) 20%, rgba(255, 255, 255, 0) 89%);
+  border: 3.4px solid rgba(255, 255, 255, 0.8);
   box-shadow: -17px 21px 52px 0px rgba(42, 80, 121, 0.1);
 }
 

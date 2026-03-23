@@ -90,9 +90,18 @@
       </div>
     </div>
 
-    <!-- JOIN US button: near the bottom of the scroll runway, above footer -->
+    <!-- JOIN US button: neumorphic circle per Figma -->
     <div class="absolute bottom-32 max-w-7xl mx-auto left-0 right-0 px-6">
-      <div id="join-us-btn" class="w-36 h-36 ml-4"></div>
+      <a
+        id="join-us-btn"
+        href="https://www.instagram.com/open_nccu/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="join-us-circle ml-4 flex flex-col items-center justify-center"
+      >
+        <span class="join-us-text">JOIN</span>
+        <span class="join-us-text">US !</span>
+      </a>
     </div>
 
     <!-- Popups -->
@@ -350,6 +359,42 @@ const founderStyle = computed((): CSSProperties => {
     0 1px 3px rgba(0, 0, 0, 0.03);
   overflow: hidden;
   cursor: pointer;
+}
+
+.join-us-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  box-shadow:
+    6px 6px 16px rgba(0, 0, 0, 0.1),
+    -6px -6px 16px rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: flex;
+}
+
+.join-us-circle:hover {
+  box-shadow:
+    4px 4px 12px rgba(0, 0, 0, 0.12),
+    -4px -4px 12px rgba(255, 255, 255, 0.9);
+  transform: scale(1.05);
+}
+
+.join-us-circle:active {
+  box-shadow:
+    inset 3px 3px 8px rgba(0, 0, 0, 0.08),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.7);
+}
+
+.join-us-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #aeaeb2;
+  letter-spacing: 1.5px;
+  line-height: 1.2;
 }
 
 .crew-card-blob-mobile {
