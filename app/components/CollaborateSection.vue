@@ -101,22 +101,22 @@
         <div class="flex flex-col items-center w-full md:w-auto">
           <p
             class="text-[#606060]"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; letter-spacing: 3.84px;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 400; letter-spacing: 1.5px;"
           >
             當日活躍使用者
           </p>
-          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600;">
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 600;">
             3,500+
           </p>
         </div>
         <div class="flex flex-col items-center w-full md:w-auto">
           <p
             class="text-[#606060]"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; letter-spacing: 3.84px;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 400; letter-spacing: 1.5px;"
           >
             使用次數
           </p>
-          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600;">
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 600;">
             15,000+
           </p>
         </div>
@@ -125,28 +125,28 @@
       <!-- Partners -->
       <div class="text-center">
         <h3
-          class="mb-12"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
+          class="mb-10"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400; color: #606060; letter-spacing: 2px;"
         >
           合作夥伴
         </h3>
-        <div class="flex justify-center items-center gap-8 md:gap-16 flex-wrap">
+        <div class="flex justify-center items-center gap-6 md:gap-10 flex-wrap">
           <div
             v-for="partner in partners"
             :key="partner.name"
-            class="partner-item flex flex-col items-center gap-3 group cursor-pointer"
+            class="partner-item flex flex-col items-center gap-2.5 group cursor-pointer"
           >
-            <div class="partner-circle relative w-[120px] h-[120px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <div class="partner-circle relative w-[85px] h-[85px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <div class="partner-bg absolute inset-0 rounded-full group-hover:shadow-lg transition-shadow duration-300" />
               <img
                 :src="partner.logo"
                 :alt="partner.name"
-                class="partner-logo relative z-10 w-[96px] h-[96px] object-contain rounded-full transition-all duration-300"
+                class="partner-logo relative z-10 w-[65px] h-[65px] object-contain rounded-full transition-all duration-300"
               />
             </div>
             <span
               class="text-[#aeaeb2] group-hover:text-[#606060] transition-colors duration-300"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 300; letter-spacing: 1px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 300; letter-spacing: 0.8px;"
             >
               {{ partner.name }}
             </span>
