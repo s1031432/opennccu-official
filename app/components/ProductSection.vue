@@ -1,19 +1,47 @@
 <template>
   <section id="products" class="py-24 relative overflow-hidden">
-    <!-- Decorative organic curves -->
+    <!-- Decorative flowing mint-green tubular curve per Figma -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <div
-        class="absolute w-[2px] bg-[#c8ede0]/60"
-        style="height: 300%; top: -50%; left: 55%; transform: rotate(-15deg); transform-origin: top center;"
-      />
-      <div
-        class="absolute w-[2px] bg-[#c8ede0]/40"
-        style="height: 250%; top: -30%; left: 50%; transform: rotate(-20deg); transform-origin: top center;"
-      />
-      <!-- Ellipse dots -->
-      <div class="absolute w-[26px] h-[26px] rounded-full bg-[#c8ede0]/60 left-[26%] top-[15%]" />
-      <div class="absolute w-[26px] h-[26px] rounded-full bg-[#c8ede0]/60 right-[15%] top-[55%]" />
-      <div class="absolute w-[26px] h-[26px] rounded-full bg-[#c8ede0]/60 left-[56%] top-[70%]" />
+      <svg class="absolute left-0 top-0 w-full h-full" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" fill="none">
+        <defs>
+          <linearGradient id="product-tube-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#a8e6cf" stop-opacity="0.7" />
+            <stop offset="50%" stop-color="#77e5b0" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#4ECBA5" stop-opacity="0.3" />
+          </linearGradient>
+          <linearGradient id="product-tube-highlight" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6" />
+            <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+          </linearGradient>
+          <filter id="tube-glow">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <!-- Main thick curve -->
+        <path
+          d="M-50 180 C150 120, 300 350, 500 280 S800 100, 950 320 C1050 440, 1100 600, 1250 550"
+          stroke="url(#product-tube-grad)"
+          stroke-width="8"
+          stroke-linecap="round"
+          fill="none"
+          filter="url(#tube-glow)"
+        />
+        <!-- Thinner highlight line (3D depth) -->
+        <path
+          d="M-50 177 C150 117, 300 347, 500 277 S800 97, 950 317 C1050 437, 1100 597, 1250 547"
+          stroke="url(#product-tube-highlight)"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          fill="none"
+        />
+        <!-- Glossy endpoint dots -->
+        <circle cx="500" cy="280" r="6" fill="#77e5b0" opacity="0.6" />
+        <circle cx="950" cy="320" r="5" fill="#4ECBA5" opacity="0.5" />
+      </svg>
     </div>
 
     <div class="max-w-6xl mx-auto px-6 relative">
@@ -68,10 +96,12 @@
             </div>
           </div>
 
-          <!-- CTA Circle Button (between phones) -->
+          <!-- CTA Circle Button (between phones) per Figma -->
           <div class="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 z-30">
-            <div class="cta-circle w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
-              <Icon icon="gis:arrow" class="text-[#81edb9] w-6 h-6" />
+            <div class="cta-circle w-[140px] h-[140px] md:w-[180px] md:h-[180px] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="opacity-80">
+                <path d="M12 20H28M28 20L21 13M28 20L21 27" stroke="#4ECBA5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
           </div>
 
@@ -147,8 +177,6 @@
 </template>
 
 <script setup lang="ts">
-import { Icon } from '@iconify/vue'
-
 defineProps<{
   scrollY: number
 }>()
@@ -167,8 +195,12 @@ defineProps<{
 }
 
 .cta-circle {
-  background: rgba(255, 255, 255, 0.32);
-  border: 1px solid #81edb9;
+  background: radial-gradient(circle at 40% 40%, rgba(129, 237, 185, 0.25) 0%, rgba(78, 203, 165, 0.12) 60%, rgba(78, 203, 165, 0.05) 100%);
+  border: 1.5px solid rgba(129, 237, 185, 0.4);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 4px 30px rgba(78, 203, 165, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 .glass-ball {

@@ -125,7 +125,7 @@ const activeItems = computed(() =>
 
 .news-card:hover {
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
-  transform: translateY(-2px);
+  transform: rotate(2deg) translateY(-2px);
 }
 
 .new-badge {
