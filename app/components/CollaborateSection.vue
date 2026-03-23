@@ -1,175 +1,114 @@
 <template>
   <section id="collaborate" class="relative py-24 overflow-hidden">
-    <!-- Subtle diagonal decorative lines -->
+    <!-- Decorative organic curve -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div
-        class="absolute w-[1px] bg-white/40"
-        style="height: 200%; top: -30%; left: 35%; transform: rotate(-32deg); transform-origin: top center;"
-      />
-      <div
-        class="absolute w-[1px] bg-white/30"
-        style="height: 200%; top: -20%; left: 55%; transform: rotate(-32deg); transform-origin: top center;"
+        class="absolute w-[2px] bg-[#c8ede0]/40"
+        style="height: 300%; top: -50%; left: 45%; transform: rotate(-15deg); transform-origin: top center;"
       />
     </div>
 
     <div class="relative max-w-6xl mx-auto px-6">
       <!-- Section title -->
       <h2
-        class="text-center mb-16"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060;"
+        class="text-center mb-6"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060; letter-spacing: 9.6px;"
       >
         與我們合作
       </h2>
 
       <!-- Carousel pagination dots -->
-      <div class="flex justify-end gap-2 mb-4 pr-4">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#4ECBA5]"></span>
-        <span class="w-2.5 h-2.5 rounded-full bg-[#d9d9d9]"></span>
-        <span class="w-2.5 h-2.5 rounded-full bg-[#d9d9d9]"></span>
+      <div class="flex justify-end gap-3 mb-6 pr-4">
+        <span class="pagination-dot-active w-[35px] h-[12px] rounded-full bg-[#81edb9]"></span>
+        <span class="pagination-dot w-[20px] h-[12px] rounded-full bg-[#aeaeb2]"></span>
+        <span class="pagination-dot w-[20px] h-[12px] rounded-full bg-[#aeaeb2]"></span>
       </div>
 
       <!-- Collaboration showcase card -->
-      <div class="bg-white/50 backdrop-blur-sm border border-white/60 rounded-3xl overflow-hidden shadow-sm mb-20">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+      <div class="collaborate-card rounded-[20px] overflow-hidden mb-20 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[637px]">
           <!-- Left: text content -->
-          <div class="lg:col-span-3 p-10 flex flex-col justify-center">
+          <div class="lg:col-span-4 p-10 lg:p-[75px] flex flex-col justify-center">
             <h3
-              class="text-3xl font-light text-[#606060] mb-5"
-              style="font-family: 'Noto Sans TC', sans-serif;"
+              class="mb-3"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
             >
               徵才月
             </h3>
             <p
-              class="text-sm text-[#aeaeb2] leading-relaxed mb-8"
-              style="font-family: 'Noto Sans TC', sans-serif;"
+              class="leading-[50px] mb-10"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #aeaeb2; letter-spacing: 1.12px;"
             >
-              職涯中心與 OpenNCCU 合作推出的「數位集點工具」，將學生的參與紀錄與問卷回饋集中化管理，協助學生隨時掌握積點進度與線上兌獎，獲得更直覺的抽獎參與體驗。
+              職涯中心與OpenNCCU 合作推出的「數位集點工具」，將學生的參與紀錄與問卷回饋集中化管理，協助學生隨時掌握積點進度與線上兌獎，獲得更直覺的抽獎參與體驗。
             </p>
             <a
               href="#"
-              class="inline-flex items-center gap-2 bg-[#4ECBA5] text-white rounded-full px-6 py-2.5 text-sm font-medium hover:bg-[#3AB890] transition-colors w-fit"
+              class="cta-btn inline-flex items-center gap-2 rounded-full px-8 py-4 w-fit"
             >
-              了解更多
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
+              <span
+                class="text-white"
+                style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 0.96px;"
+              >了解更多</span>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" class="-rotate-90">
+                <path d="M16 6L16 26M16 6L8 14M16 6L24 14" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </a>
           </div>
 
-          <!-- Center: phone mockup -->
-          <div class="lg:col-span-4 flex items-center justify-center py-8 relative">
-            <div class="w-52 h-[400px] bg-white rounded-[2.5rem] shadow-2xl border-4 border-gray-100 overflow-hidden relative">
-              <div class="absolute top-0 left-0 right-0 z-10">
-                <div class="mx-auto w-20 h-5 bg-gray-100 rounded-b-2xl"></div>
-              </div>
-              <div class="h-full bg-gradient-to-b from-white to-gray-50 pt-8 px-3 pb-3">
-                <!-- App header -->
-                <div class="flex items-center gap-2 mb-3">
-                  <div class="w-5 h-5 rounded-md bg-[#4ECBA5]/30"></div>
-                  <span class="text-[10px] text-[#4ECBA5] font-bold">Open NCCU</span>
-                </div>
-                <!-- Points display -->
-                <div class="bg-[#4ECBA5]/10 rounded-xl p-3 mb-3">
-                  <div class="text-[10px] text-[#606060] mb-1">徵才月禮品兌可兌換數量</div>
-                  <div class="flex items-center gap-2">
-                    <span class="text-[10px] text-[#4ECBA5] font-bold">目前 3 次</span>
-                  </div>
-                  <div class="flex gap-2 mt-2">
-                    <div v-for="n in [15, 20, 50]" :key="n" class="flex-1 bg-white rounded-lg py-2 text-center text-xs font-bold text-[#606060] shadow-sm">
-                      {{ n }}
-                    </div>
-                  </div>
-                </div>
-                <!-- Stamp collection area -->
-                <div class="bg-gray-50 rounded-xl p-3 mb-3">
-                  <div class="text-[9px] text-[#aeaeb2] mb-2">新任集點專區</div>
-                  <div class="grid grid-cols-5 gap-1">
-                    <div v-for="i in 10" :key="i" class="aspect-square bg-white rounded-md shadow-sm flex items-center justify-center">
-                      <span class="text-[8px] text-[#aeaeb2]">{{ i }}</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- QR code area -->
-                <div class="bg-white rounded-xl p-2 border border-gray-100 flex items-center gap-2">
-                  <div class="w-12 h-12 bg-gray-100 rounded-lg"></div>
-                  <div class="flex-1">
-                    <div class="text-[8px] text-[#aeaeb2]">PassO</div>
-                    <div class="text-[8px] text-[#4ECBA5] font-medium">Open NCCU</div>
-                  </div>
-                </div>
-              </div>
+          <!-- Right: mockup images -->
+          <div class="lg:col-span-8 relative overflow-hidden rounded-r-[20px]">
+            <!-- Background image -->
+            <div class="absolute inset-0">
+              <img src="/assets/cm-bg.png" alt="" class="w-full h-full object-cover" />
             </div>
-          </div>
-
-          <!-- Right: career month card with carousel -->
-          <div class="lg:col-span-5 flex items-center justify-center py-8 relative">
-            <div class="w-full max-w-sm">
-              <!-- Career month card -->
-              <div class="rounded-2xl overflow-hidden shadow-lg relative">
-                <div class="bg-gradient-to-br from-purple-300 via-pink-200 to-orange-200 p-8">
-                  <div class="text-xs text-white/80 font-medium mb-2" style="font-family: 'Montserrat', sans-serif;">
-                    2026 NCCU CAREER MONTH
-                  </div>
-                  <h4
-                    class="text-3xl font-black text-white mb-2"
-                    style="font-family: 'Noto Sans TC', sans-serif;"
-                  >
-                    政大徵才月
-                  </h4>
-                  <div class="text-xs text-white/70" style="font-family: 'Montserrat', sans-serif;">
-                    ( in motion, we find direction. )
-                  </div>
-                  <!-- Stamp card -->
-                  <div class="mt-4 bg-white/20 backdrop-blur-sm rounded-xl p-3">
-                    <div class="text-[10px] text-white/80 mb-2">徵才月系列活動集點點卡</div>
-                    <div class="text-[9px] text-white/60 mb-2">EXP Date : 27 Mar 2026</div>
-                    <div class="grid grid-cols-5 gap-1.5">
-                      <div v-for="i in 10" :key="i" class="aspect-square bg-white/30 rounded-md flex items-center justify-center">
-                        <span class="text-[10px] text-white font-bold">{{ i <= 4 ? i : '' }}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <!-- CM Logo -->
+            <div class="absolute top-[122px] right-[138px] w-[400px] h-[158px] hidden lg:block">
+              <img src="/assets/cm-logo.png" alt="Career Month" class="w-full h-full object-contain" />
             </div>
-            <!-- Carousel arrow -->
-            <button class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-white/60 backdrop-blur-sm border border-white/70 rounded-full flex items-center justify-center text-[#606060] hover:text-[#4ECBA5] shadow-sm transition-colors">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <path d="M9 18l6-6-6-6"/>
-              </svg>
-            </button>
+            <!-- Phone mockup -->
+            <div class="absolute left-1/4 top-[72px] w-[418px] h-[859px] hidden lg:block">
+              <img src="/assets/cm-mockup.png" alt="App mockup" class="w-full h-full object-contain" />
+            </div>
+            <!-- Card image -->
+            <div class="absolute bottom-[100px] right-[100px] w-[432px] h-[246px] rounded-[15px] overflow-hidden hidden lg:block">
+              <img src="/assets/cm-card.png" alt="CM Card" class="w-full h-full object-cover" />
+            </div>
+            <!-- Mobile fallback -->
+            <div class="lg:hidden flex items-center justify-center py-12">
+              <img src="/assets/cm-mockup.png" alt="App mockup" class="h-[400px] object-contain" />
+            </div>
           </div>
         </div>
+
+        <!-- Carousel navigation arrow -->
+        <button class="absolute right-0 top-1/2 -translate-y-1/2 carousel-arrow w-[58px] h-[241px] flex items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
       </div>
 
       <!-- Stats row -->
-      <div class="flex justify-center gap-20 mb-16">
-        <div class="text-center">
+      <div class="flex flex-col md:flex-row justify-center gap-12 md:gap-24 mb-20 text-center">
+        <div class="flex flex-col items-center w-full md:w-auto">
           <p
-            class="text-[#606060] mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300;"
+            class="text-[#606060]"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; letter-spacing: 3.84px;"
           >
             當日活躍使用者
           </p>
-          <p
-            class="text-[#4ECBA5]"
-            style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600;"
-          >
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600;">
             3,500+
           </p>
         </div>
-        <div class="text-center">
+        <div class="flex flex-col items-center w-full md:w-auto">
           <p
-            class="text-[#606060] mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300;"
+            class="text-[#606060]"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; letter-spacing: 3.84px;"
           >
             使用次數
           </p>
-          <p
-            class="text-[#4ECBA5]"
-            style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600;"
-          >
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600;">
             15,000+
           </p>
         </div>
@@ -178,27 +117,25 @@
       <!-- Partners -->
       <div class="text-center">
         <h3
-          class="text-[#606060] mb-10"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
+          class="mb-12"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
         >
           合作夥伴
         </h3>
-        <div class="flex justify-center items-center gap-6 flex-wrap">
+        <div class="flex justify-center items-center gap-8 md:gap-16 flex-wrap">
           <div
             v-for="partner in partners"
             :key="partner.name"
-            class="group flex flex-col items-center gap-2"
+            class="partner-circle relative w-[120px] h-[120px] flex items-center justify-center"
           >
-            <div class="w-16 h-16 rounded-full bg-white/60 border border-white/70 flex items-center justify-center shadow-sm group-hover:shadow-md group-hover:scale-105 transition-all">
-              <span
-                class="text-xs font-bold text-[#606060] text-center leading-tight px-1"
-                style="font-family: 'Noto Sans TC', sans-serif;"
-              >{{ partner.short }}</span>
-            </div>
-            <span
-              class="text-xs text-[#aeaeb2] opacity-0 group-hover:opacity-100 transition-opacity"
-              style="font-family: 'Noto Sans TC', sans-serif;"
-            >{{ partner.name }}</span>
+            <div class="partner-bg absolute inset-0 rounded-full" />
+            <img
+              :src="partner.logo"
+              :alt="partner.name"
+              class="relative z-10 w-[96px] h-[96px] object-contain rounded-full"
+              :class="partner.opacity ? `opacity-${partner.opacity}` : ''"
+              :style="partner.opacity ? `opacity: ${partner.opacity / 100}` : ''"
+            />
           </div>
         </div>
       </div>
@@ -208,11 +145,65 @@
 
 <script setup lang="ts">
 const partners = [
-  { name: '政大職涯中心', short: '職涯' },
-  { name: '政大學生會', short: '學生會' },
-  { name: '政大圖書館', short: '圖書館' },
-  { name: '政大資科系', short: '資科' },
-  { name: '政大創聯會', short: '創聯' },
-  { name: '政大計算機中心', short: '計中' },
+  { name: 'NCCU Pass', logo: '/assets/partner-nccupass.png' },
+  { name: 'InternX', logo: '/assets/partner-internx.png', opacity: 45 },
+  { name: '政大考古題交流', logo: '/assets/partner-exam.png', opacity: 70 },
+  { name: 'GDG', logo: '/assets/partner-gdg.png' },
+  { name: 'NCCU SA', logo: '/assets/partner-nccusa.png', opacity: 50 },
+  { name: '政大校友會', logo: '/assets/partner-sc.png', opacity: 70 },
 ]
 </script>
+
+<style scoped>
+.collaborate-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    7px 6px 7px -6px rgba(0, 0, 0, 0.08),
+    6px 6px 18px -14px rgba(135, 135, 135, 0.3),
+    -5px -5px 15px 0px #fcfcfc;
+}
+
+.cta-btn {
+  background: linear-gradient(170deg, rgb(148, 204, 185) 5%, rgb(63, 164, 182) 95%);
+  box-shadow:
+    inset 3px 3px 10px 0px rgba(255, 255, 255, 0.7),
+    inset -3px -3px 10px 0px #1693ba;
+}
+
+.cta-btn:hover {
+  filter: brightness(1.05);
+}
+
+.stats-gradient {
+  background: linear-gradient(176deg, rgb(148, 204, 185) 5%, rgb(63, 164, 182) 95%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.carousel-arrow {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(8px);
+  border-radius: 0 20px 20px 0;
+}
+
+.pagination-dot-active {
+  box-shadow:
+    inset -4px -4px 5px 0px rgba(59, 58, 118, 0.2),
+    inset 2px 2px 2px 0px rgba(255, 255, 255, 0.4);
+}
+
+.pagination-dot {
+  box-shadow: inset 0px 2.3px 2.3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.partner-bg {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    -3px -3px 8px rgba(255, 255, 255, 0.8),
+    3px 3px 8px rgba(0, 0, 0, 0.05);
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.6));
+}
+</style>

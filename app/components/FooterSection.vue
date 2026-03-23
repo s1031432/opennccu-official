@@ -1,61 +1,59 @@
 <template>
-  <footer id="contact" class="relative z-20 bg-[#3d3d3d] py-10">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 items-start">
-        <!-- Column 1: Logo & Copyright -->
-        <div class="flex flex-col gap-3">
-          <div class="flex items-center gap-3">
-            <img src="/logo.png" alt="Open NCCU Logo" class="w-10 h-10 object-contain" />
-            <span style="font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: #4ECBA5;">
-              Open NCCU
-            </span>
-          </div>
-          <p style="font-family: 'Outfit', sans-serif; font-size: 14px; color: #f0f0f0; margin-top: 8px;">
+  <footer id="contact" class="relative z-20 bg-[#3d3d3d]">
+    <div class="max-w-7xl mx-auto px-16 py-[72px]">
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[224px] justify-center">
+        <!-- Logo & Copyright -->
+        <div class="flex flex-col gap-2 shrink-0">
+          <img src="/assets/logo-white.png" alt="Open NCCU" class="h-[47px] w-auto object-contain object-left" />
+          <p style="font-family: 'Outfit', sans-serif; font-size: 14px; color: #f0f0f0;">
             &copy; 2026 Copyright. All Right Reserved.
           </p>
         </div>
 
-        <!-- Column 2: Community -->
-        <div>
-          <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; margin-bottom: 16px; letter-spacing: 0.05em;">
-            COMMUNITY
-          </h4>
-          <div class="flex items-center gap-5 flex-wrap">
-            <a v-for="s in social" :key="s.label" :href="s.href"
-              target="_blank" rel="noopener noreferrer"
-              class="text-white/70 hover:text-[#4ECBA5] transition-colors"
-              :aria-label="s.label">
-              <Icon :icon="s.icon" width="22" height="22" />
+        <!-- Right side groups -->
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[120px]">
+          <!-- Community -->
+          <div class="flex flex-col gap-5">
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
+              COMMUNITY
+            </h4>
+            <div class="flex items-center gap-5">
+              <a v-for="s in social" :key="s.label" :href="s.href"
+                target="_blank" rel="noopener noreferrer"
+                class="text-white hover:text-[#4ECBA5] transition-colors"
+                :aria-label="s.label">
+                <Icon :icon="s.icon" width="30" height="30" />
+              </a>
+            </div>
+          </div>
+
+          <!-- Resource -->
+          <div class="flex flex-col gap-5">
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
+              RESOURCE
+            </h4>
+            <div class="flex items-center gap-5">
+              <a v-for="r in resources" :key="r.label" :href="r.href"
+                target="_blank" rel="noopener noreferrer"
+                class="text-white hover:text-[#4ECBA5] transition-colors"
+                :aria-label="r.label">
+                <Icon :icon="r.icon" width="30" height="30" />
+              </a>
+            </div>
+          </div>
+
+          <!-- Report -->
+          <div class="flex flex-col gap-5">
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
+              REPORT
+            </h4>
+            <a href="mailto:opennccu@gmail.com" class="report-btn inline-flex items-center gap-1 bg-white rounded-full px-4 py-1.5 hover:shadow-lg transition-all">
+              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3e3e3e;">
+                問題回報表單
+              </span>
+              <Icon icon="tabler:arrow-up" width="20" height="20" class="text-[#3e3e3e] rotate-45" />
             </a>
           </div>
-        </div>
-
-        <!-- Column 3: Resource -->
-        <div>
-          <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; margin-bottom: 16px; letter-spacing: 0.05em;">
-            RESOURCE
-          </h4>
-          <div class="flex items-center gap-5">
-            <a v-for="r in resources" :key="r.label" :href="r.href"
-              target="_blank" rel="noopener noreferrer"
-              class="text-white/70 hover:text-[#4ECBA5] transition-colors"
-              :aria-label="r.label">
-              <Icon :icon="r.icon" width="22" height="22" />
-            </a>
-          </div>
-        </div>
-
-        <!-- Column 4: Report -->
-        <div>
-          <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; margin-bottom: 16px; letter-spacing: 0.05em;">
-            REPORT
-          </h4>
-          <a href="mailto:opennccu@gmail.com"
-            class="inline-flex items-center gap-2 border border-white/40 text-white/80 rounded-full hover:bg-white/10 hover:border-[#4ECBA5] hover:text-[#4ECBA5] transition-all"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; padding: 8px 20px;">
-            問題回報表單
-            <Icon icon="lucide:arrow-up-right" width="14" height="14" />
-          </a>
         </div>
       </div>
     </div>
@@ -67,15 +65,24 @@ import { Icon } from '@iconify/vue'
 
 const social = [
   { label: 'Instagram', href: 'https://www.instagram.com/open_nccu/', icon: 'mdi:instagram' },
-  { label: 'Threads',   href: 'https://www.threads.net/@open_nccu', icon: 'simple-icons:threads' },
-  { label: 'Facebook',  href: 'https://www.facebook.com/opennccu', icon: 'mdi:facebook' },
+  { label: 'Threads',   href: 'https://www.threads.net/@open_nccu', icon: 'mingcute:threads-line' },
+  { label: 'Facebook',  href: 'https://www.facebook.com/opennccu', icon: 'ic:baseline-facebook' },
   { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/opennccu', icon: 'mdi:linkedin' },
   { label: 'Discord',   href: 'https://discord.gg/opennccu', icon: 'ic:baseline-discord' },
-  { label: 'Email',     href: 'mailto:opennccu@gmail.com', icon: 'mdi:email-outline' },
+  { label: 'Email',     href: 'mailto:opennccu@gmail.com', icon: 'material-symbols:mail-rounded' },
 ]
 
 const resources = [
   { label: 'GitHub',        href: 'https://github.com/opennccu', icon: 'mdi:github' },
-  { label: 'Documentation', href: 'https://docs.opennccu.com', icon: 'mdi:file-document-outline' },
+  { label: 'News', href: 'https://docs.opennccu.com', icon: 'fluent:news-20-filled' },
 ]
 </script>
+
+<style scoped>
+.report-btn {
+  box-shadow:
+    0px 0px 5.2px 0px rgba(218, 218, 218, 0.7),
+    0px 0px 17px 0px rgba(0, 0, 0, 0.1),
+    inset 0px -1.3px 6.5px 0px rgba(209, 209, 209, 0.2);
+}
+</style>

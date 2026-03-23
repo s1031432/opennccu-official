@@ -9,7 +9,7 @@
         <div class="founder-popup-glass">
           <!-- Close button -->
           <button
-            class="absolute top-8 right-8 w-10 h-10 rounded-full flex items-center justify-center text-[#aeaeb2] hover:text-[#616161] hover:bg-white/50 transition-all z-10"
+            class="absolute top-8 right-8 w-10 h-10 rounded-full flex items-center justify-center text-[#aeaeb2] hover:text-[#606060] hover:bg-white/50 transition-all z-10"
             @click="$emit('close')"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -20,7 +20,7 @@
           <!-- Title -->
           <h3
             class="text-center mb-6"
-            style="font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 400; color: #616161;"
+            style="font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 400; color: #606060;"
           >
             Founder Team
           </h3>
@@ -63,7 +63,7 @@
             <div v-if="selectedMember" class="text-center max-w-md">
               <h4
                 class="mb-3"
-                style="font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 500; color: #616161;"
+                style="font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 500; color: #606060;"
               >
                 Founder {{ selectedMember.name }}
               </h4>

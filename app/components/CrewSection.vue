@@ -19,7 +19,7 @@
         <!-- Title -->
         <h2
           class="relative z-10 mb-8 pl-4 lg:pl-16"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060;"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060; letter-spacing: 9.6px;"
         >
           團隊成員
         </h2>
@@ -81,7 +81,7 @@
                 style="font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 400;"
                 :style="{ color: role.color }"
               >{{ role.name }}</h3>
-              <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 300; color: #616161;">
+              <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 300; color: #606060;">
                 {{ role.description }}
               </p>
             </div>

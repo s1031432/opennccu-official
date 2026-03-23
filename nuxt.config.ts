@@ -7,7 +7,8 @@ export default defineNuxtConfig({
   },
   vite: {
     server: {
-      allowedHosts: ['wtf.yth.tw'],
+      allowedHosts: true,
+      hmr: false,
     },
   },
   tailwindcss: {

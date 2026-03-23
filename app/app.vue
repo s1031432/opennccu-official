@@ -1,13 +1,11 @@
 <template>
   <div>
-    <!-- Loading overlay: prevents interaction until fully hydrated -->
-    <Transition name="loading-fade">
-      <div v-if="!ready" class="loading-overlay">
-        <div class="loading-content">
-          <img src="/logo.png" alt="Open NCCU" class="loading-logo" />
-        </div>
+    <!-- Loading overlay: hides once JS removes it -->
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-content">
+        <img src="/logo.png" alt="Open NCCU" class="loading-logo" />
       </div>
-    </Transition>
+    </div>
 
     <ScrollTrack />
     <NuxtPage />
@@ -15,18 +13,22 @@
 </template>
 
 <script setup lang="ts">
-const ready = ref(false)
-
 if (import.meta.client) {
-  onMounted(() => {
-    // Wait for next frame + a small delay to ensure all child components
-    // (ScrollTrack, CrewSection, etc.) have finished mounting and measuring
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        ready.value = true
-      }, 300)
-    })
-  })
+  // Remove loading overlay as soon as this script executes (JS is working)
+  const removeOverlay = () => {
+    const el = document.getElementById('loading-overlay')
+    if (el) {
+      el.style.opacity = '0'
+      setTimeout(() => el.remove(), 400)
+    }
+  }
+
+  // Try immediately, and also on mount as fallback
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    setTimeout(removeOverlay, 300)
+  } else {
+    window.addEventListener('DOMContentLoaded', () => setTimeout(removeOverlay, 300))
+  }
 }
 </script>
 
@@ -39,6 +41,7 @@ if (import.meta.client) {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: opacity 0.4s ease;
 }
 
 .loading-content {

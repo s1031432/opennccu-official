@@ -12,7 +12,7 @@
         <a
           :href="link.href"
           class="hidden md:flex transition-colors whitespace-nowrap"
-          :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#616161] hover:text-[#77e6b0]'"
+          :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#606060] hover:text-[#77e6b0]'"
           :style="{
             fontFamily: activeSection === link.href && link.label === '產品 & 服務' ? '\'Montserrat\', sans-serif' : '\'Noto Sans TC\', sans-serif',
             fontSize: '24px',
@@ -32,7 +32,7 @@
 
       <!-- Mobile hamburger (inside main pill) -->
       <button
-        class="w-10 h-10 flex md:hidden items-center justify-center text-[#616161] hover:text-[#4ECBA5] transition-colors rounded-full hover:bg-white/40 ml-auto"
+        class="w-10 h-10 flex md:hidden items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors rounded-full hover:bg-white/40 ml-auto"
         aria-label="Toggle menu"
         @click="mobileOpen = !mobileOpen"
       >
@@ -51,13 +51,13 @@
     <!-- Utility pill (desktop only) -->
     <div class="hidden md:flex glass-nav rounded-full px-[60px] py-6 items-center gap-12">
       <button
-        class="flex items-center justify-center text-[#616161] hover:text-[#4ECBA5] transition-colors"
+        class="flex items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors"
         aria-label="Language"
       >
         <Icon icon="ri:global-line" width="36" height="36" />
       </button>
       <button
-        class="flex items-center justify-center text-[#616161] hover:text-[#4ECBA5] transition-colors"
+        class="flex items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors"
         aria-label="Toggle theme"
       >
         <Icon icon="ci:sun" width="36" height="36" />
@@ -76,7 +76,7 @@
         :key="link.label"
         :href="link.href"
         class="transition-colors whitespace-nowrap"
-        :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#616161] hover:text-[#77e6b0]'"
+        :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#606060] hover:text-[#77e6b0]'"
         :style="{
           fontFamily: '\'Noto Sans TC\', sans-serif',
           fontSize: '20px',

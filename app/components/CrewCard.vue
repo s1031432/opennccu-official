@@ -63,7 +63,7 @@
       <p
         v-if="description && showDescription"
         class="leading-relaxed text-center"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 300; color: #616161;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 300; color: #606060;"
       >
         {{ description }}
       </p>
