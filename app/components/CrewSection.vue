@@ -20,7 +20,7 @@
         </h2>
 
         <!-- Desktop: scroll-animated cards -->
-        <div v-if="!isMobile" class="crew-card-area relative w-full" style="height: 480px;">
+        <div v-if="!isMobile" class="crew-card-area relative w-full overflow-visible" style="height: 480px;">
           <!-- State 1 & 2: Team group cards (3 cards) -->
           <CrewCard
             v-for="(group, i) in teamGroups"
@@ -91,7 +91,7 @@
     </div>
 
     <!-- JOIN US anchor point (used by ScrollTrack for marble target) -->
-    <div class="absolute bottom-32 max-w-7xl mx-auto left-0 right-0 px-6">
+    <div class="absolute bottom-32 max-w-7xl mx-auto left-0 right-0 px-6 pointer-events-none">
       <div id="join-us-btn" class="w-36 h-36 ml-4" />
     </div>
 

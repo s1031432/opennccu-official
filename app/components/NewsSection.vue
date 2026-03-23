@@ -19,24 +19,24 @@
     <div class="relative pl-[80px] pr-0">
       <div class="flex items-center gap-4">
         <!-- Left labels -->
-        <div class="flex-shrink-0 flex flex-col items-start w-[217px] gap-2">
+        <div class="flex-shrink-0 flex flex-col items-start w-[160px] gap-1.5">
           <button
-            class="flex items-center justify-center px-8 py-4 rounded-full transition-all"
+            class="flex items-center justify-center px-5 py-2.5 rounded-full transition-all"
             :class="activeTab === 'news' ? 'news-badge-pill' : ''"
             @click="activeTab = 'news'"
           >
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 400;"
               :style="{ color: activeTab === 'news' ? '#606060' : '#aeaeb2' }"
             >最新消息</span>
           </button>
           <button
-            class="flex items-center justify-center px-8 py-4 rounded-full transition-all"
+            class="flex items-center justify-center px-5 py-2.5 rounded-full transition-all"
             :class="activeTab === 'press' ? 'news-badge-pill' : ''"
             @click="activeTab = 'press'"
           >
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 400;"
               :style="{ color: activeTab === 'press' ? '#606060' : '#aeaeb2' }"
             >新聞報導</span>
           </button>
@@ -51,19 +51,19 @@
               :href="news.url || '#'"
               :target="news.url ? '_blank' : undefined"
               :rel="news.url ? 'noopener noreferrer' : undefined"
-              class="news-card rounded-[20px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all hover:-translate-y-1 relative block no-underline rotate-[2deg]"
+              class="news-card rounded-[16px] w-[400px] h-[160px] flex-shrink-0 cursor-pointer transition-all hover:-translate-y-1 relative block no-underline"
             >
               <!-- New badge (top right) -->
-              <div v-if="news.isNew" class="absolute right-[20px] top-[18px]">
-                <div class="new-badge rounded-[8px] px-3 py-1 flex items-center justify-center">
+              <div v-if="news.isNew" class="absolute right-[16px] top-[28px]">
+                <div class="new-badge rounded-[6px] px-2.5 py-0.5 flex items-center justify-center">
                   <span
                     class="text-white"
-                    style="font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.72px;"
+                    style="font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.72px;"
                   >New</span>
                 </div>
               </div>
               <!-- Card content -->
-              <div class="absolute left-[32px] top-[40px] w-[380px] flex flex-col gap-1">
+              <div class="absolute left-[24px] top-[24px] w-[320px] flex flex-col gap-0.5">
                 <span
                   class="text-[#aeaeb2]"
                   style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px;"

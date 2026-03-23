@@ -107,21 +107,31 @@
               <path d="M1171 328L1318.6 519.579C1328.1 531.909 1329.58 548.63 1322.4 562.441L1090 1009.5"
                 stroke="#F0F0F0" stroke-width="30" stroke-linecap="round" fill="none"/>
             </g>
+            <!-- ═══ Right arm + extension as single continuous groove ═══ -->
             <g filter="url(#neGray)">
-              <path d="M1419.5 1100L1267.33 899.224C1257.97 886.879 1256.58 870.241 1263.77 856.516L1375.5 643C1393.17 617.333 1442.63 571.5 1500 571.5C1549 571.5 1583.5 590.5 1599 602.5C1612.17 612.694 1635 633 1651 673.5C1667 714 1661.5 761 1643.5 796C1629.1 824 1315.5 1436.33 1160.5 1739"
+              <path :d="marblePath"
                 stroke="#F0F0F0" stroke-width="30" stroke-linecap="round" fill="none"/>
             </g>
 
-            <!-- ═══ Extension: right track groove to footer ═══ -->
-            <path :d="extensionPath"
-              stroke="#F0F0F0" stroke-width="30" stroke-linecap="round" fill="none"
-              style="filter: drop-shadow(4px 4px 5px rgba(0,0,0,0.06)) drop-shadow(-3px -3px 4px rgba(255,255,255,0.8))"/>
+            <!-- ═══ Layer 2: Green overlays on brand mark (clipped to ball positions) ═══ -->
+            <!-- Left arm: green starts at ball (1171,222) downward to junction -->
+            <g filter="url(#neGreen)">
+              <path d="M1171 222L907.404 740.124C900.408 753.863 901.93 770.4 911.317 782.63L1060.5 977"
+                stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </g>
+            <!-- Middle arm: full path between the two balls -->
+            <g filter="url(#neGreen)">
+              <path d="M1171 328L1318.6 519.579C1328.1 531.909 1329.58 548.63 1322.4 562.441L1090 1009.5"
+                stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" fill="none"/>
+            </g>
 
             <!-- ═══ Green trail: follows marble down the right arm + extension ═══ -->
-            <path class="green-trail-ref" :d="marblePath"
-              stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" fill="none"
-              :stroke-dasharray="greenTrailDash"
-              :stroke-dashoffset="0"/>
+            <g filter="url(#neGreen)">
+              <path class="green-trail-ref" :d="marblePath"
+                stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" fill="none"
+                :stroke-dasharray="greenTrailDash"
+                :stroke-dashoffset="0"/>
+            </g>
 
             <!-- ═══ Balls ═══ -->
             <g filter="url(#figBall)">
@@ -264,8 +274,8 @@ const orbitExitSvg  = computed(() => orbitPointSvg(ORBIT_EXIT_ANGLE))
 // ── Shared extension waypoint data ──────────────────────────────────────────
 // x values and fractional y multipliers shared between extensionPath and marblePath
 const EXT_WAYPOINTS: [number, number][] = [
-  [1040,  0.008], [1025,  0.018],
-  [1000,  0.03],  [850,   0.10],  [750,   0.18],  [680,   0.28],
+  [1120,  0.012], [1060,  0.022],
+  [1000,  0.04],  [850,   0.10],  [750,   0.18],  [680,   0.28],
   [620,   0.36],  [520,   0.42],
   [320,   0.48],  [270,   0.52],
   [550,   0.54],  [1000,  0.57],
@@ -302,28 +312,55 @@ function appendOrbitArc(pts: { x: number; y: number }[]): string {
 }
 
 // ── Extension path ──────────────────────────────────────────────────────────
-const extensionPath = computed(() => {
-  const startY = 1739
-  const range = footerSvgY.value - startY
-  if (range <= 0) return ''
-
-  const pts = [{ x: 1160.5, y: startY }, ...buildExtWaypoints(startY, range)]
-  return appendOrbitArc(pts)
-})
-
 // ── Marble path ─────────────────────────────────────────────────────────────
-const svgRightArm: [number, number][] = [
-  [1651, 673.5], [1660, 737], [1643.5, 796],
-  [1603, 876], [1512, 1053], [1393, 1284], [1269, 1527], [1160.5, 1739],
-]
+// Exact SVG path matching the gray groove for Path 3 (right arm)
+const RIGHT_ARM_EXACT = "M1419.5 1100L1267.33 899.224C1257.97 886.879 1256.58 870.241 1263.77 856.516L1375.5 643C1393.17 617.333 1442.63 571.5 1500 571.5C1549 571.5 1583.5 590.5 1599 602.5C1612.17 612.694 1635 633 1651 673.5C1667 714 1661.5 761 1643.5 796C1629.1 824 1315.5 1436.33 1160.5 1739"
 
 const marblePath = computed(() => {
   const range = footerSvgY.value - 1739
-  const allPts = [
-    ...svgRightArm.map(([x, y]) => ({ x, y })),
-    ...(range > 0 ? buildExtWaypoints(1739, range) : []),
-  ]
-  return appendOrbitArc(allPts)
+  if (range <= 0) return RIGHT_ARM_EXACT
+
+  let d = RIGHT_ARM_EXACT
+
+  // S-curve cubic bezier transition from right arm end to extension
+  // Right arm tangent at (1160.5, 1739): from ctrl pt (1315.5, 1436.33) → direction (-155, 303)
+  // CP1: continue that tangent direction
+  const cp1x = 1160.5 - 155 * 0.55  // ≈ 1075
+  const cp1y = 1739 + 303 * 0.55    // ≈ 1906
+  // S-curve target: the first zigzag entry point
+  const sTargetX = 520
+  const sTargetY = 1739 + range * 0.42
+  // CP2: approach target from upper-right
+  const cp2x = 680
+  const cp2y = sTargetY - range * 0.08
+
+  d += ` C${cp1x.toFixed(1)} ${cp1y.toFixed(1)} ${cp2x.toFixed(1)} ${cp2y.toFixed(1)} ${sTargetX.toFixed(1)} ${sTargetY.toFixed(1)}`
+
+  // Remaining extension waypoints (zigzag section, starting after the S-curve)
+  const remainingExt = EXT_WAYPOINTS.filter(([_, f]) => f >= 0.48)
+    .map(([x, f]) => ({ x, y: 1739 + range * f }))
+
+  const entry = orbitEntrySvg.value
+  const exit  = orbitExitSvg.value
+  const r     = orbitRadiusSvg.value
+  if (entry) {
+    remainingExt.push({ x: entry.x, y: entry.y - 50 })
+    remainingExt.push(entry)
+  }
+
+  // Build smooth continuation from S-curve target through remaining waypoints
+  if (remainingExt.length > 0) {
+    const allPts = [{ x: sTargetX, y: sTargetY }, ...remainingExt]
+    const smooth = buildSmoothPath(allPts)
+    const continuation = smooth.replace(/^M\s*[\d.-]+\s*[\d.-]+\s*/, '')
+    d += ' ' + continuation
+  }
+
+  if (exit && r > 0) {
+    d += ` A ${r.toFixed(1)} ${r.toFixed(1)} 0 1 1 ${exit.x.toFixed(1)} ${exit.y.toFixed(1)}`
+  }
+
+  return d
 })
 
 // ── Path building ───────────────────────────────────────────────────────────
@@ -343,7 +380,7 @@ function buildSmoothPath(pts: { x: number; y: number }[]): string {
 // ── Green trail dash ────────────────────────────────────────────────────────
 const greenTrailDash = computed(() => {
   const p = smoothProgress.value
-  if (totalArcLen <= 0 || p < 0.008 || (p < 0.03 && smoothVelocity <= 0)) return '0 99999'
+  if (totalArcLen <= 0 || p < 0.001) return '0 99999'
   const revealed = p * totalArcLen
   return `${revealed.toFixed(1)} ${(totalArcLen + 100).toFixed(1)}`
 })
@@ -366,7 +403,7 @@ function startAnimation() {
 }
 
 function tickAnimation() {
-  if (targetProgress <= 0 && smoothProgress.value < 0.02) {
+  if (targetProgress <= 0 && smoothProgress.value < 0.001) {
     smoothProgress.value = 0; smoothVelocity = 0; animating = false; return
   }
   if (targetProgress >= 1 && smoothProgress.value > 0.98) {
@@ -391,6 +428,8 @@ function tickAnimation() {
 // ── Arc-length parameterized position ───────────────────────────────────────
 let arcSamples: { len: number; x: number; y: number }[] = []
 let totalArcLen = 1000
+let loopTopProgress = 0 // progress value where marble reaches loop top (1651, 673.5)
+let hasAutoRolled = false
 
 function buildArcTable() {
   const el = document.querySelector('.track-path-ref') as SVGPathElement | null
@@ -404,10 +443,32 @@ function buildArcTable() {
     const pt  = el.getPointAtLength(len)
     arcSamples.push({ len, x: pt.x, y: pt.y })
   }
+
+  // Find resting position: past loop top, near (1643, 796) on the downward arm
+  let bestDist = Infinity
+  let bestLen = 0
+  const searchLen = total * 0.4 // only search first 40%
+  for (const s of arcSamples) {
+    if (s.len > searchLen) break
+    const dx = s.x - 1643, dy = s.y - 796
+    const dist = dx * dx + dy * dy
+    if (dist < bestDist) {
+      bestDist = dist
+      bestLen = s.len
+    }
+  }
+  loopTopProgress = bestLen / total
+
+  // Auto-roll marble to loop top on first load (if user hasn't scrolled yet)
+  if (!hasAutoRolled && window.scrollY < 10) {
+    hasAutoRolled = true
+    targetProgress = loopTopProgress
+    startAnimation()
+  }
 }
 
 function pointAtProgress(p: number): { x: number; y: number } {
-  if (!arcSamples.length) return { x: 1644, y: 795 }
+  if (!arcSamples.length) return { x: 1419.5, y: 1100 }
   const targetLen = Math.min(Math.max(p, 0), 1) * totalArcLen
   let lo = 0, hi = arcSamples.length - 1
   while (lo < hi) {
@@ -555,8 +616,10 @@ function onScroll() {
   scrollY.value     = window.scrollY
   totalHeight.value = document.documentElement.scrollHeight
   const maxScroll   = totalHeight.value - vh.value
-  const startOffset = vh.value * 0.45
-  targetProgress    = maxScroll > 0 ? Math.max(0, Math.min(1, (window.scrollY - startOffset) / (maxScroll - startOffset))) : 0
+  const startOffset = vh.value * 0.1
+  const scrollP     = maxScroll > 0 ? Math.max(0, Math.min(1, (window.scrollY - startOffset) / (maxScroll - startOffset))) : 0
+  // Keep marble at least at loop top so it doesn't roll back into the junction
+  targetProgress    = Math.max(scrollP, loopTopProgress)
   startAnimation()
   if (!joinMeasuredOnScroll) { measureJoinUs(); joinMeasuredOnScroll = true }
 }

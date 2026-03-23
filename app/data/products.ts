@@ -42,7 +42,7 @@ export const products: Product[] = [
       { icon: '/icons/products/mahjong-tiles.png', label: '南棟還是北棟' },
       { icon: '/icons/products/calendar.png', label: '學生共編行事曆' },
       { icon: '/icons/products/stores.png', label: '特約商家' },
-      { icon: '/icons/products/gpa-calc.png', label: 'GPA 計算機' },
+      { icon: '/icons/products/gpa-calc.svg', label: 'GPA 計算機' },
       { icon: '/icons/products/mahjong-tiles.png', label: '新生專區' },
       { icon: '/icons/products/link.png', label: '限時連結' },
     ],
