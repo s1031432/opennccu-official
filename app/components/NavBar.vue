@@ -1,59 +1,38 @@
 <template>
-  <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 glass-nav rounded-full px-6 md:px-8 py-3 flex items-center gap-6 md:gap-10">
-    <!-- Logo -->
-    <div class="flex items-center">
-      <img src="/logo.png" alt="Open NCCU Logo" class="w-10 h-10 object-contain" />
-    </div>
+  <div class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-8">
+    <!-- Main nav pill -->
+    <nav class="glass-nav rounded-full px-10 md:px-20 py-6 flex items-center gap-10 md:gap-[68px]">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="/logo.png" alt="Open NCCU Logo" class="w-[43px] h-[45px] object-contain" />
+      </div>
 
-    <!-- Nav Links (desktop) -->
-    <div class="hidden md:flex items-center gap-10">
-      <a
-        v-for="link in navLinks"
-        :key="link.label"
-        :href="link.href"
-        class="transition-colors whitespace-nowrap"
-        :class="activeSection === link.href ? 'text-[#77e5b0]' : 'text-[#606060] hover:text-[#77e5b0]'"
-        :style="{
-          fontFamily: activeSection === link.href ? '\'Montserrat\', \'Noto Sans TC\', sans-serif' : '\'Noto Sans TC\', sans-serif',
-          fontSize: '24px',
-          fontWeight: activeSection === link.href ? '500' : '400',
-        }"
-      >
-        {{ link.label }}
-      </a>
-    </div>
+      <!-- Nav Links (desktop) -->
+      <template v-for="link in navLinks" :key="link.label">
+        <a
+          :href="link.href"
+          class="hidden md:flex transition-colors whitespace-nowrap"
+          :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#616161] hover:text-[#77e6b0]'"
+          :style="{
+            fontFamily: activeSection === link.href && link.label === '產品 & 服務' ? '\'Montserrat\', sans-serif' : '\'Noto Sans TC\', sans-serif',
+            fontSize: '24px',
+            fontWeight: activeSection === link.href ? '500' : '400',
+          }"
+        >
+          <template v-if="link.label === '產品 & 服務' && activeSection === link.href">
+            <span style="font-family: 'Noto Sans TC', sans-serif;">產品</span>
+            <span style="font-family: 'Montserrat', sans-serif;"> &amp; </span>
+            <span style="font-family: 'Noto Sans TC', sans-serif;">服務</span>
+          </template>
+          <template v-else>
+            {{ link.label }}
+          </template>
+        </a>
+      </template>
 
-    <!-- Right Actions -->
-    <div class="flex items-center gap-3 ml-auto md:ml-4">
+      <!-- Mobile hamburger (inside main pill) -->
       <button
-        class="w-10 h-10 hidden md:flex items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors rounded-full hover:bg-white/40"
-        aria-label="Language"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="10" />
-          <line x1="2" y1="12" x2="22" y2="12" />
-          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-        </svg>
-      </button>
-      <button
-        class="w-10 h-10 hidden md:flex items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors rounded-full hover:bg-white/40"
-        aria-label="Toggle theme"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="12" cy="12" r="4" />
-          <line x1="12" y1="1" x2="12" y2="4" />
-          <line x1="12" y1="20" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22" x2="6.34" y2="6.34" />
-          <line x1="17.66" y1="17.66" x2="19.78" y2="19.78" />
-          <line x1="1" y1="12" x2="4" y2="12" />
-          <line x1="20" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="6.34" y2="17.66" />
-          <line x1="17.66" y1="6.34" x2="19.78" y2="4.22" />
-        </svg>
-      </button>
-      <!-- Mobile hamburger -->
-      <button
-        class="w-10 h-10 flex md:hidden items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors rounded-full hover:bg-white/40"
+        class="w-10 h-10 flex md:hidden items-center justify-center text-[#616161] hover:text-[#4ECBA5] transition-colors rounded-full hover:bg-white/40 ml-auto"
         aria-label="Toggle menu"
         @click="mobileOpen = !mobileOpen"
       >
@@ -67,21 +46,37 @@
           <line x1="6" y1="18" x2="18" y2="6" />
         </svg>
       </button>
+    </nav>
+
+    <!-- Utility pill (desktop only) -->
+    <div class="hidden md:flex glass-nav rounded-full px-[60px] py-6 items-center gap-12">
+      <button
+        class="flex items-center justify-center text-[#616161] hover:text-[#4ECBA5] transition-colors"
+        aria-label="Language"
+      >
+        <Icon icon="ri:global-line" width="36" height="36" />
+      </button>
+      <button
+        class="flex items-center justify-center text-[#616161] hover:text-[#4ECBA5] transition-colors"
+        aria-label="Toggle theme"
+      >
+        <Icon icon="ci:sun" width="36" height="36" />
+      </button>
     </div>
-  </nav>
+  </div>
 
   <!-- Mobile dropdown menu -->
   <Transition name="mobile-menu">
     <div
       v-if="mobileOpen"
-      class="fixed top-20 left-1/2 -translate-x-1/2 z-40 glass-nav rounded-2xl px-8 py-6 flex flex-col gap-5 md:hidden w-[calc(100%-2rem)] max-w-sm"
+      class="fixed top-24 left-1/2 -translate-x-1/2 z-40 glass-nav rounded-2xl px-8 py-6 flex flex-col gap-5 md:hidden w-[calc(100%-2rem)] max-w-sm"
     >
       <a
         v-for="link in navLinks"
         :key="link.label"
         :href="link.href"
         class="transition-colors whitespace-nowrap"
-        :class="activeSection === link.href ? 'text-[#77e5b0]' : 'text-[#606060] hover:text-[#77e5b0]'"
+        :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#616161] hover:text-[#77e6b0]'"
         :style="{
           fontFamily: '\'Noto Sans TC\', sans-serif',
           fontSize: '20px',
@@ -96,6 +91,8 @@
 </template>
 
 <script setup lang="ts">
+import { Icon } from '@iconify/vue'
+
 const mobileOpen = ref(false)
 const activeSection = ref('#products')
 

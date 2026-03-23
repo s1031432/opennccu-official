@@ -1,20 +1,7 @@
 <template>
   <section class="relative min-h-screen flex items-center">
-    <!-- Subtle diagonal lines crossing the background -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <div
-        class="absolute w-[1px] bg-white/60"
-        style="height: 160%; top: -20%; right: 32%; transform: rotate(-32deg); transform-origin: top center;"
-      />
-      <div
-        class="absolute w-[1px] bg-white/40"
-        style="height: 160%; top: -20%; right: 28%; transform: rotate(-32deg); transform-origin: top center;"
-      />
-      <div
-        class="absolute w-[1px] bg-white/30"
-        style="height: 140%; top: -10%; left: 45%; transform: rotate(25deg); transform-origin: top center;"
-      />
-    </div>
+    <!-- Brand decorative geometric lines (right side) — per Figma -->
+    <HeroBrandDecoration />
 
     <!-- Main content -->
     <div id="hero-content" class="max-w-7xl mx-auto px-6 pt-32 pb-20 w-full relative flex items-center">
