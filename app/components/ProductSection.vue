@@ -159,7 +159,6 @@ defineProps<{
   font-family: 'Montserrat', sans-serif;
   font-size: 108px;
   font-weight: 700;
-  font-style: italic;
   color: #f0f0f0;
   text-shadow:
     4px 4px 8px rgba(0, 0, 0, 0.16),

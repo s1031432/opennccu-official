@@ -27,13 +27,13 @@
           class="leading-[50px]"
           style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #606060; letter-spacing: 1.12px;"
         >
-          我們是 <span style="font-family: 'Montserrat', sans-serif; font-weight: 300;">OpenNCCU</span>，一群熱愛開發和設計的政大學生所發起的非營利組織！
+          <span style="font-family: 'Montserrat', sans-serif; font-weight: 300;">Open NCCU</span>，一群熱愛隕石開發的工程師和設計政大學生的設計師所發起的非營利組織！
         </p>
         <p
           class="leading-[50px]"
           style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #606060; letter-spacing: 1.12px;"
         >
-          我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源，期許為校園數位化創造更多可能。
+          我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源。
         </p>
       </div>
 
@@ -50,7 +50,7 @@
           >
             <!-- Text content -->
             <div class="lg:w-1/2" :class="idx % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'">
-              <div class="py-6">
+              <div class="timeline-card rounded-[30px] p-8 lg:p-10">
                 <h3
                   class="mb-4"
                   style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
@@ -65,10 +65,16 @@
                 </p>
               </div>
             </div>
-            <!-- Image placeholder -->
+            <!-- Image -->
             <div class="lg:w-1/2" :class="idx % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'">
-              <div class="w-full h-[355px] bg-[#d9d9d9] rounded-[50px] flex items-center justify-center overflow-hidden">
-                <div class="text-center">
+              <div class="w-full h-[355px] rounded-[50px] overflow-hidden" :class="item.photo ? '' : 'bg-[#d9d9d9] flex items-center justify-center'">
+                <img
+                  v-if="item.photo"
+                  :src="item.photo"
+                  :alt="item.photoLabel"
+                  class="w-full h-full object-cover"
+                />
+                <div v-else class="text-center">
                   <svg class="w-12 h-12 mx-auto mb-3 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                     <rect x="3" y="3" width="18" height="18" rx="2" />
                     <circle cx="8.5" cy="8.5" r="1.5" />
@@ -91,28 +97,43 @@
 const timelineItems = [
   {
     year: '2020',
-    description: 'OpenNCCU，一群熱愛開發和設計的政大學生所發起的非營利組織！\n\n我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源。',
+    description: 'Open NCCU，一群熱愛隕石開發的工程師和設計政大學生的設計師所發起的非營利組織！我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源。',
     photoLabel: '創始團隊合照',
+    photo: '/assets/team-xmas.jpg',
   },
   {
     year: '2022',
     description: '推出第一款正式產品「政大課表」，整合校務系統選課資料，提供直覺化的課程查詢與排課體驗，累計千人使用。',
     photoLabel: '產品發表活動',
+    photo: '/assets/team-classroom.jpg',
   },
   {
     year: '2024',
-    description: '「政大吃什麼」上線，運用校園周邊餐廳資料幫助學生解決每日用餐選擇困難。同年團隊擴展至 20 人規模。',
+    description: '「政大吃什麼」上線，白衣男手上的黑衣男是政治大學指南校區的美食佳餚：東東，傳說只在二月三十號能捕捉到。',
     photoLabel: '團隊工作坊',
+    photo: '/assets/team-fun.jpg',
   },
   {
     year: '2025',
     description: '與職涯中心合作推出徵才月數位集點工具，當日活躍使用者突破 3,500 人，獲得校方肯定與更多合作機會。',
     photoLabel: '徵才月活動現場',
+    photo: '/assets/team-outdoor.jpg',
   },
   {
     year: '2026',
     description: '全新官網改版上線，籌備更多校園數位服務。我們相信每一個小工具，都能為政大人的校園生活帶來改變。',
     photoLabel: '新版官網設計稿',
+    photo: '/assets/team-2026.jpg',
   },
 ]
 </script>
+
+<style scoped>
+.timeline-card {
+  background: rgba(245, 245, 245, 0.8);
+  box-shadow:
+    6px 6px 16px rgba(0, 0, 0, 0.06),
+    -6px -6px 16px rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+</style>

@@ -10,6 +10,50 @@
       class="crew-sticky"
       :class="{ 'position-sticky': !isMobile }"
     >
+      <!-- Decorative mint green flowing curve (left side) per Figma -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <svg
+          class="absolute left-0 top-0 h-full"
+          style="width: 500px;"
+          viewBox="0 0 500 1000"
+          fill="none"
+          preserveAspectRatio="xMinYMid meet"
+        >
+          <!-- Main tubular curve -->
+          <path
+            d="M-60 50 C120 150, 280 250, 200 400 S-20 550, 80 700 C180 850, 300 900, 250 1000"
+            stroke="url(#crewCurveGrad)"
+            stroke-width="6"
+            stroke-linecap="round"
+            fill="none"
+            opacity="0.7"
+          />
+          <!-- Secondary thinner curve for depth -->
+          <path
+            d="M-40 80 C140 180, 300 280, 220 430 S0 580, 100 730 C200 880, 320 930, 270 1020"
+            stroke="url(#crewCurveGrad2)"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            fill="none"
+            opacity="0.4"
+          />
+          <!-- Glossy endpoint dots -->
+          <circle cx="200" cy="400" r="8" fill="#4ECBA5" opacity="0.5" />
+          <circle cx="80" cy="700" r="6" fill="#77e5b0" opacity="0.4" />
+          <defs>
+            <linearGradient id="crewCurveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#77e5b0" stop-opacity="0.8" />
+              <stop offset="50%" stop-color="#4ECBA5" stop-opacity="0.6" />
+              <stop offset="100%" stop-color="#77e5b0" stop-opacity="0.3" />
+            </linearGradient>
+            <linearGradient id="crewCurveGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#c8ede0" stop-opacity="0.6" />
+              <stop offset="100%" stop-color="#4ECBA5" stop-opacity="0.2" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
       <div class="max-w-7xl mx-auto px-6 relative h-full flex flex-col justify-center">
         <!-- Title -->
         <h2
@@ -20,7 +64,7 @@
         </h2>
 
         <!-- Desktop: scroll-animated cards -->
-        <div v-if="!isMobile" class="relative w-full" style="height: 480px;">
+        <div v-if="!isMobile" class="crew-card-area relative w-full" style="height: 480px;">
           <!-- State 1 & 2: Team group cards (3 cards) -->
           <CrewCard
             v-for="(group, i) in teamGroups"
@@ -90,18 +134,9 @@
       </div>
     </div>
 
-    <!-- JOIN US button: neumorphic circle per Figma -->
+    <!-- JOIN US anchor point (used by ScrollTrack for marble target) -->
     <div class="absolute bottom-32 max-w-7xl mx-auto left-0 right-0 px-6">
-      <a
-        id="join-us-btn"
-        href="https://www.instagram.com/open_nccu/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="join-us-circle ml-4 flex flex-col items-center justify-center"
-      >
-        <span class="join-us-text">JOIN</span>
-        <span class="join-us-text">US !</span>
-      </a>
+      <div id="join-us-btn" class="w-36 h-36 ml-4" />
     </div>
 
     <!-- Popups -->
@@ -213,38 +248,38 @@ interface CardPosition {
   opacity: number
 }
 
-// State 1: all stacked at center-right
+// State 1: all stacked at center
 const stackedPositions: CardPosition[] = [
-  { x: 380, y: 60, rotation: -4, scale: 0.95, opacity: 1 },
-  { x: 400, y: 35, rotation: 2, scale: 0.97, opacity: 1 },
-  { x: 420, y: 10, rotation: 6, scale: 1, opacity: 1 },
+  { x: 280, y: 60, rotation: -4, scale: 0.95, opacity: 1 },
+  { x: 300, y: 35, rotation: 2, scale: 0.97, opacity: 1 },
+  { x: 320, y: 10, rotation: 6, scale: 1, opacity: 1 },
 ]
 
-// State 2: 3 team group cards spread out (wider spacing)
+// State 2: 3 team group cards spread out
 const groupPositions: CardPosition[] = [
-  { x: 60, y: 120, rotation: -3, scale: 1, opacity: 1 },    // Product Team (left)
-  { x: 380, y: 10, rotation: 2, scale: 1, opacity: 1 },     // Insight Team (center)
-  { x: 680, y: 130, rotation: 4, scale: 1, opacity: 1 },    // Operation Team (right)
+  { x: 20, y: 120, rotation: -3, scale: 1, opacity: 1 },     // Product Team (left)
+  { x: 300, y: 10, rotation: 2, scale: 1, opacity: 1 },      // Insight Team (center)
+  { x: 580, y: 130, rotation: 4, scale: 1, opacity: 1 },     // Operation Team (right)
 ]
 
 // State 1 for role cards: hidden/stacked
 const roleStackedPositions: CardPosition[] = [
-  { x: 400, y: 40, rotation: -2, scale: 0.9, opacity: 0 },
-  { x: 410, y: 30, rotation: 1, scale: 0.9, opacity: 0 },
-  { x: 420, y: 20, rotation: 3, scale: 0.9, opacity: 0 },
-  { x: 390, y: 50, rotation: -1, scale: 0.9, opacity: 0 },
-  { x: 405, y: 35, rotation: 2, scale: 0.9, opacity: 0 },
-  { x: 415, y: 25, rotation: -3, scale: 0.9, opacity: 0 },
+  { x: 300, y: 40, rotation: -2, scale: 0.9, opacity: 0 },
+  { x: 310, y: 30, rotation: 1, scale: 0.9, opacity: 0 },
+  { x: 320, y: 20, rotation: 3, scale: 0.9, opacity: 0 },
+  { x: 290, y: 50, rotation: -1, scale: 0.9, opacity: 0 },
+  { x: 305, y: 35, rotation: 2, scale: 0.9, opacity: 0 },
+  { x: 315, y: 25, rotation: -3, scale: 0.9, opacity: 0 },
 ]
 
-// State 3: 6 role cards in scattered 2x3 grid (wider spacing, scaled down)
+// State 3: 6 role cards in scattered 2x3 grid
 const roleSpreadPositions: CardPosition[] = [
-  { x: 10, y: 0, rotation: -2, scale: 0.82, opacity: 1 },     // UI
-  { x: 30, y: 210, rotation: 1, scale: 0.82, opacity: 1 },    // DEV
-  { x: 310, y: -15, rotation: 3, scale: 0.82, opacity: 1 },   // UR
-  { x: 330, y: 200, rotation: -1, scale: 0.82, opacity: 1 },  // MKT
-  { x: 610, y: 5, rotation: -3, scale: 0.82, opacity: 1 },    // PM
-  { x: 630, y: 215, rotation: 2, scale: 0.82, opacity: 1 },   // PR
+  { x: 10, y: 0, rotation: -2, scale: 0.82, opacity: 1 },      // UI
+  { x: 30, y: 210, rotation: 1, scale: 0.82, opacity: 1 },     // DEV
+  { x: 270, y: -15, rotation: 3, scale: 0.82, opacity: 1 },    // UR
+  { x: 290, y: 200, rotation: -1, scale: 0.82, opacity: 1 },   // MKT
+  { x: 530, y: 5, rotation: -3, scale: 0.82, opacity: 1 },     // PM
+  { x: 550, y: 215, rotation: 2, scale: 0.82, opacity: 1 },    // PR
 ]
 
 function lerpPosition(a: CardPosition, b: CardPosition, t: number): CardPosition {
