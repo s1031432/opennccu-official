@@ -65,7 +65,7 @@
               <!-- Card content -->
               <div class="absolute left-[24px] top-[24px] w-[320px] flex flex-col gap-0.5">
                 <span
-                  class="text-[#aeaeb2]"
+                  class="text-[#6bafa3]"
                   style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px;"
                 >{{ news.date }}</span>
                 <p

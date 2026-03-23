@@ -11,6 +11,50 @@
       :class="{ 'position-sticky': !isMobile }"
     >
       <div class="max-w-7xl mx-auto px-6 relative h-full flex flex-col justify-center">
+        <!-- Decorative mint green flowing SVG curve (left side per Figma) -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+          <svg class="absolute left-0 top-0 w-full h-full" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" fill="none">
+            <defs>
+              <linearGradient id="crew-curve-grad" x1="0%" y1="0%" x2="50%" y2="100%">
+                <stop offset="0%" stop-color="#77e5b0" stop-opacity="0.8" />
+                <stop offset="50%" stop-color="#4ECBA5" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#d0d0d0" stop-opacity="0.3" />
+              </linearGradient>
+              <linearGradient id="crew-curve-highlight" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+              </linearGradient>
+              <filter id="crew-glow">
+                <feGaussianBlur stdDeviation="2.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <!-- Main thick curve (S-curve from top-left down) -->
+            <path
+              d="M80 -20 C80 120, 200 200, 160 350 S40 500, 100 620 C140 700, 60 780, 80 920"
+              stroke="url(#crew-curve-grad)"
+              stroke-width="6"
+              stroke-linecap="round"
+              fill="none"
+              filter="url(#crew-glow)"
+            />
+            <!-- Thinner highlight line (3D depth) -->
+            <path
+              d="M77 -20 C77 120, 197 200, 157 350 S37 500, 97 620 C137 700, 57 780, 77 920"
+              stroke="url(#crew-curve-highlight)"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              fill="none"
+            />
+            <!-- Glossy endpoint dots -->
+            <circle cx="160" cy="350" r="5" fill="#77e5b0" opacity="0.6" />
+            <circle cx="100" cy="620" r="4.5" fill="#4ECBA5" opacity="0.5" />
+          </svg>
+        </div>
+
         <!-- Title -->
         <h2
           class="relative z-10 mb-8 pl-0 lg:pl-0"
@@ -90,9 +134,17 @@
       </div>
     </div>
 
-    <!-- JOIN US anchor point (used by ScrollTrack for marble target) -->
-    <div class="absolute bottom-32 max-w-7xl mx-auto left-0 right-0 px-6 pointer-events-none">
-      <div id="join-us-btn" class="w-36 h-36 ml-4" />
+    <!-- JOIN US! neumorphic circle button (bottom-left per Figma) -->
+    <div class="absolute bottom-32 max-w-7xl mx-auto left-0 right-0 px-6">
+      <a
+        id="join-us-btn"
+        href="https://instagram.com/open.nccu"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="join-us-circle flex items-center justify-center ml-4"
+      >
+        <span class="join-us-text text-center">JOIN<br />US !</span>
+      </a>
     </div>
 
     <!-- Popups -->
