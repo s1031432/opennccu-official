@@ -26,3 +26,4 @@ logs
 # Figma reference images (local only)
 .figma-ref/
 figma-data.json
+.mcp.json

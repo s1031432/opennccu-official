@@ -2,6 +2,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
   modules: ['@nuxtjs/tailwindcss'],
+  devServer: {
+    port: 3010,
+  },
+  vite: {
+    server: {
+      allowedHosts: ['wtf.yth.tw'],
+    },
+  },
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
     configPath: 'tailwind.config.ts',

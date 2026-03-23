@@ -133,7 +133,7 @@
 
             <!-- ═══ Green trail: follows marble down the right arm + extension ═══ -->
             <path class="green-trail-ref" :d="marblePath"
-              stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="butt" fill="none"
+              stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" fill="none"
               :stroke-dasharray="greenTrailDash"
               :stroke-dashoffset="0"/>
 
@@ -279,17 +279,17 @@ const orbitExitSvg  = computed(() => orbitPointSvg(ORBIT_EXIT_ANGLE))
 // x values and fractional y multipliers shared between extensionPath and marblePath
 const EXT_WAYPOINTS: [number, number][] = [
   [1140,  0.008], [1125,  0.018],
-  [1100,  0.03],  [1000,  0.10],  [950,   0.18],  [900,   0.28],
-  [850,   0.36],  [750,   0.42],
-  [550,   0.48],  [500,   0.52],
-  [800,   0.54],  [1300,  0.57],
-  [800,   0.59],  [450,   0.62],
-  [800,   0.64],  [1300,  0.67],
-  [800,   0.69],  [450,   0.72],
-  [500,   0.76],  [400,   0.78],  [350,   0.795],
-  [500,   0.81],  [650,   0.82],
-  [500,   0.835], [350,   0.85],  [300,   0.87],
-  [350,   0.89],  [400,   0.91],  [300,   0.91],
+  [1100,  0.03],  [950,   0.10],  [850,   0.18],  [780,   0.28],
+  [720,   0.36],  [620,   0.42],
+  [420,   0.48],  [370,   0.52],
+  [650,   0.54],  [1100,  0.57],
+  [650,   0.59],  [320,   0.62],
+  [650,   0.64],  [1100,  0.67],
+  [650,   0.69],  [320,   0.72],
+  [370,   0.76],  [280,   0.78],  [230,   0.795],
+  [370,   0.81],  [520,   0.82],
+  [370,   0.835], [230,   0.85],  [180,   0.87],
+  [230,   0.89],  [280,   0.91],  [180,   0.91],
 ]
 
 function buildExtWaypoints(baseY: number, range: number): { x: number; y: number }[] {
@@ -527,12 +527,13 @@ function tickBounce() {
     }
   }
 
-  if (Math.abs(bounceVelY) < 4 && Math.abs(bounceVelX) < 4 &&
-      bouncePosY >= cy + bounceContainerR * 0.5) {
-    bouncePosX = cx; bouncePosY = cy + bounceContainerR - BALL_R
-    bounceX.value = bouncePosX; bounceY.value = bouncePosY
-    bounceActive = false
-    return
+  // When velocity gets low, give the ball a random kick to keep it moving
+  const speed = Math.sqrt(bounceVelX * bounceVelX + bounceVelY * bounceVelY)
+  if (speed < 15) {
+    const angle = Math.random() * Math.PI * 2
+    const kick = 40 + Math.random() * 60
+    bounceVelX += Math.cos(angle) * kick
+    bounceVelY += Math.sin(angle) * kick - 30 // bias upward
   }
 
   bounceX.value = bouncePosX

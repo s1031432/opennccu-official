@@ -18,13 +18,13 @@
         <div class="flex-shrink-0 flex flex-row md:flex-col items-center md:items-start gap-3 pt-2">
           <span
             class="inline-block border border-[#aeaeb2] text-[#606060] px-6 md:px-8 py-2 md:py-3 rounded-full"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 400;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
           >
             最新消息
           </span>
           <span
             class="text-[#aeaeb2] md:mt-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 400;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
           >
             新聞報導
           </span>

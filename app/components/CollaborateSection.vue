@@ -16,7 +16,7 @@
       <!-- Section title -->
       <h2
         class="text-center mb-16"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #4ECBA5;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060;"
       >
         與我們合作
       </h2>

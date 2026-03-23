@@ -1,52 +1,23 @@
 <template>
-  <footer id="contact" class="relative z-20 bg-[#3d3d3d]/95 backdrop-blur-sm pt-16 pb-8">
+  <footer id="contact" class="relative z-20 bg-[#3d3d3d] py-10">
     <div class="max-w-6xl mx-auto px-6">
-      <!-- Contact CTA -->
-      <div class="text-center mb-16">
-        <h2
-          class="mb-4"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 36px; font-weight: 300; color: #ffffff;"
-        >
-          想與我們聯絡？
-        </h2>
-        <p
-          class="mb-8 max-w-lg mx-auto"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.6);"
-        >
-          無論是合作提案、功能建議，或是想加入我們的團隊，都歡迎透過以下方式聯繫！
-        </p>
-        <a
-          href="mailto:opennccu@gmail.com"
-          class="inline-flex items-center gap-2 bg-[#4ECBA5] text-white rounded-full px-8 py-3 text-base font-medium hover:bg-[#3AB890] transition-colors"
-          style="font-family: 'Noto Sans TC', sans-serif;"
-        >
-          <Icon icon="mdi:email-outline" width="20" height="20" />
-          寄信給我們
-        </a>
-      </div>
-
-      <div class="w-full h-[1px] bg-white/10 mb-12"></div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 items-start">
         <!-- Column 1: Logo & Copyright -->
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-3">
           <div class="flex items-center gap-3">
             <img src="/logo.png" alt="Open NCCU Logo" class="w-10 h-10 object-contain" />
-            <span class="text-xl font-semibold text-[#4ECBA5]" style="font-family: 'Montserrat', sans-serif;">
+            <span style="font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 600; color: #4ECBA5;">
               Open NCCU
             </span>
           </div>
-          <p class="text-sm text-white/50 mt-2" style="font-family: 'Noto Sans TC', sans-serif;">
-            政大學生設計，設計給政大學生
-          </p>
-          <p class="text-sm text-[#f0f0f0] mt-1" style="font-family: 'Outfit', sans-serif;">
+          <p style="font-family: 'Outfit', sans-serif; font-size: 14px; color: #f0f0f0; margin-top: 8px;">
             &copy; 2026 Copyright. All Right Reserved.
           </p>
         </div>
 
         <!-- Column 2: Community -->
         <div>
-          <h4 class="text-lg font-medium text-white mb-5 tracking-wide" style="font-family: 'Outfit', sans-serif;">
+          <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; margin-bottom: 16px; letter-spacing: 0.05em;">
             COMMUNITY
           </h4>
           <div class="flex items-center gap-5 flex-wrap">
@@ -61,7 +32,7 @@
 
         <!-- Column 3: Resource -->
         <div>
-          <h4 class="text-lg font-medium text-white mb-5 tracking-wide" style="font-family: 'Outfit', sans-serif;">
+          <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; margin-bottom: 16px; letter-spacing: 0.05em;">
             RESOURCE
           </h4>
           <div class="flex items-center gap-5">
@@ -76,12 +47,12 @@
 
         <!-- Column 4: Report -->
         <div>
-          <h4 class="text-lg font-medium text-white mb-5 tracking-wide" style="font-family: 'Outfit', sans-serif;">
+          <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; margin-bottom: 16px; letter-spacing: 0.05em;">
             REPORT
           </h4>
           <a href="mailto:opennccu@gmail.com"
-            class="inline-flex items-center gap-2 border border-white/40 text-white/80 text-sm px-5 py-2.5 rounded-full hover:bg-white/10 hover:border-[#4ECBA5] hover:text-[#4ECBA5] transition-all"
-            style="font-family: 'Noto Sans TC', sans-serif;">
+            class="inline-flex items-center gap-2 border border-white/40 text-white/80 rounded-full hover:bg-white/10 hover:border-[#4ECBA5] hover:text-[#4ECBA5] transition-all"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; padding: 8px 20px;">
             問題回報表單
             <Icon icon="lucide:arrow-up-right" width="14" height="14" />
           </a>
