@@ -96,13 +96,14 @@
             </div>
           </div>
 
-          <!-- CTA Circle Button (between phones) per Figma -->
-          <div class="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 z-30">
+          <!-- CTA Circle Button (between phones) per Figma — green arrow + 點擊 label -->
+          <div class="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-2">
             <div class="cta-circle w-[140px] h-[140px] md:w-[180px] md:h-[180px] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="opacity-80">
                 <path d="M12 20H28M28 20L21 13M28 20L21 27" stroke="#4ECBA5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
+            <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 400; color: #aeaeb2; letter-spacing: 2px;">點擊</span>
           </div>
 
           <!-- Phone 2 (front, slightly tilted other way) -->
@@ -154,20 +155,48 @@
             </div>
           </div>
 
-          <!-- Top right glass ball (weather) -->
+          <!-- Top right glass ball (weather — 3D cloud with sun & rain per Figma) -->
           <div class="glass-ball absolute -right-4 top-[40%] w-[200px] h-[200px]">
             <div class="glass-ball-inner rounded-full w-full h-full flex items-center justify-center overflow-hidden">
-              <div class="rotate-[11deg] text-center">
-                <span class="text-3xl">🌧</span>
-                <div class="text-xs text-gray-400 mt-1">☁️ 🌤</div>
+              <div class="rotate-[11deg]">
+                <svg width="80" height="70" viewBox="0 0 80 70" fill="none">
+                  <!-- Sun peeking -->
+                  <circle cx="58" cy="20" r="12" fill="#FFD93D" opacity="0.8" />
+                  <circle cx="58" cy="20" r="8" fill="#FFE066" />
+                  <!-- Cloud body -->
+                  <ellipse cx="38" cy="32" rx="24" ry="14" fill="white" opacity="0.9" />
+                  <ellipse cx="30" cy="34" rx="16" ry="12" fill="#e8e8e8" opacity="0.6" />
+                  <ellipse cx="46" cy="30" rx="14" ry="10" fill="white" opacity="0.95" />
+                  <!-- Rain drops -->
+                  <line x1="28" y1="48" x2="25" y2="58" stroke="#7EC8E3" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+                  <line x1="36" y1="48" x2="33" y2="60" stroke="#7EC8E3" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+                  <line x1="44" y1="47" x2="41" y2="56" stroke="#7EC8E3" stroke-width="2" stroke-linecap="round" opacity="0.5" />
+                </svg>
               </div>
             </div>
           </div>
 
-          <!-- Bottom right glass ball (mahjong) -->
+          <!-- Bottom right glass ball (directional signpost with 北/南 per Figma) -->
           <div class="glass-ball absolute right-[15%] -bottom-4 w-[200px] h-[200px]">
             <div class="glass-ball-inner rounded-full w-full h-full flex items-center justify-center overflow-hidden">
-              <span class="text-4xl rotate-[-14deg]">🀄</span>
+              <div class="rotate-[-14deg]">
+                <svg width="70" height="90" viewBox="0 0 70 90" fill="none">
+                  <!-- Pole -->
+                  <rect x="33" y="10" width="4" height="70" rx="2" fill="#b0b0b0" />
+                  <!-- Top sign (北) pointing right -->
+                  <g>
+                    <path d="M37 18 L60 18 L65 25 L60 32 L37 32 Z" fill="#4ECBA5" rx="3" />
+                    <text x="48" y="28" text-anchor="middle" fill="white" font-family="'Noto Sans TC', sans-serif" font-size="11" font-weight="500">北</text>
+                  </g>
+                  <!-- Bottom sign (南) pointing left -->
+                  <g>
+                    <path d="M33 40 L10 40 L5 47 L10 54 L33 54 Z" fill="#77e5b0" rx="3" />
+                    <text x="20" y="50" text-anchor="middle" fill="white" font-family="'Noto Sans TC', sans-serif" font-size="11" font-weight="500">南</text>
+                  </g>
+                  <!-- Base -->
+                  <ellipse cx="35" cy="82" rx="12" ry="4" fill="#d0d0d0" opacity="0.6" />
+                </svg>
+              </div>
             </div>
           </div>
         </div>

@@ -1,18 +1,18 @@
 <template>
   <section class="relative py-6 overflow-hidden">
-    <!-- Subtle diagonal decorative lines per Figma -->
+    <!-- Diagonal decorative bands per Figma (large subtle stripes, not thin lines) -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div
-        class="absolute w-[1px] bg-white/40"
-        style="height: 200%; top: -30%; right: 20%; transform: rotate(-32deg); transform-origin: top center;"
+        class="absolute bg-white/25"
+        style="width: 80px; height: 250%; top: -40%; right: 15%; transform: rotate(-32deg); transform-origin: top center;"
       />
       <div
-        class="absolute w-[1px] bg-white/30"
-        style="height: 200%; top: -30%; right: 40%; transform: rotate(-32deg); transform-origin: top center;"
+        class="absolute bg-white/18"
+        style="width: 60px; height: 250%; top: -40%; right: 38%; transform: rotate(-32deg); transform-origin: top center;"
       />
       <div
-        class="absolute w-[1px] bg-white/20"
-        style="height: 200%; top: -30%; right: 60%; transform: rotate(-32deg); transform-origin: top center;"
+        class="absolute bg-white/12"
+        style="width: 50px; height: 250%; top: -40%; right: 58%; transform: rotate(-32deg); transform-origin: top center;"
       />
     </div>
 
