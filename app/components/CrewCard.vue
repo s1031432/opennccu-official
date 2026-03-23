@@ -113,10 +113,17 @@ defineEmits<{
   width: 312px;
   height: 268px;
   border-radius: 50px;
-  background: rgba(250, 250, 250, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: linear-gradient(
+    135deg,
+    rgba(168, 230, 207, 0.18) 0%,
+    rgba(255, 255, 255, 0.35) 40%,
+    rgba(184, 212, 232, 0.15) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.04),
+    0 4px 24px rgba(0, 0, 0, 0.06),
     0 1px 3px rgba(0, 0, 0, 0.03),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
   overflow: hidden;
@@ -127,9 +134,9 @@ defineEmits<{
 
 .crew-card:hover {
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.08),
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .crew-card-blob {

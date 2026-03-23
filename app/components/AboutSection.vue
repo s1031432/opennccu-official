@@ -138,10 +138,10 @@ const timelineItems = [
 
 <style scoped>
 .timeline-card {
-  background: rgba(245, 245, 245, 0.8);
+  background: rgba(215, 215, 215, 0.4);
   box-shadow:
-    6px 6px 16px rgba(0, 0, 0, 0.06),
-    -6px -6px 16px rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  border: none;
+  border-radius: 24px;
 }
 </style>
