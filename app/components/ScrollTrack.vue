@@ -31,7 +31,7 @@
               values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/>
             <feBlend in2="shape"/>
           </filter>
-          <!-- Neumorphic groove: green -->
+          <!-- Neumorphic groove: green (for trail) -->
           <filter id="neGreen" x="-10%" y="-10%" width="130%" height="130%"
             filterUnits="objectBoundingBox" color-interpolation-filters="sRGB">
             <feFlood flood-opacity="0" result="bg"/>
@@ -116,20 +116,6 @@
             <path :d="extensionPath"
               stroke="#F0F0F0" stroke-width="30" stroke-linecap="round" fill="none"
               style="filter: drop-shadow(4px 4px 5px rgba(0,0,0,0.06)) drop-shadow(-3px -3px 4px rgba(255,255,255,0.8))"/>
-
-            <!-- ═══ Layer 2: Green overlays ═══ -->
-            <g filter="url(#neGreen)">
-              <path d="M1171 222.5L907.404 740.124C900.408 753.863 901.93 770.4 911.317 782.63L1060.5 977"
-                stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            </g>
-            <g filter="url(#neGreen)">
-              <path d="M1171 328L1318.6 519.579C1328.1 531.909 1329.58 548.63 1322.4 562.441L1090 1009.5"
-                stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" fill="none"/>
-            </g>
-            <g filter="url(#neGreen)">
-              <path d="M1419.5 1100L1267.33 899.224C1257.97 886.879 1256.58 870.241 1263.77 856.516L1375.5 643C1393.17 617.333 1442.63 571.5 1500 571.5C1549 571.5 1583.5 590.5 1599 602.5C1612.17 612.694 1635 633 1651 673.5"
-                stroke="#77E6B0" stroke-opacity="0.35" stroke-width="30" stroke-linecap="round" fill="none"/>
-            </g>
 
             <!-- ═══ Green trail: follows marble down the right arm + extension ═══ -->
             <path class="green-trail-ref" :d="marblePath"
@@ -278,18 +264,18 @@ const orbitExitSvg  = computed(() => orbitPointSvg(ORBIT_EXIT_ANGLE))
 // ── Shared extension waypoint data ──────────────────────────────────────────
 // x values and fractional y multipliers shared between extensionPath and marblePath
 const EXT_WAYPOINTS: [number, number][] = [
-  [1140,  0.008], [1125,  0.018],
-  [1100,  0.03],  [950,   0.10],  [850,   0.18],  [780,   0.28],
-  [720,   0.36],  [620,   0.42],
-  [420,   0.48],  [370,   0.52],
-  [650,   0.54],  [1100,  0.57],
-  [650,   0.59],  [320,   0.62],
-  [650,   0.64],  [1100,  0.67],
-  [650,   0.69],  [320,   0.72],
-  [370,   0.76],  [280,   0.78],  [230,   0.795],
-  [370,   0.81],  [520,   0.82],
-  [370,   0.835], [230,   0.85],  [180,   0.87],
-  [230,   0.89],  [280,   0.91],  [180,   0.91],
+  [1040,  0.008], [1025,  0.018],
+  [1000,  0.03],  [850,   0.10],  [750,   0.18],  [680,   0.28],
+  [620,   0.36],  [520,   0.42],
+  [320,   0.48],  [270,   0.52],
+  [550,   0.54],  [1000,  0.57],
+  [550,   0.59],  [220,   0.62],
+  [550,   0.64],  [1000,  0.67],
+  [550,   0.69],  [220,   0.72],
+  [270,   0.76],  [180,   0.78],  [130,   0.795],
+  [270,   0.81],  [420,   0.82],
+  [270,   0.835], [130,   0.85],  [80,    0.87],
+  [130,   0.89],  [180,   0.91],  [80,    0.91],
 ]
 
 function buildExtWaypoints(baseY: number, range: number): { x: number; y: number }[] {

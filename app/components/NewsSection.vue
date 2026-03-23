@@ -53,29 +53,29 @@
               :rel="news.url ? 'noopener noreferrer' : undefined"
               class="news-card rounded-[20px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all hover:-translate-y-1 relative block no-underline rotate-[2deg]"
             >
+              <!-- New badge (top right) -->
+              <div v-if="news.isNew" class="absolute right-[20px] top-[18px]">
+                <div class="new-badge rounded-[8px] px-3 py-1 flex items-center justify-center">
+                  <span
+                    class="text-white"
+                    style="font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 0.72px;"
+                  >New</span>
+                </div>
+              </div>
               <!-- Card content -->
-              <div class="absolute left-[32px] top-[63px] w-[329px] flex flex-col gap-1">
+              <div class="absolute left-[32px] top-[40px] w-[380px] flex flex-col gap-1">
                 <span
                   class="text-[#aeaeb2]"
                   style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px;"
                 >{{ news.date }}</span>
                 <p
-                  class="text-[#3e3e3e] font-black"
+                  class="text-[#3e3e3e] font-black line-clamp-1"
                   style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; letter-spacing: 2.4px;"
                 >{{ news.title }}</p>
                 <p
-                  class="text-[#aeaeb2]"
-                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1.2px;"
+                  class="text-[#aeaeb2] mt-1 line-clamp-2"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 1.2px; line-height: 1.6;"
                 >{{ news.description }}</p>
-              </div>
-              <!-- New badge -->
-              <div v-if="news.isNew" class="absolute right-[80px] top-[20px] flex flex-col items-center">
-                <div class="new-badge rounded-[10px] w-[64px] h-[37px] flex items-center justify-center">
-                  <span
-                    class="text-white"
-                    style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0.72px;"
-                  >New</span>
-                </div>
               </div>
             </a>
           </div>
@@ -100,6 +100,7 @@ const newsItems = [
 const pressItems = [
   { id: 101, date: '2024.08.30', isNew: false, title: '學生自發打造 OPEN NCCU APP　創造政大人專屬的數位體驗', description: '廣電系學生范愷祐領導的 Open NCCU 團隊，開發專為政大學生設計的應用程式，已累積 4,530 名用戶。', url: 'https://www.nccu.edu.tw/p/406-1000-17528,r17.php?Lang=zh-tw' },
   { id: 102, date: '2024.01.01', isNew: false, title: 'Dcard — Open NCCU 相關討論', description: '政大學生在 Dcard 上討論 Open NCCU 的使用心得與功能建議。', url: 'https://www.dcard.tw/f/nccu/p/260990796' },
+  { id: 103, date: '2026.03.20', isNew: true, title: '范愷祐獲選「亞太區 30 Under 30 校園科技領袖」', description: '政大廣電系范愷祐以 Open NCCU 專案入選富比士亞太區校園科技領袖榜單，評審讚譽其「以一己之力重新定義校園數位基礎建設」，據傳矽谷三家獨角獸已開出天價 offer。', url: null },
 ]
 
 const activeItems = computed(() =>
@@ -117,13 +118,13 @@ const activeItems = computed(() =>
 }
 
 .news-card {
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.7) 20%, rgba(255, 255, 255, 0) 89%);
-  border: 3.4px solid rgba(255, 255, 255, 0.8);
-  box-shadow: -17px 21px 52px 0px rgba(42, 80, 121, 0.1);
+  background: linear-gradient(165deg, rgba(255, 255, 255, 0.85) 20%, rgba(245, 245, 245, 0.6) 89%);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
 }
 
 .news-card:hover {
-  box-shadow: -17px 21px 52px 0px rgba(42, 80, 121, 0.15);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }
 

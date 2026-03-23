@@ -1,5 +1,13 @@
 <template>
   <section id="collaborate" class="relative py-24 overflow-hidden">
+    <!-- Collaboration Detail overlay -->
+    <Transition name="detail-fade">
+      <div v-if="showDetail" class="relative z-20">
+        <CollaborationDetailCard @back="showDetail = false" />
+      </div>
+    </Transition>
+
+    <div v-show="!showDetail">
     <!-- Decorative organic curve -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div
@@ -41,9 +49,9 @@
             >
               職涯中心與OpenNCCU 合作推出的「數位集點工具」，將學生的參與紀錄與問卷回饋集中化管理，協助學生隨時掌握積點進度與線上兌獎，獲得更直覺的抽獎參與體驗。
             </p>
-            <a
-              href="#"
+            <button
               class="cta-btn inline-flex items-center gap-2 rounded-full px-8 py-4 w-fit"
+              @click="showDetail = true"
             >
               <span
                 class="text-white"
@@ -52,7 +60,7 @@
               <svg width="32" height="32" viewBox="0 0 32 32" fill="none" class="-rotate-90">
                 <path d="M16 6L16 26M16 6L8 14M16 6L24 14" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-            </a>
+            </button>
           </div>
 
           <!-- Right: mockup images -->
@@ -126,31 +134,42 @@
           <div
             v-for="partner in partners"
             :key="partner.name"
-            class="partner-circle relative w-[120px] h-[120px] flex items-center justify-center"
+            class="partner-item flex flex-col items-center gap-3 group cursor-pointer"
           >
-            <div class="partner-bg absolute inset-0 rounded-full" />
-            <img
-              :src="partner.logo"
-              :alt="partner.name"
-              class="relative z-10 w-[96px] h-[96px] object-contain rounded-full"
-              :class="partner.opacity ? `opacity-${partner.opacity}` : ''"
-              :style="partner.opacity ? `opacity: ${partner.opacity / 100}` : ''"
-            />
+            <div class="partner-circle relative w-[120px] h-[120px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <div class="partner-bg absolute inset-0 rounded-full group-hover:shadow-lg transition-shadow duration-300" />
+              <img
+                :src="partner.logo"
+                :alt="partner.name"
+                class="relative z-10 w-[96px] h-[96px] object-contain rounded-full group-hover:opacity-100 transition-opacity duration-300"
+                :style="partner.opacity ? `opacity: ${partner.opacity / 100}` : ''"
+              />
+            </div>
+            <span
+              class="text-[#aeaeb2] group-hover:text-[#606060] transition-colors duration-300"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 300; letter-spacing: 1px;"
+            >
+              {{ partner.name }}
+            </span>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
+
+const showDetail = ref(false)
 const partners = [
-  { name: 'NCCU Pass', logo: '/assets/partner-nccupass.png' },
+  { name: '政大通', logo: '/assets/partner-nccupass.png' },
   { name: 'InternX', logo: '/assets/partner-internx.png', opacity: 45 },
   { name: '政大考古題交流', logo: '/assets/partner-exam.png', opacity: 70 },
   { name: 'GDG', logo: '/assets/partner-gdg.png' },
-  { name: 'NCCU SA', logo: '/assets/partner-nccusa.png', opacity: 50 },
-  { name: '政大校友會', logo: '/assets/partner-sc.png', opacity: 70 },
+  { name: '政大學生會', logo: '/assets/partner-nccusa.png', opacity: 50 },
+  { name: '政大學生議會', logo: '/assets/partner-sc.png', opacity: 70 },
 ]
 </script>
 
@@ -196,6 +215,21 @@ const partners = [
 
 .pagination-dot {
   box-shadow: inset 0px 2.3px 2.3px 0px rgba(0, 0, 0, 0.1);
+}
+
+.detail-fade-enter-active,
+.detail-fade-leave-active {
+  transition: all 0.4s ease;
+}
+
+.detail-fade-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.detail-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
 }
 
 .partner-bg {

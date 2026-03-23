@@ -4,6 +4,7 @@
     <HeroSection :scroll-y="scrollY" />
     <NewsSection />
     <ProductSection :scroll-y="scrollY" />
+    <ProductServiceSection />
     <CollaborateSection />
     <AboutSection />
     <CrewSection />

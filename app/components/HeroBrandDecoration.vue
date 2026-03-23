@@ -73,29 +73,6 @@
         </filter>
       </defs>
 
-      <!-- Line 9: Diagonal embossed gray line (background crease) -->
-      <g filter="url(#hero-line-shadow)">
-        <path
-          d="M1291.5 -14.9999L907.389 740.131C900.401 753.867 901.927 770.395 911.31 782.62L1060.5 977"
-          stroke="#F0F0F0"
-          stroke-width="32"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </g>
-
-      <!-- Line 11: Mint green overlay on Line 9 -->
-      <g filter="url(#hero-line-shadow)">
-        <path
-          d="M1171 222.5L907.404 740.124C900.408 753.863 901.93 770.4 911.317 782.63L1060.5 977"
-          stroke="#77E6B0"
-          stroke-opacity="0.35"
-          stroke-width="32"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </g>
-
       <!-- Line 10: Second embossed gray line -->
       <g filter="url(#hero-line-shadow)">
         <path

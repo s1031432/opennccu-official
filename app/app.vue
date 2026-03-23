@@ -3,7 +3,8 @@
     <!-- Loading overlay: hides once JS removes it -->
     <div id="loading-overlay" class="loading-overlay">
       <div class="loading-content">
-        <img src="/logo.png" alt="Open NCCU" class="loading-logo" />
+        <img src="/assets/logo-grayscale.svg" alt="Open NCCU" class="loading-logo" />
+        <p class="loading-text">loading</p>
       </div>
     </div>
 
@@ -49,14 +50,16 @@ if (import.meta.client) {
 }
 
 .loading-logo {
-  width: 64px;
-  height: 64px;
-  animation: loading-pulse 1.5s ease-in-out infinite;
+  width: 100px;
+  height: 100px;
+  padding: 8px;
+  margin-bottom: 8px;
 }
 
-@keyframes loading-pulse {
-  0%, 100% { opacity: 0.4; transform: scale(0.95); }
-  50% { opacity: 1; transform: scale(1); }
+.loading-text {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  color: #aeaeb2;
 }
 
 .loading-fade-leave-active {

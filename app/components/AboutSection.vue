@@ -67,7 +67,7 @@
             </div>
             <!-- Image -->
             <div class="lg:w-1/2" :class="idx % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'">
-              <div class="w-full h-[355px] rounded-[50px] overflow-hidden" :class="item.photo ? '' : 'bg-[#d9d9d9] flex items-center justify-center'">
+              <div class="w-full h-[355px] rounded-[30px] overflow-hidden" :class="item.photo ? '' : 'bg-[#d9d9d9] flex items-center justify-center'">
                 <img
                   v-if="item.photo"
                   :src="item.photo"
@@ -109,7 +109,7 @@ const timelineItems = [
   },
   {
     year: '2024',
-    description: '「政大吃什麼」上線，白衣男手上的黑衣男是政治大學指南校區的美食佳餚：東東，傳說只在二月三十號能捕捉到。',
+    description: '「政大吃什麼」上線，白衣男手上的黑衣男是政治大學指南校區的美食佳餚：東東，傳說只能在每年的二月三十號能捕捉到，還不知道要吃什麼嗎？那就來吃東東！',
     photoLabel: '團隊工作坊',
     photo: '/assets/team-fun.jpg',
   },

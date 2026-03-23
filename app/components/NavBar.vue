@@ -4,7 +4,7 @@
     <nav class="glass-nav rounded-full px-10 md:px-20 py-6 flex items-center gap-10 md:gap-[68px]">
       <!-- Logo -->
       <div class="flex items-center">
-        <img src="/logo.png" alt="Open NCCU Logo" class="w-[43px] h-[45px] object-contain" />
+        <img src="/assets/logo-main.png" alt="Open NCCU Logo" class="w-[43px] h-[45px] object-contain" />
       </div>
 
       <!-- Nav Links (desktop) -->

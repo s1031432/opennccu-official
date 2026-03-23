@@ -4,7 +4,7 @@
       <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[224px] justify-center">
         <!-- Logo & Copyright -->
         <div class="flex flex-col gap-2 shrink-0">
-          <img src="/assets/logo-white.png" alt="Open NCCU" class="h-[47px] w-auto object-contain object-left" />
+          <img src="/assets/logo-with-title.svg" alt="Open NCCU" class="h-[47px] w-auto object-contain object-left brightness-0 invert" />
           <p style="font-family: 'Outfit', sans-serif; font-size: 14px; color: #f0f0f0;">
             &copy; 2026 Copyright. All Right Reserved.
           </p>
@@ -47,7 +47,7 @@
             <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
               REPORT
             </h4>
-            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1 bg-white rounded-full px-4 py-1.5 hover:shadow-lg transition-all">
+            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1 bg-white rounded-xl px-4 py-2 hover:shadow-lg transition-all whitespace-nowrap">
               <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3d3d3d;">
                 問題回報表單
               </span>
@@ -73,7 +73,7 @@ const social = [
 ]
 
 const resources = [
-  { label: 'GitHub',        href: 'https://github.com/opennccu', icon: 'mdi:github' },
+  { label: 'GitHub', href: 'https://github.com/opennccu', icon: 'mdi:github' },
   { label: 'News', href: 'https://docs.opennccu.com', icon: 'fluent:news-20-filled' },
 ]
 </script>
