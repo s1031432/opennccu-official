@@ -26,7 +26,7 @@
             @click="activeTab = 'news'"
           >
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 400;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
               :style="{ color: activeTab === 'news' ? '#606060' : '#aeaeb2' }"
             >最新消息</span>
           </button>
@@ -36,7 +36,7 @@
             @click="activeTab = 'press'"
           >
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 400;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
               :style="{ color: activeTab === 'press' ? '#606060' : '#aeaeb2' }"
             >新聞報導</span>
           </button>
@@ -51,7 +51,7 @@
               :href="news.url || '#'"
               :target="news.url ? '_blank' : undefined"
               :rel="news.url ? 'noopener noreferrer' : undefined"
-              class="news-card rounded-[16px] w-[400px] h-[160px] flex-shrink-0 cursor-pointer transition-all hover:-translate-y-1 relative block no-underline"
+              class="news-card rounded-[16px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all hover:-translate-y-1 relative block no-underline rotate-[2deg]"
             >
               <!-- New badge (top right) -->
               <div v-if="news.isNew" class="absolute right-[16px] top-[28px]">
@@ -100,7 +100,7 @@ const newsItems = [
 const pressItems = [
   { id: 101, date: '2024.08.30', isNew: false, title: '學生自發打造 OPEN NCCU APP　創造政大人專屬的數位體驗', description: '廣電系學生范愷祐領導的 Open NCCU 團隊，開發專為政大學生設計的應用程式，已累積 4,530 名用戶。', url: 'https://www.nccu.edu.tw/p/406-1000-17528,r17.php?Lang=zh-tw' },
   { id: 102, date: '2024.01.01', isNew: false, title: 'Dcard — Open NCCU 相關討論', description: '政大學生在 Dcard 上討論 Open NCCU 的使用心得與功能建議。', url: 'https://www.dcard.tw/f/nccu/p/260990796' },
-  { id: 103, date: '2026.03.20', isNew: true, title: '范愷祐獲選「亞太區 30 Under 30 校園科技領袖」', description: '政大廣電系范愷祐以 Open NCCU 專案入選富比士亞太區校園科技領袖榜單，評審讚譽其「以一己之力重新定義校園數位基礎建設」，據傳矽谷三家獨角獸已開出天價 offer。', url: null },
+  { id: 103, date: '2025.09.15', isNew: false, title: 'Open NCCU 累計用戶突破 4,500 人', description: 'Open NCCU 服務累計使用者突破 4,500 人，涵蓋課表查詢、校園美食推薦等多項實用功能。', url: null },
 ]
 
 const activeItems = computed(() =>

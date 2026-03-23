@@ -102,7 +102,7 @@
 const timelineItems = [
   {
     year: '2020',
-    description: 'Open NCCU，一群熱愛隕石開發的工程師和設計政大學生的設計師所發起的非營利組織！我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源。',
+    description: 'OpenNCCU，一群熱愛開發和設計的政大學生所發起的非營利組織！我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源。',
     photoLabel: '創始團隊合照',
     photo: '/assets/team-xmas.jpg',
   },
@@ -114,7 +114,7 @@ const timelineItems = [
   },
   {
     year: '2024',
-    description: '「政大吃什麼」上線，白衣男手上的黑衣男是政治大學指南校區的美食佳餚：東東，傳說只能在每年的二月三十號能捕捉到，還不知道要吃什麼嗎？那就來吃東東！',
+    description: '「政大吃什麼」正式上線，幫助政大學生解決每天的用餐選擇困難，整合校園周邊餐廳資訊，提供隨機推薦與評價功能。',
     photoLabel: '團隊工作坊',
     photo: '/assets/team-fun.jpg',
   },
