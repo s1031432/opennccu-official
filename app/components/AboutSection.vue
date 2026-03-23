@@ -22,19 +22,24 @@
       </h2>
 
       <!-- Description -->
-      <div class="text-center max-w-5xl mx-auto mb-24">
+      <div class="text-center max-w-5xl mx-auto mb-12">
         <p
           class="leading-[50px]"
           style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #606060; letter-spacing: 1.12px;"
         >
-          <span style="font-family: 'Montserrat', sans-serif; font-weight: 300;">Open NCCU</span>，一群熱愛隕石開發的工程師和設計政大學生的設計師所發起的非營利組織！
+          我們是 <span style="font-family: 'Montserrat', sans-serif; font-weight: 300;">OpenNCCU</span>，一群熱愛開發和設計的政大學生所發起的非營利組織！
         </p>
         <p
           class="leading-[50px]"
           style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #606060; letter-spacing: 1.12px;"
         >
-          我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源。
+          我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源，期許為校園數位化創造更多可能。
         </p>
+      </div>
+
+      <!-- Separator line per Figma -->
+      <div class="max-w-5xl mx-auto mb-24">
+        <hr class="border-t border-[#d9d9d9]" />
       </div>
 
       <!-- Timeline -->

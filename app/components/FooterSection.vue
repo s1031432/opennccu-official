@@ -47,11 +47,11 @@
             <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
               REPORT
             </h4>
-            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1 bg-white rounded-xl px-4 py-2 hover:shadow-lg transition-all whitespace-nowrap">
-              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3d3d3d;">
+            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1 border border-white rounded-full px-5 py-2.5 hover:bg-white/10 transition-all whitespace-nowrap">
+              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #ffffff;">
                 問題回報表單
               </span>
-              <Icon icon="tabler:arrow-up" width="20" height="20" class="text-[#3d3d3d] rotate-45" />
+              <Icon icon="tabler:arrow-up" width="18" height="18" class="text-white rotate-45" />
             </a>
           </div>
         </div>
@@ -80,9 +80,6 @@ const resources = [
 
 <style scoped>
 .report-btn {
-  box-shadow:
-    0px 0px 5.2px 0px rgba(218, 218, 218, 0.7),
-    0px 0px 17px 0px rgba(0, 0, 0, 0.1),
-    inset 0px -1.3px 6.5px 0px rgba(209, 209, 209, 0.2);
+  background: transparent;
 }
 </style>
