@@ -4,7 +4,7 @@
       <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[224px] justify-center">
         <!-- Logo & Copyright -->
         <div class="flex flex-col gap-2 shrink-0">
-          <img src="/assets/logo-with-title.svg" alt="Open NCCU" class="h-[47px] w-auto object-contain object-left brightness-0 invert" />
+          <img src="/assets/logo-with-title.svg" alt="Open NCCU" class="h-[47px] w-auto object-contain object-left" />
           <p style="font-family: 'Outfit', sans-serif; font-size: 14px; color: #f0f0f0;">
             &copy; 2026 Copyright. All Right Reserved.
           </p>

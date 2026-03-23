@@ -69,7 +69,7 @@
                   style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px;"
                 >{{ news.date }}</span>
                 <p
-                  class="text-[#3e3e3e] font-black line-clamp-1"
+                  class="text-[#3e3e3e] font-bold line-clamp-1"
                   style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; letter-spacing: 2.4px;"
                 >{{ news.title }}</p>
                 <p
