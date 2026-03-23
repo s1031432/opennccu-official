@@ -11,11 +11,6 @@
       :class="{ 'position-sticky': !isMobile }"
     >
       <div class="max-w-7xl mx-auto px-6 relative h-full flex flex-col justify-center">
-        <!-- DEBUG -->
-        <div class="fixed bottom-4 left-4 z-[9999] bg-black/80 text-green-400 px-4 py-2 rounded-lg text-sm font-mono">
-          {{ smoothProgress.toFixed(3) }}
-        </div>
-
         <!-- Title -->
         <h2
           class="relative z-10 mb-8 pl-4 lg:pl-16"

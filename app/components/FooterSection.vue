@@ -47,11 +47,11 @@
             <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
               REPORT
             </h4>
-            <a href="mailto:opennccu@gmail.com" class="report-btn inline-flex items-center gap-1 bg-white rounded-full px-4 py-1.5 hover:shadow-lg transition-all">
-              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3e3e3e;">
+            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1 bg-white rounded-full px-4 py-1.5 hover:shadow-lg transition-all">
+              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3d3d3d;">
                 問題回報表單
               </span>
-              <Icon icon="tabler:arrow-up" width="20" height="20" class="text-[#3e3e3e] rotate-45" />
+              <Icon icon="tabler:arrow-up" width="20" height="20" class="text-[#3d3d3d] rotate-45" />
             </a>
           </div>
         </div>
@@ -64,12 +64,12 @@
 import { Icon } from '@iconify/vue'
 
 const social = [
-  { label: 'Instagram', href: 'https://www.instagram.com/open_nccu/', icon: 'mdi:instagram' },
-  { label: 'Threads',   href: 'https://www.threads.net/@open_nccu', icon: 'mingcute:threads-line' },
-  { label: 'Facebook',  href: 'https://www.facebook.com/opennccu', icon: 'ic:baseline-facebook' },
+  { label: 'Instagram', href: 'https://instagram.com/open.nccu', icon: 'mdi:instagram' },
+  { label: 'Threads',   href: 'https://www.threads.com/@open.nccu', icon: 'mingcute:threads-line' },
+  { label: 'Facebook',  href: 'https://www.facebook.com/open.nccu/', icon: 'ic:baseline-facebook' },
   { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/opennccu', icon: 'mdi:linkedin' },
-  { label: 'Discord',   href: 'https://discord.gg/opennccu', icon: 'ic:baseline-discord' },
-  { label: 'Email',     href: 'mailto:opennccu@gmail.com', icon: 'material-symbols:mail-rounded' },
+  { label: 'Discord',   href: 'https://discord.com/invite/epArwHVmpk', icon: 'ic:baseline-discord' },
+  { label: 'Email',     href: 'mailto:admin@opennccu.com', icon: 'material-symbols:mail-rounded' },
 ]
 
 const resources = [

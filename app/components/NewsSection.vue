@@ -10,27 +10,20 @@
 
     <div class="relative pl-[80px] pr-0">
       <div class="flex items-center gap-4">
-        <!-- Left tab selector -->
-        <div class="flex-shrink-0 flex flex-col items-start w-[217px]">
-          <!-- Active tab with neumorphic indicator -->
-          <div class="relative w-[217px] h-[80px] mb-1">
-            <div class="tab-indicator absolute inset-0 rounded-full" />
-            <button
-              class="relative z-10 w-full h-full flex items-center justify-center text-[#606060]"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
-              :class="activeTab === 'news' ? 'text-[#606060]' : 'text-[#aeaeb2]'"
-              @click="activeTab = 'news'"
-            >
-              最新消息
-            </button>
+        <!-- Left labels -->
+        <div class="flex-shrink-0 flex flex-col items-start w-[217px] gap-2">
+          <!-- 最新消息 pill badge -->
+          <div class="news-badge-pill flex items-center justify-center px-8 py-4 rounded-full">
+            <span
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400; color: #606060;"
+            >最新消息</span>
           </div>
-          <button
-            class="w-[217px] h-[80px] flex items-center justify-center text-[#aeaeb2] hover:text-[#606060] transition-colors"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
-            @click="activeTab = 'coverage'"
-          >
-            新聞報導
-          </button>
+          <!-- 新聞報導 label -->
+          <div class="flex items-center justify-center px-8 py-4">
+            <span
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400; color: #aeaeb2;"
+            >新聞報導</span>
+          </div>
         </div>
 
         <!-- Scrollable news cards -->
@@ -74,8 +67,6 @@
 </template>
 
 <script setup lang="ts">
-const activeTab = ref('news')
-
 const newsItems = [
   { id: 1, date: '2026.03.15', isNew: true, title: '徵才月集點工具正式上線', description: '與職涯中心合作推出數位集點系統，參加徵才月活動即可累積點數兌換精美好禮！' },
   { id: 2, date: '2026.02.20', isNew: true, title: 'Open NCCU 官網全新改版', description: '全新視覺設計搭配互動動畫，帶來更現代化的瀏覽體驗，快來看看我們的新面貌！' },
@@ -88,13 +79,9 @@ const newsItems = [
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-.tab-indicator {
-  background: linear-gradient(144deg, rgb(255, 255, 255) 7.5%, rgba(255, 255, 255, 0.01) 96.3%);
-  box-shadow:
-    -3px -3px 3.6px -7px rgba(255, 255, 255, 0.9),
-    3px 3px 7.5px -4px rgba(0, 0, 0, 0.36),
-    inset -3px -3px 9.7px 0px white,
-    inset 1px 1px 20.6px 0px rgba(0, 0, 0, 0.06);
+.news-badge-pill {
+  border: 1.5px solid #cccccc;
+  background: transparent;
 }
 
 .news-card {
