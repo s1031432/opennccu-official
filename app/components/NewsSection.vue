@@ -55,8 +55,8 @@
               :rel="news.url ? 'noopener noreferrer' : undefined"
               class="news-card rounded-[16px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all relative block no-underline rotate-[2deg]"
             >
-              <!-- New badge (top right, protruding above card per Figma) -->
-              <div v-if="news.isNew" class="absolute right-[20px] top-[-8px]">
+              <!-- New badge (top right, inset inside card per Figma ~14px from top, ~16px from right) -->
+              <div v-if="news.isNew" class="absolute right-[16px] top-[14px]">
                 <div class="new-badge rounded-[8px] px-3 py-1 flex items-center justify-center">
                   <span
                     class="text-white"
@@ -116,7 +116,7 @@ const activeItems = computed(() =>
 
 .news-badge-pill {
   background: #ffffff;
-  border: none;
+  border: 1px solid #dddddd;
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.06),
     0 1px 3px rgba(0, 0, 0, 0.04);

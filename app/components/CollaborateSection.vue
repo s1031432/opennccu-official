@@ -135,12 +135,13 @@
             :key="partner.name"
             class="partner-item flex flex-col items-center gap-2.5 group cursor-pointer"
           >
-            <div class="partner-circle relative w-[85px] h-[85px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <!-- Partner circles ~65px per Figma (was 85px, too large) -->
+            <div class="partner-circle relative w-[65px] h-[65px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <div class="partner-bg absolute inset-0 rounded-full group-hover:shadow-lg transition-shadow duration-300" />
               <img
                 :src="partner.logo"
                 :alt="partner.name"
-                class="partner-logo relative z-10 w-[65px] h-[65px] object-contain rounded-full transition-all duration-300"
+                class="partner-logo relative z-10 w-[48px] h-[48px] object-contain rounded-full transition-all duration-300"
               />
             </div>
             <span
