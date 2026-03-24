@@ -73,61 +73,60 @@
         </filter>
       </defs>
 
-      <!-- Line 10: Second embossed gray line -->
+      <!-- Line 10: Mint green 3D tube per Figma (prominent, visible against #f0f0f0 bg) -->
       <g filter="url(#hero-line-shadow)">
         <path
           d="M1171 328L1318.6 519.579C1328.1 531.909 1329.58 548.63 1322.4 562.441L1090 1009.5"
-          stroke="#F0F0F0"
+          stroke="#8FD4B4"
           stroke-width="32"
           stroke-linecap="round"
         />
       </g>
+      <!-- Highlight edge for 3D tube effect -->
+      <path
+        d="M1168 325L1315.6 516.579C1325.1 528.909 1326.58 545.63 1319.4 559.441L1087 1006.5"
+        stroke="#ffffff"
+        stroke-opacity="0.35"
+        stroke-width="8"
+        stroke-linecap="round"
+        fill="none"
+      />
 
-      <!-- Line 12: Mint green overlay on Line 10 -->
-      <g filter="url(#hero-line-shadow)">
-        <path
-          d="M1171 328L1318.6 519.579C1328.1 531.909 1329.58 548.63 1322.4 562.441L1090 1009.5"
-          stroke="#77E6B0"
-          stroke-opacity="0.35"
-          stroke-width="32"
-          stroke-linecap="round"
-        />
-      </g>
-
-      <!-- Vector 7: Complex brand curve (embossed gray) -->
+      <!-- Vector 7: Complex brand curve — mint green 3D tube per Figma -->
       <g filter="url(#hero-curve-shadow)">
         <path
           d="M1419.5 1100L1267.33 899.224C1257.97 886.879 1256.58 870.241 1263.77 856.516L1375.5 643C1393.17 617.333 1442.63 571.5 1500 571.5C1549 571.5 1583.5 590.5 1599 602.5C1612.17 612.694 1635 633 1651 673.5C1667 714 1661.5 761 1643.5 796C1629.1 824 1315.5 1436.33 1160.5 1739"
-          stroke="#F0F0F0"
+          stroke="#8FD4B4"
           stroke-width="32"
           stroke-linecap="round"
         />
       </g>
+      <!-- Highlight edge for 3D tube effect on curve -->
+      <path
+        d="M1416.5 1097L1264.33 896.224C1254.97 883.879 1253.58 867.241 1260.77 853.516L1372.5 640C1390.17 614.333 1439.63 568.5 1497 568.5C1546 568.5 1580.5 587.5 1596 599.5C1609.17 609.694 1632 630 1648 670.5C1664 711 1658.5 758 1640.5 793"
+        stroke="#ffffff"
+        stroke-opacity="0.3"
+        stroke-width="8"
+        stroke-linecap="round"
+        fill="none"
+      />
 
-      <!-- Vector 8: Mint green overlay on Vector 7 (partial — only the upper curve) -->
-      <g filter="url(#hero-curve-shadow)">
-        <path
-          d="M1419.5 1100L1267.33 899.224C1257.97 886.879 1256.58 870.241 1263.77 856.516L1375.5 643C1393.17 617.333 1442.63 571.5 1500 571.5C1549 571.5 1583.5 590.5 1599 602.5C1612.17 612.694 1635 633 1651 673.5C1667 714 1661.5 761 1643.5 796"
-          stroke="#77E6B0"
-          stroke-opacity="0.35"
-          stroke-width="32"
-          stroke-linecap="round"
-        />
-      </g>
-
-      <!-- Endpoint dot: top of chevron (1171, 222) -->
+      <!-- Endpoint dot: top of chevron (1171, 222) — Figma shows mint green spherical terminals -->
       <g filter="url(#hero-dot-filter)">
-        <circle cx="1171" cy="222" r="13" fill="#F7F7F7" />
+        <circle cx="1171" cy="222" r="14" fill="#9DD5BE" />
+        <circle cx="1168" cy="219" r="5" fill="white" fill-opacity="0.5" />
       </g>
 
       <!-- Endpoint dot: bottom of second line (1090, 1009) -->
       <g filter="url(#hero-dot-filter)">
-        <circle cx="1090" cy="1009" r="13" fill="white" />
+        <circle cx="1090" cy="1009" r="14" fill="#9DD5BE" />
+        <circle cx="1087" cy="1006" r="5" fill="white" fill-opacity="0.5" />
       </g>
 
       <!-- Endpoint dot: curve apex (1644, 795) -->
       <g filter="url(#hero-dot-filter)">
-        <circle cx="1644" cy="795" r="13" fill="white" />
+        <circle cx="1644" cy="795" r="14" fill="#9DD5BE" />
+        <circle cx="1641" cy="792" r="5" fill="white" fill-opacity="0.5" />
       </g>
     </svg>
   </div>

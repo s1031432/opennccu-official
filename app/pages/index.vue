@@ -4,7 +4,7 @@
     <HeroSection :scroll-y="scrollY" />
     <NewsSection />
     <ProductSection :scroll-y="scrollY" />
-    <ProductServiceSection />
+    <!-- ProductServiceSection removed — not in Figma single-page layout; it was creating duplicate product content -->
     <CollaborateSection />
     <AboutSection />
     <CrewSection />
