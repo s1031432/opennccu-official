@@ -25,14 +25,15 @@
         與我們合作
       </h2>
 
+      <!-- Carousel pagination dots (above card, top-right per Figma analysis) -->
+      <div class="flex justify-end items-center gap-2 mb-3 pr-2">
+        <span class="w-[10px] h-[10px] rounded-full bg-[#4ECBA5]"></span>
+        <span class="w-[10px] h-[10px] rounded-full bg-[#d0d0d0]"></span>
+        <span class="w-[10px] h-[10px] rounded-full bg-[#d0d0d0]"></span>
+      </div>
+
       <!-- Collaboration showcase card -->
       <div class="collaborate-card rounded-[20px] overflow-hidden mb-20 relative">
-        <!-- Carousel pagination dots (inside card, top-right per Figma) -->
-        <div class="absolute top-5 right-6 flex items-center gap-2 z-10">
-          <span class="w-[10px] h-[10px] rounded-full bg-[#4ECBA5]"></span>
-          <span class="w-[10px] h-[10px] rounded-full bg-[#d0d0d0]"></span>
-          <span class="w-[10px] h-[10px] rounded-full bg-[#d0d0d0]"></span>
-        </div>
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[637px]">
           <!-- Left: text content -->
           <div class="lg:col-span-4 p-10 lg:p-[75px] flex flex-col justify-center">

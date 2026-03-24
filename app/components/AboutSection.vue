@@ -3,13 +3,41 @@
     <!-- Flowing organic S-curves connecting timeline items per Figma (smooth curves, NOT straight zigzag) -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <svg class="absolute left-0 top-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 2800" fill="none">
-        <!-- Organic flowing S-curve path connecting alternating left/right timeline blocks -->
+        <!-- Figma: multiple parallel S-curve strands (~3-4) creating a subtle ribbon bundle effect -->
+        <!-- Strand 1 (center) -->
         <path
           d="M350 520 C350 620, 850 620, 850 720 C850 820, 350 820, 350 1020 C350 1120, 850 1120, 850 1320 C850 1420, 350 1420, 350 1620 C350 1720, 850 1720, 850 1920 C850 2020, 350 2020, 350 2220 C350 2320, 850 2320, 850 2520"
-          stroke="#d9d9d9"
+          stroke="#d5d5d5"
           stroke-width="1.5"
           stroke-linecap="round"
           fill="none"
+        />
+        <!-- Strand 2 (offset left ~8px) -->
+        <path
+          d="M342 520 C342 620, 842 620, 842 720 C842 820, 342 820, 342 1020 C342 1120, 842 1120, 842 1320 C842 1420, 342 1420, 342 1620 C342 1720, 842 1720, 842 1920 C842 2020, 342 2020, 342 2220 C342 2320, 842 2320, 842 2520"
+          stroke="#dcdcdc"
+          stroke-width="1"
+          stroke-linecap="round"
+          fill="none"
+          opacity="0.7"
+        />
+        <!-- Strand 3 (offset right ~8px) -->
+        <path
+          d="M358 520 C358 620, 858 620, 858 720 C858 820, 358 820, 358 1020 C358 1120, 858 1120, 858 1320 C858 1420, 358 1420, 358 1620 C358 1720, 858 1720, 858 1920 C858 2020, 358 2020, 358 2220 C358 2320, 858 2320, 858 2520"
+          stroke="#dcdcdc"
+          stroke-width="1"
+          stroke-linecap="round"
+          fill="none"
+          opacity="0.7"
+        />
+        <!-- Strand 4 (slightly wider offset right ~16px, more subtle) -->
+        <path
+          d="M366 520 C366 620, 866 620, 866 720 C866 820, 366 820, 366 1020 C366 1120, 866 1120, 866 1320 C866 1420, 366 1420, 366 1620 C366 1720, 866 1720, 866 1920 C866 2020, 366 2020, 366 2220 C366 2320, 866 2320, 866 2520"
+          stroke="#e2e2e2"
+          stroke-width="0.8"
+          stroke-linecap="round"
+          fill="none"
+          opacity="0.5"
         />
       </svg>
     </div>
