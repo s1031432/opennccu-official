@@ -104,7 +104,8 @@
           >
             當日活躍使用者
           </p>
-          <p style="font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 700; color: #4ECBA5; letter-spacing: 1px;">
+          <!-- Figma: stat numbers at 48px per DESIGN-SPEC — DO NOT shrink below 48px -->
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 700; color: #4ECBA5; letter-spacing: 1px;">
             3,500+
           </p>
         </div>
@@ -115,7 +116,8 @@
           >
             使用次數
           </p>
-          <p style="font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 700; color: #4ECBA5; letter-spacing: 1px;">
+          <!-- Figma: stat numbers at 48px per DESIGN-SPEC — DO NOT shrink below 48px -->
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 700; color: #4ECBA5; letter-spacing: 1px;">
             15,000+
           </p>
         </div>
