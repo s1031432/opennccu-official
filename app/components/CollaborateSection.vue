@@ -17,10 +17,10 @@
     </div>
 
     <div class="relative max-w-6xl mx-auto px-6">
-      <!-- Section title -->
+      <!-- Section title — Figma: ~36-40px bold teal green, NOT 80px gray -->
       <h2
         class="text-center mb-6"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060; letter-spacing: 9.6px;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 38px; font-weight: 700; color: #4ECBA5; letter-spacing: 2px;"
       >
         與我們合作
       </h2>

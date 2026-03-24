@@ -1,6 +1,7 @@
 <template>
   <footer id="contact" class="relative z-20 bg-[#3d3d3d]">
-    <div class="max-w-7xl mx-auto px-16 py-[72px]">
+    <!-- Figma: compact footer ~80-100px height, not tall 72px vertical padding -->
+    <div class="max-w-7xl mx-auto px-16 py-7">
       <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[224px] justify-center">
         <!-- Logo & Copyright -->
         <div class="flex flex-col gap-2 shrink-0">
