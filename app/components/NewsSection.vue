@@ -53,7 +53,7 @@
               :href="news.url || '#'"
               :target="news.url ? '_blank' : undefined"
               :rel="news.url ? 'noopener noreferrer' : undefined"
-              class="news-card rounded-[12px] w-[340px] h-[155px] flex-shrink-0 cursor-pointer transition-all relative block no-underline -rotate-[2deg]"
+              class="news-card rounded-[16px] w-[340px] h-[155px] flex-shrink-0 cursor-pointer transition-all relative block no-underline -rotate-[2deg]"
             >
               <!-- New badge (top right, INSET inside card per Figma — ~12px from edges — DO NOT move outside card) -->
               <div v-if="news.isNew" class="absolute right-[12px] top-[12px]">
@@ -115,15 +115,15 @@ const activeItems = computed(() =>
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Figma news.png: active tab is a white-filled pill with subtle shadow — NOT neumorphic */
+/* Figma news.png: active tab is a white-filled pill with subtle shadow + light border — NOT neumorphic */
 .news-badge-pill {
   background: #ffffff;
-  border: none;
+  border: 1px solid #d0d0d0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   border-radius: 9999px;
 }
 
-/* Figma: white card with soft diffused shadow, border-radius 12px */
+/* Figma: white card with soft diffused shadow, border-radius ~16-20px per Figma analysis */
 .news-card {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.9);

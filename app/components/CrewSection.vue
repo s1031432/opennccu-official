@@ -178,7 +178,17 @@
         rel="noopener noreferrer"
         class="join-us-circle flex items-center justify-center ml-4"
       >
-        <span class="join-us-text text-center">JOIN<br />US !</span>
+        <!-- Figma: "JOIN US!" text follows circular path around the neumorphic circle -->
+        <svg class="join-us-svg" width="100" height="100" viewBox="0 0 100 100">
+          <defs>
+            <path id="join-us-arc" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" fill="none" />
+          </defs>
+          <text class="join-us-text-path">
+            <textPath href="#join-us-arc" startOffset="5%" dominant-baseline="middle">
+              JOIN US !
+            </textPath>
+          </text>
+        </svg>
       </a>
     </div>
 
@@ -467,14 +477,17 @@ const founderStyle = computed((): CSSProperties => {
     inset -3px -3px 8px rgba(255, 255, 255, 0.7);
 }
 
-/* Figma: JOIN US text is light gray, semi-bold — matches neumorphic low-contrast style */
-.join-us-text {
+/* Figma: JOIN US! text follows circle path — light gray, semi-bold, neumorphic low-contrast */
+.join-us-svg {
+  display: block;
+}
+
+.join-us-text-path {
   font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
-  color: #999999;
-  letter-spacing: 1.5px;
-  line-height: 1.2;
+  fill: #999999;
+  letter-spacing: 3px;
 }
 
 .crew-card-blob-mobile {
