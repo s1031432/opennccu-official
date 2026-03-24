@@ -129,6 +129,54 @@
         <circle cx="1641" cy="792" r="5" fill="white" fill-opacity="0.5" />
       </g>
     </svg>
+
+    <!-- Diagonal neumorphic groove line per Figma: thin straight line from upper-right to lower-left, ~35° angle -->
+    <!-- Figma shows a subtle raised tube/rod crossing the hero at an angle -->
+    <svg
+      class="absolute inset-0 w-full h-full"
+      viewBox="0 0 1920 1440"
+      fill="none"
+      preserveAspectRatio="xMidYMid slice"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <filter id="hero-diagonal-groove" filterUnits="userSpaceOnUse" x="-50" y="-50" width="2020" height="1540" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+          <feOffset dx="4" dy="4" />
+          <feGaussianBlur stdDeviation="4" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="shadow" />
+          <feBlend mode="normal" in="SourceGraphic" in2="shadow" result="shape" />
+          <!-- Inner highlight for neumorphic raised effect -->
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha2" />
+          <feOffset dx="-2" dy="-2" />
+          <feGaussianBlur stdDeviation="2" />
+          <feComposite in2="hardAlpha2" operator="arithmetic" k2="-1" k3="1" />
+          <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.7 0" />
+          <feBlend mode="normal" in2="shape" result="highlight" />
+        </filter>
+      </defs>
+      <!-- Diagonal groove: upper-right → lower-left, neumorphic subtle raised rod style -->
+      <line
+        x1="1600" y1="-50"
+        x2="600" y2="1500"
+        stroke="#e8e8e8"
+        stroke-width="3"
+        stroke-linecap="round"
+        filter="url(#hero-diagonal-groove)"
+      />
+      <!-- Faint white highlight edge offset above -->
+      <line
+        x1="1599" y1="-51"
+        x2="599" y2="1499"
+        stroke="white"
+        stroke-opacity="0.5"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+    </svg>
   </div>
 </template>
 

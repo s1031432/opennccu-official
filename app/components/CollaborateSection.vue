@@ -123,9 +123,10 @@
 
       <!-- Partners -->
       <div class="text-center">
+        <!-- Figma: "合作夥伴" subtitle ~20-24px, centered, medium gray — DO NOT ENLARGE beyond 22px -->
         <h3
           class="mb-10"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400; color: #606060; letter-spacing: 2px;"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 400; color: #606060; letter-spacing: 2px;"
         >
           合作夥伴
         </h3>
@@ -135,13 +136,13 @@
             :key="partner.name"
             class="partner-item flex flex-col items-center gap-2.5 group cursor-pointer"
           >
-            <!-- Partner circles ~65px per Figma — outlined circle style with light gray border -->
-            <div class="partner-circle relative w-[65px] h-[65px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <!-- Partner circles ~70-80px per Figma — outlined circle style with light gray border -->
+            <div class="partner-circle relative w-[75px] h-[75px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <div class="partner-bg-outlined absolute inset-0 rounded-full transition-shadow duration-300" />
               <img
                 :src="partner.logo"
                 :alt="partner.name"
-                class="partner-logo relative z-10 w-[48px] h-[48px] object-contain rounded-full transition-all duration-300"
+                class="partner-logo relative z-10 w-[52px] h-[52px] object-contain rounded-full transition-all duration-300"
               />
             </div>
             <span
