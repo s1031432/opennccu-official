@@ -11,18 +11,30 @@
       :class="{ 'position-sticky': !isMobile }"
     >
       <div class="max-w-7xl mx-auto px-6 relative h-full flex flex-col justify-center">
-        <!-- Decorative mint green flowing SVG curve (left side per Figma) -->
+        <!-- Decorative flowing curve (left side per Figma): mint green tube → neumorphic gray groove transition -->
         <div class="absolute inset-0 pointer-events-none overflow-hidden">
           <svg class="absolute left-0 top-0 w-full h-full" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" fill="none">
             <defs>
-              <linearGradient id="crew-curve-grad" x1="0%" y1="0%" x2="50%" y2="100%">
-                <stop offset="0%" stop-color="#77e5b0" stop-opacity="0.8" />
-                <stop offset="50%" stop-color="#4ECBA5" stop-opacity="0.6" />
-                <stop offset="100%" stop-color="#d0d0d0" stop-opacity="0.3" />
+              <!-- Green tube gradient (upper portion) -->
+              <linearGradient id="crew-curve-green" x1="0%" y1="0%" x2="0%" y2="50%">
+                <stop offset="0%" stop-color="#8FD4B4" stop-opacity="0.8" />
+                <stop offset="60%" stop-color="#77e5b0" stop-opacity="0.7" />
+                <stop offset="100%" stop-color="#4ECBA5" stop-opacity="0.4" />
               </linearGradient>
               <linearGradient id="crew-curve-highlight" x1="0%" y1="0%" x2="0%" y2="100%">
                 <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6" />
+                <stop offset="40%" stop-color="#ffffff" stop-opacity="0.2" />
                 <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+              </linearGradient>
+              <!-- Neumorphic groove: dark shadow side -->
+              <linearGradient id="crew-groove-dark" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#c0c0c0" stop-opacity="0.5" />
+                <stop offset="100%" stop-color="#d0d0d0" stop-opacity="0.3" />
+              </linearGradient>
+              <!-- Neumorphic groove: light highlight side -->
+              <linearGradient id="crew-groove-light" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#f5f5f5" stop-opacity="0.6" />
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0.4" />
               </linearGradient>
               <filter id="crew-glow">
                 <feGaussianBlur stdDeviation="2.5" result="blur" />
@@ -32,26 +44,48 @@
                 </feMerge>
               </filter>
             </defs>
-            <!-- Main thick curve (S-curve from top-left down) -->
+
+            <!-- UPPER PORTION: Mint green 3D tube (from top, curving with loop) -->
             <path
-              d="M80 -20 C80 120, 200 200, 160 350 S40 500, 100 620 C140 700, 60 780, 80 920"
-              stroke="url(#crew-curve-grad)"
-              stroke-width="6"
+              d="M80 -20 C80 120, 200 200, 160 350 S40 450, 100 500"
+              stroke="url(#crew-curve-green)"
+              stroke-width="7"
               stroke-linecap="round"
               fill="none"
               filter="url(#crew-glow)"
             />
-            <!-- Thinner highlight line (3D depth) -->
+            <!-- White highlight for 3D tube effect -->
             <path
-              d="M77 -20 C77 120, 197 200, 157 350 S37 500, 97 620 C137 700, 57 780, 77 920"
+              d="M77 -20 C77 120, 197 200, 157 350 S37 450, 97 500"
               stroke="url(#crew-curve-highlight)"
               stroke-width="2.5"
               stroke-linecap="round"
               fill="none"
             />
-            <!-- Glossy endpoint dots -->
+
+            <!-- LOWER PORTION: Neumorphic gray groove (carved into surface) -->
+            <!-- Dark shadow edge (right/bottom side of groove) -->
+            <path
+              d="M102 500 C130 580, 70 660, 82 740 C90 800, 65 850, 80 920"
+              stroke="#c8c8c8"
+              stroke-width="4"
+              stroke-linecap="round"
+              fill="none"
+              opacity="0.5"
+            />
+            <!-- Light highlight edge (left/top side of groove) -->
+            <path
+              d="M98 500 C126 580, 66 660, 78 740 C86 800, 61 850, 76 920"
+              stroke="#f0f0f0"
+              stroke-width="3"
+              stroke-linecap="round"
+              fill="none"
+              opacity="0.6"
+            />
+
+            <!-- Transition dot at loop inflection (green → gray) -->
             <circle cx="160" cy="350" r="5" fill="#77e5b0" opacity="0.6" />
-            <circle cx="100" cy="620" r="4.5" fill="#4ECBA5" opacity="0.5" />
+            <circle cx="100" cy="500" r="4" fill="#b0d0c0" opacity="0.4" />
           </svg>
         </div>
 

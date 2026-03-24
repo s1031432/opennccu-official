@@ -138,19 +138,25 @@
           </div>
         </div>
 
-        <!-- Glass balls (decorative) -->
+        <!-- Floating ID card (upper-left, per Figma — standalone card with green glow, NOT inside glass orb) -->
         <div class="hidden md:block">
-          <!-- Top left glass ball (card preview) — Figma: ~100-120px diameter -->
-          <div class="glass-ball absolute -left-4 top-4 w-[130px] h-[130px]">
-            <div class="glass-ball-inner rounded-full w-full h-full flex items-center justify-center overflow-hidden">
-              <div class="w-[90px] h-[68px] bg-white/40 backdrop-blur-sm rounded-lg border border-[#77d1a6]/40 p-2 rotate-[11deg] shadow-lg">
-                <div class="flex items-center gap-1 mb-1">
-                  <div class="w-2 h-2 rounded bg-[#4ECBA5]/40"></div>
-                  <span class="text-[5px] text-[#4ECBA5] font-bold">Open NCCU</span>
+          <div class="absolute -left-4 top-4 z-20">
+            <!-- Green ambient glow behind card -->
+            <div class="absolute -inset-6 rounded-2xl" style="background: radial-gradient(ellipse at center, rgba(129, 237, 185, 0.25) 0%, rgba(78, 203, 165, 0.08) 50%, transparent 70%); filter: blur(12px);"></div>
+            <!-- Glassmorphic floating card -->
+            <div class="floating-id-card w-[140px] p-3 rotate-[8deg]">
+              <div class="flex items-center gap-1.5 mb-2">
+                <div class="w-4 h-4 rounded-md bg-[#4ECBA5]/30 flex items-center justify-center">
+                  <div class="w-2.5 h-2.5 rounded-sm bg-[#4ECBA5]/50"></div>
                 </div>
-                <div class="text-[6px] text-[#787878] font-bold mb-0.5">我是政大人</div>
-                <div class="text-[5px] text-[#787878]">XXX 系</div>
-                <div class="text-[5px] text-[#616161] mt-0.5">@iamfrom_nccu</div>
+                <span class="text-[8px] text-[#4ECBA5] font-bold tracking-wide">Open NCCU</span>
+              </div>
+              <div class="text-[10px] text-[#606060] font-bold mb-0.5">我是政大人</div>
+              <div class="text-[8px] text-[#888888] mb-0.5">XXX 系</div>
+              <div class="text-[7px] text-[#999999]">@iamfrom_nccu</div>
+              <!-- Mini QR code placeholder -->
+              <div class="mt-2 w-[36px] h-[36px] bg-gray-200/40 rounded-sm grid grid-cols-4 gap-px p-0.5">
+                <div v-for="i in 16" :key="i" class="rounded-[1px]" :class="[2,3,5,8,9,12,14,15].includes(i) ? 'bg-gray-500/40' : 'bg-transparent'"></div>
               </div>
             </div>
           </div>
@@ -200,6 +206,29 @@
             </div>
           </div>
         </div>
+      </div>
+      <!-- Large transparent glass arc/shelf under phones per Figma -->
+      <div class="relative mt-[-40px] flex justify-center pointer-events-none">
+        <svg class="glass-arc-svg" width="900" height="180" viewBox="0 0 900 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="arc-edge-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+              <stop offset="20%" stop-color="rgba(255,255,255,0.6)" />
+              <stop offset="50%" stop-color="rgba(255,255,255,0.8)" />
+              <stop offset="80%" stop-color="rgba(255,255,255,0.6)" />
+              <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+            </linearGradient>
+            <radialGradient id="arc-fill-grad" cx="50%" cy="0%" r="80%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.08)" />
+              <stop offset="60%" stop-color="rgba(255,255,255,0.03)" />
+              <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+            </radialGradient>
+          </defs>
+          <!-- Glass body (very subtle fill) -->
+          <path d="M50 160 Q450 -20 850 160" stroke="url(#arc-edge-grad)" stroke-width="2.5" fill="url(#arc-fill-grad)" />
+          <!-- Inner highlight edge -->
+          <path d="M80 150 Q450 0 820 150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none" />
+        </svg>
       </div>
     </div>
   </section>
@@ -258,9 +287,30 @@ defineProps<{
   border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
+.floating-id-card {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.glass-arc-svg {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 2px 8px rgba(200, 230, 215, 0.15));
+}
+
 @media (max-width: 768px) {
   .watermark-text {
     font-size: 56px;
+  }
+  .glass-arc-svg {
+    display: none;
   }
 }
 </style>
