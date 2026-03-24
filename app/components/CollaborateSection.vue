@@ -37,15 +37,16 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[637px]">
           <!-- Left: text content -->
           <div class="lg:col-span-4 p-10 lg:p-[75px] flex flex-col justify-center">
+            <!-- Figma: ~28-32px bold dark text #333333 per case-studies.png -->
             <h3
               class="mb-3"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 32px; font-weight: 700; color: #606060; letter-spacing: 2px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 32px; font-weight: 700; color: #333333; letter-spacing: 2px;"
             >
               徵才月
             </h3>
             <p
-              class="leading-[1.7] mb-10"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 300; color: #aeaeb2; letter-spacing: 0.5px;"
+              class="leading-[1.8] mb-10"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; font-weight: 400; color: #666666; letter-spacing: 0.5px;"
             >
               職涯中心與OpenNCCU 合作推出的「數位集點工具」，將學生的參與紀錄與問卷回饋集中化管理，協助學生隨時掌握積點進度與線上兌獎，獲得更直覺的抽獎參與體驗。
             </p>
@@ -139,9 +140,9 @@
             :key="partner.name"
             class="partner-item flex flex-col items-center gap-2.5 group cursor-pointer"
           >
-            <!-- Partner circles ~70-80px per Figma — outlined circle style with light gray border -->
+            <!-- Partner circles ~70-80px per Figma — neumorphic raised style matching section bg -->
             <div class="partner-circle relative w-[75px] h-[75px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <div class="partner-bg-outlined absolute inset-0 rounded-full transition-shadow duration-300" />
+              <div class="partner-bg-neumorphic absolute inset-0 rounded-full transition-shadow duration-300" />
               <img
                 :src="partner.logo"
                 :alt="partner.name"
@@ -229,15 +230,19 @@ const partners = [
   transform: translateY(-20px);
 }
 
-/* Figma: outlined circles with light gray border, white/light background */
-.partner-bg-outlined {
-  border: 2px solid #d0d0d0;
-  background: #f5f5f5;
+/* Figma: neumorphic raised circles matching section background per case-studies.png */
+.partner-bg-neumorphic {
+  background: #e8e8e8;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow:
+    3px 3px 6px rgba(0, 0, 0, 0.1),
+    -3px -3px 6px rgba(255, 255, 255, 0.8);
 }
 
-.group:hover .partner-bg-outlined {
-  border-color: #b0b0b0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+.group:hover .partner-bg-neumorphic {
+  box-shadow:
+    4px 4px 8px rgba(0, 0, 0, 0.12),
+    -4px -4px 8px rgba(255, 255, 255, 0.9);
 }
 
 .partner-logo {
