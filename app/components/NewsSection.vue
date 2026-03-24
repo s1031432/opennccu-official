@@ -19,22 +19,24 @@
     <div class="relative pl-[80px] pr-0">
       <div class="flex items-center gap-4">
         <!-- Left labels -->
-        <div class="flex-shrink-0 flex flex-col items-start w-[160px] gap-1.5">
+        <div class="flex-shrink-0 flex flex-col items-start w-[180px] gap-1.5">
           <button
-            class="flex items-center justify-center px-5 py-2.5 rounded-full transition-all"
+            class="flex items-center justify-center px-4 py-2 rounded-full transition-all"
             :class="activeTab === 'news' ? 'news-badge-pill' : ''"
             @click="activeTab = 'news'"
           >
+            <!-- Figma spec: 28px labels — DO NOT SHRINK -->
             <span
               style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
               :style="{ color: activeTab === 'news' ? '#606060' : '#aeaeb2' }"
             >最新消息</span>
           </button>
           <button
-            class="flex items-center justify-center px-5 py-2.5 rounded-full transition-all"
+            class="flex items-center justify-center px-4 py-2 rounded-full transition-all"
             :class="activeTab === 'press' ? 'news-badge-pill' : ''"
             @click="activeTab = 'press'"
           >
+            <!-- Figma spec: 28px labels — DO NOT SHRINK -->
             <span
               style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
               :style="{ color: activeTab === 'press' ? '#606060' : '#aeaeb2' }"
@@ -51,10 +53,10 @@
               :href="news.url || '#'"
               :target="news.url ? '_blank' : undefined"
               :rel="news.url ? 'noopener noreferrer' : undefined"
-              class="news-card rounded-[16px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all hover:-translate-y-1 relative block no-underline rotate-[2deg]"
+              class="news-card rounded-[16px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all relative block no-underline rotate-[2deg]"
             >
               <!-- New badge (top right, protruding above card per Figma) -->
-              <div v-if="news.isNew" class="absolute right-[16px] -top-[12px]">
+              <div v-if="news.isNew" class="absolute right-[20px] top-[-8px]">
                 <div class="new-badge rounded-[8px] px-3 py-1 flex items-center justify-center">
                   <span
                     class="text-white"
@@ -63,7 +65,7 @@
                 </div>
               </div>
               <!-- Card content -->
-              <div class="absolute left-[24px] top-[24px] w-[320px] flex flex-col gap-0.5">
+              <div class="absolute left-[20px] top-[18px] w-[300px] flex flex-col gap-0.5">
                 <span
                   class="text-[#6bafa3]"
                   style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px;"

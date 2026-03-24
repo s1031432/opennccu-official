@@ -1,9 +1,11 @@
 <template>
   <div class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3">
     <!-- Main nav pill -->
-    <nav class="glass-nav rounded-full px-10 md:px-20 py-4 md:py-6 flex items-center gap-6 md:gap-10">
+    <!-- Figma spec: px-10 md:px-20 py-4 md:py-6 — DO NOT SHRINK -->
+    <nav class="glass-nav rounded-full px-10 md:px-20 py-4 md:py-6 flex items-center gap-4 md:gap-7">
       <!-- Logo -->
       <div class="flex items-center">
+        <!-- Figma spec: 43x45px logo — DO NOT SHRINK -->
         <img src="/assets/logo-main.png" alt="Open NCCU Logo" class="w-[43px] h-[45px] object-contain" />
       </div>
 
@@ -14,12 +16,12 @@
           class="hidden md:flex transition-colors whitespace-nowrap"
           :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#606060] hover:text-[#77e6b0]'"
           :style="{
-            fontFamily: activeSection === link.href && link.label === '產品 & 服務' ? '\'Montserrat\', sans-serif' : '\'Noto Sans TC\', sans-serif',
-            fontSize: '24px',
+            fontFamily: '\'Noto Sans TC\', sans-serif',
+            fontSize: '24px', /* Figma spec: 24px — DO NOT SHRINK */
             fontWeight: activeSection === link.href ? '500' : '400',
           }"
         >
-          <template v-if="link.label === '產品 & 服務' && activeSection === link.href">
+          <template v-if="link.label === '產品 & 服務'">
             <span style="font-family: 'Noto Sans TC', sans-serif;">產品</span>
             <span style="font-family: 'Montserrat', sans-serif;"> &amp; </span>
             <span style="font-family: 'Noto Sans TC', sans-serif;">服務</span>
@@ -49,17 +51,19 @@
     </nav>
 
     <!-- Utility pill (desktop only) -->
-    <div class="hidden md:flex glass-nav rounded-full px-6 py-4 md:py-6 items-center gap-5">
+    <div class="hidden md:flex glass-nav rounded-full px-4 py-4 md:py-6 items-center gap-3">
       <button
         class="flex items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors"
         aria-label="Language"
       >
+        <!-- Figma spec: 36px icons — DO NOT SHRINK -->
         <Icon icon="ri:global-line" width="36" height="36" />
       </button>
       <button
         class="flex items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors"
         aria-label="Toggle theme"
       >
+        <!-- Figma spec: 36px icons — DO NOT SHRINK -->
         <Icon icon="ci:sun" width="36" height="36" />
       </button>
     </div>
