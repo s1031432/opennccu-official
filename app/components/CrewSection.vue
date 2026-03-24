@@ -428,7 +428,8 @@ const founderStyle = computed((): CSSProperties => {
 
 .crew-card-mobile {
   position: relative;
-  border-radius: 30px;
+  /* Figma: ~20-25px rounded rectangles — DO NOT ENLARGE */
+  border-radius: 24px;
   background: rgba(250, 250, 250, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow:
@@ -465,11 +466,12 @@ const founderStyle = computed((): CSSProperties => {
     inset -3px -3px 8px rgba(255, 255, 255, 0.7);
 }
 
+/* Figma: JOIN US text is light gray, semi-bold — matches neumorphic low-contrast style */
 .join-us-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
-  font-weight: 500;
-  color: #aeaeb2;
+  font-weight: 600;
+  color: #999999;
   letter-spacing: 1.5px;
   line-height: 1.2;
 }

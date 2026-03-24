@@ -72,7 +72,7 @@
     <!-- OPEN NCCU overlay for collapsed state -->
     <div
       v-if="showOpenNccu"
-      class="absolute inset-0 z-20 flex items-center justify-center rounded-[50px] overflow-hidden transition-opacity duration-300"
+      class="absolute inset-0 z-20 flex items-center justify-center rounded-[24px] overflow-hidden transition-opacity duration-300"
       :style="{
         background: 'linear-gradient(135deg, rgba(78,203,165,0.15), rgba(120,180,220,0.1), rgba(255,255,255,0.3))',
         opacity: openNccuOpacity,
@@ -112,12 +112,14 @@ defineEmits<{
   position: absolute;
   width: 312px;
   height: 268px;
-  border-radius: 50px;
+  /* Figma: ~20-25px rounded rectangles, NOT pill-shaped 50px — DO NOT ENLARGE */
+  border-radius: 24px;
+  /* Figma: stronger mint green → white → light blue glass gradient per crew.png */
   background: linear-gradient(
     135deg,
-    rgba(168, 230, 207, 0.18) 0%,
-    rgba(255, 255, 255, 0.35) 40%,
-    rgba(184, 212, 232, 0.15) 100%
+    rgba(140, 215, 185, 0.28) 0%,
+    rgba(255, 255, 255, 0.45) 40%,
+    rgba(160, 200, 230, 0.22) 100%
   );
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);

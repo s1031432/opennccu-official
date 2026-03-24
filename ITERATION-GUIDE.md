@@ -87,12 +87,15 @@ curl -s -X POST "https://discord.com/api/v10/channels/1484206453677097030/messag
 - [ ] About Us Section: "我們是誰？" 時間線 + 照片區
 - [ ] Crew Section: "團隊成員" 角色卡片 + 裝飾元素
 
-### Phase 4: 精修
+### Phase 4: 子頁面（高優先）
+- [ ] **Product Detail 頁面** — 必須逐一比對 Figma 設計稿中的所有細節：字體大小、行高、間距、圓角、陰影、顏色、佈局比例、圖片尺寸等，不可遺漏任何差異
+- [ ] Collaboration Detail 頁面
+
+### Phase 5: 精修
 - [ ] 裝飾 SVG 線條（品牌幾何圖形）
 - [ ] 玻璃擬態效果調整
 - [ ] 響應式設計
 - [ ] 動畫和互動效果
-- [ ] 子頁面 (Product Detail, Collaboration Detail)
 
 ## 重要設計 Token
 
@@ -139,6 +142,10 @@ curl -s -X POST "https://discord.com/api/v10/channels/1484206453677097030/messag
 - JOIN US 只保留 ScrollTrack 中的 SVG 版本
 - CrewSection 中不可再加回 HTML 版本的 JOIN US 按鈕
 - 保留隱藏的 `div#join-us-btn` 定位錨點供 SVG 使用
+
+## Discord 回報注意事項
+- 回報內容只需包含實際進度資訊（完成項目、下次目標、完成度）
+- **禁止**在訊息中出現報備性的 meta 文字，例如：「此訊息要回報在 Discord」、「應回報在 Channel xxxxxxx」、「回報給老闆」等——直接發送 embed 內容即可
 
 ## 注意事項
 - 工作目錄限制在 `/Users/yt/vibe-workspace/opennccu-official/`
