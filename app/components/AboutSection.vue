@@ -1,15 +1,14 @@
 <template>
   <section id="about" class="relative py-24 overflow-hidden">
-    <!-- Zigzag connector lines between timeline items per Figma -->
+    <!-- Flowing organic S-curves connecting timeline items per Figma (smooth curves, NOT straight zigzag) -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <svg class="absolute left-0 top-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 2800" fill="none">
-        <!-- Zigzag path connecting alternating left/right timeline blocks -->
+        <!-- Organic flowing S-curve path connecting alternating left/right timeline blocks -->
         <path
-          d="M350 520 L850 720 L350 1020 L850 1320 L350 1620 L850 1920 L350 2220 L850 2520"
+          d="M350 520 C350 620, 850 620, 850 720 C850 820, 350 820, 350 1020 C350 1120, 850 1120, 850 1320 C850 1420, 350 1420, 350 1620 C350 1720, 850 1720, 850 1920 C850 2020, 350 2020, 350 2220 C350 2320, 850 2320, 850 2520"
           stroke="#d9d9d9"
           stroke-width="1.5"
           stroke-linecap="round"
-          stroke-linejoin="round"
           fill="none"
         />
       </svg>

@@ -17,10 +17,10 @@
     </div>
 
     <div class="relative max-w-6xl mx-auto px-6">
-      <!-- Section title — Figma: ~36-40px bold teal green, NOT 80px gray -->
+      <!-- Section title — Figma: large teal heading (~60px bold) per screenshot analysis -->
       <h2
-        class="text-center mb-6"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 38px; font-weight: 700; color: #4ECBA5; letter-spacing: 2px;"
+        class="text-center mb-10"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 60px; font-weight: 700; color: #4ECBA5; letter-spacing: 3px;"
       >
         與我們合作
       </h2>
@@ -95,27 +95,27 @@
         </button>
       </div>
 
-      <!-- Stats row -->
-      <div class="flex flex-col md:flex-row justify-center gap-12 md:gap-24 mb-20 text-center">
+      <!-- Stats row — Figma shows large numbers (~48-52px) with smaller labels (~24px) -->
+      <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-40 mb-20 text-center">
         <div class="flex flex-col items-center w-full md:w-auto">
           <p
-            class="text-[#606060]"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 400; letter-spacing: 1.5px;"
+            class="text-[#606060] mb-1"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; letter-spacing: 2px;"
           >
             當日活躍使用者
           </p>
-          <p style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 600; color: #4ECBA5;">
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 50px; font-weight: 600; color: #4ECBA5; letter-spacing: 1px;">
             3,500+
           </p>
         </div>
         <div class="flex flex-col items-center w-full md:w-auto">
           <p
-            class="text-[#606060]"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 400; letter-spacing: 1.5px;"
+            class="text-[#606060] mb-1"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; letter-spacing: 2px;"
           >
             使用次數
           </p>
-          <p style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 600; color: #4ECBA5;">
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 50px; font-weight: 600; color: #4ECBA5; letter-spacing: 1px;">
             15,000+
           </p>
         </div>
