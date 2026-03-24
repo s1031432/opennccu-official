@@ -53,14 +53,14 @@
               :href="news.url || '#'"
               :target="news.url ? '_blank' : undefined"
               :rel="news.url ? 'noopener noreferrer' : undefined"
-              class="news-card rounded-[16px] w-[340px] h-[155px] flex-shrink-0 cursor-pointer transition-all relative block no-underline rotate-[2deg]"
+              class="news-card rounded-[12px] w-[340px] h-[155px] flex-shrink-0 cursor-pointer transition-all relative block no-underline -rotate-[4deg]"
             >
-              <!-- New badge (top right, inset inside card per Figma — NOT protruding above) -->
-              <div v-if="news.isNew" class="absolute right-[14px] top-[12px]">
-                <div class="new-badge rounded-[8px] px-3 py-1 flex items-center justify-center">
+              <!-- New badge (top right, slightly overlapping card edge per Figma) -->
+              <div v-if="news.isNew" class="absolute right-[-8px] top-[-8px]">
+                <div class="new-badge rounded-full px-3.5 py-1 flex items-center justify-center">
                   <span
                     class="text-white"
-                    style="font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.72px;"
+                    style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;"
                   >New</span>
                 </div>
               </div>
@@ -76,8 +76,8 @@
                   style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; letter-spacing: 2.4px;"
                 >{{ news.title }}</p>
                 <p
-                  class="text-[#aeaeb2] mt-1 line-clamp-2"
-                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 1.2px; line-height: 1.6;"
+                  class="text-[#aaaaaa] mt-1 line-clamp-2"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 1px; line-height: 1.5;"
                 >{{ news.description }}</p>
               </div>
             </a>
@@ -124,19 +124,19 @@ const activeItems = computed(() =>
     -4px -4px 10px rgba(255, 255, 255, 0.9);
 }
 
+/* Figma: white card with soft diffused shadow, border-radius 12px */
 .news-card {
-  background: linear-gradient(165deg, rgba(255, 255, 255, 0.92) 20%, rgba(248, 248, 248, 0.75) 89%);
-  border: 1.5px solid rgba(255, 255, 255, 0.95);
-  box-shadow:
-    0 2px 8px 0 rgba(0, 0, 0, 0.06),
-    0 1px 3px 0 rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* Figma: card tilted ~-4deg counter-clockwise — DO NOT change to clockwise */
 .news-card:hover {
   box-shadow:
     0 4px 16px 0 rgba(0, 0, 0, 0.10),
     0 2px 6px 0 rgba(0, 0, 0, 0.04);
-  transform: rotate(2deg) translateY(-2px);
+  transform: rotate(-4deg) translateY(-2px);
 }
 
 .new-badge {
