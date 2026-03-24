@@ -17,10 +17,10 @@
     </div>
 
     <div class="relative max-w-6xl mx-auto px-6">
-      <!-- Section title — Figma: large teal heading (~60px bold) per screenshot analysis -->
+      <!-- Section title — Figma: medium teal heading (~38-42px semi-bold) per image analysis -->
       <h2
         class="text-center mb-10"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 60px; font-weight: 700; color: #4ECBA5; letter-spacing: 3px;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 40px; font-weight: 600; color: #4ECBA5; letter-spacing: 2px;"
       >
         與我們合作
       </h2>
@@ -95,27 +95,27 @@
         </button>
       </div>
 
-      <!-- Stats row — Figma shows large numbers (~48-52px) with smaller labels (~24px) -->
-      <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-40 mb-20 text-center">
+      <!-- Stats row — Figma: label ~16-18px regular gray, numbers ~40-44px bold teal -->
+      <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-56 mb-20 text-center">
         <div class="flex flex-col items-center w-full md:w-auto">
           <p
-            class="text-[#606060] mb-1"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; letter-spacing: 2px;"
+            class="text-[#777777] mb-2"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 17px; font-weight: 400; letter-spacing: 1px;"
           >
             當日活躍使用者
           </p>
-          <p style="font-family: 'Montserrat', sans-serif; font-size: 50px; font-weight: 600; color: #4ECBA5; letter-spacing: 1px;">
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 700; color: #4ECBA5; letter-spacing: 1px;">
             3,500+
           </p>
         </div>
         <div class="flex flex-col items-center w-full md:w-auto">
           <p
-            class="text-[#606060] mb-1"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; letter-spacing: 2px;"
+            class="text-[#777777] mb-2"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 17px; font-weight: 400; letter-spacing: 1px;"
           >
             使用次數
           </p>
-          <p style="font-family: 'Montserrat', sans-serif; font-size: 50px; font-weight: 600; color: #4ECBA5; letter-spacing: 1px;">
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 42px; font-weight: 700; color: #4ECBA5; letter-spacing: 1px;">
             15,000+
           </p>
         </div>
@@ -135,9 +135,9 @@
             :key="partner.name"
             class="partner-item flex flex-col items-center gap-2.5 group cursor-pointer"
           >
-            <!-- Partner circles ~65px per Figma (was 85px, too large) -->
+            <!-- Partner circles ~65px per Figma — outlined circle style with light gray border -->
             <div class="partner-circle relative w-[65px] h-[65px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-              <div class="partner-bg absolute inset-0 rounded-full group-hover:shadow-lg transition-shadow duration-300" />
+              <div class="partner-bg-outlined absolute inset-0 rounded-full transition-shadow duration-300" />
               <img
                 :src="partner.logo"
                 :alt="partner.name"
@@ -225,13 +225,15 @@ const partners = [
   transform: translateY(-20px);
 }
 
-.partner-bg {
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.5),
-    0 2px 8px rgba(0, 0, 0, 0.06),
-    -3px -3px 8px rgba(255, 255, 255, 0.8),
-    3px 3px 8px rgba(0, 0, 0, 0.05);
-  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.6));
+/* Figma: outlined circles with light gray border, white/light background */
+.partner-bg-outlined {
+  border: 2px solid #d0d0d0;
+  background: #f5f5f5;
+}
+
+.group:hover .partner-bg-outlined {
+  border-color: #b0b0b0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .partner-logo {
