@@ -17,10 +17,10 @@
     </div>
 
     <div class="relative max-w-6xl mx-auto px-6">
-      <!-- Section title — Figma: medium teal heading (~38-42px semi-bold) per image analysis -->
+      <!-- Figma: LARGE LIGHT GRAY title matching other sections — 80px weight300 #606060 per DESIGN-SPEC.md + verified from case-studies.png — DO NOT change to teal or shrink -->
       <h2
         class="text-center mb-10"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 40px; font-weight: 600; color: #4ECBA5; letter-spacing: 2px;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060; letter-spacing: 9.6px;"
       >
         與我們合作
       </h2>
@@ -95,12 +95,12 @@
         </button>
       </div>
 
-      <!-- Stats row — Figma: label ~16-18px regular gray, numbers ~40-44px bold teal -->
+      <!-- Stats row — Figma: labels ~24-28px dark text, numbers ~36-44px bold teal (verified from case-studies.png) — DO NOT shrink labels below 24px -->
       <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-56 mb-20 text-center">
         <div class="flex flex-col items-center w-full md:w-auto">
           <p
-            class="text-[#777777] mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 17px; font-weight: 400; letter-spacing: 1px;"
+            class="mb-2"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 400; color: #333333; letter-spacing: 1px;"
           >
             當日活躍使用者
           </p>
@@ -110,8 +110,8 @@
         </div>
         <div class="flex flex-col items-center w-full md:w-auto">
           <p
-            class="text-[#777777] mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 17px; font-weight: 400; letter-spacing: 1px;"
+            class="mb-2"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 400; color: #333333; letter-spacing: 1px;"
           >
             使用次數
           </p>

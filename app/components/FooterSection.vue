@@ -2,7 +2,8 @@
   <footer id="contact" class="relative z-20 bg-[#3d3d3d]">
     <!-- Figma: compact footer ~80-100px height, not tall 72px vertical padding -->
     <div class="max-w-7xl mx-auto px-16 py-7">
-      <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[224px] justify-center">
+      <!-- Figma: columns have ~80-120px gaps, NOT 224px — DO NOT WIDEN -->
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[100px] justify-center">
         <!-- Logo & Copyright -->
         <div class="flex flex-col gap-2 shrink-0">
           <img src="/assets/logo-with-title.svg" alt="Open NCCU" class="h-[47px] w-auto object-contain object-left" />
@@ -16,7 +17,8 @@
           <!-- Community -->
           <div class="flex flex-col gap-5">
             <!-- Figma: ~13-15px small uppercase tracked labels, NOT 20px — DO NOT ENLARGE -->
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #e0e0e0; letter-spacing: 2.5px;">
+            <!-- Figma: section headings are white #FFFFFF, not #e0e0e0 — DO NOT change to gray -->
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #ffffff; letter-spacing: 2.5px;">
               COMMUNITY
             </h4>
             <div class="flex items-center gap-5">
@@ -31,8 +33,8 @@
 
           <!-- Resource -->
           <div class="flex flex-col gap-5">
-            <!-- Figma: ~13-15px small uppercase tracked labels, NOT 20px — DO NOT ENLARGE -->
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #e0e0e0; letter-spacing: 2.5px;">
+            <!-- Figma: section headings are white #FFFFFF — DO NOT change to gray -->
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #ffffff; letter-spacing: 2.5px;">
               RESOURCE
             </h4>
             <div class="flex items-center gap-5">
@@ -47,16 +49,16 @@
 
           <!-- Report -->
           <div class="flex flex-col gap-5">
-            <!-- Figma: ~13-15px small uppercase tracked labels, NOT 20px — DO NOT ENLARGE -->
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #e0e0e0; letter-spacing: 2.5px;">
+            <!-- Figma: section headings are white #FFFFFF — DO NOT change to gray -->
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #ffffff; letter-spacing: 2.5px;">
               REPORT
             </h4>
-            <!-- Figma spec: outlined pill button (transparent bg, white border, white text) — DO NOT change to white-fill -->
-            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 transition-all whitespace-nowrap border border-white/80 hover:border-white hover:bg-white/10">
-              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; color: #ffffff;">
+            <!-- Figma: WHITE-FILLED pill button with dark text (verified from footer.png) — DO NOT change to outlined -->
+            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 transition-all whitespace-nowrap bg-white hover:bg-gray-100">
+              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; color: #3d3d3d;">
                 問題回報表單
               </span>
-              <Icon icon="tabler:arrow-up" width="16" height="16" class="text-white rotate-45" />
+              <Icon icon="tabler:arrow-up" width="16" height="16" class="text-[#3d3d3d] rotate-45" />
             </a>
           </div>
         </div>
@@ -85,7 +87,6 @@ const resources = [
 
 <style scoped>
 .report-btn {
-  background: transparent;
   box-shadow: none;
 }
 </style>
