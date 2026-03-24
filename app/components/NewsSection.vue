@@ -55,9 +55,9 @@
               :rel="news.url ? 'noopener noreferrer' : undefined"
               class="news-card rounded-[12px] w-[340px] h-[155px] flex-shrink-0 cursor-pointer transition-all relative block no-underline -rotate-[4deg]"
             >
-              <!-- New badge (top right, slightly overlapping card edge per Figma) -->
+              <!-- New badge (top right, overlapping card edge per Figma — rounded rectangle ~6px, NOT pill) -->
               <div v-if="news.isNew" class="absolute right-[-8px] top-[-8px]">
-                <div class="new-badge rounded-full px-3.5 py-1 flex items-center justify-center">
+                <div class="new-badge rounded-[6px] px-3.5 py-1 flex items-center justify-center">
                   <span
                     class="text-white"
                     style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;"

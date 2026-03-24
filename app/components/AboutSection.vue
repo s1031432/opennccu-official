@@ -137,8 +137,9 @@ const timelineItems = [
 </script>
 
 <style scoped>
+/* Figma: clearly visible light gray card background ~#DCDCDC (10-15% gray), NOT barely-visible */
 .timeline-card {
-  background: rgba(215, 215, 215, 0.4);
+  background: rgba(210, 210, 210, 0.55);
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.04);
   border: none;
