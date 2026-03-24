@@ -96,14 +96,14 @@
             </div>
           </div>
 
-          <!-- CTA Circle Button (between phones) per Figma — green arrow + 點擊 label -->
-          <div class="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-2">
-            <div class="cta-circle w-[140px] h-[140px] md:w-[180px] md:h-[180px] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" class="opacity-80">
-                <path d="M12 20H28M28 20L21 13M28 20L21 27" stroke="#4ECBA5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- CTA Circle Button (between phones) per Figma — ~80-100px glassmorphic circle with green arrow + 點擊 label at 2 o'clock -->
+          <div class="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 z-30 flex items-center gap-2">
+            <div class="cta-circle w-[90px] h-[90px] md:w-[100px] md:h-[100px] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" class="opacity-80">
+                <path d="M8 14H20M20 14L15 9M20 14L15 19" stroke="#4ECBA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 400; color: #aeaeb2; letter-spacing: 2px;">點擊</span>
+            <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 400; color: #4ECBA5; letter-spacing: 1.5px;">點擊</span>
           </div>
 
           <!-- Phone 2 (front, slightly tilted other way) -->
@@ -140,23 +140,23 @@
 
         <!-- Glass balls (decorative) -->
         <div class="hidden md:block">
-          <!-- Top left glass ball (card preview) -->
-          <div class="glass-ball absolute -left-4 top-4 w-[240px] h-[240px]">
+          <!-- Top left glass ball (card preview) — Figma: ~100-120px diameter -->
+          <div class="glass-ball absolute -left-4 top-4 w-[130px] h-[130px]">
             <div class="glass-ball-inner rounded-full w-full h-full flex items-center justify-center overflow-hidden">
-              <div class="w-[160px] h-[120px] bg-white/40 backdrop-blur-sm rounded-xl border border-[#77d1a6]/40 p-3 rotate-[11deg] shadow-lg">
-                <div class="flex items-center gap-1.5 mb-2">
-                  <div class="w-3 h-3 rounded bg-[#4ECBA5]/40"></div>
-                  <span class="text-[7px] text-[#4ECBA5] font-bold">Open NCCU</span>
+              <div class="w-[90px] h-[68px] bg-white/40 backdrop-blur-sm rounded-lg border border-[#77d1a6]/40 p-2 rotate-[11deg] shadow-lg">
+                <div class="flex items-center gap-1 mb-1">
+                  <div class="w-2 h-2 rounded bg-[#4ECBA5]/40"></div>
+                  <span class="text-[5px] text-[#4ECBA5] font-bold">Open NCCU</span>
                 </div>
-                <div class="text-[8px] text-[#787878] font-bold mb-0.5">我是政大人</div>
-                <div class="text-[6px] text-[#787878]">XXX 系</div>
-                <div class="text-[6px] text-[#616161] mt-1">@iamfrom_nccu</div>
+                <div class="text-[6px] text-[#787878] font-bold mb-0.5">我是政大人</div>
+                <div class="text-[5px] text-[#787878]">XXX 系</div>
+                <div class="text-[5px] text-[#616161] mt-0.5">@iamfrom_nccu</div>
               </div>
             </div>
           </div>
 
-          <!-- Top right glass ball (weather — 3D cloud with sun & rain per Figma) -->
-          <div class="glass-ball absolute -right-4 top-[40%] w-[200px] h-[200px]">
+          <!-- Top right glass ball (weather — 3D cloud with sun & rain per Figma) — ~100-120px diameter -->
+          <div class="glass-ball absolute -right-4 top-[40%] w-[120px] h-[120px]">
             <div class="glass-ball-inner rounded-full w-full h-full flex items-center justify-center overflow-hidden">
               <div class="rotate-[11deg]">
                 <svg width="80" height="70" viewBox="0 0 80 70" fill="none">
@@ -176,8 +176,8 @@
             </div>
           </div>
 
-          <!-- Bottom right glass ball (directional signpost with 北/南 per Figma) -->
-          <div class="glass-ball absolute right-[15%] -bottom-4 w-[200px] h-[200px]">
+          <!-- Bottom right glass ball (directional signpost with 北/南 per Figma) — ~100-120px diameter -->
+          <div class="glass-ball absolute right-[15%] -bottom-4 w-[120px] h-[120px]">
             <div class="glass-ball-inner rounded-full w-full h-full flex items-center justify-center overflow-hidden">
               <div class="rotate-[-14deg]">
                 <svg width="70" height="90" viewBox="0 0 70 90" fill="none">
