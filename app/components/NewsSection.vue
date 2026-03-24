@@ -25,10 +25,10 @@
             :class="activeTab === 'news' ? 'news-badge-pill' : ''"
             @click="activeTab = 'news'"
           >
-            <!-- Figma spec: ~22-26px labels (Figma image analysis shows moderate-sized text, not oversized 28px) -->
+            <!-- Figma: ~24-28px, weight 500, #5A5A5A active / #A0A0A0 inactive -->
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 600;"
-              :style="{ color: activeTab === 'news' ? '#333333' : '#999999' }"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 500;"
+              :style="{ color: activeTab === 'news' ? '#5a5a5a' : '#a0a0a0' }"
             >最新消息</span>
           </button>
           <button
@@ -36,10 +36,10 @@
             :class="activeTab === 'press' ? 'news-badge-pill' : ''"
             @click="activeTab = 'press'"
           >
-            <!-- Figma spec: ~18-20px secondary label -->
+            <!-- Figma: ~22-26px secondary label, lighter color -->
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px; font-weight: 400;"
-              :style="{ color: activeTab === 'press' ? '#333333' : '#999999' }"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 400;"
+              :style="{ color: activeTab === 'press' ? '#5a5a5a' : '#a0a0a0' }"
             >新聞報導</span>
           </button>
         </div>
@@ -66,9 +66,10 @@
               </div>
               <!-- Card content -->
               <div class="absolute left-[20px] top-[16px] w-[240px] flex flex-col gap-0.5">
+                <!-- Figma: date in medium gray ~#8A8A8A, not teal — DO NOT change to teal -->
                 <span
-                  class="text-[#6bafa3]"
-                  style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px;"
+                  class="text-[#8a8a8a]"
+                  style="font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 1px;"
                 >{{ news.date }}</span>
                 <p
                   class="text-[#3d3d3d] font-bold line-clamp-1"
@@ -114,12 +115,13 @@ const activeItems = computed(() =>
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* Figma: neumorphic raised pill for active tab — NOT white-fill with border */
 .news-badge-pill {
-  background: #ffffff;
-  border: 1px solid #dddddd;
+  background: #f0f0f0;
+  border: none;
   box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.06),
-    0 1px 3px rgba(0, 0, 0, 0.04);
+    4px 4px 10px rgba(0, 0, 0, 0.08),
+    -4px -4px 10px rgba(255, 255, 255, 0.9);
 }
 
 .news-card {

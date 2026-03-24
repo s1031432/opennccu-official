@@ -15,7 +15,8 @@
         <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[120px]">
           <!-- Community -->
           <div class="flex flex-col gap-5">
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; letter-spacing: 1px;">
+            <!-- Figma: ~13-15px small uppercase tracked labels, NOT 20px — DO NOT ENLARGE -->
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #e0e0e0; letter-spacing: 2.5px;">
               COMMUNITY
             </h4>
             <div class="flex items-center gap-5">
@@ -30,7 +31,8 @@
 
           <!-- Resource -->
           <div class="flex flex-col gap-5">
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; letter-spacing: 1px;">
+            <!-- Figma: ~13-15px small uppercase tracked labels, NOT 20px — DO NOT ENLARGE -->
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #e0e0e0; letter-spacing: 2.5px;">
               RESOURCE
             </h4>
             <div class="flex items-center gap-5">
@@ -45,7 +47,8 @@
 
           <!-- Report -->
           <div class="flex flex-col gap-5">
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 500; color: #ffffff; letter-spacing: 1px;">
+            <!-- Figma: ~13-15px small uppercase tracked labels, NOT 20px — DO NOT ENLARGE -->
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #e0e0e0; letter-spacing: 2.5px;">
               REPORT
             </h4>
             <!-- Figma spec: outlined pill button (transparent bg, white border, white text) — DO NOT change to white-fill -->
