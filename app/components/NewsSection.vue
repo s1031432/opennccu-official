@@ -55,8 +55,8 @@
               :rel="news.url ? 'noopener noreferrer' : undefined"
               class="news-card rounded-[16px] w-[340px] h-[155px] flex-shrink-0 cursor-pointer transition-all relative block no-underline rotate-[2deg]"
             >
-              <!-- New badge (top right, ~50% protruding above card edge per Figma) -->
-              <div v-if="news.isNew" class="absolute right-[16px] top-[-10px]">
+              <!-- New badge (top right, inset inside card per Figma — NOT protruding above) -->
+              <div v-if="news.isNew" class="absolute right-[14px] top-[12px]">
                 <div class="new-badge rounded-[8px] px-3 py-1 flex items-center justify-center">
                   <span
                     class="text-white"

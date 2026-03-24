@@ -109,9 +109,36 @@ curl -s -X POST "https://discord.com/api/v10/channels/1484206453677097030/messag
 | 英文字體 | Montserrat |
 | Footer 字體 | Outfit |
 | 標題大小 | 80px weight300 |
-| 導航大小 | 24px |
+| 導航大小 | 18px |
 | 內文大小 | 28px weight300 |
 | 小字大小 | 24px weight300 |
+
+## 禁止回退的樣式（已由人工確認，不可改回舊版）
+
+以下項目已經人工調整並確認，迭代時**絕對不可改回舊的數值**，必須基於當前版本繼續修改：
+
+### NewsSection
+- 卡片**無旋轉**（已移除 `rotate-[2deg]`），不可加回任何 rotate
+- 卡片尺寸為 `w-[420px] h-[170px]`，不可改回 485×190
+- Tab 按鈕字體為 `22px`，不可改回 28px
+- Tab 按鈕 padding 為 `px-4 py-2`，不可改回 px-5 py-2.5
+- New badge 位置為 `top-[-8px] right-[20px]`
+- 卡片內容區域為 `left-[20px] top-[18px] w-[300px]`
+- Tab 容器寬度為 `w-[140px]`
+
+### NavBar
+- Logo 為 `w-[34px] h-[36px]`，不可改回 43×45
+- 導航文字為 `18px`，不可改回 24px
+- Icon 為 `width="26" height="26"`，不可改回 36
+- 主 pill padding 為 `px-6 md:px-12 py-2.5 md:py-3.5`
+- Utility pill padding 為 `px-4 py-2.5 md:py-3.5`
+- Gap 為 `gap-4 md:gap-7`
+- 「產品 & 服務」不論 active/inactive 都必須使用分開的 span 結構（中文 Noto Sans TC + `&` 用 Montserrat），避免寬度跳動
+
+### CrewSection
+- JOIN US 只保留 ScrollTrack 中的 SVG 版本
+- CrewSection 中不可再加回 HTML 版本的 JOIN US 按鈕
+- 保留隱藏的 `div#join-us-btn` 定位錨點供 SVG 使用
 
 ## 注意事項
 - 工作目錄限制在 `/Users/yt/vibe-workspace/opennccu-official/`

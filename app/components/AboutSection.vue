@@ -57,7 +57,8 @@
           >
             <!-- Text content -->
             <div class="lg:w-1/2" :class="idx % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'">
-              <div class="timeline-card rounded-[30px] p-8 lg:p-10">
+              <!-- Figma: timeline card border-radius ~16-20px -->
+            <div class="timeline-card rounded-[20px] p-8 lg:p-10">
                 <h3
                   class="mb-4"
                   style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
@@ -73,7 +74,8 @@
             </div>
             <!-- Image -->
             <div class="lg:w-1/2" :class="idx % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'">
-              <div class="w-full h-[355px] rounded-[30px] overflow-hidden" :class="item.photo ? '' : 'bg-[#d9d9d9] flex items-center justify-center'">
+              <!-- Figma: image border-radius ~16-20px -->
+              <div class="w-full h-[355px] rounded-[20px] overflow-hidden" :class="item.photo ? '' : 'bg-[#d9d9d9] flex items-center justify-center'">
                 <img
                   v-if="item.photo"
                   :src="item.photo"
@@ -140,6 +142,7 @@ const timelineItems = [
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.04);
   border: none;
-  border-radius: 30px;
+  /* Figma: ~16-20px border-radius */
+  border-radius: 20px;
 }
 </style>

@@ -7,8 +7,8 @@
     <div id="hero-content" class="max-w-7xl mx-auto px-6 pt-32 pb-20 w-full relative flex items-center">
       <div class="relative z-10 max-w-xl flex-shrink-0">
         <h1
-          class="font-normal tracking-wide text-[#aeaeb2] whitespace-nowrap"
-          style="font-family: 'Montserrat', sans-serif; font-size: 80px; font-weight: 400;"
+          class="font-normal text-[#aeaeb2] whitespace-nowrap"
+          style="font-family: 'Montserrat', sans-serif; font-size: 80px; font-weight: 400; letter-spacing: 0.25em;"
         >
           Open NCCU
         </h1>
