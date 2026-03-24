@@ -25,10 +25,10 @@
             :class="activeTab === 'news' ? 'news-badge-pill' : ''"
             @click="activeTab = 'news'"
           >
-            <!-- Figma: ~24-28px, weight 500, #5A5A5A active / #A0A0A0 inactive -->
+            <!-- Figma: ~18-20px, bold active / regular inactive, #333 active / #999 inactive — DO NOT ENLARGE above 20px -->
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 500;"
-              :style="{ color: activeTab === 'news' ? '#5a5a5a' : '#a0a0a0' }"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 18px;"
+              :style="{ color: activeTab === 'news' ? '#333333' : '#999999', fontWeight: activeTab === 'news' ? '600' : '400' }"
             >最新消息</span>
           </button>
           <button
@@ -36,10 +36,10 @@
             :class="activeTab === 'press' ? 'news-badge-pill' : ''"
             @click="activeTab = 'press'"
           >
-            <!-- Figma: ~22-26px secondary label, lighter color -->
+            <!-- Figma: same size as primary label ~18-20px, lighter when inactive — DO NOT ENLARGE above 20px -->
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 400;"
-              :style="{ color: activeTab === 'press' ? '#5a5a5a' : '#a0a0a0' }"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 18px;"
+              :style="{ color: activeTab === 'press' ? '#333333' : '#999999', fontWeight: activeTab === 'press' ? '600' : '400' }"
             >新聞報導</span>
           </button>
         </div>
@@ -55,9 +55,9 @@
               :rel="news.url ? 'noopener noreferrer' : undefined"
               class="news-card rounded-[12px] w-[340px] h-[155px] flex-shrink-0 cursor-pointer transition-all relative block no-underline -rotate-[2deg]"
             >
-              <!-- New badge (top right, overlapping card edge per Figma — rounded rectangle ~6px, NOT pill) -->
-              <div v-if="news.isNew" class="absolute right-[-8px] top-[-8px]">
-                <div class="new-badge rounded-[6px] px-3.5 py-1 flex items-center justify-center">
+              <!-- New badge (top right, INSET inside card per Figma — ~12px from edges — DO NOT move outside card) -->
+              <div v-if="news.isNew" class="absolute right-[12px] top-[12px]">
+                <div class="new-badge rounded-[6px] px-3 py-0.5 flex items-center justify-center">
                   <span
                     class="text-white"
                     style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;"

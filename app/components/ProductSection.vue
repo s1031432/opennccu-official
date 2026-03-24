@@ -68,11 +68,12 @@
           <span class="watermark-text">APP</span>
         </div>
 
-        <!-- Phone mockups center -->
-        <div class="flex justify-center items-end gap-6 h-[520px] relative z-10">
-          <!-- Phone 1 (back, slightly tilted) -->
-          <div class="relative z-10" :style="{ transform: `translateY(${-scrollY * 0.02}px) rotate(-6deg)` }">
-            <div class="w-52 h-[420px] bg-white rounded-[2.5rem] shadow-2xl border-4 border-gray-200 overflow-hidden relative">
+        <!-- Phone mockups center — Figma: BOTH phones tilt counter-clockwise, overlap ~20-25% -->
+        <!-- DO NOT make right phone clockwise. Both are CCW per Figma. -->
+        <div class="flex justify-center items-end h-[520px] relative z-10">
+          <!-- Phone 1 (back, tilted more CCW ~-15deg per Figma) -->
+          <div class="relative z-10 -mr-12" :style="{ transform: `translateY(${-scrollY * 0.02}px) rotate(-15deg)` }">
+            <div class="w-48 h-[400px] bg-white rounded-[2.5rem] shadow-2xl border-4 border-gray-200 overflow-hidden relative">
               <div class="absolute top-0 left-0 right-0 z-10">
                 <div class="mx-auto w-24 h-6 bg-gray-200 rounded-b-2xl"></div>
               </div>
@@ -106,8 +107,8 @@
             <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 400; color: #4ECBA5; letter-spacing: 1.5px;">點擊</span>
           </div>
 
-          <!-- Phone 2 (front, slightly tilted other way) -->
-          <div class="relative z-20" :style="{ transform: `translateY(${scrollY * 0.015}px) rotate(4deg)` }">
+          <!-- Phone 2 (front, tilted CCW ~-10deg per Figma — DO NOT change to clockwise) -->
+          <div class="relative z-20 -ml-12" :style="{ transform: `translateY(${scrollY * 0.015}px) rotate(-10deg)` }">
             <div class="w-56 h-[460px] bg-white rounded-[2.5rem] shadow-2xl border-4 border-gray-200 overflow-hidden relative">
               <div class="absolute top-0 left-0 right-0 z-10">
                 <div class="mx-auto w-24 h-6 bg-gray-200 rounded-b-2xl"></div>
