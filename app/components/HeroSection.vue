@@ -12,9 +12,10 @@
         >
           Open NCCU
         </h1>
+        <!-- Figma spec: subtitle ~24-28px (NOT 48px) — DO NOT ENLARGE -->
         <p
-          class="text-[#aeaeb2] leading-snug mt-8"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300;"
+          class="text-[#aeaeb2] leading-relaxed mt-6"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
         >
           政大學生設計，<br />
           設計給政大學生！
