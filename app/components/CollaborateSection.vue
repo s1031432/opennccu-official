@@ -52,8 +52,9 @@
             >
               職涯中心與OpenNCCU 合作推出的「數位集點工具」，將學生的參與紀錄與問卷回饋集中化管理，協助學生隨時掌握積點進度與線上兌獎，獲得更直覺的抽獎參與體驗。
             </p>
+            <!-- Figma API: CTA Btn 203×64px, cornerRadius=2000 (pill), pad T16/B16/L32/R32, gap=8, gradient fill #94CCB9→#3FA4B6 ~145deg, inner shadows -->
             <button
-              class="cta-btn inline-flex items-center gap-2 rounded-full px-6 py-3 w-fit"
+              class="cta-btn inline-flex items-center gap-2 rounded-full px-[32px] py-[16px] w-fit"
               @click="showDetail = true"
             >
               <!-- Figma API: 24px/weight700/#ffffff/ls0.96 -->
@@ -61,7 +62,8 @@
                 class="text-white"
                 style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 0.96px;"
               >了解更多</span>
-              <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+              <!-- Figma API: arrow frame 32×32px -->
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                 <path d="M6 16H26M26 16L18 8M26 16L18 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
@@ -92,10 +94,10 @@
           </div>
         </div>
 
-        <!-- Carousel navigation arrow -->
-        <button class="absolute right-0 top-1/2 -translate-y-1/2 carousel-arrow w-[58px] h-[241px] flex items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <path d="M9 18l6-6-6-6"/>
+        <!-- Figma API: Carousel arrow Btn 58×241px, cornerRadius=10, fill #f0f0f0, neumorphic 3x DROP_SHADOW, arrow icon 18×30px #616161 -->
+        <button class="absolute right-0 top-1/2 -translate-y-1/2 carousel-arrow w-[58px] h-[241px] flex items-center justify-center transition-colors rounded-[10px]">
+          <svg width="18" height="30" viewBox="0 0 18 30" fill="none">
+            <path d="M3 3L15 15L3 27" stroke="#616161" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
       </div>
@@ -204,21 +206,31 @@ const partners = [
     inset 0 0 60px rgba(255, 255, 255, 0.3);
 }
 
+/* Figma API: CTA Btn gradient #94CCB9→#3FA4B6 (approx 145deg), inner shadows: white 3px/3px/10px 70% + teal -3px/-3px/10px multiply */
 .cta-btn {
-  background: linear-gradient(170deg, rgb(148, 204, 185) 5%, rgb(63, 164, 182) 95%);
+  background: linear-gradient(145deg, #94CCB9 0%, #3FA4B6 100%);
   box-shadow:
     inset 3px 3px 10px 0px rgba(255, 255, 255, 0.7),
-    inset -3px -3px 10px 0px #1693ba;
+    inset -3px -3px 10px 0px rgba(22, 147, 186, 1);
 }
 
 .cta-btn:hover {
   filter: brightness(1.05);
 }
 
+/* Figma API: carousel arrow neumorphic — fill #f0f0f0, 3x DROP_SHADOW matching partner circles */
 .carousel-arrow {
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(8px);
-  border-radius: 0 20px 20px 0;
+  background: #f0f0f0;
+  box-shadow:
+    7px 6px 7px -6px rgba(0, 0, 0, 0.08),
+    6px 6px 18px -14px rgba(135, 135, 135, 0.3),
+    -5px -5px 15px 0px #fcfcfc;
+}
+.carousel-arrow:hover {
+  box-shadow:
+    7px 6px 7px -6px rgba(0, 0, 0, 0.1),
+    6px 6px 18px -14px rgba(135, 135, 135, 0.35),
+    -5px -5px 15px 0px #fcfcfc;
 }
 
 .detail-fade-enter-active,

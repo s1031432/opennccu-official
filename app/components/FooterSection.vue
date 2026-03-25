@@ -6,7 +6,8 @@
       <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[224px] justify-center">
         <!-- Logo & Copyright -->
         <div class="flex flex-col gap-2 shrink-0">
-          <img src="/assets/logo-with-title.svg" alt="Open NCCU" class="h-[47px] w-auto object-contain object-left" />
+          <!-- Figma API: logo vector 232×43px — DO NOT enlarge -->
+          <img src="/assets/logo-with-title.svg" alt="Open NCCU" class="h-[43px] w-auto object-contain object-left" />
           <!-- Figma API: 14px weight400 Outfit #f0f0f0 — DO NOT darken -->
           <p style="font-family: 'Outfit', sans-serif; font-size: 14px; color: #f0f0f0;">
             &copy; 2026 Copyright. All Right Reserved.

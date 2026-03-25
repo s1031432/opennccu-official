@@ -88,7 +88,7 @@
                   {{ item.year }}
                 </h3>
                 <p
-                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; color: #606060; letter-spacing: 0.96px; line-height: 1.8;"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; color: #606060; letter-spacing: 0.96px; line-height: 36px;"
                 >
                   {{ item.description }}
                 </p>
@@ -96,8 +96,8 @@
             </div>
             <!-- Image -->
             <div class="lg:w-1/2" :class="idx % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'">
-              <!-- Figma: image border-radius ~16-20px -->
-              <div class="w-full h-[355px] rounded-[20px] overflow-hidden" :class="item.photo ? '' : 'bg-[#d9d9d9] flex items-center justify-center'">
+              <!-- Figma API: photo rectangles cr=50 — DO NOT SHRINK below 50px -->
+              <div class="w-full h-[355px] rounded-[50px] overflow-hidden" :class="item.photo ? '' : 'bg-[#d9d9d9] flex items-center justify-center'">
                 <img
                   v-if="item.photo"
                   :src="item.photo"
