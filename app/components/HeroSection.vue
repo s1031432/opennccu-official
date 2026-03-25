@@ -8,14 +8,14 @@
       <div class="relative z-10 max-w-xl flex-shrink-0">
         <h1
           class="font-normal text-[#aeaeb2] whitespace-nowrap"
-          style="font-family: 'Montserrat', sans-serif; font-size: 80px; font-weight: 400; letter-spacing: 0.25em;"
+          style="font-family: 'Montserrat', sans-serif; font-size: 80px; font-weight: 400; letter-spacing: 9.6px;"
         >
           Open NCCU
         </h1>
-        <!-- Figma spec: subtitle ~24-28px (NOT 48px) — DO NOT ENLARGE -->
+        <!-- Figma API: subtitle 48px weight300 letterSpacing 3.84px color #aeaeb2 — DO NOT SHRINK below 48px -->
         <p
-          class="text-[#aeaeb2] leading-relaxed mt-6"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
+          class="text-[#aeaeb2] mt-6"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; letter-spacing: 3.84px; line-height: 69.5px;"
         >
           政大學生設計，<br />
           設計給政大學生！

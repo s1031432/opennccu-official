@@ -7,7 +7,8 @@
         <!-- Logo & Copyright -->
         <div class="flex flex-col gap-2 shrink-0">
           <img src="/assets/logo-with-title.svg" alt="Open NCCU" class="h-[47px] w-auto object-contain object-left" />
-          <p style="font-family: 'Outfit', sans-serif; font-size: 14px; color: #b0b0b0;">
+          <!-- Figma API: 14px weight400 Outfit #f0f0f0 — DO NOT darken -->
+          <p style="font-family: 'Outfit', sans-serif; font-size: 14px; color: #f0f0f0;">
             &copy; 2026 Copyright. All Right Reserved.
           </p>
         </div>
@@ -16,9 +17,8 @@
         <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[120px]">
           <!-- Community -->
           <div class="flex flex-col gap-5">
-            <!-- Figma: ~13-15px small uppercase tracked labels, NOT 20px — DO NOT ENLARGE -->
-            <!-- Figma: section headings are white #FFFFFF, not #e0e0e0 — DO NOT change to gray -->
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #ffffff; letter-spacing: 2.5px;">
+            <!-- Figma API: 20px weight400 Outfit #ffffff, no letter-spacing — DO NOT SHRINK below 20px -->
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
               COMMUNITY
             </h4>
             <div class="flex items-center gap-5">
@@ -33,8 +33,8 @@
 
           <!-- Resource -->
           <div class="flex flex-col gap-5">
-            <!-- Figma: section headings are white #FFFFFF — DO NOT change to gray -->
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #ffffff; letter-spacing: 2.5px;">
+            <!-- Figma API: 20px weight400 Outfit #ffffff — DO NOT SHRINK -->
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
               RESOURCE
             </h4>
             <div class="flex items-center gap-5">
@@ -49,13 +49,14 @@
 
           <!-- Report -->
           <div class="flex flex-col gap-5">
-            <!-- Figma: section headings are white #FFFFFF — DO NOT change to gray -->
-            <h4 style="font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 500; color: #ffffff; letter-spacing: 2.5px;">
+            <!-- Figma API: 20px weight400 Outfit #ffffff — DO NOT SHRINK -->
+            <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
               REPORT
             </h4>
             <!-- Figma: WHITE-FILLED pill button with dark text (verified from footer.png) — DO NOT change to outlined -->
             <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 transition-all whitespace-nowrap bg-white hover:bg-gray-100">
-              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 500; color: #3d3d3d;">
+              <!-- Figma API: 14px weight700 Noto Sans TC #3d3d3d -->
+              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3d3d3d;">
                 問題回報表單
               </span>
               <Icon icon="tabler:arrow-up" width="16" height="16" class="text-[#3d3d3d] rotate-45" />
