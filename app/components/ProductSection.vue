@@ -16,7 +16,7 @@
       <!-- Title -->
       <h2
         class="text-center mb-4"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #616161; letter-spacing: 9.6px;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060; letter-spacing: 9.6px;"
       >
         我們打造了⋯
       </h2>
@@ -296,6 +296,20 @@
           <path d="M80 150 Q450 0 820 150" stroke="rgba(255,255,255,0.3)" stroke-width="1" fill="none" />
         </svg>
       </div>
+
+      <!-- Bottom slide indicators per Figma Frame 48095645: 3 rectangles (497×97px total, cr=20, clipsContent) with glass overlay -->
+      <div class="relative flex justify-center mt-4">
+        <div class="slide-indicators-container flex overflow-hidden rounded-[20px]" style="width: 497px; height: 97px;">
+          <!-- Rect 1: image fill with green stroke (active indicator) -->
+          <div class="flex-1 bg-[#d9d9d9] border-l border-[#81edb9]" style="border-radius: 20px 0 0 20px;"></div>
+          <!-- Rect 2: #d9d9d9 fill -->
+          <div class="flex-1 bg-[#d9d9d9]"></div>
+          <!-- Rect 3: #c9c9c9 fill (slightly darker) -->
+          <div class="flex-1 bg-[#c9c9c9]" style="border-radius: 0 20px 20px 0;"></div>
+        </div>
+        <!-- Glass overlay rectangle per Figma: 188×119px, cr=25, GLASS effect, positioned over left indicator -->
+        <div class="absolute left-1/2 -translate-x-[248px] -top-[11px] slide-glass-overlay" style="width: 188px; height: 119px; border-radius: 25px;"></div>
+      </div>
     </div>
   </section>
 </template>
@@ -370,11 +384,32 @@ defineProps<{
   filter: drop-shadow(0 2px 8px rgba(200, 230, 215, 0.15));
 }
 
+/* Figma: slide indicators container + glass overlay */
+.slide-indicators-container {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.slide-glass-overlay {
+  background: rgba(0, 0, 0, 0.004);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
   .watermark-text {
     font-size: 56px;
   }
   .glass-arc-svg {
+    display: none;
+  }
+  .slide-indicators-container {
+    width: 300px !important;
+    height: 60px !important;
+  }
+  .slide-glass-overlay {
     display: none;
   }
 }
