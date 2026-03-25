@@ -9,11 +9,10 @@
 
     <!-- Card content -->
     <div class="relative z-10 flex flex-col items-center justify-center h-full p-6" :style="{ opacity: showOpenNccu ? 1 - (openNccuOpacity ?? 1) : 1 }">
-      <!-- Team/role name -->
+      <!-- Team/role name — Figma API: 48px weight300 Montserrat, gradient #94CCB9→#3FA4B6 (same for all cards) -->
       <h3
-        class="text-center mb-3"
-        style="font-family: 'Montserrat', sans-serif; font-weight: 400; line-height: 1.15;"
-        :style="{ color, fontSize: multiLine ? '36px' : '36px' }"
+        class="text-center mb-3 crew-card-name"
+        style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.15; font-size: 48px;"
       >
         {{ label }}
       </h3>
@@ -59,11 +58,11 @@
         </div>
       </div>
 
-      <!-- Description (shown when showDescription is true) -->
+      <!-- Description (shown when showDescription is true) — Figma API: 24px weight300 #AEAEB2 -->
       <p
         v-if="description && showDescription"
         class="leading-relaxed text-center"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 300; color: #606060;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 300; color: #aeaeb2;"
       >
         {{ description }}
       </p>
@@ -79,8 +78,8 @@
       }"
     >
       <span
-        class="text-4xl tracking-[0.2em] text-center leading-relaxed"
-        style="font-family: 'Montserrat', sans-serif; font-weight: 300; color: #4ECBA5;"
+        class="text-4xl tracking-[0.2em] text-center leading-relaxed crew-card-name"
+        style="font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 48px;"
       >
         OPEN<br>NCCU
       </span>
@@ -139,6 +138,18 @@ defineEmits<{
     0 8px 32px rgba(0, 0, 0, 0.1),
     0 2px 8px rgba(0, 0, 0, 0.05),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Figma API: ALL role/team names use the SAME gradient: #94CCB9 → #3FA4B6 (teal green to teal blue) */
+.crew-card-name {
+  background: linear-gradient(
+    170deg,
+    #94CCB9 0%,
+    #3FA4B6 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .crew-card-blob {
