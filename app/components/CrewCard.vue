@@ -9,10 +9,10 @@
 
     <!-- Card content -->
     <div class="relative z-10 flex flex-col items-center justify-center h-full p-6" :style="{ opacity: showOpenNccu ? 1 - (openNccuOpacity ?? 1) : 1 }">
-      <!-- Team/role name — Figma API: 48px weight300 Montserrat, gradient #94CCB9→#3FA4B6 (same for all cards) -->
+      <!-- Team/role name — Figma API: 48px weight300 Montserrat, gradient #94CCB9→#3FA4B6, ls3.84, lh58.5 (same for all cards) -->
       <h3
         class="text-center mb-3 crew-card-name"
-        style="font-family: 'Montserrat', sans-serif; font-weight: 300; line-height: 1.15; font-size: 48px;"
+        style="font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 48px; line-height: 58.5px; letter-spacing: 3.84px;"
       >
         {{ label }}
       </h3>
@@ -58,11 +58,11 @@
         </div>
       </div>
 
-      <!-- Description (shown when showDescription is true) — Figma API: 24px weight300 #AEAEB2 -->
+      <!-- Description (shown when showDescription is true) — Figma API: 24px weight300 #AEAEB2 ls0.96 lh36 — DO NOT shrink below 24px -->
       <p
         v-if="description && showDescription"
-        class="leading-relaxed text-center"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 300; color: #aeaeb2;"
+        class="text-center"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; color: #aeaeb2; letter-spacing: 0.96px; line-height: 36px;"
       >
         {{ description }}
       </p>
