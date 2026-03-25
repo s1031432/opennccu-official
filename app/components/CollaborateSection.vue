@@ -37,16 +37,17 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[637px]">
           <!-- Left: text content -->
           <div class="lg:col-span-4 p-10 lg:p-[75px] flex flex-col justify-center">
-            <!-- Figma: ~28-32px bold dark text #333333 per case-studies.png -->
+            <!-- Figma API: 48px/weight300/#606060/ls3.84 — matches other section titles -->
             <h3
               class="mb-3"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 32px; font-weight: 700; color: #333333; letter-spacing: 2px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
             >
               徵才月
             </h3>
+            <!-- Figma API: 28px/weight300/#aeaeb2/ls1.12 -->
             <p
               class="leading-[1.8] mb-10"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 15px; font-weight: 400; color: #666666; letter-spacing: 0.5px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #aeaeb2; letter-spacing: 1.12px;"
             >
               職涯中心與OpenNCCU 合作推出的「數位集點工具」，將學生的參與紀錄與問卷回饋集中化管理，協助學生隨時掌握積點進度與線上兌獎，獲得更直覺的抽獎參與體驗。
             </p>
@@ -54,9 +55,10 @@
               class="cta-btn inline-flex items-center gap-2 rounded-full px-6 py-3 w-fit"
               @click="showDetail = true"
             >
+              <!-- Figma API: 24px/weight700/#ffffff/ls0.96 -->
               <span
                 class="text-white"
-                style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 0.5px;"
+                style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 0.96px;"
               >了解更多</span>
               <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
                 <path d="M6 16H26M26 16L18 8M26 16L18 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -97,29 +99,31 @@
         </button>
       </div>
 
-      <!-- Stats row — Figma: labels ~24-28px dark text, numbers ~36-44px bold teal (verified from case-studies.png) — DO NOT shrink labels below 24px -->
+      <!-- Stats row — Figma API: labels 48px/weight300/#606060/ls3.84, numbers 48px/weight600/teal/ls3.84 -->
       <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-56 mb-20 text-center">
         <div class="flex flex-col items-center w-full md:w-auto">
+          <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
             class="mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 400; color: #333333; letter-spacing: 1px;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
           >
             當日活躍使用者
           </p>
-          <!-- Figma: stat numbers at 48px per DESIGN-SPEC — DO NOT shrink below 48px -->
-          <p style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 700; color: #4ECBA5; letter-spacing: 1px;">
+          <!-- Figma API: 48px/weight600/teal/ls3.84 -->
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600; color: #4ECBA5; letter-spacing: 3.84px;">
             3,500+
           </p>
         </div>
         <div class="flex flex-col items-center w-full md:w-auto">
+          <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
             class="mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 400; color: #333333; letter-spacing: 1px;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
           >
             使用次數
           </p>
-          <!-- Figma: stat numbers at 48px per DESIGN-SPEC — DO NOT shrink below 48px -->
-          <p style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 700; color: #4ECBA5; letter-spacing: 1px;">
+          <!-- Figma API: 48px/weight600/teal/ls3.84 -->
+          <p style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600; color: #4ECBA5; letter-spacing: 3.84px;">
             15,000+
           </p>
         </div>
@@ -127,10 +131,10 @@
 
       <!-- Partners -->
       <div class="text-center">
-        <!-- Figma: "合作夥伴" subtitle ~20-24px, centered, medium gray — DO NOT ENLARGE beyond 22px -->
+        <!-- Figma API: "合作夥伴" 48px/weight300/#606060/ls3.84 — matches section title style -->
         <h3
           class="mb-10"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 22px; font-weight: 400; color: #606060; letter-spacing: 2px;"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
         >
           合作夥伴
         </h3>
