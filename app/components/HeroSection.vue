@@ -13,8 +13,9 @@
           Open NCCU
         </h1>
         <!-- Figma API: subtitle 48px weight300 letterSpacing 3.84px color #aeaeb2 — DO NOT SHRINK below 48px -->
+        <!-- Figma API: title y=570+h98, subtitle y=729, gap = 729-668 = 61px — DO NOT SHRINK below 61px -->
         <p
-          class="text-[#aeaeb2] mt-6"
+          class="text-[#aeaeb2] mt-[61px]"
           style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; letter-spacing: 3.84px; line-height: 69.5px;"
         >
           政大學生設計，<br />

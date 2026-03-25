@@ -15,7 +15,7 @@
       <!-- Title -->
       <h2
         class="text-center mb-6"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060; letter-spacing: 9.6px;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #616161; letter-spacing: 9.6px;"
       >
         我們是誰？
       </h2>
@@ -23,7 +23,7 @@
       <!-- Description — Figma API: 28px/weight300/#606060/ls1.12/lineHeight50px — DO NOT SHRINK below 28px -->
       <div class="text-center max-w-4xl mx-auto mb-12">
         <p
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #606060; letter-spacing: 1.12px; line-height: 50px;"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #616161; letter-spacing: 1.12px; line-height: 50px;"
         >
           我們是 <span style="font-family: 'Montserrat', sans-serif; font-weight: 300;">OpenNCCU</span>，一群熱愛開發和設計的政大學生所發起的非營利組織！
           我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源，期許為校園數位化創造更多可能。
@@ -52,12 +52,12 @@
             <div class="timeline-card rounded-[20px] p-8 lg:p-10">
                 <h3
                   class="mb-4"
-                  style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
+                  style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px;"
                 >
                   {{ item.year }}
                 </h3>
                 <p
-                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; color: #606060; letter-spacing: 0.96px; line-height: 36px;"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; color: #616161; letter-spacing: 0.96px; line-height: 36px;"
                 >
                   {{ item.description }}
                 </p>

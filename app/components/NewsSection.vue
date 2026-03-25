@@ -25,7 +25,7 @@
             <!-- Figma API: 28px weight400 #606060 (active) / #aeaeb2 (inactive) — DO NOT SHRINK below 28px -->
             <span
               style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400; letter-spacing: 1.12px;"
-              :style="{ color: activeTab === 'news' ? '#606060' : '#aeaeb2' }"
+              :style="{ color: activeTab === 'news' ? '#616161' : '#aeaeb2' }"
             >最新消息</span>
           </button>
           <button
@@ -36,7 +36,7 @@
             <!-- Figma API: 28px weight400 #606060 (active) / #aeaeb2 (inactive) ls1.12 — DO NOT SHRINK below 28px -->
             <span
               style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400; letter-spacing: 1.12px;"
-              :style="{ color: activeTab === 'press' ? '#606060' : '#aeaeb2' }"
+              :style="{ color: activeTab === 'press' ? '#616161' : '#aeaeb2' }"
             >新聞報導</span>
           </button>
         </div>

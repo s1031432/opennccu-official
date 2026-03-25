@@ -20,7 +20,7 @@
       <!-- Figma: LARGE LIGHT GRAY title matching other sections — 80px weight300 #606060 per DESIGN-SPEC.md + verified from case-studies.png — DO NOT change to teal or shrink -->
       <h2
         class="text-center mb-10"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060; letter-spacing: 9.6px;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #616161; letter-spacing: 9.6px;"
       >
         與我們合作
       </h2>
@@ -41,7 +41,7 @@
             <!-- Figma API: 48px/weight300/#606060/ls3.84/lh57.6 — matches other section titles -->
             <h3
               class="mb-[12px]"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px; line-height: 57.6px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 57.6px;"
             >
               徵才月
             </h3>
@@ -109,7 +109,7 @@
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
             class="mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px;"
           >
             當日活躍使用者
           </p>
@@ -122,7 +122,7 @@
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
             class="mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px;"
           >
             使用次數
           </p>
@@ -138,7 +138,7 @@
         <!-- Figma API: "合作夥伴" 48px/weight300/#606060/ls3.84, Partners frame gap=48 — matches section title style -->
         <h3
           class="mb-[48px]"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px;"
         >
           合作夥伴
         </h3>
