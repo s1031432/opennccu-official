@@ -100,8 +100,8 @@
         </button>
       </div>
 
-      <!-- Stats row — Figma API: labels 48px/weight300/#606060/ls3.84, numbers 48px/weight600/teal/ls3.84 -->
-      <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-56 mb-20 text-center">
+      <!-- Stats row — Figma API: Achievement gap=96px, labels 48px/weight300/#606060/ls3.84, numbers 48px/weight600/teal/ls3.84 -->
+      <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-[96px] mb-20 text-center">
         <div class="flex flex-col items-center w-full md:w-auto">
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
@@ -110,8 +110,8 @@
           >
             當日活躍使用者
           </p>
-          <!-- Figma API: 48px/weight600/teal/ls3.84 -->
-          <p style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600; color: #4ECBA5; letter-spacing: 3.84px;">
+          <!-- Figma API: 48px/weight600/gradient #94CCB9→#3FA4B6/ls3.84 — NOT solid teal -->
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600; letter-spacing: 3.84px;">
             3,500+
           </p>
         </div>
@@ -123,8 +123,8 @@
           >
             使用次數
           </p>
-          <!-- Figma API: 48px/weight600/teal/ls3.84 -->
-          <p style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600; color: #4ECBA5; letter-spacing: 3.84px;">
+          <!-- Figma API: 48px/weight600/gradient #94CCB9→#3FA4B6/ls3.84 — NOT solid teal -->
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600; letter-spacing: 3.84px;">
             15,000+
           </p>
         </div>
@@ -139,7 +139,8 @@
         >
           合作夥伴
         </h3>
-        <div class="flex justify-center items-center gap-6 md:gap-10 flex-wrap">
+        <!-- Figma API: PartnerList gap=64px — DO NOT shrink -->
+        <div class="flex justify-center items-center gap-[64px] flex-wrap">
           <div
             v-for="partner in partners"
             :key="partner.name"
@@ -233,6 +234,14 @@ const partners = [
 .detail-fade-leave-to {
   opacity: 0;
   transform: translateY(-20px);
+}
+
+/* Figma API: stats numbers gradient fill #94CCB9→#3FA4B6 (linear, top-left to bottom-right) */
+.stats-gradient {
+  background: linear-gradient(165deg, #94CCB9 0%, #3FA4B6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Figma API: partner circles fill #f0f0f0 (matches page bg), strokeWeight 1, neumorphic raised */

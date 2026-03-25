@@ -1,9 +1,9 @@
 <template>
   <footer id="contact" class="relative z-20 bg-[#3d3d3d]">
-    <!-- Figma: compact footer ~80-100px height, not tall 72px vertical padding -->
-    <div class="max-w-7xl mx-auto px-16 py-7">
-      <!-- Figma: columns have ~80-120px gaps, NOT 224px — DO NOT WIDEN -->
-      <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[100px] justify-center">
+    <!-- Figma API: Footer 1920×250, paddingTop=72 paddingBottom=72 paddingLeft=64 paddingRight=64 — DO NOT shrink padding -->
+    <div class="max-w-7xl mx-auto px-16 py-[72px]">
+      <!-- Figma API: top-level gap=224 between Copyright block and column groups — DO NOT shrink -->
+      <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[224px] justify-center">
         <!-- Logo & Copyright -->
         <div class="flex flex-col gap-2 shrink-0">
           <img src="/assets/logo-with-title.svg" alt="Open NCCU" class="h-[47px] w-auto object-contain object-left" />
@@ -55,8 +55,8 @@
             <h4 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 400; color: #ffffff;">
               REPORT
             </h4>
-            <!-- Figma: WHITE-FILLED pill button with dark text (verified from footer.png) — DO NOT change to outlined -->
-            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1.5 rounded-full px-5 py-2.5 transition-all whitespace-nowrap bg-white hover:bg-gray-100">
+            <!-- Figma API: formBtn 135×30px, cornerRadius=24, white fill, neumorphic shadows — DO NOT change to outlined -->
+            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1.5 rounded-[24px] px-5 py-2.5 transition-all whitespace-nowrap bg-white hover:bg-gray-100">
               <!-- Figma API: 14px weight700 Noto Sans TC #3d3d3d -->
               <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3d3d3d;">
                 問題回報表單
@@ -90,7 +90,11 @@ const resources = [
 </script>
 
 <style scoped>
+/* Figma API: formBtn neumorphic shadows — DROP_SHADOW(0,0,17px,black 10%) + DROP_SHADOW(0,0,5.2px,gray 70%) + INNER_SHADOW(0,-1.3px,6.5px,gray 20%) */
 .report-btn {
-  box-shadow: none;
+  box-shadow:
+    0 0 17px rgba(0, 0, 0, 0.1),
+    0 0 5.2px rgba(218, 218, 218, 0.7),
+    inset 0 -1.3px 6.5px rgba(209, 209, 209, 0.2);
 }
 </style>
