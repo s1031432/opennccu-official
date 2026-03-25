@@ -1,46 +1,14 @@
 <template>
-  <section id="products" class="py-24 relative overflow-hidden">
-    <!-- Decorative flowing mint-green tubular curve per Figma -->
+  <section id="products" class="py-24 relative overflow-hidden" style="background: radial-gradient(ellipse at 50% 45%, rgba(255,255,255,0.35) 0%, rgba(240,240,240,0) 55%);">
+    <!-- Decorative thin diagonal mint-green lines per Figma — two straight lines, ~30-40° angle, 15-25% opacity -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <svg class="absolute left-0 top-0 w-full h-full" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" fill="none">
-        <defs>
-          <linearGradient id="product-tube-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#a8e6cf" stop-opacity="0.7" />
-            <stop offset="50%" stop-color="#77e5b0" stop-opacity="0.5" />
-            <stop offset="100%" stop-color="#4ECBA5" stop-opacity="0.3" />
-          </linearGradient>
-          <linearGradient id="product-tube-highlight" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6" />
-            <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
-          </linearGradient>
-          <filter id="tube-glow">
-            <feGaussianBlur stdDeviation="3" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-        <!-- Main thick curve -->
-        <path
-          d="M-50 180 C150 120, 300 350, 500 280 S800 100, 950 320 C1050 440, 1100 600, 1250 550"
-          stroke="url(#product-tube-grad)"
-          stroke-width="8"
-          stroke-linecap="round"
-          fill="none"
-          filter="url(#tube-glow)"
-        />
-        <!-- Thinner highlight line (3D depth) -->
-        <path
-          d="M-50 177 C150 117, 300 347, 500 277 S800 97, 950 317 C1050 437, 1100 597, 1250 547"
-          stroke="url(#product-tube-highlight)"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          fill="none"
-        />
-        <!-- Glossy endpoint dots -->
-        <circle cx="500" cy="280" r="6" fill="#77e5b0" opacity="0.6" />
-        <circle cx="950" cy="320" r="5" fill="#4ECBA5" opacity="0.5" />
+      <svg class="absolute left-0 top-0 w-full h-full" viewBox="0 0 1920 1200" preserveAspectRatio="xMidYMid slice" fill="none">
+        <!-- Diagonal line 1 — upper-left to lower-right, subtle mint green rod with 3D quality -->
+        <line x1="200" y1="-50" x2="1400" y2="700" stroke="#a8e6cf" stroke-width="2" stroke-opacity="0.2" stroke-linecap="round" />
+        <line x1="199" y1="-51" x2="1399" y2="699" stroke="white" stroke-width="0.8" stroke-opacity="0.15" stroke-linecap="round" />
+        <!-- Diagonal line 2 — parallel, slightly offset -->
+        <line x1="350" y1="-50" x2="1550" y2="700" stroke="#a8e6cf" stroke-width="1.5" stroke-opacity="0.15" stroke-linecap="round" />
+        <line x1="349" y1="-51" x2="1549" y2="699" stroke="white" stroke-width="0.6" stroke-opacity="0.12" stroke-linecap="round" />
       </svg>
     </div>
 
@@ -330,10 +298,12 @@ defineProps<{
 </script>
 
 <style scoped>
+/* Figma: watermark text is italic/oblique with 3D embossed effect */
 .watermark-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 108px;
   font-weight: 700;
+  font-style: italic;
   color: #f0f0f0;
   text-shadow:
     1px 1px 0 rgba(255, 255, 255, 0.9),
