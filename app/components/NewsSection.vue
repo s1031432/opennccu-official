@@ -21,24 +21,24 @@
         <!-- Left labels -->
         <div class="flex-shrink-0 flex flex-col items-start w-[150px] gap-1.5">
           <button
-            class="flex items-center justify-center px-4 py-2 rounded-full transition-all"
+            class="flex items-center justify-center px-5 py-2.5 rounded-full transition-all"
             :class="activeTab === 'news' ? 'news-badge-pill' : ''"
             @click="activeTab = 'news'"
           >
-            <!-- Figma: ~18-20px, bold active / regular inactive, #333 active / #999 inactive — DO NOT ENLARGE above 20px -->
+            <!-- Figma: ~20-22px, bold active / regular inactive, #333 active / #999 inactive — DO NOT ENLARGE above 22px -->
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 18px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px;"
               :style="{ color: activeTab === 'news' ? '#333333' : '#999999', fontWeight: activeTab === 'news' ? '600' : '400' }"
             >最新消息</span>
           </button>
           <button
-            class="flex items-center justify-center px-4 py-2 rounded-full transition-all"
+            class="flex items-center justify-center px-5 py-2.5 rounded-full transition-all"
             :class="activeTab === 'press' ? 'news-badge-pill' : ''"
             @click="activeTab = 'press'"
           >
-            <!-- Figma: same size as primary label ~18-20px, lighter when inactive — DO NOT ENLARGE above 20px -->
+            <!-- Figma: same size as primary label ~20-22px, lighter when inactive — DO NOT ENLARGE above 22px -->
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 18px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px;"
               :style="{ color: activeTab === 'press' ? '#333333' : '#999999', fontWeight: activeTab === 'press' ? '600' : '400' }"
             >新聞報導</span>
           </button>
@@ -46,14 +46,15 @@
 
         <!-- Scrollable news cards -->
         <div class="flex-1 overflow-x-auto pt-6 pb-4 scrollbar-hide overflow-y-visible">
-          <div class="flex gap-4" style="min-width: max-content;">
+          <!-- Figma: ~30-50px gap between cards -->
+          <div class="flex gap-8" style="min-width: max-content;">
             <a
               v-for="news in activeItems"
               :key="news.id"
               :href="news.url || '#'"
               :target="news.url ? '_blank' : undefined"
               :rel="news.url ? 'noopener noreferrer' : undefined"
-              class="news-card rounded-[16px] w-[340px] h-[155px] flex-shrink-0 cursor-pointer transition-all relative block no-underline -rotate-[2deg]"
+              class="news-card rounded-[16px] w-[360px] h-[170px] flex-shrink-0 cursor-pointer transition-all relative block no-underline -rotate-[2deg]"
             >
               <!-- New badge (top right, INSET inside card per Figma — ~12px from edges — DO NOT move outside card) -->
               <div v-if="news.isNew" class="absolute right-[12px] top-[12px]">
