@@ -94,10 +94,11 @@
           </div>
         </div>
 
-        <!-- Figma API: Carousel arrow Btn 58×241px, cornerRadius=10, fill #f0f0f0, neumorphic 3x DROP_SHADOW, arrow icon 18×30px #616161 -->
+        <!-- Figma API: Carousel arrow Btn 58×241px, cornerRadius=10, fill #f0f0f0, neumorphic 3x DROP_SHADOW -->
+        <!-- Figma API: arrow icon 18×30px filled #616161 (not stroked) — exported from node 44537:23158 -->
         <button class="absolute right-0 top-1/2 -translate-y-1/2 carousel-arrow w-[58px] h-[241px] flex items-center justify-center transition-colors rounded-[10px]">
           <svg width="18" height="30" viewBox="0 0 18 30" fill="none">
-            <path d="M3 3L15 15L3 27" stroke="#616161" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 15C18 15.5763 17.7699 16.0678 17.292 16.5085L3.48673 29.4407C3.11504 29.8136 2.61947 30 2.0531 30C0.902655 30 0 29.1525 0 28.0339C0 27.4915 0.230087 27 0.619469 26.6271L13.0619 15L0.619469 3.37288C0.230087 2.98305 0 2.49153 0 1.94915C0 0.847458 0.902655 0 2.0531 0C2.61947 0 3.11504 0.186441 3.48673 0.559322L17.292 13.4915C17.7699 13.9322 17.9823 14.4237 18 15Z" fill="#616161"/>
           </svg>
         </button>
       </div>

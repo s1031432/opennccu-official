@@ -1,19 +1,14 @@
 <template>
   <!-- Figma API: News section pad T24/L80/B240 — DO NOT shrink padding -->
   <section class="relative pt-[24px] pb-[240px] overflow-hidden">
-    <!-- Diagonal decorative bands per Figma (large subtle stripes, not thin lines) -->
+    <!-- Figma API: Line 9 — 32px neumorphic stroke #F0F0F0, rotated ~-1.1deg, positioned at right side -->
+    <!-- Figma: absoluteBoundingBox x=1074, y=1457, w=246, h=471 within News section (1920w, y=1459) -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <div
-        class="absolute bg-white/25"
-        style="width: 80px; height: 250%; top: -40%; right: 15%; transform: rotate(-32deg); transform-origin: top center;"
-      />
-      <div
-        class="absolute bg-white/18"
-        style="width: 60px; height: 250%; top: -40%; right: 38%; transform: rotate(-32deg); transform-origin: top center;"
-      />
-      <div
-        class="absolute bg-white/12"
-        style="width: 50px; height: 250%; top: -40%; right: 58%; transform: rotate(-32deg); transform-origin: top center;"
+      <img
+        src="/assets/news-line9.svg"
+        alt=""
+        class="absolute"
+        style="right: 15%; top: -5%; width: 304px; height: 528px; transform: rotate(-1.1deg);"
       />
     </div>
 
