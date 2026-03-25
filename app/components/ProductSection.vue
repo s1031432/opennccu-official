@@ -204,34 +204,36 @@
           </div>
         </div>
 
-        <!-- Floating ID card (upper-left, per Figma — standalone card with green glow, NOT inside glass orb) -->
+        <!-- Glass orbs per Figma API: 3 transparent spheres with GLASS effect + INNER_SHADOWs -->
         <div class="hidden md:block">
-          <div class="absolute -left-4 top-4 z-20">
-            <!-- Green ambient glow behind card -->
-            <div class="absolute -inset-6 rounded-2xl" style="background: radial-gradient(ellipse at center, rgba(129, 237, 185, 0.25) 0%, rgba(78, 203, 165, 0.08) 50%, transparent 70%); filter: blur(12px);"></div>
-            <!-- Glassmorphic floating card -->
-            <div class="floating-id-card w-[140px] p-3 rotate-[8deg]">
-              <div class="flex items-center gap-1.5 mb-2">
-                <div class="w-4 h-4 rounded-md bg-[#4ECBA5]/30 flex items-center justify-center">
-                  <div class="w-2.5 h-2.5 rounded-sm bg-[#4ECBA5]/50"></div>
+          <!-- Glass ball 1: Card ball (346px in Figma, scaled ~180px) — top-left at 8.3%, 12% per Figma -->
+          <div class="glass-ball glass-ball--green absolute left-[2%] top-[10%] w-[180px] h-[180px] z-20">
+            <div class="glass-ball-inner glass-ball-inner--green rounded-full w-full h-full flex items-center justify-center overflow-hidden">
+              <!-- Simplified card content inside sphere per Figma Frame 48095644 (cr=333, clips to circle) -->
+              <div class="rotate-[8deg] scale-[0.6]">
+                <div class="w-[160px] bg-white/80 rounded-[16px] p-3 shadow-lg">
+                  <div class="flex items-center gap-1.5 mb-2">
+                    <div class="w-5 h-5 rounded-md bg-[#4ECBA5]/30 flex items-center justify-center">
+                      <div class="w-3 h-3 rounded-sm bg-[#4ECBA5]/50"></div>
+                    </div>
+                    <span class="text-[9px] text-[#4ECBA5] font-bold tracking-wide">Open NCCU</span>
+                  </div>
+                  <div class="text-[11px] text-[#606060] font-bold mb-0.5">我是政大人</div>
+                  <div class="text-[9px] text-[#888]">XXX 系</div>
+                  <div class="text-[8px] text-[#999] mb-1">@iamfrom_nccu</div>
+                  <div class="w-[32px] h-[32px] bg-gray-200/40 rounded-sm grid grid-cols-4 gap-px p-0.5">
+                    <div v-for="i in 16" :key="'qr1-'+i" class="rounded-[1px]" :class="[2,3,5,8,9,12,14,15].includes(i) ? 'bg-gray-500/40' : 'bg-transparent'"></div>
+                  </div>
                 </div>
-                <span class="text-[8px] text-[#4ECBA5] font-bold tracking-wide">Open NCCU</span>
-              </div>
-              <div class="text-[10px] text-[#606060] font-bold mb-0.5">我是政大人</div>
-              <div class="text-[8px] text-[#888888] mb-0.5">XXX 系</div>
-              <div class="text-[7px] text-[#999999]">@iamfrom_nccu</div>
-              <!-- Mini QR code placeholder -->
-              <div class="mt-2 w-[36px] h-[36px] bg-gray-200/40 rounded-sm grid grid-cols-4 gap-px p-0.5">
-                <div v-for="i in 16" :key="i" class="rounded-[1px]" :class="[2,3,5,8,9,12,14,15].includes(i) ? 'bg-gray-500/40' : 'bg-transparent'"></div>
               </div>
             </div>
           </div>
 
-          <!-- Top right glass ball (weather — 3D cloud with sun & rain per Figma) — ~100-120px diameter -->
-          <div class="glass-ball absolute -right-4 top-[40%] w-[120px] h-[120px]">
-            <div class="glass-ball-inner rounded-full w-full h-full flex items-center justify-center overflow-hidden">
+          <!-- Glass ball 2: Weather ball (294px in Figma, scaled ~150px) — right at 75.8%, 38.8% per Figma -->
+          <div class="glass-ball glass-ball--blue absolute right-[5%] top-[36%] w-[150px] h-[150px]">
+            <div class="glass-ball-inner glass-ball-inner--blue rounded-full w-full h-full flex items-center justify-center overflow-hidden">
               <div class="rotate-[11deg]">
-                <svg width="80" height="70" viewBox="0 0 80 70" fill="none">
+                <svg width="100" height="88" viewBox="0 0 80 70" fill="none">
                   <!-- Sun peeking -->
                   <circle cx="58" cy="20" r="12" fill="#FFD93D" opacity="0.8" />
                   <circle cx="58" cy="20" r="8" fill="#FFE066" />
@@ -248,26 +250,17 @@
             </div>
           </div>
 
-          <!-- Bottom right glass ball (directional signpost with 北/南 per Figma) — ~100-120px diameter -->
-          <div class="glass-ball absolute right-[15%] -bottom-4 w-[120px] h-[120px]">
-            <div class="glass-ball-inner rounded-full w-full h-full flex items-center justify-center overflow-hidden">
+          <!-- Glass ball 3: Mahjong ball (294px in Figma, scaled ~150px) — right-bottom at 65.7%, 67.9% per Figma -->
+          <div class="glass-ball glass-ball--green absolute right-[18%] bottom-[15%] w-[150px] h-[150px]">
+            <div class="glass-ball-inner glass-ball-inner--green rounded-full w-full h-full flex items-center justify-center overflow-hidden">
               <div class="rotate-[-14deg]">
-                <svg width="70" height="90" viewBox="0 0 70 90" fill="none">
-                  <!-- Pole -->
-                  <rect x="33" y="10" width="4" height="70" rx="2" fill="#b0b0b0" />
-                  <!-- Top sign (北) pointing right -->
-                  <g>
-                    <path d="M37 18 L60 18 L65 25 L60 32 L37 32 Z" fill="#4ECBA5" rx="3" />
-                    <text x="48" y="28" text-anchor="middle" fill="white" font-family="'Noto Sans TC', sans-serif" font-size="11" font-weight="500">北</text>
-                  </g>
-                  <!-- Bottom sign (南) pointing left -->
-                  <g>
-                    <path d="M33 40 L10 40 L5 47 L10 54 L33 54 Z" fill="#77e5b0" rx="3" />
-                    <text x="20" y="50" text-anchor="middle" fill="white" font-family="'Noto Sans TC', sans-serif" font-size="11" font-weight="500">南</text>
-                  </g>
-                  <!-- Base -->
-                  <ellipse cx="35" cy="82" rx="12" ry="4" fill="#d0d0d0" opacity="0.6" />
-                </svg>
+                <!-- Mahjong tile representation -->
+                <div class="w-[60px] h-[72px] bg-white rounded-lg shadow-md flex items-center justify-center border border-gray-200">
+                  <div class="text-center">
+                    <div class="text-[24px] leading-none">🀄</div>
+                    <div class="text-[8px] text-[#666] mt-1 font-medium">麻將</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -346,36 +339,40 @@ defineProps<{
     inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.glass-ball {
-  filter: drop-shadow(0px 4px 60px rgba(169, 255, 214, 0.3));
+/* Figma glass orb frame: DROP_SHADOW(31,30,200px teal40%) + DROP_SHADOW(0,4,250px teal30%) */
+.glass-ball--green {
+  filter:
+    drop-shadow(31px 30px 200px rgba(112, 176, 144, 0.4))
+    drop-shadow(0px 4px 250px rgba(169, 255, 214, 0.3));
+}
+.glass-ball--blue {
+  filter:
+    drop-shadow(31px 30px 200px rgba(119, 166, 209, 0.4))
+    drop-shadow(0px 4px 250px rgba(188, 223, 255, 0.3));
 }
 
+/* Figma glass orb ellipse: fill black 0.4% + GLASS effect + 3× INNER_SHADOW */
 .glass-ball-inner {
-  background: radial-gradient(
-    ellipse at 30% 30%,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(200, 237, 224, 0.3) 40%,
-    rgba(169, 255, 214, 0.15) 70%,
-    rgba(200, 237, 224, 0.05) 100%
-  );
-  box-shadow:
-    0px 4px 250px 0px rgba(169, 255, 214, 0.3),
-    31px 30px 200px 0px rgba(112, 175, 144, 0.4),
-    inset -10px -10px 30px rgba(255, 255, 255, 0.3),
-    inset 5px 5px 20px rgba(200, 237, 224, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  /* Near-transparent fill per Figma (black at 0.4% opacity) */
+  background: rgba(0, 0, 0, 0.004);
+  /* GLASS effect = backdrop-blur + saturation boost */
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
-
-.floating-id-card {
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 16px;
+/* Green-tint orbs (Card ball + Mahjong ball) per Figma API */
+.glass-ball-inner--green {
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.06),
-    0 2px 8px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    inset -8px -8px 19.3px rgba(0, 0, 0, 0.1),
+    inset -27px -24px 61.5px rgba(129, 237, 185, 0.25),
+    inset 0px -15px 63px rgba(133, 210, 173, 0.25);
+}
+/* Blue-tint orb (Weather ball) per Figma API — INNER_SHADOW uses blue-teal tints */
+.glass-ball-inner--blue {
+  box-shadow:
+    inset -8px -8px 19.3px rgba(0, 0, 0, 0.1),
+    inset -27px -24px 61.5px rgba(188, 223, 255, 0.27),
+    inset 0px -15px 63px rgba(148, 210, 240, 0.25);
 }
 
 .glass-arc-svg {
