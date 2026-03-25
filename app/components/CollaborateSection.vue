@@ -25,11 +25,12 @@
         與我們合作
       </h2>
 
-      <!-- Carousel pagination dots (above card, top-right per Figma analysis) -->
+      <!-- Carousel pagination dots (above card, top-right per Figma API) -->
+      <!-- Figma API: active=35×12 #81edb9, inactive=20×12 #aeaeb2, all border-radius 20 (pill shape, NOT circles) -->
       <div class="flex justify-end items-center gap-2 mb-3 pr-2">
-        <span class="w-[10px] h-[10px] rounded-full bg-[#4ECBA5]"></span>
-        <span class="w-[10px] h-[10px] rounded-full bg-[#d0d0d0]"></span>
-        <span class="w-[10px] h-[10px] rounded-full bg-[#d0d0d0]"></span>
+        <span class="w-[35px] h-[12px] rounded-[20px] bg-[#81edb9]"></span>
+        <span class="w-[20px] h-[12px] rounded-[20px] bg-[#aeaeb2]"></span>
+        <span class="w-[20px] h-[12px] rounded-[20px] bg-[#aeaeb2]"></span>
       </div>
 
       <!-- Collaboration showcase card -->
@@ -144,13 +145,13 @@
             :key="partner.name"
             class="partner-item flex flex-col items-center gap-2.5 group cursor-pointer"
           >
-            <!-- Partner circles ~70-80px per Figma — neumorphic raised style matching section bg -->
-            <div class="partner-circle relative w-[75px] h-[75px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <!-- Figma API: Partner circles 120×120px, fill #f0f0f0, logos 96×96px — DO NOT shrink below 120px -->
+            <div class="partner-circle relative w-[120px] h-[120px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <div class="partner-bg-neumorphic absolute inset-0 rounded-full transition-shadow duration-300" />
               <img
                 :src="partner.logo"
                 :alt="partner.name"
-                class="partner-logo relative z-10 w-[52px] h-[52px] object-contain rounded-full transition-all duration-300"
+                class="partner-logo relative z-10 w-[96px] h-[96px] object-contain rounded-full transition-all duration-300"
               />
             </div>
             <span
@@ -234,9 +235,9 @@ const partners = [
   transform: translateY(-20px);
 }
 
-/* Figma: neumorphic raised circles matching section background per case-studies.png */
+/* Figma API: partner circles fill #f0f0f0 (matches page bg), strokeWeight 1, neumorphic raised */
 .partner-bg-neumorphic {
-  background: #e8e8e8;
+  background: #f0f0f0;
   border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow:
     3px 3px 6px rgba(0, 0, 0, 0.1),

@@ -11,24 +11,18 @@
 
       <!-- Nav Links (desktop) -->
       <template v-for="link in navLinks" :key="link.label">
+        <!-- Figma API: active="產品 & 服務" uses Montserrat 24px/500/#77e5b0, others use Noto Sans TC 24px/400/#606060 -->
         <a
           :href="link.href"
           class="hidden md:flex transition-colors whitespace-nowrap"
           :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#606060] hover:text-[#77e6b0]'"
           :style="{
-            fontFamily: '\'Noto Sans TC\', sans-serif',
+            fontFamily: link.font === 'Montserrat' ? '\'Montserrat\', sans-serif' : '\'Noto Sans TC\', sans-serif',
             fontSize: '24px', /* Figma spec: 24px — DO NOT SHRINK */
             fontWeight: activeSection === link.href ? '500' : '400',
           }"
         >
-          <template v-if="link.label === '產品 & 服務'">
-            <span style="font-family: 'Noto Sans TC', sans-serif;">產品</span>
-            <span style="font-family: 'Montserrat', sans-serif;"> &amp; </span>
-            <span style="font-family: 'Noto Sans TC', sans-serif;">服務</span>
-          </template>
-          <template v-else>
-            {{ link.label }}
-          </template>
+          {{ link.label }}
         </a>
       </template>
 
@@ -101,10 +95,10 @@ const mobileOpen = ref(false)
 const activeSection = ref('#products')
 
 const navLinks = [
-  { label: '產品 & 服務', href: '#products' },
-  { label: '合作案例', href: '#collaborate' },
-  { label: '關於團隊', href: '#about' },
-  { label: '聯絡我們', href: '#contact' },
+  { label: '產品 & 服務', href: '#products', font: 'Montserrat' },
+  { label: '合作案例', href: '#collaborate', font: 'Noto Sans TC' },
+  { label: '關於團隊', href: '#about', font: 'Noto Sans TC' },
+  { label: '聯絡我們', href: '#contact', font: 'Noto Sans TC' },
 ]
 
 function updateActiveSection() {
