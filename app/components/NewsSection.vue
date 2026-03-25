@@ -68,10 +68,10 @@
               </div>
               <!-- Card content -->
               <div class="absolute left-[20px] top-[16px] w-[240px] flex flex-col gap-0.5">
-                <!-- Figma API: date = 16px weight500 #aeaeb2 Outfit — DO NOT change color to teal or shrink -->
+                <!-- Figma API: date = 16px weight500 #aeaeb2 Outfit ls2.4 — DO NOT change color to teal or shrink -->
                 <span
                   class="text-[#aeaeb2]"
-                  style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 1px;"
+                  style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px;"
                 >{{ news.date }}</span>
                 <!-- Figma API: title = 16px weight900 #3d3d3d Noto Sans -->
                 <p
@@ -81,7 +81,7 @@
                 <!-- Figma API: description = 12px weight500 #aeaeb2 — DO NOT change -->
                 <p
                   class="text-[#aeaeb2] mt-1 line-clamp-2"
-                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1px; line-height: 1.5;"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1.2px; line-height: 14.4px;"
                 >{{ news.description }}</p>
               </div>
             </a>
