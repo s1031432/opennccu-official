@@ -16,7 +16,7 @@
       <!-- Title -->
       <h2
         class="text-center mb-4"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060; letter-spacing: 9.6px;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #616161; letter-spacing: 9.6px;"
       >
         我們打造了⋯
       </h2>
@@ -101,14 +101,23 @@
             </div>
           </div>
 
-          <!-- CTA Circle Button (between phones) per Figma — ~80-100px glassmorphic circle with green arrow + 點擊 label at 2 o'clock -->
-          <div class="absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 z-30 flex items-center gap-2">
-            <div class="cta-circle w-[90px] h-[90px] md:w-[100px] md:h-[100px] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none" class="opacity-80">
-                <path d="M8 14H20M20 14L15 9M20 14L15 19" stroke="#4ECBA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- CTA Circle per Figma: 260×260px GLASS circle, curved text "點擊了解更多" 24px/ls4.32 #81EDB9, large arrow inside -->
+          <div class="absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2 z-30">
+            <div class="cta-circle w-[160px] h-[160px] md:w-[200px] md:h-[200px] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform relative">
+              <!-- Curved text path around circle -->
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
+                <defs>
+                  <path id="cta-text-path" d="M 100,100 m -82,0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0" fill="none" />
+                </defs>
+                <text fill="#81EDB9" font-family="'Noto Sans TC', sans-serif" font-size="18" font-weight="400" letter-spacing="3.5">
+                  <textPath href="#cta-text-path" startOffset="15%">點擊了解更多</textPath>
+                </text>
+              </svg>
+              <!-- Large arrow icon per Figma — fa6-solid:arrow-up in green, 70% opacity -->
+              <svg width="64" height="48" viewBox="0 0 448 512" fill="none" class="mt-2">
+                <path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z" fill="#81EDB9" opacity="0.7"/>
               </svg>
             </div>
-            <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 400; color: #4ECBA5; letter-spacing: 1.5px;">點擊</span>
           </div>
 
           <!-- Phone 2 (front, tilted CCW ~-10deg per Figma — DO NOT change to clockwise) — Home/Dashboard page per Figma -->
@@ -304,26 +313,23 @@ defineProps<{
   font-size: 108px;
   font-weight: 700;
   font-style: italic;
+  /* Figma: fill #f0f0f0 (same as bg), DROP_SHADOW(4,4,8px, black 16%) + DROP_SHADOW(-5,-5,8px, white 100%) = neumorphic emboss */
   color: #f0f0f0;
   text-shadow:
-    1px 1px 0 rgba(255, 255, 255, 0.9),
-    2px 2px 0 rgba(0, 0, 0, 0.03),
-    3px 3px 0 rgba(0, 0, 0, 0.04),
-    4px 4px 0 rgba(0, 0, 0, 0.05),
-    5px 5px 0 rgba(0, 0, 0, 0.05),
-    6px 6px 2px rgba(0, 0, 0, 0.04),
-    8px 8px 6px rgba(0, 0, 0, 0.06),
-    -2px -2px 4px rgba(255, 255, 255, 0.95);
+    4px 4px 8px rgba(0, 0, 0, 0.16),
+    -5px -5px 8px rgba(255, 255, 255, 1);
   letter-spacing: 9.72px;
 }
 
+/* Figma CTA: 260×260 circle, fill white 32% opacity, GLASS effect, cornerRadius=200 */
 .cta-circle {
-  background: radial-gradient(circle at 40% 40%, rgba(129, 237, 185, 0.25) 0%, rgba(78, 203, 165, 0.12) 60%, rgba(78, 203, 165, 0.05) 100%);
-  border: 1.5px solid rgba(129, 237, 185, 0.4);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow:
-    0 4px 30px rgba(78, 203, 165, 0.15),
-    inset 0 0 20px rgba(255, 255, 255, 0.2);
+    0 4px 40px rgba(200, 230, 215, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 .glass-ball {
