@@ -1,5 +1,6 @@
 <template>
-  <section class="relative py-16 md:py-20 overflow-hidden">
+  <!-- Figma API: News section pad T24/L80/B240 — DO NOT shrink padding -->
+  <section class="relative pt-[24px] pb-[240px] overflow-hidden">
     <!-- Diagonal decorative bands per Figma (large subtle stripes, not thin lines) -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <div
@@ -57,18 +58,19 @@
               :rel="news.url ? 'noopener noreferrer' : undefined"
               class="news-card rounded-[20px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all relative block no-underline -rotate-[2deg]"
             >
-              <!-- New badge (top right, INSET inside card per Figma — ~12px from edges — DO NOT move outside card) -->
-              <div v-if="news.isNew" class="absolute right-[12px] top-[12px]">
+              <!-- New badge (top right, INSET inside card per Figma API — Label frame at right=16px top=16px, pad T4/R4) -->
+              <div v-if="news.isNew" class="absolute right-[16px] top-[16px]">
                 <!-- Figma API: New badge 64x37px, radius=10 with glassmorphic effects -->
-                <div class="new-badge rounded-[10px] px-3 py-1 flex items-center justify-center">
+                <div class="new-badge rounded-[10px] w-[64px] h-[37px] flex items-center justify-center">
+                  <!-- Figma API: Outfit/18px/weight600/ls0.72/#ffffff — DO NOT shrink below 18px -->
                   <span
                     class="text-white"
-                    style="font-family: 'Outfit', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;"
+                    style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0.72px;"
                   >New</span>
                 </div>
               </div>
-              <!-- Card content -->
-              <div class="absolute left-[20px] top-[16px] w-[329px] flex flex-col gap-0.5">
+              <!-- Card content — Figma API: Text frame at left=32px, vertically centered in 190px card -->
+              <div class="absolute left-[32px] top-1/2 -translate-y-1/2 w-[329px] flex flex-col gap-1">
                 <!-- Figma API: date = 16px weight500 #aeaeb2 Outfit ls2.4 — DO NOT change color to teal or shrink -->
                 <span
                   class="text-[#aeaeb2]"

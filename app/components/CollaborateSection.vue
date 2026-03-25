@@ -33,22 +33,22 @@
         <span class="w-[20px] h-[12px] rounded-[20px] bg-[#aeaeb2]"></span>
       </div>
 
-      <!-- Collaboration showcase card -->
-      <div class="collaborate-card rounded-[20px] overflow-hidden mb-20 relative">
+      <!-- Collaboration showcase card — Figma API: Body gap=72 between CM Card and Achievement -->
+      <div class="collaborate-card rounded-[20px] overflow-hidden mb-[72px] relative">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[637px]">
           <!-- Left: text content -->
           <div class="lg:col-span-4 p-10 lg:p-[75px] flex flex-col justify-center">
-            <!-- Figma API: 48px/weight300/#606060/ls3.84 — matches other section titles -->
+            <!-- Figma API: 48px/weight300/#606060/ls3.84/lh57.6 — matches other section titles -->
             <h3
-              class="mb-3"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
+              class="mb-[12px]"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px; line-height: 57.6px;"
             >
               徵才月
             </h3>
-            <!-- Figma API: 28px/weight300/#aeaeb2/ls1.12 -->
+            <!-- Figma API: 28px/weight300/#aeaeb2/ls1.12/lh50px — DO NOT shrink -->
             <p
-              class="leading-[1.8] mb-10"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #aeaeb2; letter-spacing: 1.12px;"
+              class="mb-10"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #aeaeb2; letter-spacing: 1.12px; line-height: 50px;"
             >
               職涯中心與OpenNCCU 合作推出的「數位集點工具」，將學生的參與紀錄與問卷回饋集中化管理，協助學生隨時掌握積點進度與線上兌獎，獲得更直覺的抽獎參與體驗。
             </p>
