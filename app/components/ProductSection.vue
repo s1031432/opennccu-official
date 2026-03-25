@@ -71,25 +71,61 @@
         <!-- Phone mockups center — Figma: BOTH phones tilt counter-clockwise, overlap ~20-25% -->
         <!-- DO NOT make right phone clockwise. Both are CCW per Figma. -->
         <div class="flex justify-center items-end h-[520px] relative z-10">
-          <!-- Phone 1 (back, tilted more CCW ~-15deg per Figma) -->
+          <!-- Phone 1 (back, tilted more CCW ~-15deg per Figma) — Profile page per Figma -->
           <div class="relative z-10 -mr-12" :style="{ transform: `translateY(${-scrollY * 0.02}px) rotate(-15deg)` }">
             <div class="w-48 h-[400px] bg-white rounded-[2.5rem] shadow-2xl border-4 border-gray-200 overflow-hidden relative">
+              <!-- Dynamic Island notch -->
               <div class="absolute top-0 left-0 right-0 z-10">
-                <div class="mx-auto w-24 h-6 bg-gray-200 rounded-b-2xl"></div>
+                <div class="mx-auto w-20 h-5 bg-black rounded-b-2xl"></div>
               </div>
-              <div class="h-full bg-gradient-to-b from-gray-50 to-white pt-8 px-3 pb-3">
-                <div class="flex items-center gap-2 mb-3">
-                  <div class="w-5 h-5 rounded-md bg-[#4ECBA5]/30"></div>
-                  <span class="text-[10px] text-[#4ECBA5] font-bold">Open NCCU</span>
+              <div class="h-full bg-gradient-to-b from-[#5CB8A5] via-[#8DD5C4] to-white pt-7 flex flex-col">
+                <!-- Header: Open NCCU branding -->
+                <div class="flex items-center gap-1.5 px-3 mb-3">
+                  <div class="w-4 h-4 rounded-md bg-white/30 flex items-center justify-center">
+                    <span class="text-[6px] text-white font-bold">N</span>
+                  </div>
+                  <span class="text-[8px] text-white font-semibold tracking-wide">Open NCCU</span>
                 </div>
-                <div class="h-4 bg-gray-100 rounded mb-1 w-3/4"></div>
-                <div class="h-3 bg-gray-100 rounded mb-3 w-1/2"></div>
-                <div class="space-y-2">
-                  <div v-for="i in 6" :key="i" class="h-12 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center px-3 gap-2">
-                    <div class="w-6 h-6 rounded-full bg-[#4ECBA5]/30"></div>
-                    <div class="flex-1">
-                      <div class="h-2 bg-gray-200 rounded w-3/4 mb-1"></div>
-                      <div class="h-1.5 bg-gray-100 rounded w-1/2"></div>
+                <!-- User avatar area -->
+                <div class="flex flex-col items-center mb-2">
+                  <div class="w-12 h-12 rounded-xl bg-[#E8F5F0] flex items-center justify-center mb-1">
+                    <span class="text-[16px] text-[#3d3d3d] font-bold" style="font-family: 'Noto Sans TC', sans-serif;">趙</span>
+                  </div>
+                  <span class="text-[7px] text-[#888]">@chaoyun</span>
+                </div>
+                <!-- Profile menu items -->
+                <div class="flex-1 bg-white rounded-t-2xl px-2 py-2 space-y-1.5 overflow-hidden">
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 bg-[#F0FAF6] rounded-lg">
+                    <div class="w-3.5 h-3.5 rounded bg-[#4ECBA5]/20 flex items-center justify-center">
+                      <span class="text-[6px]">📋</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[7px] text-[#2D2D2D] font-medium truncate">個人資料編定</div>
+                      <div class="text-[5px] text-[#999] truncate">109405044@s.nccu.edu.tw</div>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 bg-[#F0FAF6] rounded-lg">
+                    <div class="w-3.5 h-3.5 rounded bg-[#4ECBA5]/20 flex items-center justify-center">
+                      <span class="text-[6px]">🏷</span>
+                    </div>
+                    <div class="text-[7px] text-[#2D2D2D] font-medium">Opentag・新增個人標籤</div>
+                  </div>
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 bg-[#F0FAF6] rounded-lg">
+                    <div class="w-3.5 h-3.5 rounded bg-[#4ECBA5]/20 flex items-center justify-center">
+                      <span class="text-[6px]">📅</span>
+                    </div>
+                    <div class="text-[7px] text-[#2D2D2D] font-medium">編輯固有時間組</div>
+                  </div>
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 bg-[#F0FAF6] rounded-lg">
+                    <div class="w-3.5 h-3.5 rounded bg-[#4ECBA5]/20 flex items-center justify-center">
+                      <span class="text-[6px]">🎓</span>
+                    </div>
+                    <div class="text-[7px] text-[#2D2D2D] font-medium">學生共編行事曆</div>
+                  </div>
+                  <!-- QR code area -->
+                  <div class="flex justify-center pt-1">
+                    <div class="w-[32px] h-[32px] bg-[#E8F5F0] rounded grid grid-cols-5 gap-px p-1">
+                      <div v-for="i in 25" :key="i" class="rounded-[0.5px]" :class="[1,2,3,5,6,10,11,13,15,16,20,21,23,24,25].includes(i) ? 'bg-[#3d3d3d]/50' : 'bg-transparent'"></div>
                     </div>
                   </div>
                 </div>
@@ -107,32 +143,84 @@
             <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 400; color: #4ECBA5; letter-spacing: 1.5px;">點擊</span>
           </div>
 
-          <!-- Phone 2 (front, tilted CCW ~-10deg per Figma — DO NOT change to clockwise) -->
+          <!-- Phone 2 (front, tilted CCW ~-10deg per Figma — DO NOT change to clockwise) — Home/Dashboard page per Figma -->
           <div class="relative z-20 -ml-12" :style="{ transform: `translateY(${scrollY * 0.015}px) rotate(-10deg)` }">
             <div class="w-56 h-[460px] bg-white rounded-[2.5rem] shadow-2xl border-4 border-gray-200 overflow-hidden relative">
+              <!-- Dynamic Island notch -->
               <div class="absolute top-0 left-0 right-0 z-10">
-                <div class="mx-auto w-24 h-6 bg-gray-200 rounded-b-2xl"></div>
+                <div class="mx-auto w-24 h-5 bg-black rounded-b-2xl"></div>
               </div>
-              <div class="h-full bg-gradient-to-b from-[#4ECBA5]/10 to-white pt-8 px-3 pb-3">
-                <!-- Weather widget -->
-                <div class="bg-gradient-to-br from-[#4ECBA5] to-[#2EA87E] rounded-2xl p-4 mb-3 text-white">
-                  <div class="flex items-end justify-between">
-                    <div>
-                      <div class="text-3xl font-bold">20°</div>
-                      <div class="text-xs opacity-80 mt-1">政治大學</div>
+              <div class="h-full bg-gradient-to-b from-[#6DC5A8] via-[#A8E0CC] to-white pt-7 px-3 pb-2 flex flex-col">
+                <!-- Header -->
+                <div class="flex items-center justify-between mb-2">
+                  <div class="flex items-center gap-1">
+                    <div class="w-4 h-4 rounded-md bg-white/30 flex items-center justify-center">
+                      <span class="text-[6px] text-white font-bold">N</span>
                     </div>
-                    <span class="text-3xl">🌤</span>
+                  </div>
+                  <span class="text-[7px] text-[#4ECBA5] font-medium bg-white/60 px-2 py-0.5 rounded-full">點擊 ↓</span>
+                </div>
+                <!-- Weather widget (white card) -->
+                <div class="bg-white rounded-xl p-3 mb-3 shadow-sm">
+                  <div class="flex items-start justify-between mb-1">
+                    <div>
+                      <div class="text-[24px] font-bold text-[#2D2D2D] leading-none">20°</div>
+                      <div class="flex items-center gap-1 mt-0.5">
+                        <span class="text-[7px] text-red-400">▲ 22°</span>
+                        <span class="text-[7px] text-blue-400">▼ 18°</span>
+                      </div>
+                    </div>
+                    <div class="text-right">
+                      <span class="text-xl">☁️</span>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-1 mt-1">
+                    <span class="text-[7px] text-[#7A7A7A] bg-[#F0FAF6] px-1.5 py-0.5 rounded-full">政大今天還涼下雨</span>
                   </div>
                 </div>
-                <!-- Course cards -->
-                <div class="space-y-2">
-                  <div v-for="i in 4" :key="i" class="h-14 bg-white rounded-xl shadow-sm border border-gray-100 flex items-center px-3 gap-2">
-                    <div class="w-2 h-8 rounded-full" :class="['bg-[#4ECBA5]', 'bg-blue-300', 'bg-purple-300', 'bg-amber-300'][i-1]"></div>
-                    <div class="flex-1">
-                      <div class="h-2.5 bg-gray-200 rounded w-3/4 mb-1.5"></div>
-                      <div class="h-1.5 bg-gray-100 rounded w-1/2"></div>
+                <!-- 政大生存秘笈 section -->
+                <div class="flex items-center gap-1 mb-2">
+                  <span class="text-[8px]">📋</span>
+                  <span class="text-[9px] text-[#2D2D2D] font-bold" style="font-family: 'Noto Sans TC', sans-serif;">政大生存秘笈</span>
+                </div>
+                <!-- List items -->
+                <div class="space-y-1.5 flex-1 overflow-hidden">
+                  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-2.5 flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-[#E8F5F0] flex items-center justify-center shrink-0">
+                      <span class="text-[10px]">🏫</span>
                     </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[8px] text-[#2D2D2D] font-semibold">探索新生村</div>
+                      <div class="text-[6px] text-[#7A7A7A] truncate">大學生活知識庫，新手攻略帶你走</div>
+                    </div>
+                    <span class="text-[8px] text-[#ccc]">›</span>
                   </div>
+                  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-2.5 flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-[#E8F5F0] flex items-center justify-center shrink-0">
+                      <span class="text-[10px]">🏠</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[8px] text-[#2D2D2D] font-semibold">外地生存</div>
+                      <div class="text-[6px] text-[#7A7A7A] truncate">食衣住行都搞定，異地生活好安心</div>
+                    </div>
+                    <span class="text-[8px] text-[#ccc]">›</span>
+                  </div>
+                  <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-2.5 flex items-center gap-2">
+                    <div class="w-7 h-7 rounded-lg bg-[#E8F5F0] flex items-center justify-center shrink-0">
+                      <span class="text-[10px]">🎓</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <div class="text-[8px] text-[#2D2D2D] font-semibold">畢業規劃</div>
+                      <div class="text-[6px] text-[#7A7A7A] truncate">大學規劃不用怕，雙輔交換都搞定</div>
+                    </div>
+                    <span class="text-[8px] text-[#ccc]">›</span>
+                  </div>
+                </div>
+                <!-- Bottom bar hint -->
+                <div class="mt-1 bg-[#F5F5F5] rounded-lg px-2 py-1 flex items-center gap-1">
+                  <span class="text-[7px]">🎄</span>
+                  <span class="text-[7px] text-[#2D2D2D] font-medium">聖誕市集集點卡</span>
+                  <span class="text-[7px] text-[#ccc] ml-auto">▼</span>
                 </div>
               </div>
             </div>
