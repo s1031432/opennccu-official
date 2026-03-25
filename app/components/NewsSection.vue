@@ -19,16 +19,17 @@
     <div class="relative pl-[80px] pr-0">
       <div class="flex items-center gap-4">
         <!-- Left labels -->
-        <div class="flex-shrink-0 flex flex-col items-start w-[150px] gap-1.5">
+        <!-- Figma: wider left column to fit 28px labels -->
+        <div class="flex-shrink-0 flex flex-col items-start w-[180px] gap-1.5">
           <button
             class="flex items-center justify-center px-5 py-2.5 rounded-full transition-all"
             :class="activeTab === 'news' ? 'news-badge-pill' : ''"
             @click="activeTab = 'news'"
           >
-            <!-- Figma: ~20-22px, bold active / regular inactive, #333 active / #999 inactive — DO NOT ENLARGE above 22px -->
+            <!-- Figma API: 28px weight400 #606060 (active) / #aeaeb2 (inactive) — DO NOT SHRINK below 28px -->
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px;"
-              :style="{ color: activeTab === 'news' ? '#333333' : '#999999', fontWeight: activeTab === 'news' ? '600' : '400' }"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
+              :style="{ color: activeTab === 'news' ? '#606060' : '#aeaeb2' }"
             >最新消息</span>
           </button>
           <button
@@ -36,10 +37,10 @@
             :class="activeTab === 'press' ? 'news-badge-pill' : ''"
             @click="activeTab = 'press'"
           >
-            <!-- Figma: same size as primary label ~20-22px, lighter when inactive — DO NOT ENLARGE above 22px -->
+            <!-- Figma API: 28px weight400 #606060 (active) / #aeaeb2 (inactive) — DO NOT SHRINK below 28px -->
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 20px;"
-              :style="{ color: activeTab === 'press' ? '#333333' : '#999999', fontWeight: activeTab === 'press' ? '600' : '400' }"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400;"
+              :style="{ color: activeTab === 'press' ? '#606060' : '#aeaeb2' }"
             >新聞報導</span>
           </button>
         </div>
@@ -67,18 +68,20 @@
               </div>
               <!-- Card content -->
               <div class="absolute left-[20px] top-[16px] w-[240px] flex flex-col gap-0.5">
-                <!-- Figma: date in medium gray ~#8A8A8A, not teal — DO NOT change to teal -->
+                <!-- Figma API: date = 16px weight500 #aeaeb2 Outfit — DO NOT change color to teal or shrink -->
                 <span
-                  class="text-[#8a8a8a]"
-                  style="font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 1px;"
+                  class="text-[#aeaeb2]"
+                  style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 1px;"
                 >{{ news.date }}</span>
+                <!-- Figma API: title = 16px weight900 #3d3d3d Noto Sans -->
                 <p
-                  class="text-[#3d3d3d] font-bold line-clamp-1"
-                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 16px; letter-spacing: 2.4px;"
+                  class="text-[#3d3d3d] line-clamp-1"
+                  style="font-family: 'Noto Sans', 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 900; letter-spacing: 2.4px;"
                 >{{ news.title }}</p>
+                <!-- Figma API: description = 12px weight500 #aeaeb2 — DO NOT change -->
                 <p
-                  class="text-[#aaaaaa] mt-1 line-clamp-2"
-                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 1px; line-height: 1.5;"
+                  class="text-[#aeaeb2] mt-1 line-clamp-2"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1px; line-height: 1.5;"
                 >{{ news.description }}</p>
               </div>
             </a>
