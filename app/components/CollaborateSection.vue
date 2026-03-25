@@ -132,9 +132,9 @@
 
       <!-- Partners -->
       <div class="text-center">
-        <!-- Figma API: "合作夥伴" 48px/weight300/#606060/ls3.84 — matches section title style -->
+        <!-- Figma API: "合作夥伴" 48px/weight300/#606060/ls3.84, Partners frame gap=48 — matches section title style -->
         <h3
-          class="mb-10"
+          class="mb-[48px]"
           style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px;"
         >
           合作夥伴
@@ -244,19 +244,23 @@ const partners = [
   background-clip: text;
 }
 
-/* Figma API: partner circles fill #f0f0f0 (matches page bg), strokeWeight 1, neumorphic raised */
+/* Figma API: partner circles fill #f0f0f0, 3x DROP_SHADOW neumorphic:
+   - 7px 6px 7px -6px rgba(0,0,0,0.08)
+   - 6px 6px 18px -14px rgba(135,135,135,0.3)
+   - -5px -5px 15px rgba(252,252,252,1) */
 .partner-bg-neumorphic {
   background: #f0f0f0;
-  border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow:
-    3px 3px 6px rgba(0, 0, 0, 0.1),
-    -3px -3px 6px rgba(255, 255, 255, 0.8);
+    7px 6px 7px -6px rgba(0, 0, 0, 0.08),
+    6px 6px 18px -14px rgba(135, 135, 135, 0.3),
+    -5px -5px 15px 0px #fcfcfc;
 }
 
 .group:hover .partner-bg-neumorphic {
   box-shadow:
-    4px 4px 8px rgba(0, 0, 0, 0.12),
-    -4px -4px 8px rgba(255, 255, 255, 0.9);
+    7px 6px 7px -6px rgba(0, 0, 0, 0.1),
+    6px 6px 18px -14px rgba(135, 135, 135, 0.35),
+    -5px -5px 15px 0px #fcfcfc;
 }
 
 .partner-logo {

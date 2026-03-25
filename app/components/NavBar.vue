@@ -1,8 +1,8 @@
 <template>
-  <div class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-3">
+  <div class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 md:gap-[32px]">
     <!-- Main nav pill -->
-    <!-- Figma spec: px-10 md:px-20 py-4 md:py-6 — DO NOT SHRINK -->
-    <nav class="glass-nav rounded-full px-10 md:px-20 py-4 md:py-6 flex items-center gap-4 md:gap-7">
+    <!-- Figma API: Tap Bar pad=T24/R80/B24/L80, gap=68, cr=333 — DO NOT SHRINK -->
+    <nav class="glass-nav rounded-full px-10 md:px-20 py-4 md:py-6 flex items-center gap-4 md:gap-[68px]">
       <!-- Logo -->
       <div class="flex items-center">
         <!-- Figma spec: 43x45px logo — DO NOT SHRINK -->
@@ -45,7 +45,8 @@
     </nav>
 
     <!-- Utility pill (desktop only) -->
-    <div class="hidden md:flex glass-nav rounded-full px-4 py-4 md:py-6 items-center gap-3">
+    <!-- Figma API: Tap Bar (utility) pad=T24/R60/B24/L60, gap=48, cr=333 — DO NOT SHRINK -->
+    <div class="hidden md:flex glass-nav rounded-full px-[60px] py-6 items-center gap-[48px]">
       <button
         class="flex items-center justify-center text-[#606060] hover:text-[#4ECBA5] transition-colors"
         aria-label="Language"
