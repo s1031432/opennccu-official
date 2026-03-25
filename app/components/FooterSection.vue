@@ -26,7 +26,8 @@
                 target="_blank" rel="noopener noreferrer"
                 class="text-white hover:text-[#4ECBA5] transition-colors"
                 :aria-label="s.label">
-                <Icon :icon="s.icon" width="22" height="22" />
+                <!-- Figma API: icon frames are 30x30px — DO NOT SHRINK -->
+                <Icon :icon="s.icon" width="30" height="30" />
               </a>
             </div>
           </div>
@@ -42,7 +43,8 @@
                 target="_blank" rel="noopener noreferrer"
                 class="text-white hover:text-[#4ECBA5] transition-colors"
                 :aria-label="r.label">
-                <Icon :icon="r.icon" width="22" height="22" />
+                <!-- Figma API: icon frames are 30x30px — DO NOT SHRINK -->
+                <Icon :icon="r.icon" width="30" height="30" />
               </a>
             </div>
           </div>
@@ -59,7 +61,8 @@
               <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3d3d3d;">
                 問題回報表單
               </span>
-              <Icon icon="tabler:arrow-up" width="16" height="16" class="text-[#3d3d3d] rotate-45" />
+              <!-- Figma API: arrow icon 20x20px -->
+              <Icon icon="tabler:arrow-up" width="20" height="20" class="text-[#3d3d3d] rotate-45" />
             </a>
           </div>
         </div>
