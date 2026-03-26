@@ -6,8 +6,10 @@
       <div class="flex flex-col md:flex-row md:items-center gap-4">
         <!-- Left labels -->
         <div class="flex-shrink-0 flex flex-row md:flex-col items-start md:w-[180px] gap-1.5">
+          <!-- Figma API: Tab instance 271×191px. Each label area is 217×80px with text centered.
+               Indicator pill cr=200, gap between labels = 1581.5-1573.5 = 8px — DO NOT SHRINK below 217×80px -->
           <button
-            class="flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-full transition-all"
+            class="flex items-center justify-center w-[140px] md:w-[217px] h-[50px] md:h-[80px] rounded-[200px] transition-all"
             :class="activeTab === 'news' ? 'news-badge-pill' : ''"
             @click="activeTab = 'news'"
           >
@@ -17,12 +19,13 @@
                 fontFamily: '\'Noto Sans TC\', sans-serif',
                 fontWeight: 400,
                 letterSpacing: '1.12px',
+                lineHeight: '42px',
                 color: activeTab === 'news' ? '#616161' : '#aeaeb2',
               }"
             >最新消息</span>
           </button>
           <button
-            class="flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-full transition-all"
+            class="flex items-center justify-center w-[140px] md:w-[217px] h-[50px] md:h-[80px] rounded-[200px] transition-all"
             :class="activeTab === 'press' ? 'news-badge-pill' : ''"
             @click="activeTab = 'press'"
           >
@@ -32,6 +35,7 @@
                 fontFamily: '\'Noto Sans TC\', sans-serif',
                 fontWeight: 400,
                 letterSpacing: '1.12px',
+                lineHeight: '42px',
                 color: activeTab === 'press' ? '#616161' : '#aeaeb2',
               }"
             >新聞報導</span>
@@ -47,10 +51,10 @@
               :href="news.url || '#'"
               :target="news.url ? '_blank' : undefined"
               :rel="news.url ? 'noopener noreferrer' : undefined"
-              class="news-card rounded-[16px] md:rounded-[20px] w-[300px] md:w-[420px] lg:w-[485px] h-[160px] md:h-[190px] flex-shrink-0 cursor-pointer transition-all relative block no-underline md:-rotate-[2deg]"
+              class="news-card rounded-[16px] md:rounded-[20px] w-[300px] md:w-[420px] lg:w-[485px] h-[160px] md:h-[190px] flex-shrink-0 cursor-pointer transition-all relative block no-underline"
             >
-              <!-- New badge -->
-              <div v-if="news.isNew" class="absolute right-3 md:right-[16px] top-3 md:top-[16px]">
+              <!-- New badge — Figma: Label frame at right=16px, top=16px from card; New badge at 4px padding inside Label = top 20px from card -->
+              <div v-if="news.isNew" class="absolute right-3 md:right-[16px] top-3 md:top-[20px]">
                 <div class="new-badge rounded-[10px] w-[52px] md:w-[64px] h-[30px] md:h-[37px] flex items-center justify-center">
                   <!-- Figma API: "New" Outfit 18px weight600 ls0.72 — DO NOT SHRINK -->
                   <span
@@ -112,15 +116,15 @@ const activeItems = computed(() =>
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Figma API: Indicator 217×80px, cr=200, gradient fill white 100%→white 1%,
-   2x DROP_SHADOW: (3,3,7.5px,-4 black 36%) + (-3,-3,3.6px,-7 white 90%),
-   2x INNER_SHADOW: (1,1,20.6px black 6%) + (-3,-3,9.7px white 100%) */
+/* Figma API: Indicator 217×80px, cr=200, gradient fill white→white 1%,
+   DROP_SHADOW(3,3,7.5px black 36%) + DROP_SHADOW(-3,-3,3.6px white 90%),
+   INNER_SHADOW(1,1,20.6px black 6%) + INNER_SHADOW(-3,-3,9.7px white 100%) — NO spread in Figma */
 .news-badge-pill {
   background: linear-gradient(145deg, rgba(255,255,255,1) 1%, rgba(255,255,255,0.01) 100%);
   border-radius: 200px;
   box-shadow:
-    3px 3px 7.5px -4px rgba(0, 0, 0, 0.36),
-    -3px -3px 3.6px -7px rgba(255, 255, 255, 0.9),
+    3px 3px 7.5px rgba(0, 0, 0, 0.36),
+    -3px -3px 3.6px rgba(255, 255, 255, 0.9),
     inset 1px 1px 20.6px rgba(0, 0, 0, 0.06),
     inset -3px -3px 9.7px rgba(255, 255, 255, 1);
 }
