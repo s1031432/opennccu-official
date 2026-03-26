@@ -11,7 +11,8 @@
     <div v-show="!showDetail">
     <!-- Decorative curve removed — now handled by BackgroundCurve -->
 
-    <div class="relative max-w-6xl mx-auto px-6">
+    <!-- Figma API: CM Card x=126 w=1668, PartnerList x=161 w=1600 — wider than 1152px max-w-6xl -->
+    <div class="relative mx-auto px-6" style="max-width: 1800px;">
       <!-- Figma: LARGE LIGHT GRAY title matching other sections — 80px weight300 #606060 per DESIGN-SPEC.md + verified from case-studies.png — DO NOT change to teal or shrink -->
       <h2
         class="text-center mb-[81px]"
@@ -100,32 +101,33 @@
         </button>
       </div>
 
-      <!-- Stats row — Figma API: Achievement gap=96px, labels 48px/weight300/#606060/ls3.84, numbers 48px/weight600/teal/ls3.84 -->
+      <!-- Stats row — Figma API: Achievement x=252 w=660 and x=1008 w=660. LEFT-ALIGNED, not centered -->
+      <!-- Figma: gap between Body bottom (y=4648) and Achievement top (y=4500) → Achievement is INSIDE Body frame -->
       <!-- Figma: 87px gap between Body bottom and Partners top -->
-      <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-[96px] mb-[87px] text-center">
-        <div class="flex flex-col items-center w-full md:w-auto">
+      <div class="flex flex-col md:flex-row gap-16 mb-[87px]" style="padding-left: 6%; padding-right: 6%;">
+        <div class="flex flex-col w-full md:w-[660px]">
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
-            class="mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px;"
+            class="mb-0"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 74px;"
           >
             當日活躍使用者
           </p>
           <!-- Figma API: 48px/weight600/gradient #94CCB9→#3FA4B6/ls3.84 — NOT solid teal -->
-          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: 3.84px;">
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: 3.84px; line-height: 74px;">
             3,500+
           </p>
         </div>
-        <div class="flex flex-col items-center w-full md:w-auto">
+        <div class="flex flex-col w-full md:w-[660px]">
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
-            class="mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px;"
+            class="mb-0"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 74px;"
           >
             使用次數
           </p>
           <!-- Figma API: 48px/weight600/gradient #94CCB9→#3FA4B6/ls3.84 — NOT solid teal -->
-          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: 3.84px;">
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: 3.84px; line-height: 74px;">
             15,000+
           </p>
         </div>

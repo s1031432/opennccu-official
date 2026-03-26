@@ -25,15 +25,14 @@
       </div>
 
       <!-- Timeline with zigzag photos per Figma API -->
-      <!-- Figma: Photos zigzag L/R/L/R/L. Text ALWAYS at x=183 (left, ~9.5%). Only 1 text entry in Figma but we render all. -->
+      <!-- Figma: Photos zigzag L/R/L/R/L. Text at x=183 for first entry (overlays photo 1). -->
+      <!-- For entries where photo is LEFT, text moves to RIGHT to avoid overlap. -->
       <div class="relative">
-        <!-- Zigzag connecting lines (desktop only) -->
+        <!-- Zigzag connecting curves (desktop only) — Figma shows curved decorative lines between photos -->
         <svg class="absolute inset-0 w-full h-full pointer-events-none hidden lg:block z-0" preserveAspectRatio="none">
-          <line v-for="i in timelineItems.length - 1" :key="'line-'+i"
-            :x1="timelineItems[i - 1].photoSide === 'left' ? '20%' : '70%'"
-            :y1="((i - 0.3) / timelineItems.length * 100) + '%'"
-            :x2="timelineItems[i].photoSide === 'left' ? '20%' : '70%'"
-            :y2="((i + 0.3) / timelineItems.length * 100) + '%'"
+          <path v-for="i in timelineItems.length - 1" :key="'curve-'+i"
+            :d="getCurvePath(i - 1, i, timelineItems.length)"
+            fill="none"
             stroke="#d9d9d9"
             stroke-width="1.5"
           />
@@ -45,10 +44,17 @@
           class="relative z-10"
           :class="idx < timelineItems.length - 1 ? 'mb-[90px] lg:mb-[90px]' : ''"
         >
-          <!-- Desktop layout: text always left at x≈183 (9.5%), photo zigzags -->
+          <!-- Desktop layout: text position depends on photo side to avoid overlap -->
           <div class="hidden lg:block relative" :style="{ minHeight: '355px' }">
-            <!-- Text — Figma: ALWAYS at x=183, w=449, left-aligned, no card -->
-            <div class="absolute" style="left: 9.5%; width: 449px; top: 42px;">
+            <!-- Text — First entry: Figma x=183 (overlays photo). Others: opposite side of photo -->
+            <div
+              class="absolute"
+              :style="{
+                left: idx === 0 ? '9.5%' : (item.photoSide === 'left' ? '55%' : '9.5%'),
+                width: '449px',
+                top: '42px',
+              }"
+            >
               <h3
                 class="mb-4"
                 style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 58.5px;"
@@ -65,7 +71,7 @@
             <div
               class="absolute"
               :style="{
-                left: item.photoSide === 'left' ? item.photoLeft : item.photoLeft,
+                left: item.photoLeft,
                 width: '547px',
                 height: '355px',
               }"
@@ -132,6 +138,20 @@
 </template>
 
 <script setup lang="ts">
+// Generate curved SVG paths between zigzag photo positions
+function getCurvePath(fromIdx: number, toIdx: number, total: number) {
+  const fromItem = timelineItems[fromIdx]
+  const toItem = timelineItems[toIdx]
+  // Calculate center positions of photos
+  const fromX = fromItem.photoSide === 'left' ? 20 : 70
+  const toX = toItem.photoSide === 'left' ? 20 : 70
+  const fromY = ((fromIdx + 0.7) / total) * 100
+  const toY = ((toIdx + 0.3) / total) * 100
+  const midY = (fromY + toY) / 2
+  // Bezier curve connecting photo centers
+  return `M ${fromX} ${fromY} C ${fromX} ${midY}, ${toX} ${midY}, ${toX} ${toY}`
+}
+
 // Figma API positions: Photos zigzag L/R/L/R/L
 // Photo 1: x=134 (7.0%) LEFT, Photo 2: x=1060 (55.2%) RIGHT
 // Photo 3: x=164 (8.5%) LEFT, Photo 4: x=1267 (66.0%) RIGHT
