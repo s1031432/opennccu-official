@@ -13,8 +13,9 @@
           </div>
         </div>
         <!-- Return button -->
+        <!-- Figma ReturnBtn 44537:23349: 80x80, arrow_icon 40x40 -->
         <button class="back-btn" @click="$emit('back')">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#aeaeb2" stroke-width="2">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#aeaeb2" stroke-width="2">
             <path d="M15 18l-6-6 6-6" />
           </svg>
         </button>
@@ -34,8 +35,9 @@
           <p class="desc">{{ product.description }}</p>
           <div class="cta">
             <span class="cta-label">{{ product.ctaText }}</span>
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#81edb9" stroke-width="1.5" class="cta-icon">
-              <path d="M12 5v14M12 19l-6-6M12 19l6-6" />
+            <!-- Figma solar:arrow-up-linear 44537:23362: 120x120 frame, 60x80 vector -->
+            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" class="cta-icon">
+              <path d="M60 95V25M60 25L30 55M60 25L90 55" stroke="#81edb9" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" opacity="0.71"/>
             </svg>
           </div>
         </div>
@@ -74,17 +76,19 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
 </script>
 
 <style scoped>
-/* ── Outer wrapper ── */
+/* ── Outer wrapper — Figma 44537:23344: cr=15, pad=20, gap=16, DROP_SHADOW + INNER_SHADOW ── */
 .product-outer {
   background: #f0f0f0;
   border-radius: 15px;
-  box-shadow: 0 0 3px rgba(43,43,43,.15);
-  padding: 16px;
+  box-shadow:
+    0 0 3px rgba(43,43,43,.15),
+    inset 2px 2px 2px rgba(255,255,255,.25);
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
   align-items: center;
-  height: 620px;
+  height: auto;
 }
 
 /* ── Main card (phone + text) ── */
@@ -148,22 +152,27 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   object-fit: cover;
 }
 
+/* Figma ReturnBtn 44537:23349: 80x80, Ellipse56 neumorphic */
 .back-btn {
   position: absolute;
   top: 16px;
   left: 16px;
-  width: 44px;
-  height: 44px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
-  background: rgba(240,240,240,.6);
+  background: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 5;
   transition: background .2s;
+  box-shadow:
+    -5px -5px 15px rgba(252,252,252,1),
+    6px 6px 18px -14px rgba(135,135,135,.3),
+    7px 6px 7px -6px rgba(0,0,0,.08);
 }
-.back-btn:hover { background: rgba(240,240,240,.9); }
+.back-btn:hover { background: rgba(240,240,240,.95); }
 
 /* ── Badges ── */
 .badges {
@@ -175,19 +184,22 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   gap: 10px;
   z-index: 5;
 }
+/* Figma Label 44537:23364: cr=200, GLASS effect, DROP_SHADOW(-17,21,52px) */
 .badge {
   background: linear-gradient(175deg, #fff 22%, rgba(255,255,255,0) 105%);
   border: 2px solid rgba(255,255,255,.65);
   border-radius: 200px;
-  padding: 6px 20px;
+  padding: 14px 40px;
   box-shadow: -17px 21px 52px rgba(42,80,121,.1);
   white-space: nowrap;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px) saturate(180%);
 }
+/* Figma Label 44537:23366: 32px/w700/ls1.28/lh48 gradient text */
 .badge-val, .badge-lbl {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 32px;
   letter-spacing: 1.28px;
+  line-height: 48px;
   background: linear-gradient(175deg, #94ccb9 5%, #3fa4b6 95%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -208,32 +220,36 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   flex-direction: column;
   height: 100%;
 }
+/* DO NOT SHRINK below 80px — Figma 44537:23355: 80px/w300/ls9.6/lh97.5 */
 .title {
   font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
   font-weight: 300;
-  font-size: 44px;
+  font-size: 80px;
   color: #616161;
   text-align: right;
-  letter-spacing: 6px;
-  line-height: 1.15;
+  letter-spacing: 9.6px;
+  line-height: 97.5px;
 }
+/* Figma 44537:23357: 32px/w300/ls1.28/lh48 */
 .subtitle {
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
-  font-size: 18px;
+  font-size: 32px;
   color: #616161;
   text-align: right;
   letter-spacing: 1.28px;
+  line-height: 48px;
   margin-top: 12px;
 }
+/* Figma 44537:23359: 28px/w300/ls1.12/lh50 */
 .desc {
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
-  font-size: 16px;
+  font-size: 28px;
   color: #616161;
   text-align: justify;
   letter-spacing: 1.12px;
-  line-height: 1.8;
+  line-height: 50px;
   margin-top: 20px;
   flex: 1;
 }
@@ -245,26 +261,32 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   margin-top: auto;
   padding-top: 16px;
 }
+/* Figma 44537:23361: 20px/w400/ls0.8/lh30 color=#81edb9 */
 .cta-label {
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: 400;
   color: #81edb9;
-  letter-spacing: .8px;
+  letter-spacing: 0.8px;
+  line-height: 30px;
 }
 .cta-icon { flex-shrink: 0; }
 
-/* ── Icon bar ── */
+/* ── Icon bar — Figma FuncSection 44537:23370: cr=20, pad=28/32, bg=#f0f0f0 ── */
 .icons-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
-  padding: 16px 20px;
-  flex-wrap: wrap;
+  gap: 32px;
+  padding: 28px 32px;
+  background: #f0f0f0;
+  border-radius: 20px;
+  width: 100%;
 }
+/* Figma Divider 44537:23377: 2x163px, neumorphic groove */
 .icon-divider {
   width: 2px;
-  height: 70px;
+  height: 163px;
   background: #f0f0f0;
   border-radius: 2px;
   box-shadow: 2px 2px 4px rgba(255,255,255,.6);
@@ -275,36 +297,40 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  box-shadow: inset .4px .4px .6px .4px rgba(0,0,0,.1);
+  box-shadow:
+    inset 0 0 0.6px rgba(0,0,0,.1),
+    inset 1px 1px 2px rgba(135,135,135,.3);
 }
+/* Figma FuncBtn 44537:23372: 145x163, gap=8 */
 .icon-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 5px;
-  width: 80px;
+  gap: 8px;
+  width: 145px;
   cursor: pointer;
 }
+/* Figma Icon 44537:23379: 125x125, cr=15, neumorphic */
 .icon-box {
-  width: 64px;
-  height: 64px;
+  width: 125px;
+  height: 125px;
   background: #f0f0f0;
-  border-radius: 13px;
+  border-radius: 15px;
   box-shadow:
     0 0 3px rgba(43,43,43,.15),
-    inset 1px 1px 2px rgba(0,0,0,.1);
+    inset 2px 2px 2px rgba(255,255,255,.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px;
+  padding: 20px;
   overflow: hidden;
   transition: box-shadow .2s;
 }
 .icon-item:hover .icon-box {
   box-shadow:
-    0 0 3px rgba(43,43,43,.15),
-    inset 1px 1px 2px rgba(0,0,0,.1),
+    0 0 3.5px rgba(43,43,43,.20),
+    inset 1px 1px 6px rgba(255,255,255,.20),
     0 0 0 2px rgba(78,203,165,.3);
 }
 .icon-box img {
@@ -312,15 +338,16 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   height: 100%;
   object-fit: contain;
 }
+/* Figma label: 20px/w300/ls0.8/lh30 color=#aeaeb2 */
 .icon-label {
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
-  font-size: 11px;
+  font-size: 20px;
   color: #aeaeb2;
   text-align: center;
-  letter-spacing: .8px;
-  line-height: 1.4;
-  min-height: 32px;
+  letter-spacing: 0.8px;
+  line-height: 30px;
+  min-height: 30px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -359,10 +386,16 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
     min-height: 320px;
   }
   .phone-device { width: 180px; }
-  .title { font-size: clamp(16px, 2.5vw, 28px); letter-spacing: 3px; }
-  .desc { font-size: 14px; }
-  .icons-bar { gap: 10px; }
-  .icon-box { width: 52px; height: 52px; }
-  .icon-item { width: 65px; }
+  .title { font-size: clamp(28px, 6vw, 48px); letter-spacing: 4px; line-height: 1.2; }
+  .subtitle { font-size: 20px; line-height: 30px; }
+  .desc { font-size: 18px; line-height: 32px; }
+  .icons-bar { gap: 12px; padding: 16px; flex-wrap: wrap; }
+  .icon-box { width: 72px; height: 72px; padding: 12px; }
+  .icon-item { width: 90px; }
+  .icon-label { font-size: 14px; }
+  .icon-divider { height: 90px; }
+  .badge-val, .badge-lbl { font-size: 20px; line-height: 30px; }
+  .back-btn { width: 52px; height: 52px; }
+  .cta-icon { width: 60px !important; height: 60px !important; }
 }
 </style>
