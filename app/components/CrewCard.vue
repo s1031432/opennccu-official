@@ -1,7 +1,7 @@
 <template>
   <div
     class="crew-card"
-    :style="{ '--card-color': color, '--card-color-rgb': colorRgb }"
+    :style="{ '--card-color': color, '--card-color-rgb': colorRgb, width: cardWidth + 'px', height: cardHeight + 'px' }"
     @click="$emit('click')"
   >
     <!-- Gradient blob background -->
@@ -72,7 +72,7 @@
     <!-- OPEN NCCU overlay for collapsed state -->
     <div
       v-if="showOpenNccu"
-      class="absolute inset-0 z-20 flex items-center justify-center rounded-[24px] overflow-hidden transition-opacity duration-300"
+      class="absolute inset-0 z-20 flex items-center justify-center rounded-[50px] overflow-hidden transition-opacity duration-300"
       :style="{
         background: 'linear-gradient(135deg, rgba(78,203,165,0.15), rgba(120,180,220,0.1), rgba(255,255,255,0.3))',
         opacity: openNccuOpacity,
@@ -89,7 +89,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+const props = withDefaults(defineProps<{
   label: string
   description?: string
   icon: 'sparkles' | 'bars' | 'dots'
@@ -100,7 +100,14 @@ defineProps<{
   showOpenNccu?: boolean
   openNccuOpacity?: number
   multiLine?: boolean
-}>()
+  /** Figma card width in px (different per role) */
+  cardWidth?: number
+  /** Figma card height in px (different per role) */
+  cardHeight?: number
+}>(), {
+  cardWidth: 312,
+  cardHeight: 268,
+})
 
 defineEmits<{
   click: []
@@ -110,8 +117,7 @@ defineEmits<{
 <style scoped>
 .crew-card {
   position: absolute;
-  width: 312px;
-  height: 268px;
+  /* Width & height set via inline style from props (variable per role per Figma API) */
   /* Figma API: all crew cards cr=50.0 — DO NOT shrink below 50px */
   border-radius: 50px;
   /* Figma API: Rectangle 42010 fill #FD FD FD (rgba 0.992) at 56% opacity + GLASS effect */

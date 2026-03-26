@@ -39,6 +39,8 @@
             :show-open-nccu="smoothProgress < 0.25 && i === teamGroups.length - 1"
             :open-nccu-opacity="smoothProgress < 0.1 ? 1 : Math.max(0, 1 - (smoothProgress - 0.1) / 0.15)"
             :multi-line="true"
+            :card-width="GROUP_CARD_SIZE.w"
+            :card-height="GROUP_CARD_SIZE.h"
             :style="groupCardStyle(i)"
           />
 
@@ -53,6 +55,8 @@
             :color-rgb="role.colorRgb"
             :color-light="role.colorLight"
             :show-description="smoothProgress > 0.6"
+            :card-width="scaledCardSize(role.id).w"
+            :card-height="scaledCardSize(role.id).h"
             :style="roleCardStyle(i)"
             @click="openRolePopup(role)"
           />
@@ -193,6 +197,25 @@ if (import.meta.client) {
 import { teamGroups, roleCards, founderMembers } from '~/data/crew'
 import type { RoleData } from '~/data/crew'
 
+// ── Figma card sizes per role (from Figma API, node 44537:23202 depth=6) ────
+// UI=453×436, BE=439×421, PM=453×436, MKT=439×421, UR=378×355, FE=378×355, Lead=419×399, Board=378×355
+// Scale factor ~0.65 to fit animation viewport while maintaining proportional differences
+const FIGMA_CARD_SIZES: Record<string, { w: number; h: number }> = {
+  ui:  { w: 453, h: 436 },
+  dev: { w: 439, h: 421 },  // mapped from BE in Figma
+  ur:  { w: 378, h: 355 },
+  mkt: { w: 439, h: 421 },
+  pm:  { w: 453, h: 436 },
+  pr:  { w: 378, h: 355 },  // mapped from Board in Figma
+}
+const CARD_SCALE = 0.65
+function scaledCardSize(roleId: string) {
+  const size = FIGMA_CARD_SIZES[roleId] || { w: 419, h: 399 }
+  return { w: Math.round(size.w * CARD_SCALE), h: Math.round(size.h * CARD_SCALE) }
+}
+// Group cards use Lead size (middle ground)
+const GROUP_CARD_SIZE = { w: Math.round(419 * CARD_SCALE), h: Math.round(399 * CARD_SCALE) }
+
 // ── Popup state ─────────────────────────────────────────────────────────────
 const popupRole = ref<RoleData | null>(null)
 const showFounderPopup = ref(false)
@@ -314,8 +337,9 @@ function roleCardStyle(index: number): CSSProperties {
 }
 
 // Founder circle: centered between UR(2), MKT(3), PM(4), PR(5)
-const CARD_W = 312 * 0.82 // scaled card width
-const CARD_H = 268 * 0.82 // scaled card height
+// Use average scaled card size for founder positioning
+const AVG_CARD_W = Math.round(((453 + 439 + 378 + 439 + 453 + 378) / 6) * CARD_SCALE * 0.82)
+const AVG_CARD_H = Math.round(((436 + 421 + 355 + 421 + 436 + 355) / 6) * CARD_SCALE * 0.82)
 const FOUNDER_SIZE = 180
 
 const founderOpacity = computed(() => {
@@ -328,8 +352,8 @@ const founderOpacity = computed(() => {
 const founderStyle = computed((): CSSProperties => {
   // Center of the 4 cards (UR=2, MKT=3, PM=4, PR=5)
   const cards = [roleSpreadPositions[2], roleSpreadPositions[3], roleSpreadPositions[4], roleSpreadPositions[5]]
-  const centerX = cards.reduce((s, c) => s + c.x + CARD_W / 2, 0) / 4 - FOUNDER_SIZE / 2
-  const centerY = cards.reduce((s, c) => s + c.y + CARD_H / 2, 0) / 4 - FOUNDER_SIZE / 2
+  const centerX = cards.reduce((s, c) => s + c.x + AVG_CARD_W / 2, 0) / 4 - FOUNDER_SIZE / 2
+  const centerY = cards.reduce((s, c) => s + c.y + AVG_CARD_H / 2, 0) / 4 - FOUNDER_SIZE / 2
 
   const scale = lerp(0.8, 1, Math.min(1, founderOpacity.value))
 
