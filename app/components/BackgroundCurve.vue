@@ -1,53 +1,44 @@
 <template>
-  <!-- Single neumorphic groove line running through all sections (except Hero).
-       One continuous curve, one marble ball on ScrollTrack. No extra orbs here. -->
+  <!-- Figma Vector 8 (44537:23122): 32px #F0F0F0 neumorphic groove spanning
+       from y=1929 (Product) to y=8907 (past Crew). Exact SVG path from Figma API export.
+       Positioned absolutely within the page flow, NOT fixed, to scroll naturally with content. -->
   <ClientOnly>
-    <div class="hidden md:block fixed inset-0 pointer-events-none overflow-hidden" style="z-index: 1;">
+    <div class="hidden md:block absolute pointer-events-none overflow-visible" style="z-index: 1; top: 0; left: 0; width: 100%; height: 100%;">
+      <!-- Figma Vector 8 starts at x=181, y=1929 in the 1920-wide canvas -->
       <svg
-        :width="vw"
-        :height="vh"
-        :viewBox="`0 0 ${vw} ${vh}`"
-        class="absolute inset-0"
+        class="absolute"
+        :style="{
+          top: '1929px',
+          left: (181 / 1920 * 100) + '%',
+          width: (1709 / 1920 * 100) + '%',
+        }"
+        viewBox="0 0 1709 7041"
         fill="none"
+        preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <defs>
-          <!-- Neumorphic emboss filter for the groove line -->
-          <filter id="bg-curve-emboss" color-interpolation-filters="sRGB">
-            <feFlood flood-opacity="0" result="bg" />
-            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="ha" />
-            <feOffset dx="-4" dy="-4" />
-            <feGaussianBlur stdDeviation="4" />
-            <feComposite in2="ha" operator="out" />
-            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0" />
-            <feBlend in2="bg" result="highlight" />
-            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="ha2" />
-            <feOffset dx="4" dy="4" />
-            <feGaussianBlur stdDeviation="5" />
-            <feComposite in2="ha2" operator="out" />
-            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0" />
-            <feBlend in2="highlight" result="shadow" />
-            <feBlend in="SourceGraphic" in2="shadow" result="shape" />
-            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="ha3" />
-            <feOffset dx="3" dy="3" />
-            <feGaussianBlur stdDeviation="4" />
-            <feComposite in2="ha3" operator="arithmetic" k2="-1" k3="1" />
-            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" />
-            <feBlend in2="shape" />
+          <!-- Exact Figma filter: DROP_SHADOW(8,8,15px white 40%) + INNER_SHADOW(8,8,15px black 7%) -->
+          <filter id="filter0_di_vector8" x="-16" y="-16" width="1741" height="7073" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="8" dy="8"/>
+            <feGaussianBlur stdDeviation="7.5"/>
+            <feComposite in2="hardAlpha" operator="out"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.4 0"/>
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+            <feOffset dx="8" dy="8"/>
+            <feGaussianBlur stdDeviation="7.5"/>
+            <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0"/>
+            <feBlend mode="normal" in2="shape" result="effect2_innerShadow"/>
           </filter>
         </defs>
-
-        <!-- Translate with scroll -->
-        <g :style="{ transform: `translateY(${-scrollY}px)` }">
-          <!-- Single continuous neumorphic groove -->
-          <path
-            :d="curvePath"
-            stroke="#ededed"
-            stroke-width="28"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            fill="none"
-            filter="url(#bg-curve-emboss)"
-          />
+        <g filter="url(#filter0_di_vector8)">
+          <!-- Exact path exported from Figma API node 44537:23122 -->
+          <path d="M932.794 23.0057C893.289 89.5151 820.978 195.13 753.769 267.54C669.757 358.053 509.734 504.074 354.712 615.09C199.69 726.105 -122.373 940.44 97.4232 1371.2C296.451 1761.25 1267.34 1922.27 1621.39 2562.37C1975.44 3202.46 274.201 3756.53 200.691 3834.55C127.18 3912.56 664.756 4161.09 1169.33 4257.11C1673.9 4353.12 365.714 4440.13 283.202 4706.67C200.691 4973.21 1242.34 4945.7 1393.86 5101.73C1545 5257.35 1093.13 5568.7 343.95 5588.15C340.239 5588.25 336.627 5589.3 333.557 5591.39C241.207 5654.09 86.6451 5834.86 173.187 6083.86C283.202 6400.41 1398.86 6428.41 1426.36 7001.99" stroke="#F0F0F0" stroke-width="32" stroke-linecap="round"/>
         </g>
       </svg>
     </div>
@@ -55,63 +46,4 @@
 </template>
 
 <script setup lang="ts">
-const scrollY = ref(0)
-const vw = ref(1920)
-const vh = ref(1080)
-
-// One continuous groove flowing from News through to Crew
-const waypointsDef = [
-  { xFrac: 0.56, yAbs: 1200 },
-  { xFrac: 0.52, yAbs: 1600 },
-  { xFrac: 0.40, yAbs: 2100 },
-  { xFrac: 0.30, yAbs: 2600 },
-  { xFrac: 0.38, yAbs: 3100 },
-  { xFrac: 0.55, yAbs: 3800 },
-  { xFrac: 0.65, yAbs: 4400 },
-  { xFrac: 0.50, yAbs: 5200 },
-  { xFrac: 0.35, yAbs: 6000 },
-  { xFrac: 0.42, yAbs: 6800 },
-  { xFrac: 0.55, yAbs: 7500 },
-  { xFrac: 0.50, yAbs: 8200 },
-]
-
-const pts = computed(() =>
-  waypointsDef.map(wp => ({ x: wp.xFrac * vw.value, y: wp.yAbs }))
-)
-
-function buildSmoothPath(points: { x: number; y: number }[]): string {
-  if (points.length < 2) return ''
-  let d = `M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`
-  for (let i = 1; i < points.length - 1; i++) {
-    const mid = {
-      x: (points[i].x + points[i + 1].x) / 2,
-      y: (points[i].y + points[i + 1].y) / 2,
-    }
-    d += ` Q ${points[i].x.toFixed(1)} ${points[i].y.toFixed(1)} ${mid.x.toFixed(1)} ${mid.y.toFixed(1)}`
-  }
-  const last = points[points.length - 1]
-  d += ` L ${last.x.toFixed(1)} ${last.y.toFixed(1)}`
-  return d
-}
-
-const curvePath = computed(() => buildSmoothPath(pts.value))
-
-function onScroll() { scrollY.value = window.scrollY }
-function onResize() {
-  vw.value = window.innerWidth
-  vh.value = window.innerHeight
-}
-
-onMounted(() => {
-  if (window.innerWidth < 768) return
-  vw.value = window.innerWidth
-  vh.value = window.innerHeight
-  window.addEventListener('scroll', onScroll, { passive: true })
-  window.addEventListener('resize', onResize, { passive: true })
-})
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', onScroll)
-  window.removeEventListener('resize', onResize)
-})
 </script>

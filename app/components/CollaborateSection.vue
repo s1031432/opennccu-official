@@ -13,18 +13,19 @@
     <div class="relative max-w-6xl mx-auto px-6">
       <!-- Figma: LARGE LIGHT GRAY title matching other sections — 80px weight300 #606060 per DESIGN-SPEC.md + verified from case-studies.png — DO NOT change to teal or shrink -->
       <h2
-        class="text-center mb-10"
+        class="text-center mb-[81px]"
         style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
       >
         與我們合作
       </h2>
 
       <!-- Carousel pagination dots (above card, top-right per Figma API) -->
-      <!-- Figma API: active=35×12 #81edb9, inactive=20×12 #aeaeb2, all border-radius 20 (pill shape, NOT circles) -->
-      <div class="flex justify-end items-center gap-2 mb-3 pr-2">
-        <span class="w-[35px] h-[12px] rounded-[20px] bg-[#81edb9]"></span>
-        <span class="w-[20px] h-[12px] rounded-[20px] bg-[#aeaeb2]"></span>
-        <span class="w-[20px] h-[12px] rounded-[20px] bg-[#aeaeb2]"></span>
+      <!-- Figma API: Frame 48095639 gap=12, active=35×12 #81edb9 with neumorphic inner shadows, inactive=20×12 #aeaeb2 with subtle inset -->
+      <!-- Figma: 32px gap between dots bottom and card top -->
+      <div class="flex justify-end items-center gap-[12px] mb-[32px] pr-2">
+        <span class="dot-active w-[35px] h-[12px] rounded-[20px]"></span>
+        <span class="dot-inactive w-[20px] h-[12px] rounded-[20px]"></span>
+        <span class="dot-inactive w-[20px] h-[12px] rounded-[20px]"></span>
       </div>
 
       <!-- Collaboration showcase card — Figma API: Body gap=72 between CM Card and Achievement -->
@@ -98,7 +99,8 @@
       </div>
 
       <!-- Stats row — Figma API: Achievement gap=96px, labels 48px/weight300/#606060/ls3.84, numbers 48px/weight600/teal/ls3.84 -->
-      <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-[96px] mb-20 text-center">
+      <!-- Figma: 87px gap between Body bottom and Partners top -->
+      <div class="flex flex-col md:flex-row justify-center gap-16 md:gap-[96px] mb-[87px] text-center">
         <div class="flex flex-col items-center w-full md:w-auto">
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
@@ -181,24 +183,29 @@ const partners = [
 </script>
 
 <style scoped>
+/* Figma API: CM Card Subtract (44537:23153) fill=#F0F0F0, 3x DROP_SHADOW:
+   7px 6px 7px -6px rgba(0,0,0,0.08), 6px 6px 18px -14px rgba(135,135,135,0.3),
+   -5px -5px 15px rgba(252,252,252,1) — standard neumorphic. NO gradient, NO blur. */
 .collaborate-card {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.7) 0%,
-      rgba(230, 245, 255, 0.5) 20%,
-      rgba(255, 230, 250, 0.3) 40%,
-      rgba(255, 255, 255, 0.6) 55%,
-      rgba(230, 255, 240, 0.4) 70%,
-      rgba(245, 230, 255, 0.3) 85%,
-      rgba(255, 255, 255, 0.7) 100%
-    );
-  backdrop-filter: blur(12px);
+  background: #f0f0f0;
   box-shadow:
     7px 6px 7px -6px rgba(0, 0, 0, 0.08),
     6px 6px 18px -14px rgba(135, 135, 135, 0.3),
-    -5px -5px 15px 0px #fcfcfc,
-    inset 0 0 60px rgba(255, 255, 255, 0.3);
+    -5px -5px 15px 0px #fcfcfc;
+}
+
+/* Figma API: active dot — fill #81edb9, INNER_SHADOW(2,2,2px white 40%) + INNER_SHADOW(-4,-4,5px rgba(59,58,118,0.2)) */
+.dot-active {
+  background: #81edb9;
+  box-shadow:
+    inset 2px 2px 2px rgba(255, 255, 255, 0.4),
+    inset -4px -4px 5px rgba(59, 58, 118, 0.2);
+}
+
+/* Figma API: inactive dot — fill #aeaeb2, INNER_SHADOW(0,2.3px,2.3px black 10%) */
+.dot-inactive {
+  background: #aeaeb2;
+  box-shadow: inset 0 2.3px 2.3px rgba(0, 0, 0, 0.1);
 }
 
 /* Figma API: CTA Btn gradient #94CCB9→#3FA4B6 (approx 145deg), inner shadows: white 3px/3px/10px 70% + teal -3px/-3px/10px multiply */
