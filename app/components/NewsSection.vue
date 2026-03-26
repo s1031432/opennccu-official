@@ -52,25 +52,29 @@
               <!-- New badge -->
               <div v-if="news.isNew" class="absolute right-3 md:right-[16px] top-3 md:top-[16px]">
                 <div class="new-badge rounded-[10px] w-[52px] md:w-[64px] h-[30px] md:h-[37px] flex items-center justify-center">
+                  <!-- Figma API: "New" Outfit 18px weight600 ls0.72 — DO NOT SHRINK -->
                   <span
-                    class="text-white text-sm md:text-lg"
-                    style="font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.72px;"
+                    class="text-white"
+                    style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0.72px;"
                   >New</span>
                 </div>
               </div>
               <!-- Card content -->
               <div class="absolute left-4 md:left-[32px] top-1/2 -translate-y-1/2 w-[220px] md:w-[300px] lg:w-[329px] flex flex-col gap-1">
+                <!-- Figma API: date Outfit 16px w500 #aeaeb2 ls2.4 lh20.16 -->
                 <span
-                  class="text-[#aeaeb2] text-xs md:text-base"
-                  style="font-family: 'Outfit', sans-serif; font-weight: 500; letter-spacing: 2.4px;"
+                  class="text-[#aeaeb2]"
+                  style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px; line-height: 20.16px;"
                 >{{ news.date }}</span>
+                <!-- Figma API: title Noto Sans 16px w900 #3d3d3d ls2.4 lh21.8 -->
                 <p
-                  class="text-[#3d3d3d] line-clamp-1 text-sm md:text-base"
-                  style="font-family: 'Noto Sans', 'Noto Sans TC', sans-serif; font-weight: 900; letter-spacing: 2.4px;"
+                  class="text-[#3d3d3d] line-clamp-1"
+                  style="font-family: 'Noto Sans', 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 900; letter-spacing: 2.4px; line-height: 21.8px;"
                 >{{ news.title }}</p>
+                <!-- Figma API: desc Noto Sans TC 12px w500 #aeaeb2 ls1.2 lh14.4 -->
                 <p
-                  class="text-[#aeaeb2] mt-1 line-clamp-2 text-xs md:text-sm"
-                  style="font-family: 'Noto Sans TC', sans-serif; font-weight: 500; letter-spacing: 1.2px; line-height: 1.4;"
+                  class="text-[#aeaeb2] mt-1 line-clamp-2"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1.2px; line-height: 14.4px;"
                 >{{ news.description }}</p>
               </div>
             </a>
@@ -108,24 +112,29 @@ const activeItems = computed(() =>
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* Figma API: Indicator 217×80px, cr=200, gradient fill white 100%→white 1%,
+   2x DROP_SHADOW: (3,3,7.5px,-4 black 36%) + (-3,-3,3.6px,-7 white 90%),
+   2x INNER_SHADOW: (1,1,20.6px black 6%) + (-3,-3,9.7px white 100%) */
 .news-badge-pill {
-  background: #f0f0f0;
-  border-radius: 9999px;
+  background: linear-gradient(145deg, rgba(255,255,255,1) 1%, rgba(255,255,255,0.01) 100%);
+  border-radius: 200px;
   box-shadow:
-    4px 4px 10px rgba(0, 0, 0, 0.08),
-    -4px -4px 10px rgba(255, 255, 255, 0.6),
-    inset 2px 2px 4px rgba(255, 255, 255, 0.5),
-    inset -2px -2px 4px rgba(0, 0, 0, 0.05);
+    3px 3px 7.5px -4px rgba(0, 0, 0, 0.36),
+    -3px -3px 3.6px -7px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 20.6px rgba(0, 0, 0, 0.06),
+    inset -3px -3px 9.7px rgba(255, 255, 255, 1);
 }
 
+/* Figma API: Card 485×190 cr=20, gradient fill white→transparent,
+   DROP_SHADOW: (-17,21,52px rgba(42,80,121,0.1)) */
 .news-card {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(155deg, rgba(255,255,255,1) 0.6%, rgba(255,255,255,0) 100%);
+  border: none;
+  box-shadow: -16.9px 21.4px 51.9px rgba(42, 80, 121, 0.1);
 }
 
 .news-card:hover {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.04);
+  box-shadow: -16.9px 21.4px 51.9px rgba(42, 80, 121, 0.14);
   transform: rotate(-2deg) translateY(-2px);
 }
 
