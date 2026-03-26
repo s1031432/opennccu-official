@@ -1,13 +1,13 @@
 <template>
   <section id="about" class="relative py-24 overflow-hidden">
     <!-- Figma API: Union/Vector 9 — neumorphic decorative S-curve, 32px stroke #F0F0F0 with inner shadow + drop shadow -->
-    <!-- Exported directly from Figma node 44537:23190 as SVG with filter effects -->
+    <!-- Figma: curve appears at bottom ~15-20% of section, not covering entire section -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
       <img
         src="/assets/about-curve.svg"
         alt=""
-        class="absolute left-0 top-0 w-full h-full object-cover"
-        style="opacity: 1;"
+        class="absolute left-0 bottom-0 w-full"
+        style="opacity: 1; height: 30%; object-fit: cover; object-position: center bottom;"
       />
     </div>
 
@@ -35,8 +35,20 @@
         <hr class="border-t border-[#d9d9d9]" />
       </div>
 
-      <!-- Timeline -->
+      <!-- Timeline with zigzag connecting lines per Figma -->
       <div class="relative">
+        <!-- Zigzag connecting lines (desktop only) — Figma shows thin straight diagonal lines connecting each timeline entry to the next -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none hidden lg:block z-0" preserveAspectRatio="none">
+          <line v-for="i in timelineItems.length - 1" :key="'line-'+i"
+            :x1="i % 2 === 1 ? '25%' : '75%'"
+            :y1="((i - 0.3) / timelineItems.length * 100) + '%'"
+            :x2="i % 2 === 1 ? '75%' : '25%'"
+            :y2="((i + 0.3) / timelineItems.length * 100) + '%'"
+            stroke="#d9d9d9"
+            stroke-width="1.5"
+          />
+        </svg>
+
         <div
           v-for="(item, idx) in timelineItems"
           :key="item.year"

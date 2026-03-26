@@ -1,5 +1,6 @@
 <template>
   <section class="relative min-h-screen flex items-center">
+
     <!-- Brand decorative geometric lines (right side) — hidden on mobile -->
     <HeroBrandDecoration class="hidden md:block" />
 

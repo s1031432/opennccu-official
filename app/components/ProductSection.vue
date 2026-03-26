@@ -21,7 +21,7 @@
       <!-- Title -->
       <h2
         class="text-center mb-4"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #606060; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
       >
         我們打造了⋯
       </h2>
