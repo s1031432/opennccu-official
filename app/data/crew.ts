@@ -103,7 +103,7 @@ export const roleCards: RoleData[] = [
     members: [
       { name: '陳宣羽', title: 'DEV Lead',           initials: 'XY', avatarUrl: null, gradientClass: gradient(0) },
       { name: 'CTHua', title: 'Engineer',          initials: 'CT', avatarUrl: null, gradientClass: gradient(1) },
-      { name: '張淮竣', title: 'Engineer',          initials: 'HJ', avatarUrl: null, gradientClass: gradient(2) },
+      { name: '張淮竣', title: 'Engineer',          initials: 'HC', avatarUrl: null, gradientClass: gradient(2) },
       { name: '吳欣穎', title: 'Engineer',          initials: 'XY', avatarUrl: null, gradientClass: gradient(3) },
       { name: '蘇胤翔', title: 'Engineer',          initials: 'YX', avatarUrl: null, gradientClass: gradient(4) },
       { name: '黃翊唐', title: 'Engineer',          initials: 'YT', avatarUrl: null, gradientClass: gradient(5) },
