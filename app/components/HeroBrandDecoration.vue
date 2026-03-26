@@ -1,10 +1,10 @@
 <template>
-  <!-- Brand decorative geometric lines for Hero section — extracted from Figma -->
+  <!-- Brand decorative geometric lines for Hero section — per Figma -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden">
     <svg
       class="absolute top-0 right-0 h-full"
-      :style="{ width: '60%' }"
-      viewBox="880 -40 820 1100"
+      :style="{ width: '75%' }"
+      viewBox="850 -100 900 1300"
       fill="none"
       preserveAspectRatio="xMidYMid slice"
       xmlns="http://www.w3.org/2000/svg"
@@ -28,7 +28,6 @@
           <feBlend mode="normal" in2="shape" result="effect2_innerShadow" />
         </filter>
 
-        <!-- Lighter inner shadow for the curve -->
         <filter id="hero-curve-shadow" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
           <feFlood flood-opacity="0" result="BackgroundImageFix" />
           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
@@ -56,14 +55,12 @@
           <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" />
           <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
           <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-          <!-- Inner highlight for 3D sphere look -->
           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
           <feOffset dx="-3" dy="-3" />
           <feGaussianBlur stdDeviation="4" />
           <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1" />
           <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0" />
           <feBlend mode="normal" in2="shape" result="innerHighlight" />
-          <!-- Inner shadow for depth -->
           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha2" />
           <feOffset dx="3" dy="3" />
           <feGaussianBlur stdDeviation="4" />
@@ -71,67 +68,114 @@
           <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" />
           <feBlend mode="normal" in2="innerHighlight" result="finalShape" />
         </filter>
+
+        <!-- Ghost shape filter -->
+        <filter id="hero-ghost-shadow" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+          <feOffset dx="5" dy="5" />
+          <feGaussianBlur stdDeviation="5" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="shadow" />
+          <feBlend mode="normal" in="SourceGraphic" in2="shadow" result="shape" />
+        </filter>
       </defs>
 
-      <!-- Line 10: Mint green 3D tube per Figma (prominent, visible against #f0f0f0 bg) -->
+      <!-- Ghost/echo diamond shape (behind, offset down-left) — larger and more visible per Figma -->
+      <g filter="url(#hero-ghost-shadow)">
+        <path
+          d="M1120 250L1290 520L1120 790L950 520Z"
+          stroke="#e2e2e2"
+          stroke-width="28"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"
+          opacity="0.6"
+        />
+      </g>
+
+      <!-- Ghost/echo U-curve (behind, faint) -->
+      <g filter="url(#hero-ghost-shadow)">
+        <path
+          d="M1320 1100L1320 650C1320 480 1480 340 1650 340C1820 340 1980 480 1980 650L1980 850"
+          stroke="#e2e2e2"
+          stroke-width="28"
+          stroke-linecap="round"
+          fill="none"
+          opacity="0.45"
+        />
+      </g>
+
+      <!-- Main chevron/diamond shape — green 3D tube (Line 10 per Figma), thicker stroke -->
       <g filter="url(#hero-line-shadow)">
         <path
-          d="M1171 328L1318.6 519.579C1328.1 531.909 1329.58 548.63 1322.4 562.441L1090 1009.5"
+          d="M1140 170L1310 460L1140 750"
           stroke="#8FD4B4"
-          stroke-width="32"
+          stroke-width="38"
           stroke-linecap="round"
+          stroke-linejoin="round"
+          fill="none"
         />
       </g>
-      <!-- Highlight edge for 3D tube effect -->
+      <!-- Highlight edge -->
       <path
-        d="M1168 325L1315.6 516.579C1325.1 528.909 1326.58 545.63 1319.4 559.441L1087 1006.5"
+        d="M1137 167L1307 457L1137 747"
         stroke="#ffffff"
         stroke-opacity="0.35"
-        stroke-width="8"
+        stroke-width="10"
         stroke-linecap="round"
+        stroke-linejoin="round"
         fill="none"
       />
 
-      <!-- Vector 7: Complex brand curve — mint green 3D tube per Figma -->
+      <!-- U-curve (Vector 7 per Figma) — wider arch, taller, overlapping with chevron -->
       <g filter="url(#hero-curve-shadow)">
         <path
-          d="M1419.5 1100L1267.33 899.224C1257.97 886.879 1256.58 870.241 1263.77 856.516L1375.5 643C1393.17 617.333 1442.63 571.5 1500 571.5C1549 571.5 1583.5 590.5 1599 602.5C1612.17 612.694 1635 633 1651 673.5C1667 714 1661.5 761 1643.5 796C1629.1 824 1315.5 1436.33 1160.5 1739"
+          d="M1340 1050L1340 560C1340 380 1510 230 1700 230C1890 230 2060 380 2060 560L2060 780"
           stroke="#8FD4B4"
-          stroke-width="32"
+          stroke-width="38"
           stroke-linecap="round"
+          fill="none"
         />
       </g>
-      <!-- Highlight edge for 3D tube effect on curve -->
+      <!-- Highlight edge for U-curve -->
       <path
-        d="M1416.5 1097L1264.33 896.224C1254.97 883.879 1253.58 867.241 1260.77 853.516L1372.5 640C1390.17 614.333 1439.63 568.5 1497 568.5C1546 568.5 1580.5 587.5 1596 599.5C1609.17 609.694 1632 630 1648 670.5C1664 711 1658.5 758 1640.5 793"
+        d="M1337 1047L1337 557C1337 377 1507 227 1697 227C1887 227 2057 377 2057 557L2057 777"
         stroke="#ffffff"
-        stroke-opacity="0.3"
-        stroke-width="8"
+        stroke-opacity="0.30"
+        stroke-width="10"
         stroke-linecap="round"
         fill="none"
       />
 
-      <!-- Endpoint dot: top of chevron (1171, 222) — Figma shows mint green spherical terminals -->
+      <!-- Endpoint dots — larger with glow -->
+      <!-- Top of chevron -->
       <g filter="url(#hero-dot-filter)">
-        <circle cx="1171" cy="222" r="14" fill="#9DD5BE" />
-        <circle cx="1168" cy="219" r="5" fill="white" fill-opacity="0.5" />
+        <circle cx="1140" cy="170" r="18" fill="#9DD5BE" />
+        <circle cx="1136" cy="166" r="6" fill="white" fill-opacity="0.55" />
       </g>
 
-      <!-- Endpoint dot: bottom of second line (1090, 1009) -->
+      <!-- Bottom of chevron -->
       <g filter="url(#hero-dot-filter)">
-        <circle cx="1090" cy="1009" r="14" fill="#9DD5BE" />
-        <circle cx="1087" cy="1006" r="5" fill="white" fill-opacity="0.5" />
+        <circle cx="1140" cy="750" r="18" fill="#9DD5BE" />
+        <circle cx="1136" cy="746" r="6" fill="white" fill-opacity="0.55" />
       </g>
 
-      <!-- Endpoint dot: curve apex (1644, 795) -->
+      <!-- Bottom of U-curve left leg -->
       <g filter="url(#hero-dot-filter)">
-        <circle cx="1644" cy="795" r="14" fill="#9DD5BE" />
-        <circle cx="1641" cy="792" r="5" fill="white" fill-opacity="0.5" />
+        <circle cx="1340" cy="1050" r="18" fill="#9DD5BE" />
+        <circle cx="1336" cy="1046" r="6" fill="white" fill-opacity="0.55" />
+      </g>
+
+      <!-- Bottom of U-curve right leg -->
+      <g filter="url(#hero-dot-filter)">
+        <circle cx="2060" cy="780" r="18" fill="#9DD5BE" />
+        <circle cx="2056" cy="776" r="6" fill="white" fill-opacity="0.55" />
       </g>
     </svg>
 
-    <!-- Diagonal neumorphic groove line per Figma: thin straight line from upper-right to lower-left, ~35° angle -->
-    <!-- Figma shows a subtle raised tube/rod crossing the hero at an angle -->
+    <!-- Diagonal neumorphic groove lines per Figma -->
     <svg
       class="absolute inset-0 w-full h-full"
       viewBox="0 0 1920 1440"
@@ -149,7 +193,6 @@
           <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0" />
           <feBlend mode="normal" in2="BackgroundImageFix" result="shadow" />
           <feBlend mode="normal" in="SourceGraphic" in2="shadow" result="shape" />
-          <!-- Inner highlight for neumorphic raised effect -->
           <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha2" />
           <feOffset dx="-2" dy="-2" />
           <feGaussianBlur stdDeviation="2" />
@@ -158,21 +201,37 @@
           <feBlend mode="normal" in2="shape" result="highlight" />
         </filter>
       </defs>
-      <!-- Diagonal groove: upper-right → lower-left, neumorphic subtle raised rod style -->
+      <!-- Diagonal groove 1: upper-right → lower-left -->
       <line
-        x1="1600" y1="-50"
-        x2="600" y2="1500"
+        x1="1550" y1="-50"
+        x2="550" y2="1500"
         stroke="#e8e8e8"
         stroke-width="3"
         stroke-linecap="round"
         filter="url(#hero-diagonal-groove)"
       />
-      <!-- Faint white highlight edge offset above -->
       <line
-        x1="1599" y1="-51"
-        x2="599" y2="1499"
+        x1="1549" y1="-51"
+        x2="549" y2="1499"
         stroke="white"
         stroke-opacity="0.5"
+        stroke-width="1.5"
+        stroke-linecap="round"
+      />
+      <!-- Diagonal groove 2: parallel, offset -->
+      <line
+        x1="1650" y1="-100"
+        x2="650" y2="1450"
+        stroke="#e8e8e8"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        filter="url(#hero-diagonal-groove)"
+      />
+      <line
+        x1="1649" y1="-101"
+        x2="649" y2="1449"
+        stroke="white"
+        stroke-opacity="0.4"
         stroke-width="1.5"
         stroke-linecap="round"
       />
