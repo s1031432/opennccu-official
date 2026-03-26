@@ -31,11 +31,11 @@
       </div>
 
       <!-- Collaboration showcase card — Figma API: Body gap=72 between CM Card and Achievement -->
-      <!-- Figma API: CM Card 1668×637px, Intro at 116px from left / 75px from top, Image at 449px from left -->
+      <!-- Figma API: CM Card x=126 w=1668 h=637. Intro at left=116 top=75 w=433. Image at left=449 w=1198. Overlap=100px. -->
       <div class="collaborate-card rounded-[20px] overflow-hidden mb-[72px] relative">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[637px]">
-          <!-- Left: text content — Figma: Intro 433px / 1668px ≈ col-span-3, padded 116px left / 75px top -->
-          <div class="lg:col-span-3 p-10 lg:pt-[75px] lg:pb-[75px] lg:pl-[116px] lg:pr-6 flex flex-col justify-start">
+        <div class="relative min-h-[400px] lg:min-h-[637px]">
+          <!-- Left: text content — Figma: Intro absolute, left=116 top=75 w=433, overlaps Image by 100px, z-10 -->
+          <div class="relative lg:absolute lg:z-10 lg:left-[116px] lg:top-[75px] lg:w-[433px] p-10 lg:p-0 flex flex-col justify-start">
             <!-- Figma API: 48px/weight300/#606060/ls3.84/lh57.6 — matches other section titles -->
             <h3
               class="mb-[12px]"
@@ -67,8 +67,8 @@
             </button>
           </div>
 
-          <!-- Right: mockup images — Figma: Image 1198px / 1668px ≈ col-span-9 -->
-          <div class="lg:col-span-9 relative overflow-hidden rounded-r-[20px]">
+          <!-- Right: mockup images — Figma: Image at left=449px from card left (449/1668≈26.9%), w=1198, h=640, overlaps Intro by 100px -->
+          <div class="relative lg:absolute lg:top-0 lg:bottom-0 lg:right-0 lg:left-[26.9%] overflow-hidden lg:rounded-r-[20px]">
             <!-- Background image -->
             <div class="absolute inset-0">
               <img src="/assets/cm-bg.png" alt="" class="w-full h-full object-cover" />

@@ -5,7 +5,7 @@
     <div class="relative px-4 md:pl-[80px] md:pr-0">
       <div class="flex flex-col md:flex-row md:items-center gap-4">
         <!-- Left labels -->
-        <div class="flex-shrink-0 flex flex-row md:flex-col items-start md:w-[180px] gap-1.5">
+        <div class="flex-shrink-0 flex flex-row md:flex-col items-start md:w-[271px] gap-[8px]">
           <!-- Figma API: Tab instance 271×191px. Each label area is 217×80px with text centered.
                Indicator pill cr=200, gap between labels = 1581.5-1573.5 = 8px — DO NOT SHRINK below 217×80px -->
           <button
@@ -44,7 +44,7 @@
 
         <!-- Scrollable news cards -->
         <div class="flex-1 overflow-x-auto pt-4 md:pt-6 pb-4 scrollbar-hide overflow-y-visible">
-          <div class="flex gap-4 md:gap-8" style="min-width: max-content;">
+          <div class="flex gap-4 md:gap-[16px]" style="min-width: max-content;">
             <a
               v-for="news in activeItems"
               :key="news.id"
