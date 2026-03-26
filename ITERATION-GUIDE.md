@@ -43,7 +43,7 @@ cd /Users/yt/vibe-workspace/opennccu-official && pnpm build
 ```bash
 cd /Users/yt/vibe-workspace/opennccu-official
 git add -A
-git commit -m "v0.X: [描述本次改進內容]"
+git commit -m "v0.5.XX: [描述本次改進內容]"
 git push origin main
 ```
 
@@ -151,4 +151,5 @@ curl -s -X POST "https://discord.com/api/v10/channels/1484206453677097030/messag
 - 工作目錄限制在 `/Users/yt/vibe-workspace/opennccu-official/`
 - 不要修改 CLAUDE.md 或此指南以外的系統檔案
 - 每次迭代結束必須 commit、push、發 Discord 通知
-- 版本號從 v0.2 開始遞增 (v0.1 是初始狀態)
+- 版號格式為 semver: v0.5.X (POC) → v0.6.X (pixel-perfect) → v0.8.X (animations+RWD) → v0.9.X (RC) → v1.0.0 (release)
+- 目前處於 v0.5.X POC 階段，每次迭代遞增 patch number
