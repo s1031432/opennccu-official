@@ -52,7 +52,7 @@
         <!-- Figma: crew.png shows 團隊成員 in LIGHT weight (300) matching other section titles — DO NOT change to bold -->
         <h2
           class="relative z-10 mb-8 pl-0 lg:pl-0"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #616161; letter-spacing: 9.6px;"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
         >
           團隊成員
         </h2>

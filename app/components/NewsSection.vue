@@ -1,9 +1,7 @@
 <template>
-  <!-- Figma API: News section pad T24/L80/B240 — DO NOT shrink padding -->
-  <section class="relative pt-[24px] pb-[240px] overflow-hidden">
-    <!-- Figma API: Line 9 — 32px neumorphic stroke #F0F0F0, rotated ~-1.1deg, positioned at right side -->
-    <!-- Figma: absoluteBoundingBox x=1074, y=1457, w=246, h=471 within News section (1920w, y=1459) -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+  <section class="relative pt-6 md:pt-[24px] pb-32 md:pb-[240px] overflow-hidden">
+    <!-- Figma decorative line — hidden on mobile -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
       <img
         src="/assets/news-line9.svg"
         alt=""
@@ -12,74 +10,75 @@
       />
     </div>
 
-    <div class="relative pl-[80px] pr-0">
-      <div class="flex items-center gap-4">
+    <div class="relative px-4 md:pl-[80px] md:pr-0">
+      <div class="flex flex-col md:flex-row md:items-center gap-4">
         <!-- Left labels -->
-        <!-- Figma: wider left column to fit 28px labels -->
-        <div class="flex-shrink-0 flex flex-col items-start w-[180px] gap-1.5">
+        <div class="flex-shrink-0 flex flex-row md:flex-col items-start md:w-[180px] gap-1.5">
           <button
-            class="flex items-center justify-center px-5 py-2.5 rounded-full transition-all"
+            class="flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-full transition-all"
             :class="activeTab === 'news' ? 'news-badge-pill' : ''"
             @click="activeTab = 'news'"
           >
-            <!-- Figma API: 28px weight400 #606060 (active) / #aeaeb2 (inactive) — DO NOT SHRINK below 28px -->
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400; letter-spacing: 1.12px;"
-              :style="{ color: activeTab === 'news' ? '#616161' : '#aeaeb2' }"
+              class="text-lg md:text-[28px]"
+              :style="{
+                fontFamily: '\'Noto Sans TC\', sans-serif',
+                fontWeight: 400,
+                letterSpacing: '1.12px',
+                color: activeTab === 'news' ? '#616161' : '#aeaeb2',
+              }"
             >最新消息</span>
           </button>
           <button
-            class="flex items-center justify-center px-5 py-2.5 rounded-full transition-all"
+            class="flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-full transition-all"
             :class="activeTab === 'press' ? 'news-badge-pill' : ''"
             @click="activeTab = 'press'"
           >
-            <!-- Figma API: 28px weight400 #606060 (active) / #aeaeb2 (inactive) ls1.12 — DO NOT SHRINK below 28px -->
             <span
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 400; letter-spacing: 1.12px;"
-              :style="{ color: activeTab === 'press' ? '#616161' : '#aeaeb2' }"
+              class="text-lg md:text-[28px]"
+              :style="{
+                fontFamily: '\'Noto Sans TC\', sans-serif',
+                fontWeight: 400,
+                letterSpacing: '1.12px',
+                color: activeTab === 'press' ? '#616161' : '#aeaeb2',
+              }"
             >新聞報導</span>
           </button>
         </div>
 
         <!-- Scrollable news cards -->
-        <div class="flex-1 overflow-x-auto pt-6 pb-4 scrollbar-hide overflow-y-visible">
-          <!-- Figma: ~30-50px gap between cards -->
-          <div class="flex gap-8" style="min-width: max-content;">
+        <div class="flex-1 overflow-x-auto pt-4 md:pt-6 pb-4 scrollbar-hide overflow-y-visible">
+          <div class="flex gap-4 md:gap-8" style="min-width: max-content;">
             <a
               v-for="news in activeItems"
               :key="news.id"
               :href="news.url || '#'"
               :target="news.url ? '_blank' : undefined"
               :rel="news.url ? 'noopener noreferrer' : undefined"
-              class="news-card rounded-[20px] w-[485px] h-[190px] flex-shrink-0 cursor-pointer transition-all relative block no-underline -rotate-[2deg]"
+              class="news-card rounded-[16px] md:rounded-[20px] w-[300px] md:w-[420px] lg:w-[485px] h-[160px] md:h-[190px] flex-shrink-0 cursor-pointer transition-all relative block no-underline md:-rotate-[2deg]"
             >
-              <!-- New badge (top right, INSET inside card per Figma API — Label frame at right=16px top=16px, pad T4/R4) -->
-              <div v-if="news.isNew" class="absolute right-[16px] top-[16px]">
-                <!-- Figma API: New badge 64x37px, radius=10 with glassmorphic effects -->
-                <div class="new-badge rounded-[10px] w-[64px] h-[37px] flex items-center justify-center">
-                  <!-- Figma API: Outfit/18px/weight600/ls0.72/#ffffff — DO NOT shrink below 18px -->
+              <!-- New badge -->
+              <div v-if="news.isNew" class="absolute right-3 md:right-[16px] top-3 md:top-[16px]">
+                <div class="new-badge rounded-[10px] w-[52px] md:w-[64px] h-[30px] md:h-[37px] flex items-center justify-center">
                   <span
-                    class="text-white"
-                    style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: 0.72px;"
+                    class="text-white text-sm md:text-lg"
+                    style="font-family: 'Outfit', sans-serif; font-weight: 600; letter-spacing: 0.72px;"
                   >New</span>
                 </div>
               </div>
-              <!-- Card content — Figma API: Text frame at left=32px, vertically centered in 190px card -->
-              <div class="absolute left-[32px] top-1/2 -translate-y-1/2 w-[329px] flex flex-col gap-1">
-                <!-- Figma API: date = 16px weight500 #aeaeb2 Outfit ls2.4 — DO NOT change color to teal or shrink -->
+              <!-- Card content -->
+              <div class="absolute left-4 md:left-[32px] top-1/2 -translate-y-1/2 w-[220px] md:w-[300px] lg:w-[329px] flex flex-col gap-1">
                 <span
-                  class="text-[#aeaeb2]"
-                  style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px;"
+                  class="text-[#aeaeb2] text-xs md:text-base"
+                  style="font-family: 'Outfit', sans-serif; font-weight: 500; letter-spacing: 2.4px;"
                 >{{ news.date }}</span>
-                <!-- Figma API: title = 16px weight900 #3d3d3d Noto Sans -->
                 <p
-                  class="text-[#3d3d3d] line-clamp-1"
-                  style="font-family: 'Noto Sans', 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 900; letter-spacing: 2.4px;"
+                  class="text-[#3d3d3d] line-clamp-1 text-sm md:text-base"
+                  style="font-family: 'Noto Sans', 'Noto Sans TC', sans-serif; font-weight: 900; letter-spacing: 2.4px;"
                 >{{ news.title }}</p>
-                <!-- Figma API: description = 12px weight500 #aeaeb2 — DO NOT change -->
                 <p
-                  class="text-[#aeaeb2] mt-1 line-clamp-2"
-                  style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1.2px; line-height: 14.4px;"
+                  class="text-[#aeaeb2] mt-1 line-clamp-2 text-xs md:text-sm"
+                  style="font-family: 'Noto Sans TC', sans-serif; font-weight: 500; letter-spacing: 1.2px; line-height: 1.4;"
                 >{{ news.description }}</p>
               </div>
             </a>
@@ -117,7 +116,6 @@ const activeItems = computed(() =>
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Figma API: active tab pill has neumorphic effect (2x DROP_SHADOW + 2x INNER_SHADOW) on #f0f0f0 background */
 .news-badge-pill {
   background: #f0f0f0;
   border-radius: 9999px;
@@ -128,19 +126,21 @@ const activeItems = computed(() =>
     inset -2px -2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Figma: white card with soft diffused shadow, border-radius ~16-20px per Figma analysis */
 .news-card {
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Figma: card tilted ~-2deg counter-clockwise — DO NOT change to clockwise */
 .news-card:hover {
-  box-shadow:
-    0 4px 16px 0 rgba(0, 0, 0, 0.10),
-    0 2px 6px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.04);
   transform: rotate(-2deg) translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  .news-card:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .new-badge {

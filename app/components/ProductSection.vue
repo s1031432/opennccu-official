@@ -21,7 +21,7 @@
       <!-- Title -->
       <h2
         class="text-center mb-4"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #606060; letter-spacing: 9.6px;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #606060; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
       >
         我們打造了⋯
       </h2>
@@ -46,7 +46,7 @@
         <div class="flex justify-center items-end h-[520px] relative z-10">
           <!-- Phone 1 (back, tilted more CCW ~-15deg per Figma) — Profile page per Figma -->
           <div class="relative z-10 -mr-12" :style="{ transform: `translateY(${-scrollY * 0.02}px) rotate(-15deg)` }">
-            <div class="w-48 h-[400px] bg-white rounded-[2.5rem] shadow-2xl border-4 border-gray-200 overflow-hidden relative">
+            <div class="w-36 md:w-48 h-[320px] md:h-[400px] bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-4 border-gray-200 overflow-hidden relative">
               <!-- Dynamic Island notch -->
               <div class="absolute top-0 left-0 right-0 z-10">
                 <div class="mx-auto w-20 h-5 bg-black rounded-b-2xl"></div>
@@ -127,7 +127,7 @@
 
           <!-- Phone 2 (front, tilted CCW ~-10deg per Figma — DO NOT change to clockwise) — Home/Dashboard page per Figma -->
           <div class="relative z-20 -ml-12" :style="{ transform: `translateY(${scrollY * 0.015}px) rotate(-10deg)` }">
-            <div class="w-56 h-[460px] bg-white rounded-[2.5rem] shadow-2xl border-4 border-gray-200 overflow-hidden relative">
+            <div class="w-40 md:w-56 h-[360px] md:h-[460px] bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-2xl border-4 border-gray-200 overflow-hidden relative">
               <!-- Dynamic Island notch -->
               <div class="absolute top-0 left-0 right-0 z-10">
                 <div class="mx-auto w-24 h-5 bg-black rounded-b-2xl"></div>
@@ -312,7 +312,7 @@
 
       <!-- Bottom slide indicators per Figma Frame 48095645: 3 rectangles (497×97px total, cr=20, clipsContent) with glass overlay -->
       <div class="relative flex justify-center mt-4">
-        <div class="slide-indicators-container flex overflow-hidden rounded-[20px]" style="width: 497px; height: 97px;">
+        <div class="slide-indicators-container flex overflow-hidden rounded-[20px]" style="width: min(497px, 90vw); height: min(97px, 18vw);">
           <!-- Rect 1: image fill with green stroke (active indicator) -->
           <div class="flex-1 bg-[#d9d9d9] border-l border-[#81edb9]" style="border-radius: 20px 0 0 20px;"></div>
           <!-- Rect 2: #d9d9d9 fill -->
@@ -321,7 +321,7 @@
           <div class="flex-1 bg-[#c9c9c9]" style="border-radius: 0 20px 20px 0;"></div>
         </div>
         <!-- Glass overlay rectangle per Figma: 188×119px, cr=25, GLASS effect, positioned over left indicator -->
-        <div class="absolute left-1/2 -translate-x-[248px] -top-[11px] slide-glass-overlay" style="width: 188px; height: 119px; border-radius: 25px;"></div>
+        <div class="absolute left-1/2 -translate-x-[248px] -top-[11px] slide-glass-overlay" style="width: min(188px, 36vw); height: min(119px, 22vw); border-radius: 25px;"></div>
       </div>
     </div>
   </section>
@@ -337,7 +337,7 @@ defineProps<{
 /* Figma: watermark text is italic/oblique with 3D embossed effect */
 .watermark-text {
   font-family: 'Montserrat', sans-serif;
-  font-size: 108px;
+  font-size: clamp(48px, 8vw, 108px);
   font-weight: 700;
   font-style: italic;
   /* Figma: fill #f0f0f0 (same as bg), DROP_SHADOW(4,4,8px, black 16%) + DROP_SHADOW(-5,-5,8px, white 100%) = neumorphic emboss */

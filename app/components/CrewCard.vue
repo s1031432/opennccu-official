@@ -12,7 +12,7 @@
       <!-- Team/role name — Figma API: 48px weight300 Montserrat, gradient #94CCB9→#3FA4B6, ls3.84, lh58.5 (same for all cards) -->
       <h3
         class="text-center mb-3 crew-card-name"
-        style="font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 48px; line-height: 58.5px; letter-spacing: 3.84px;"
+        style="font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: clamp(24px, 4vw, 48px); line-height: 58.5px; letter-spacing: 3.84px;"
       >
         {{ label }}
       </h3>
@@ -79,7 +79,7 @@
     >
       <span
         class="text-4xl tracking-[0.2em] text-center leading-relaxed crew-card-name"
-        style="font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: 48px;"
+        style="font-family: 'Montserrat', sans-serif; font-weight: 300; font-size: clamp(24px, 4vw, 48px);"
       >
         OPEN<br>NCCU
       </span>

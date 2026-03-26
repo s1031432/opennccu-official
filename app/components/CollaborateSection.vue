@@ -20,7 +20,7 @@
       <!-- Figma: LARGE LIGHT GRAY title matching other sections — 80px weight300 #606060 per DESIGN-SPEC.md + verified from case-studies.png — DO NOT change to teal or shrink -->
       <h2
         class="text-center mb-10"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: 80px; font-weight: 300; color: #616161; letter-spacing: 9.6px;"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
       >
         與我們合作
       </h2>
@@ -41,14 +41,14 @@
             <!-- Figma API: 48px/weight300/#606060/ls3.84/lh57.6 — matches other section titles -->
             <h3
               class="mb-[12px]"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 57.6px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 57.6px;"
             >
               徵才月
             </h3>
             <!-- Figma API: 28px/weight300/#aeaeb2/ls1.12/lh50px — DO NOT shrink -->
             <p
               class="mb-10"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: 28px; font-weight: 300; color: #aeaeb2; letter-spacing: 1.12px; line-height: 50px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(16px, 2.5vw, 28px); font-weight: 300; color: #aeaeb2; letter-spacing: 1.12px; line-height: 50px;"
             >
               職涯中心與OpenNCCU 合作推出的「數位集點工具」，將學生的參與紀錄與問卷回饋集中化管理，協助學生隨時掌握積點進度與線上兌獎，獲得更直覺的抽獎參與體驗。
             </p>
@@ -109,12 +109,12 @@
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
             class="mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px;"
           >
             當日活躍使用者
           </p>
           <!-- Figma API: 48px/weight600/gradient #94CCB9→#3FA4B6/ls3.84 — NOT solid teal -->
-          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600; letter-spacing: 3.84px;">
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: 3.84px;">
             3,500+
           </p>
         </div>
@@ -122,12 +122,12 @@
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
             class="mb-2"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px;"
           >
             使用次數
           </p>
           <!-- Figma API: 48px/weight600/gradient #94CCB9→#3FA4B6/ls3.84 — NOT solid teal -->
-          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 600; letter-spacing: 3.84px;">
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: 3.84px;">
             15,000+
           </p>
         </div>
@@ -138,7 +138,7 @@
         <!-- Figma API: "合作夥伴" 48px/weight300/#606060/ls3.84, Partners frame gap=48 — matches section title style -->
         <h3
           class="mb-[48px]"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px;"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px;"
         >
           合作夥伴
         </h3>

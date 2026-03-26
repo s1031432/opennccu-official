@@ -6,7 +6,7 @@
         class="mb-12"
         style="
           font-family: 'Noto Sans TC', sans-serif;
-          font-size: 28px;
+          font-size: clamp(16px, 2.5vw, 28px);
           font-weight: 300;
           color: #4ecba5;
           letter-spacing: 4px;

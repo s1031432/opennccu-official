@@ -359,7 +359,7 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
     min-height: 320px;
   }
   .phone-device { width: 180px; }
-  .title { font-size: 28px; letter-spacing: 3px; }
+  .title { font-size: clamp(16px, 2.5vw, 28px); letter-spacing: 3px; }
   .desc { font-size: 14px; }
   .icons-bar { gap: 10px; }
   .icon-box { width: 52px; height: 52px; }

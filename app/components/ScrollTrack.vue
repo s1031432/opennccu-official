@@ -633,6 +633,9 @@ function onResize() {
 }
 
 onMounted(() => {
+  // Skip all scroll/resize listeners on mobile — SVG is hidden anyway
+  if (window.innerWidth < 768) return
+
   vw.value = window.innerWidth
   vh.value = window.innerHeight
   totalHeight.value = document.documentElement.scrollHeight
