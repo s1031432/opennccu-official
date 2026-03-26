@@ -109,12 +109,12 @@
           >
             <div class="crew-card-blob-mobile" />
             <div class="relative z-10 p-5 text-center">
+              <!-- Figma API: mobile role names use same gradient #94CCB9→#3FA4B6 as desktop -->
               <h3
-                class="mb-2"
-                style="font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 400;"
-                :style="{ color: role.color }"
+                class="mb-2 crew-card-name-mobile"
+                style="font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 300; letter-spacing: 1.92px;"
               >{{ role.name }}</h3>
-              <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 300; color: #606060;">
+              <p style="font-family: 'Noto Sans TC', sans-serif; font-size: 13px; font-weight: 300; color: #aeaeb2;">
                 {{ role.description }}
               </p>
             </div>
@@ -447,6 +447,14 @@ const founderStyle = computed((): CSSProperties => {
   font-weight: 600;
   fill: #999999;
   letter-spacing: 3px;
+}
+
+/* Figma API: mobile role names gradient matching desktop — #94CCB9 → #3FA4B6 */
+.crew-card-name-mobile {
+  background: linear-gradient(170deg, #94CCB9 0%, #3FA4B6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .crew-card-blob-mobile {

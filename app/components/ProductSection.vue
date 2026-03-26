@@ -208,6 +208,11 @@
         <div class="hidden md:block">
           <!-- Glass ball 1: Card ball (346px in Figma, scaled ~180px) — top-left at 8.3%, 12% per Figma -->
           <div class="glass-ball glass-ball--green absolute left-[2%] top-[10%] w-[180px] h-[180px] z-20">
+            <!-- Vector 252: white feathered highlight arc per Figma (44537:23105) — white 36% fill with foreground blur -->
+            <svg class="absolute -top-[12%] -left-[12%] w-[130%] h-[130%] pointer-events-none z-30" viewBox="0 0 264 237" fill="none">
+              <g filter="url(#v252blur1)"><path d="M216.314 41.9463C78.7162 26.4315 41.6988 123.83 40.3898 174.469C38.368 193.863 68.0448 212.745 83.5856 174.469C92.4843 152.552 110.763 128.932 130.184 112.55C156.128 90.6669 181.758 78.7939 203.748 69.7436C221.341 62.5033 231.478 48.9288 216.314 41.9463Z" fill="white" fill-opacity="0.36"/></g>
+              <defs><filter id="v252blur1" x="0" y="0" width="264" height="237" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="bg"/><feBlend mode="normal" in="SourceGraphic" in2="bg" result="shape"/><feGaussianBlur stdDeviation="20" result="blur"/></filter></defs>
+            </svg>
             <div class="glass-ball-inner glass-ball-inner--green rounded-full w-full h-full flex items-center justify-center overflow-hidden">
               <!-- Simplified card content inside sphere per Figma Frame 48095644 (cr=333, clips to circle) -->
               <div class="rotate-[8deg] scale-[0.6]">
@@ -231,6 +236,11 @@
 
           <!-- Glass ball 2: Weather ball (294px in Figma, scaled ~150px) — right at 75.8%, 38.8% per Figma -->
           <div class="glass-ball glass-ball--blue absolute right-[5%] top-[36%] w-[150px] h-[150px]">
+            <!-- Vector 252: white feathered highlight arc per Figma (44537:23100) -->
+            <svg class="absolute -top-[15%] -left-[15%] w-[130%] h-[130%] pointer-events-none z-30" viewBox="0 0 236 213" fill="none">
+              <g filter="url(#v252blur2)"><path d="M189.433 41.703C72.8567 28.5715 41.4947 111.008 40.3857 153.868C38.6728 170.282 63.8156 186.264 76.9821 153.868C84.5214 135.318 100.008 115.326 116.462 101.461C138.442 82.9393 160.156 72.8902 178.787 65.2302C193.692 59.1021 202.28 47.6129 189.433 41.703Z" fill="white" fill-opacity="0.36"/></g>
+              <defs><filter id="v252blur2" x="0" y="0" width="236" height="213" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="bg"/><feBlend mode="normal" in="SourceGraphic" in2="bg" result="shape"/><feGaussianBlur stdDeviation="20" result="blur"/></filter></defs>
+            </svg>
             <div class="glass-ball-inner glass-ball-inner--blue rounded-full w-full h-full flex items-center justify-center overflow-hidden">
               <div class="rotate-[11deg]">
                 <svg width="100" height="88" viewBox="0 0 80 70" fill="none">
@@ -252,6 +262,11 @@
 
           <!-- Glass ball 3: Mahjong ball (294px in Figma, scaled ~150px) — right-bottom at 65.7%, 67.9% per Figma -->
           <div class="glass-ball glass-ball--green absolute right-[18%] bottom-[15%] w-[150px] h-[150px]">
+            <!-- Vector 252: white feathered highlight arc per Figma (44537:23109) -->
+            <svg class="absolute -top-[15%] -left-[15%] w-[130%] h-[130%] pointer-events-none z-30" viewBox="0 0 236 213" fill="none">
+              <g filter="url(#v252blur3)"><path d="M189.433 41.703C72.8567 28.5715 41.4947 111.008 40.3857 153.868C38.6728 170.282 63.8156 186.264 76.9821 153.868C84.5214 135.318 100.008 115.326 116.462 101.461C138.442 82.9393 160.156 72.8902 178.787 65.2302C193.692 59.1021 202.28 47.6129 189.433 41.703Z" fill="white" fill-opacity="0.36"/></g>
+              <defs><filter id="v252blur3" x="0" y="0" width="236" height="213" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="bg"/><feBlend mode="normal" in="SourceGraphic" in2="bg" result="shape"/><feGaussianBlur stdDeviation="20" result="blur"/></filter></defs>
+            </svg>
             <div class="glass-ball-inner glass-ball-inner--green rounded-full w-full h-full flex items-center justify-center overflow-hidden">
               <div class="rotate-[-14deg]">
                 <!-- Mahjong tile representation -->

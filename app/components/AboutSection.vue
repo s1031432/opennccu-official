@@ -66,6 +66,7 @@
             <!-- Image -->
             <div class="lg:w-1/2" :class="idx % 2 === 0 ? 'lg:pl-12' : 'lg:pr-12'">
               <!-- Figma API: photo rectangles cr=50 — DO NOT SHRINK below 50px -->
+              <!-- Figma API: photo rectangles 547×355px, cr=50, fill #D9D9D9 (solid, rgb 0.851) -->
               <div class="w-full h-[355px] rounded-[50px] overflow-hidden" :class="item.photo ? '' : 'bg-[#d9d9d9] flex items-center justify-center'">
                 <img
                   v-if="item.photo"
