@@ -113,13 +113,8 @@ defineEmits<{
   height: 268px;
   /* Figma: ~20-25px rounded rectangles, NOT pill-shaped 50px — DO NOT ENLARGE */
   border-radius: 24px;
-  /* Figma: stronger mint green → white → light blue glass gradient per crew.png */
-  background: linear-gradient(
-    135deg,
-    rgba(140, 215, 185, 0.28) 0%,
-    rgba(255, 255, 255, 0.45) 40%,
-    rgba(160, 200, 230, 0.22) 100%
-  );
+  /* Figma API: Cards fill = #FCFCFC at 48% opacity — DO NOT change to gradient */
+  background: rgba(253, 253, 253, 0.48);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.5);

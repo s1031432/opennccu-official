@@ -10,55 +10,21 @@
       class="crew-sticky"
       :class="{ 'position-sticky': !isMobile }"
     >
-      <div class="max-w-7xl mx-auto px-6 relative h-full flex flex-col justify-center">
-        <!-- Decorative flowing curve (left side per Figma API): 32px wide neumorphic groove in #F0F0F0 with inner shadow + drop shadow -->
-        <div class="absolute inset-0 pointer-events-none overflow-hidden">
-          <svg class="absolute left-0 top-0 w-full h-full" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" fill="none">
-            <defs>
-              <!-- Figma API: inner shadow 8px/8px/15px black 7% + drop shadow 8px/8px/15px white 40% -->
-              <filter id="crew-groove-shadow" x="-20%" y="-20%" width="140%" height="140%">
-                <!-- Drop shadow: white 40%, offset 8,8, blur 15 (gives raised/highlight feel) -->
-                <feDropShadow dx="8" dy="8" stdDeviation="7.5" flood-color="white" flood-opacity="0.4" />
-              </filter>
-              <filter id="crew-groove-inner" x="-20%" y="-20%" width="140%" height="140%">
-                <!-- Inner shadow simulation: dark side -->
-                <feDropShadow dx="4" dy="4" stdDeviation="5" flood-color="black" flood-opacity="0.07" />
-              </filter>
-            </defs>
+      <div class="max-w-7xl mx-auto px-6 relative h-full flex flex-col md:flex-row items-center">
+        <!-- Decorative flowing curve (left side per Figma API): rendered by ScrollTrack, removed from here to avoid duplication -->
 
-            <!-- Figma API: stroke #F0F0F0, strokeWeight 32, strokeCap ROUND, cornerRadius 20 -->
-            <!-- Main groove path with white drop shadow (raised edge) -->
-            <path
-              d="M80 -20 C80 120, 200 200, 160 350 S40 450, 100 500 C130 580, 70 660, 82 740 C90 800, 65 850, 80 920"
-              stroke="#f0f0f0"
-              stroke-width="32"
-              stroke-linecap="round"
-              fill="none"
-              filter="url(#crew-groove-shadow)"
-            />
-            <!-- Inner shadow overlay (dark side, slightly offset) for carved-in neumorphic effect -->
-            <path
-              d="M80 -20 C80 120, 200 200, 160 350 S40 450, 100 500 C130 580, 70 660, 82 740 C90 800, 65 850, 80 920"
-              stroke="#e8e8e8"
-              stroke-width="30"
-              stroke-linecap="round"
-              fill="none"
-              filter="url(#crew-groove-inner)"
-            />
-          </svg>
+        <!-- Figma layout: title on left (x=356), cards on right (x=842) — side by side on desktop -->
+        <div class="relative z-10 flex-shrink-0 self-center mb-8 md:mb-0" style="width: clamp(200px, 25vw, 380px);">
+          <!-- Figma: crew.png shows 團隊成員 in LIGHT weight (300) matching other section titles — DO NOT change to bold -->
+          <h2
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
+          >
+            團隊成員
+          </h2>
         </div>
 
-        <!-- Title -->
-        <!-- Figma: crew.png shows 團隊成員 in LIGHT weight (300) matching other section titles — DO NOT change to bold -->
-        <h2
-          class="relative z-10 mb-8 pl-0 lg:pl-0"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
-        >
-          團隊成員
-        </h2>
-
-        <!-- Desktop: scroll-animated cards -->
-        <div v-if="!isMobile" class="crew-card-area relative w-full overflow-visible" style="height: 480px;">
+        <!-- Desktop: scroll-animated cards (right side per Figma x=842) -->
+        <div v-if="!isMobile" class="crew-card-area relative flex-1 overflow-visible" style="height: 480px;">
           <!-- State 1 & 2: Team group cards (3 cards) -->
           <CrewCard
             v-for="(group, i) in teamGroups"
@@ -128,8 +94,10 @@
       </div>
     </div>
 
-    <!-- JOIN US! neumorphic circle button (bottom-left per Figma) -->
-    <div class="absolute bottom-32 max-w-7xl mx-auto left-0 right-0 px-6">
+    <!-- JOIN US! neumorphic circle (Figma Ellipse 186: 223×223px at bottom-left) -->
+    <!-- NOTE: The circle is rendered inside ScrollTrack SVG for the marble animation.
+         This hidden anchor is kept for layout measurement only. -->
+    <div class="absolute bottom-16 max-w-7xl mx-auto left-0 right-0 px-6">
       <a
         id="join-us-btn"
         href="https://instagram.com/open.nccu"
@@ -137,17 +105,11 @@
         rel="noopener noreferrer"
         class="join-us-circle flex items-center justify-center ml-4"
       >
-        <!-- Figma: "JOIN US!" text follows circular path around the neumorphic circle -->
-        <svg class="join-us-svg" width="100" height="100" viewBox="0 0 100 100">
-          <defs>
-            <path id="join-us-arc" d="M50,50 m-36,0 a36,36 0 1,1 72,0 a36,36 0 1,1 -72,0" fill="none" />
-          </defs>
-          <text class="join-us-text-path">
-            <textPath href="#join-us-arc" startOffset="5%" dominant-baseline="middle">
-              JOIN US !
-            </textPath>
-          </text>
-        </svg>
+        <!-- Figma: "JOIN US !" is a vector text in #F0F0F0 with drop shadow 4,4,6px black 7% -->
+        <div class="join-us-text">
+          <span class="block">JOIN</span>
+          <span class="block">US !</span>
+        </div>
       </a>
     </div>
 
@@ -409,14 +371,18 @@ const founderStyle = computed((): CSSProperties => {
   cursor: pointer;
 }
 
+/* Figma Ellipse 186: 223×223px, fill #F0F0F0, neumorphic inner+drop shadows */
 .join-us-circle {
-  width: 100px;
-  height: 100px;
+  width: 223px;
+  height: 223px;
   border-radius: 50%;
+  /* Figma: fill #F0F0F0 (same as background — neumorphic raised circle) */
   background: #f0f0f0;
   box-shadow:
-    6px 6px 16px rgba(0, 0, 0, 0.1),
-    -6px -6px 16px rgba(255, 255, 255, 0.8);
+    /* Figma DROP_SHADOW: 8,8,15px white 40% */
+    8px 8px 15px rgba(255, 255, 255, 0.4),
+    /* Figma INNER_SHADOW: 8,8,15px black 7% (simulated as inset) */
+    inset 8px 8px 15px rgba(0, 0, 0, 0.07);
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
@@ -425,28 +391,24 @@ const founderStyle = computed((): CSSProperties => {
 
 .join-us-circle:hover {
   box-shadow:
-    4px 4px 12px rgba(0, 0, 0, 0.12),
-    -4px -4px 12px rgba(255, 255, 255, 0.9);
-  transform: scale(1.05);
+    8px 8px 15px rgba(255, 255, 255, 0.5),
+    inset 8px 8px 15px rgba(0, 0, 0, 0.09);
+  transform: scale(1.03);
 }
 
-.join-us-circle:active {
-  box-shadow:
-    inset 3px 3px 8px rgba(0, 0, 0, 0.08),
-    inset -3px -3px 8px rgba(255, 255, 255, 0.7);
-}
-
-/* Figma: JOIN US! text follows circle path — light gray, semi-bold, neumorphic low-contrast */
-.join-us-svg {
-  display: block;
-}
-
-.join-us-text-path {
+/* Figma: "JOIN US !" vector text fill #F0F0F0 with DROP_SHADOW 4,4,6px black 7% — embossed neumorphic text */
+.join-us-text {
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 32px;
   font-weight: 600;
-  fill: #999999;
   letter-spacing: 3px;
+  line-height: 1.15;
+  text-align: center;
+  /* Figma: text color same as bg (#F0F0F0) — visible only via shadow (embossed) */
+  color: #e0e0e0;
+  text-shadow:
+    4px 4px 6px rgba(0, 0, 0, 0.07),
+    -2px -2px 4px rgba(255, 255, 255, 0.9);
 }
 
 /* Figma API: mobile role names gradient matching desktop — #94CCB9 → #3FA4B6 */
