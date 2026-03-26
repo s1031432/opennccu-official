@@ -1,15 +1,20 @@
 <template>
   <section id="products" class="py-24 relative overflow-hidden" style="background: radial-gradient(ellipse at 50% 45%, rgba(255,255,255,0.35) 0%, rgba(240,240,240,0) 55%);">
-    <!-- Decorative thin diagonal mint-green lines per Figma — two straight lines, ~30-40° angle, 15-25% opacity -->
+    <!-- Figma Vector 9 (44537:23083): 32px neumorphic mint-green stroke curve + Ellipse 185 endpoint orb -->
+    <!-- Vector 9: x=501,y=1918 → relative to section y=1913 → top=5px, left=501/1920=~26% -->
+    <!-- Ellipse 185: x=489,y=2497 → relative to section → top=584px, left=489/1920=~25.5%, 26×26px -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <svg class="absolute left-0 top-0 w-full h-full" viewBox="0 0 1920 1200" preserveAspectRatio="xMidYMid slice" fill="none">
-        <!-- Diagonal line 1 — upper-left to lower-right, subtle mint green rod with 3D quality -->
-        <line x1="200" y1="-50" x2="1400" y2="700" stroke="#a8e6cf" stroke-width="2" stroke-opacity="0.2" stroke-linecap="round" />
-        <line x1="199" y1="-51" x2="1399" y2="699" stroke="white" stroke-width="0.8" stroke-opacity="0.15" stroke-linecap="round" />
-        <!-- Diagonal line 2 — parallel, slightly offset -->
-        <line x1="350" y1="-50" x2="1550" y2="700" stroke="#a8e6cf" stroke-width="1.5" stroke-opacity="0.15" stroke-linecap="round" />
-        <line x1="349" y1="-51" x2="1549" y2="699" stroke="white" stroke-width="0.6" stroke-opacity="0.12" stroke-linecap="round" />
-      </svg>
+      <img
+        src="/assets/product-curve-v9.svg"
+        alt=""
+        class="absolute"
+        style="left: 26%; top: 0; width: 33.4%; opacity: 1;"
+      />
+      <!-- Ellipse 185: white neumorphic orb at curve endpoint (26×26px) per Figma -->
+      <div
+        class="absolute product-endpoint-orb"
+        style="left: 25.5%; top: 37%; width: 26px; height: 26px; border-radius: 50%; background: white;"
+      ></div>
     </div>
 
     <div class="max-w-6xl mx-auto px-6 relative">
@@ -113,9 +118,9 @@
                   <textPath href="#cta-text-path" startOffset="15%">點擊了解更多</textPath>
                 </text>
               </svg>
-              <!-- Large arrow icon per Figma — fa6-solid:arrow-up in green, 70% opacity -->
-              <svg width="64" height="48" viewBox="0 0 448 512" fill="none" class="mt-2">
-                <path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z" fill="#81EDB9" opacity="0.7"/>
+              <!-- Large arrow icon per Figma API: fa6-solid:arrow-up (44537:23113) — exported as right-pointing arrow, #81EDB9 at 71% opacity -->
+              <svg width="64" height="55" viewBox="0 0 112 97" fill="none" class="mt-2">
+                <path d="M109.656 53.6717C112.781 50.5466 112.781 45.4713 109.656 42.3461L69.6539 2.34388C66.5287 -0.781295 61.4534 -0.781296 58.3283 2.34388C55.2031 5.46905 55.2031 10.5443 58.3283 13.6695L84.7047 40.021L8.00047 40.021C3.57522 40.021 2.09838e-05 43.5962 2.07904e-05 48.0214C2.05969e-05 52.4467 3.57522 56.0219 8.00047 56.0219L84.6797 56.0219L58.3533 82.3733C55.2281 85.4985 55.2281 90.5738 58.3533 93.699C61.4784 96.8241 66.5537 96.8241 69.6789 93.699L109.681 53.6967L109.656 53.6717Z" fill="#81EDB9" opacity="0.71"/>
               </svg>
             </div>
           </div>
@@ -408,6 +413,15 @@ defineProps<{
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   pointer-events: none;
+}
+
+/* Figma Ellipse 185 (44537:23084): white 26×26 orb with neumorphic inner shadows + drop shadow + layer blur */
+.product-endpoint-orb {
+  box-shadow:
+    inset -5px -5px 10px rgba(89, 204, 149, 1),
+    inset 3px 3px 10px rgba(255, 255, 255, 0.7),
+    1px 1px 5px 1px rgba(124, 228, 178, 0.5);
+  filter: blur(1.5px);
 }
 
 @media (max-width: 768px) {
