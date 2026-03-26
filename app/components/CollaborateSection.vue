@@ -1,5 +1,6 @@
 <template>
-  <section id="collaborate" class="relative py-24 overflow-hidden">
+  <!-- Figma API: Case Studies section pt=85px pb=70px — DO NOT use uniform py -->
+  <section id="collaborate" class="relative pt-[85px] pb-[70px] overflow-hidden">
     <!-- Collaboration Detail overlay -->
     <Transition name="detail-fade">
       <div v-if="showDetail" class="relative z-20">
@@ -29,10 +30,11 @@
       </div>
 
       <!-- Collaboration showcase card — Figma API: Body gap=72 between CM Card and Achievement -->
+      <!-- Figma API: CM Card 1668×637px, Intro at 116px from left / 75px from top, Image at 449px from left -->
       <div class="collaborate-card rounded-[20px] overflow-hidden mb-[72px] relative">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 min-h-[637px]">
-          <!-- Left: text content -->
-          <div class="lg:col-span-4 p-10 lg:p-[75px] flex flex-col justify-center">
+          <!-- Left: text content — Figma: Intro 433px / 1668px ≈ col-span-3, padded 116px left / 75px top -->
+          <div class="lg:col-span-3 p-10 lg:pt-[75px] lg:pb-[75px] lg:pl-[116px] lg:pr-6 flex flex-col justify-start">
             <!-- Figma API: 48px/weight300/#606060/ls3.84/lh57.6 — matches other section titles -->
             <h3
               class="mb-[12px]"
@@ -64,8 +66,8 @@
             </button>
           </div>
 
-          <!-- Right: mockup images -->
-          <div class="lg:col-span-8 relative overflow-hidden rounded-r-[20px]">
+          <!-- Right: mockup images — Figma: Image 1198px / 1668px ≈ col-span-9 -->
+          <div class="lg:col-span-9 relative overflow-hidden rounded-r-[20px]">
             <!-- Background image -->
             <div class="absolute inset-0">
               <img src="/assets/cm-bg.png" alt="" class="w-full h-full object-cover" />

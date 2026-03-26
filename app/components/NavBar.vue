@@ -1,5 +1,6 @@
 <template>
-  <div class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 md:gap-[32px]">
+  <!-- Figma API: Bar at y=55 (canvas), Home at y=19 → bar is 36px below viewport top — DO NOT shrink -->
+  <div class="fixed top-4 md:top-[36px] left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 md:gap-[32px]">
     <!-- Main nav pill -->
     <!-- Figma API: Tap Bar pad=T24/R80/B24/L80, gap=68, cr=333 — DO NOT SHRINK -->
     <nav class="glass-nav rounded-full px-10 md:px-20 py-4 md:py-6 flex items-center gap-4 md:gap-[68px]">
