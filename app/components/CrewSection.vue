@@ -360,13 +360,15 @@ const founderStyle = computed((): CSSProperties => {
 
 .crew-card-mobile {
   position: relative;
-  /* Figma: ~20-25px rounded rectangles — DO NOT ENLARGE */
-  border-radius: 24px;
-  background: rgba(250, 250, 250, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  /* Figma API: all crew cards cr=50.0 — mobile uses proportionally smaller 32px */
+  border-radius: 32px;
+  /* Figma API: fill rgba(253,253,253,0.56) + GLASS + teal shadow */
+  background: rgba(253, 253, 253, 0.56);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.04),
-    0 1px 3px rgba(0, 0, 0, 0.03);
+    4px 4px 12px rgba(39, 82, 72, 0.2);
   overflow: hidden;
   cursor: pointer;
 }

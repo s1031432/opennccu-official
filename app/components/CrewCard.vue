@@ -8,7 +8,8 @@
     <div class="crew-card-blob" />
 
     <!-- Card content -->
-    <div class="relative z-10 flex flex-col items-center justify-center h-full p-6" :style="{ opacity: showOpenNccu ? 1 - (openNccuOpacity ?? 1) : 1 }">
+    <!-- Figma API: padding=36px all sides, gap=16px between children -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full" style="padding: 36px; gap: 16px;" :style="{ opacity: showOpenNccu ? 1 - (openNccuOpacity ?? 1) : 1 }">
       <!-- Team/role name — Figma API: 48px weight300 Montserrat, gradient #94CCB9→#3FA4B6, ls3.84, lh58.5 (same for all cards) -->
       <h3
         class="text-center mb-3 crew-card-name"
@@ -111,16 +112,16 @@ defineEmits<{
   position: absolute;
   width: 312px;
   height: 268px;
-  /* Figma: ~20-25px rounded rectangles, NOT pill-shaped 50px — DO NOT ENLARGE */
-  border-radius: 24px;
-  /* Figma API: Cards fill = #FCFCFC at 48% opacity — DO NOT change to gradient */
-  background: rgba(253, 253, 253, 0.48);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /* Figma API: all crew cards cr=50.0 — DO NOT shrink below 50px */
+  border-radius: 50px;
+  /* Figma API: Rectangle 42010 fill #FD FD FD (rgba 0.992) at 56% opacity + GLASS effect */
+  background: rgba(253, 253, 253, 0.56);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.5);
+  /* Figma API: DROP_SHADOW 4,4,12px rgba(39,82,72,0.25) — teal-tinted shadow */
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.06),
-    0 1px 3px rgba(0, 0, 0, 0.03),
+    4px 4px 12px rgba(39, 82, 72, 0.25),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
   overflow: hidden;
   cursor: pointer;
@@ -130,8 +131,7 @@ defineEmits<{
 
 .crew-card:hover {
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    0 2px 8px rgba(0, 0, 0, 0.05),
+    4px 4px 16px rgba(39, 82, 72, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
