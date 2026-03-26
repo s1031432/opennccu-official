@@ -1,18 +1,20 @@
 <template>
-  <section id="about" class="relative py-24 overflow-hidden">
+  <!-- Figma API: About frame y=5090, title at y=5195. Top padding = 105px -->
+  <section id="about" class="relative pt-[105px] pb-24 overflow-hidden">
     <!-- Decorative curve removed — now handled by BackgroundCurve -->
 
     <div class="relative max-w-6xl mx-auto px-6">
-      <!-- Title -->
+      <!-- Title — Figma API: y=5195, h=96. Description at y=5389. Gap = 98px -->
       <h2
-        class="text-center mb-6"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
+        class="text-center mb-[98px]"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: 96px;"
       >
         我們是誰？
       </h2>
 
-      <!-- Description — Figma API: 28px/weight300/#606060/ls1.12/lineHeight50px — DO NOT SHRINK below 28px -->
-      <div class="text-center max-w-4xl mx-auto mb-12">
+      <!-- Description — Figma API: x=140 w=1609 on 1920px canvas = nearly full width, NOT centered narrow block -->
+      <!-- Figma API: 28px/weight300/#606060/ls1.12/lineHeight50px — DO NOT SHRINK below 28px -->
+      <div class="mb-12" style="max-width: 1609px; margin-left: auto; margin-right: auto; padding-left: 8px; padding-right: 8px;">
         <p
           style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(16px, 2.5vw, 28px); font-weight: 300; color: #616161; letter-spacing: 1.12px; line-height: 50px;"
         >
