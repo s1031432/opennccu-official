@@ -1,21 +1,6 @@
 <template>
   <section id="products" class="py-24 relative overflow-hidden" style="background: radial-gradient(ellipse at 50% 45%, rgba(255,255,255,0.35) 0%, rgba(240,240,240,0) 55%);">
-    <!-- Figma Vector 9 (44537:23083): 32px neumorphic mint-green stroke curve + Ellipse 185 endpoint orb -->
-    <!-- Vector 9: x=501,y=1918 → relative to section y=1913 → top=5px, left=501/1920=~26% -->
-    <!-- Ellipse 185: x=489,y=2497 → relative to section → top=584px, left=489/1920=~25.5%, 26×26px -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <img
-        src="/assets/product-curve-v9.svg"
-        alt=""
-        class="absolute"
-        style="left: 26%; top: 0; width: 33.4%; opacity: 1;"
-      />
-      <!-- Ellipse 185: white neumorphic orb at curve endpoint (26×26px) per Figma -->
-      <div
-        class="absolute product-endpoint-orb"
-        style="left: 25.5%; top: 37%; width: 26px; height: 26px; border-radius: 50%; background: white;"
-      ></div>
-    </div>
+    <!-- Decorative curve + endpoint orb removed — now handled by BackgroundCurve -->
 
     <div class="max-w-6xl mx-auto px-6 relative">
       <!-- Title -->
@@ -415,14 +400,7 @@ defineProps<{
   pointer-events: none;
 }
 
-/* Figma Ellipse 185 (44537:23084): white 26×26 orb with neumorphic inner shadows + drop shadow + layer blur */
-.product-endpoint-orb {
-  box-shadow:
-    inset -5px -5px 10px rgba(89, 204, 149, 1),
-    inset 3px 3px 10px rgba(255, 255, 255, 0.7),
-    1px 1px 5px 1px rgba(124, 228, 178, 0.5);
-  filter: blur(1.5px);
-}
+/* product-endpoint-orb removed — now in BackgroundCurve */
 
 @media (max-width: 768px) {
   .watermark-text {

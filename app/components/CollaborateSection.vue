@@ -8,13 +8,7 @@
     </Transition>
 
     <div v-show="!showDetail">
-    <!-- Decorative organic curve -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <div
-        class="absolute w-[2px] bg-[#c8ede0]/40"
-        style="height: 300%; top: -50%; left: 45%; transform: rotate(-15deg); transform-origin: top center;"
-      />
-    </div>
+    <!-- Decorative curve removed — now handled by BackgroundCurve -->
 
     <div class="relative max-w-6xl mx-auto px-6">
       <!-- Figma: LARGE LIGHT GRAY title matching other sections — 80px weight300 #606060 per DESIGN-SPEC.md + verified from case-studies.png — DO NOT change to teal or shrink -->

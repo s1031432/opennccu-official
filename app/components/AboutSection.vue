@@ -1,15 +1,6 @@
 <template>
   <section id="about" class="relative py-24 overflow-hidden">
-    <!-- Figma API: Union/Vector 9 — neumorphic decorative S-curve, 32px stroke #F0F0F0 with inner shadow + drop shadow -->
-    <!-- Figma: curve appears at bottom ~15-20% of section, not covering entire section -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <img
-        src="/assets/about-curve.svg"
-        alt=""
-        class="absolute left-0 bottom-0 w-full"
-        style="opacity: 1; height: 30%; object-fit: cover; object-position: center bottom;"
-      />
-    </div>
+    <!-- Decorative curve removed — now handled by BackgroundCurve -->
 
     <div class="relative max-w-6xl mx-auto px-6">
       <!-- Title -->

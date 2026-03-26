@@ -1,14 +1,6 @@
 <template>
   <section class="relative pt-6 md:pt-[24px] pb-32 md:pb-[240px] overflow-hidden">
-    <!-- Figma decorative line — hidden on mobile -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
-      <img
-        src="/assets/news-line9.svg"
-        alt=""
-        class="absolute"
-        style="right: 15%; top: -5%; width: 304px; height: 528px; transform: rotate(-1.1deg);"
-      />
-    </div>
+    <!-- Decorative elements removed — now handled by BackgroundCurve -->
 
     <div class="relative px-4 md:pl-[80px] md:pr-0">
       <div class="flex flex-col md:flex-row md:items-center gap-4">
