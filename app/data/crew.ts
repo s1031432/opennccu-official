@@ -102,7 +102,7 @@ export const roleCards: RoleData[] = [
     icon: 'sparkles', color: '#59CC95', colorRgb: '89, 204, 149', colorLight: '#94CCB9',
     members: [
       { name: '陳宣羽', title: 'DEV Lead',           initials: 'XY', avatarUrl: null, gradientClass: gradient(0) },
-      { name: '江宗樺', title: 'Engineer',          initials: 'ZH', avatarUrl: null, gradientClass: gradient(1) },
+      { name: 'CTHua', title: 'Engineer',          initials: 'CT', avatarUrl: null, gradientClass: gradient(1) },
       { name: '張淮竣', title: 'Engineer',          initials: 'HJ', avatarUrl: null, gradientClass: gradient(2) },
       { name: '吳欣穎', title: 'Engineer',          initials: 'XY', avatarUrl: null, gradientClass: gradient(3) },
       { name: '蘇胤翔', title: 'Engineer',          initials: 'YX', avatarUrl: null, gradientClass: gradient(4) },
