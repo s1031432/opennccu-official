@@ -47,13 +47,12 @@
             class="flex flex-col lg:flex-row items-start gap-8"
             :class="idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'"
           >
-            <!-- Text content -->
+            <!-- Text content — Figma API: NO card/box around timeline text. Plain text at x=183, left-aligned -->
             <div class="lg:w-1/2" :class="idx % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'">
-              <!-- Figma: timeline card border-radius ~16-20px -->
-            <div class="timeline-card rounded-[20px] p-8 lg:p-10">
+              <div class="py-4 lg:py-6">
                 <h3
                   class="mb-4"
-                  style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px;"
+                  style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 58.5px;"
                 >
                   {{ item.year }}
                 </h3>
@@ -130,13 +129,5 @@ const timelineItems = [
 </script>
 
 <style scoped>
-/* Figma: clearly visible light gray card background ~#DCDCDC (10-15% gray), NOT barely-visible */
-.timeline-card {
-  background: rgba(210, 210, 210, 0.55);
-  box-shadow:
-    0 2px 8px rgba(0, 0, 0, 0.04);
-  border: none;
-  /* Figma: ~16-20px border-radius */
-  border-radius: 20px;
-}
+/* Figma API: NO card/box around timeline text — plain text, no background, no shadow, no border */
 </style>

@@ -59,9 +59,9 @@
                 class="text-white"
                 style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 700; letter-spacing: 0.96px;"
               >了解更多</span>
-              <!-- Figma API: arrow frame 32×32px -->
-              <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-                <path d="M6 16H26M26 16L18 8M26 16L18 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- Figma API: arrow frame 32×32px — diagonal upper-right arrow exported from node 44537:23173 -->
+              <svg width="32" height="32" viewBox="0 0 19 19" fill="none">
+                <path d="M17.4449 1.55493L1.55508 17.4448M17.4449 1.55493L17.3254 15.0553M17.4449 1.55493L3.94453 1.6744" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
           </div>
