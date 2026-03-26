@@ -77,12 +77,12 @@
             <div class="absolute top-[122px] right-[138px] w-[400px] h-[158px] hidden lg:block">
               <img src="/assets/cm-logo.png" alt="Career Month" class="w-full h-full object-contain" />
             </div>
-            <!-- Phone mockup -->
-            <div class="absolute left-1/4 top-[72px] w-[418px] h-[859px] hidden lg:block">
+            <!-- Phone mockup — Figma: x=751 relative to Image x=575 → left=176px, top=72px, w=418, h=859 -->
+            <div class="absolute left-[176px] top-[72px] w-[418px] h-[859px] hidden lg:block">
               <img src="/assets/cm-mockup.png" alt="App mockup" class="w-full h-full object-contain" />
             </div>
-            <!-- Card image -->
-            <div class="absolute bottom-[100px] right-[100px] w-[432px] h-[246px] rounded-[15px] overflow-hidden hidden lg:block">
+            <!-- Card image — Figma: x=1219 relative to Image x=575 → left=644px, top=316px, w=432, h=246, cr=15 -->
+            <div class="absolute top-[316px] right-[122px] w-[432px] h-[246px] rounded-[15px] overflow-hidden hidden lg:block">
               <img src="/assets/cm-card.png" alt="CM Card" class="w-full h-full object-cover" />
             </div>
             <!-- Mobile fallback -->
@@ -94,7 +94,8 @@
 
         <!-- Figma API: Carousel arrow Btn 58×241px, cornerRadius=10, fill #f0f0f0, neumorphic 3x DROP_SHADOW -->
         <!-- Figma API: arrow icon 18×30px filled #616161 (not stroked) — exported from node 44537:23158 -->
-        <button class="absolute right-0 top-1/2 -translate-y-1/2 carousel-arrow w-[58px] h-[241px] flex items-center justify-center transition-colors rounded-[10px]">
+        <!-- Figma: Btn at x=1734 relative to CM Card x=126 → right=1668-1608-58=2px, top=198px. Vertically NOT centered. -->
+        <button class="absolute right-[2px] top-[198px] carousel-arrow w-[58px] h-[241px] flex items-center justify-center transition-colors rounded-[10px]">
           <svg width="18" height="30" viewBox="0 0 18 30" fill="none">
             <path d="M18 15C18 15.5763 17.7699 16.0678 17.292 16.5085L3.48673 29.4407C3.11504 29.8136 2.61947 30 2.0531 30C0.902655 30 0 29.1525 0 28.0339C0 27.4915 0.230087 27 0.619469 26.6271L13.0619 15L0.619469 3.37288C0.230087 2.98305 0 2.49153 0 1.94915C0 0.847458 0.902655 0 2.0531 0C2.61947 0 3.11504 0.186441 3.48673 0.559322L17.292 13.4915C17.7699 13.9322 17.9823 14.4237 18 15Z" fill="#616161"/>
           </svg>
