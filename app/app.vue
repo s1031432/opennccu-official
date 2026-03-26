@@ -8,7 +8,7 @@
       </div>
     </div>
 
-    <BackgroundCurve />
+    <!-- BackgroundCurve removed — ScrollTrack already has the groove line -->
     <ScrollTrack />
     <NuxtPage />
   </div>
