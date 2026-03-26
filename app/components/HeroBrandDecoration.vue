@@ -1,11 +1,12 @@
 <template>
   <!-- Brand decorative geometric lines for Hero section — per Figma -->
+  <!-- Only U-curve + diagonal grooves. NO chevron per designer feedback. -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden">
-    <!-- Main brand shapes SVG — positioned in the RIGHT 60% of viewport -->
+    <!-- Main brand shapes SVG — positioned in the RIGHT portion of viewport -->
     <svg
       class="absolute top-0 right-0 h-full"
       :style="{ width: '65%' }"
-      viewBox="900 -200 1200 1600"
+      viewBox="1200 -200 1200 1600"
       fill="none"
       preserveAspectRatio="xMaxYMid slice"
       xmlns="http://www.w3.org/2000/svg"
@@ -60,22 +61,7 @@
         </filter>
       </defs>
 
-      <!-- ═══ Layer 1: Ghost/echo shapes (furthest back) ═══ -->
-
-      <!-- Ghost chevron (pale echo, offset up-right) -->
-      <g filter="url(#hero-ghost)">
-        <path
-          d="M1450 -50L1100 520L1450 1090"
-          stroke="#e0e0e0"
-          stroke-width="36"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          fill="none"
-          opacity="0.55"
-        />
-      </g>
-
-      <!-- Ghost U-curve (pale echo) -->
+      <!-- ═══ Ghost U-curve (behind, pale echo) ═══ -->
       <g filter="url(#hero-ghost)">
         <path
           d="M1540 1200L1540 560C1540 310 1750 130 1960 130C2170 130 2380 310 2380 560L2380 850"
@@ -83,35 +69,11 @@
           stroke-width="36"
           stroke-linecap="round"
           fill="none"
-          opacity="0.4"
+          opacity="0.45"
         />
       </g>
 
-      <!-- ═══ Layer 2: Main chevron — open "<" shape (2 strokes meeting at left vertex) ═══ -->
-      <!-- Figma: This is NOT a closed diamond. It's an open chevron/angle bracket. -->
-      <!-- Vertex on left, two arms extend to the right (upper-right and lower-right) -->
-      <g filter="url(#hero-tube)">
-        <path
-          d="M1430 -80L1080 520L1430 1120"
-          stroke="#8FD4B4"
-          stroke-width="40"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          fill="none"
-        />
-      </g>
-      <!-- Chevron highlight edge -->
-      <path
-        d="M1427 -83L1077 517L1427 1117"
-        stroke="#ffffff"
-        stroke-opacity="0.32"
-        stroke-width="11"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        fill="none"
-      />
-
-      <!-- ═══ Layer 3: U-curve (IN FRONT of chevron) ═══ -->
+      <!-- ═══ Main U-curve ═══ -->
       <g filter="url(#hero-tube)">
         <path
           d="M1520 1180L1520 550C1520 300 1740 120 1950 120C2160 120 2380 300 2380 550L2380 840"
@@ -132,24 +94,11 @@
       />
 
       <!-- ═══ Endpoint dots ═══ -->
-      <!-- Chevron top arm end -->
-      <g filter="url(#hero-dot)">
-        <circle cx="1430" cy="-80" r="20" fill="#9DD5BE" />
-        <circle cx="1426" cy="-84" r="7" fill="white" fill-opacity="0.55" />
-      </g>
-
-      <!-- Chevron bottom arm end -->
-      <g filter="url(#hero-dot)">
-        <circle cx="1430" cy="1120" r="20" fill="#9DD5BE" />
-        <circle cx="1426" cy="1116" r="7" fill="white" fill-opacity="0.55" />
-      </g>
-
       <!-- U-curve left leg bottom -->
       <g filter="url(#hero-dot)">
         <circle cx="1520" cy="1180" r="20" fill="#9DD5BE" />
         <circle cx="1516" cy="1176" r="7" fill="white" fill-opacity="0.55" />
       </g>
-
       <!-- U-curve right leg bottom -->
       <g filter="url(#hero-dot)">
         <circle cx="2380" cy="840" r="20" fill="#9DD5BE" />
@@ -157,7 +106,7 @@
       </g>
     </svg>
 
-    <!-- Diagonal neumorphic groove lines (full viewport, can cross text area subtly) -->
+    <!-- Diagonal neumorphic groove lines (full viewport) -->
     <svg
       class="absolute inset-0 w-full h-full"
       viewBox="0 0 1920 1440"
