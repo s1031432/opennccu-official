@@ -1,5 +1,6 @@
 <template>
-  <footer id="contact" class="relative z-20 bg-[#3d3d3d]">
+  <!-- Figma API: Footer fill #3e3e3e (exact r=61.6/255) — DO NOT use #3d3d3d -->
+  <footer id="contact" class="relative z-20 bg-[#3e3e3e]">
     <!-- Figma API: Footer 1920×250, paddingTop=72 paddingBottom=72 paddingLeft=64 paddingRight=64 — DO NOT shrink padding -->
     <div class="max-w-7xl mx-auto px-16 py-[72px]">
       <!-- Figma API: top-level gap=224 between Copyright block and column groups — DO NOT shrink -->
@@ -58,12 +59,12 @@
             </h4>
             <!-- Figma API: formBtn 135×30px, cornerRadius=24, white fill, neumorphic shadows — DO NOT change to outlined -->
             <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1.5 rounded-[24px] px-5 py-2.5 transition-all whitespace-nowrap bg-white hover:bg-gray-100">
-              <!-- Figma API: 14px weight700 Noto Sans TC #3d3d3d -->
-              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3d3d3d;">
+              <!-- Figma API: 14px weight700 Noto Sans TC #3e3e3e — matches footer bg -->
+              <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3e3e3e;">
                 問題回報表單
               </span>
               <!-- Figma API: arrow icon 20x20px -->
-              <Icon icon="tabler:arrow-up" width="20" height="20" class="text-[#3d3d3d] rotate-45" />
+              <Icon icon="tabler:arrow-up" width="20" height="20" class="text-[#3e3e3e] rotate-45" />
             </a>
           </div>
         </div>

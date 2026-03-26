@@ -14,18 +14,14 @@
 
       <!-- Description — Figma API: x=140 w=1609 on 1920px canvas = nearly full width, NOT centered narrow block -->
       <!-- Figma API: 28px/weight300/#606060/ls1.12/lineHeight50px — DO NOT SHRINK below 28px -->
-      <div class="mb-12" style="max-width: 1609px; margin-left: auto; margin-right: auto; padding-left: 8px; padding-right: 8px;">
+      <!-- Figma API: description bottom y=5489, first photo y=5661 → gap=172px. NO separator line in Figma -->
+      <div class="mb-[172px]" style="max-width: 1609px; margin-left: auto; margin-right: auto; padding-left: 8px; padding-right: 8px;">
         <p
           style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(16px, 2.5vw, 28px); font-weight: 300; color: #616161; letter-spacing: 1.12px; line-height: 50px;"
         >
           我們是 <span style="font-family: 'Montserrat', sans-serif; font-weight: 300;">OpenNCCU</span>，一群熱愛開發和設計的政大學生所發起的非營利組織！
           我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源，期許為校園數位化創造更多可能。
         </p>
-      </div>
-
-      <!-- Separator line per Figma -->
-      <div class="max-w-5xl mx-auto mb-24">
-        <hr class="border-t border-[#d9d9d9]" />
       </div>
 
       <!-- Timeline with zigzag connecting lines per Figma -->
