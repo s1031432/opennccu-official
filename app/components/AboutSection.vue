@@ -47,8 +47,9 @@
           <!-- Desktop layout: text position depends on photo side to avoid overlap -->
           <div class="hidden lg:block relative" :style="{ minHeight: '355px' }">
             <!-- Text — First entry: Figma x=183 (overlays photo). Others: opposite side of photo -->
+            <!-- Figma: First entry text intentionally overlays photo 1. z-20 ensures readability -->
             <div
-              class="absolute"
+              class="absolute z-20"
               :style="{
                 left: idx === 0 ? '9.5%' : (item.photoSide === 'left' ? '55%' : '9.5%'),
                 width: '449px',
@@ -68,8 +69,9 @@
               </p>
             </div>
             <!-- Photo — Figma: 547×355, cr=50, alternates L(~7%)/R(~55-66%) -->
+            <!-- z-10 so text (z-20) renders above photo for first entry overlay -->
             <div
-              class="absolute"
+              class="absolute z-10"
               :style="{
                 left: item.photoLeft,
                 width: '547px',

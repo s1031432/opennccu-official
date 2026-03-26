@@ -2,7 +2,8 @@
   <!-- Figma API: Footer fill #3e3e3e (exact r=61.6/255) — DO NOT use #3d3d3d -->
   <footer id="contact" class="relative z-20 bg-[#3e3e3e]">
     <!-- Figma API: Footer 1920×250, paddingTop=72 paddingBottom=72 paddingLeft=64 paddingRight=64 — DO NOT shrink padding -->
-    <div class="max-w-7xl mx-auto px-16 py-[72px]">
+    <!-- Figma API: HORIZONTAL layout with content centered (primaryAxisAlignItems=CENTER). Total content ~1250px centered in 1792px inner width -->
+    <div class="px-6 md:px-[64px] py-[72px]">
       <!-- Figma API: top-level gap=224 between Copyright block and column groups — DO NOT shrink -->
       <div class="flex flex-col md:flex-row items-start md:items-center gap-10 md:gap-[224px] justify-center">
         <!-- Logo & Copyright -->
@@ -58,12 +59,12 @@
               REPORT
             </h4>
             <!-- Figma API: formBtn 135×30px, cornerRadius=24, white fill, neumorphic shadows — DO NOT change to outlined -->
-            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center gap-1.5 rounded-[24px] px-5 py-2.5 transition-all whitespace-nowrap bg-white hover:bg-gray-100">
+            <a href="https://forms.gle/Un57LxddqjVBgr8j7" target="_blank" rel="noopener noreferrer" class="report-btn inline-flex items-center justify-center gap-1 rounded-[24px] transition-all whitespace-nowrap bg-white hover:bg-gray-100" style="width: 135px; height: 30px;">
               <!-- Figma API: 14px weight700 Noto Sans TC #3e3e3e — matches footer bg -->
               <span style="font-family: 'Noto Sans TC', sans-serif; font-size: 14px; font-weight: 700; color: #3e3e3e;">
                 問題回報表單
               </span>
-              <!-- Figma API: arrow icon 20x20px -->
+              <!-- Figma API: arrow icon frame 20×20px, vector 15.3×15.3px stroke #3e3e3e — inside 135×30 button -->
               <Icon icon="tabler:arrow-up" width="20" height="20" class="text-[#3e3e3e] rotate-45" />
             </a>
           </div>
