@@ -93,18 +93,19 @@
 
           <!-- CTA Circle per Figma: 260×260px GLASS circle, curved text "點擊了解更多" 24px/ls4.32 #81EDB9, large arrow inside -->
           <div class="absolute left-1/2 top-[38%] -translate-x-1/2 -translate-y-1/2 z-30">
-            <div class="cta-circle w-[160px] h-[160px] md:w-[200px] md:h-[200px] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform relative">
-              <!-- Curved text path around circle -->
-              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 200 200">
+            <div class="cta-circle w-[160px] h-[160px] md:w-[200px] md:h-[200px] lg:w-[260px] lg:h-[260px] rounded-full flex items-center justify-center cursor-pointer hover:scale-105 transition-transform relative">
+              <!-- Curved text path around circle — Figma: 24px/ls4.32 #81EDB9 on 260px circle -->
+              <svg class="absolute inset-0 w-full h-full" viewBox="0 0 260 260">
                 <defs>
-                  <path id="cta-text-path" d="M 100,100 m -82,0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0" fill="none" />
+                  <path id="cta-text-path" d="M 130,130 m -108,0 a 108,108 0 1,1 216,0 a 108,108 0 1,1 -216,0" fill="none" />
                 </defs>
-                <text fill="#81EDB9" font-family="'Noto Sans TC', sans-serif" font-size="18" font-weight="400" letter-spacing="3.5">
-                  <textPath href="#cta-text-path" startOffset="15%">點擊了解更多</textPath>
+                <text fill="#81EDB9" font-family="'Noto Sans TC', sans-serif" font-size="24" font-weight="400" letter-spacing="4.32">
+                  <textPath href="#cta-text-path" startOffset="12%">點擊了解更多</textPath>
                 </text>
               </svg>
               <!-- Large arrow icon per Figma API: fa6-solid:arrow-up (44537:23113) — exported as right-pointing arrow, #81EDB9 at 71% opacity -->
-              <svg width="64" height="55" viewBox="0 0 112 97" fill="none" class="mt-2">
+              <!-- Arrow 120×120 frame in Figma, scaled proportionally to circle size -->
+              <svg class="w-[48px] h-[42px] md:w-[64px] md:h-[55px] lg:w-[80px] lg:h-[69px] mt-2" viewBox="0 0 112 97" fill="none">
                 <path d="M109.656 53.6717C112.781 50.5466 112.781 45.4713 109.656 42.3461L69.6539 2.34388C66.5287 -0.781295 61.4534 -0.781296 58.3283 2.34388C55.2031 5.46905 55.2031 10.5443 58.3283 13.6695L84.7047 40.021L8.00047 40.021C3.57522 40.021 2.09838e-05 43.5962 2.07904e-05 48.0214C2.05969e-05 52.4467 3.57522 56.0219 8.00047 56.0219L84.6797 56.0219L58.3533 82.3733C55.2281 85.4985 55.2281 90.5738 58.3533 93.699C61.4784 96.8241 66.5537 96.8241 69.6789 93.699L109.681 53.6967L109.656 53.6717Z" fill="#81EDB9" opacity="0.71"/>
               </svg>
             </div>
@@ -305,8 +306,9 @@
           <!-- Rect 3: #c9c9c9 fill (slightly darker) -->
           <div class="flex-1 bg-[#c9c9c9]" style="border-radius: 0 20px 20px 0;"></div>
         </div>
-        <!-- Glass overlay rectangle per Figma: 188×119px, cr=25, GLASS effect, positioned over left indicator -->
-        <div class="absolute left-1/2 -translate-x-[248px] -top-[11px] slide-glass-overlay" style="width: min(188px, 36vw); height: min(119px, 22vw); border-radius: 25px;"></div>
+        <!-- Glass overlay rectangle per Figma: 188×119px, cr=25, GLASS effect, positioned over left (first) indicator -->
+        <!-- Container is flex justify-center so indicators start at 50%-half(497px). Overlay aligns with left edge of indicators. -->
+        <div class="absolute -top-[11px] slide-glass-overlay hidden md:block" style="width: 188px; height: 119px; border-radius: 25px; left: calc(50% - min(248px, 45vw));"></div>
       </div>
     </div>
   </section>
