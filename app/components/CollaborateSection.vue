@@ -15,8 +15,8 @@
     <div class="relative mx-auto px-6" style="max-width: 1800px;">
       <!-- Figma: LARGE LIGHT GRAY title matching other sections — 80px weight300 #606060 per DESIGN-SPEC.md + verified from case-studies.png — DO NOT change to teal or shrink -->
       <h2
-        class="text-center mb-[81px]"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
+        class="text-center mb-[40px] md:mb-[81px]"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 7.5vw, 96px);"
       >
         與我們合作
       </h2>
@@ -39,14 +39,14 @@
             <!-- Figma API: 48px/weight300/#606060/ls3.84/lh57.6 — matches other section titles -->
             <h3
               class="mb-[12px]"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 57.6px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: clamp(32px, 4.5vw, 57.6px);"
             >
               徵才月
             </h3>
             <!-- Figma API: 28px/weight300/#aeaeb2/ls1.12/lh50px — DO NOT shrink -->
             <p
               class="mb-10"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(16px, 2.5vw, 28px); font-weight: 300; color: #aeaeb2; letter-spacing: 1.12px; line-height: 50px;"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(16px, 2.5vw, 28px); font-weight: 300; color: #aeaeb2; letter-spacing: 1.12px; line-height: clamp(28px, 4vw, 50px);"
             >
               職涯中心與OpenNCCU 合作推出的「數位集點工具」，將學生的參與紀錄與問卷回饋集中化管理，協助學生隨時掌握積點進度與線上兌獎，獲得更直覺的抽獎參與體驗。
             </p>
@@ -105,17 +105,17 @@
       <!-- Stats row — Figma API: Achievement x=252 w=660 and x=1008 w=660. LEFT-ALIGNED, not centered -->
       <!-- Figma: gap between Body bottom (y=4648) and Achievement top (y=4500) → Achievement is INSIDE Body frame -->
       <!-- Figma: 87px gap between Body bottom and Partners top -->
-      <div class="flex flex-col md:flex-row gap-16 mb-[87px]" style="padding-left: 6%; padding-right: 6%;">
+      <div class="flex flex-col md:flex-row gap-8 md:gap-16 mb-[40px] md:mb-[87px]" style="padding-left: 6%; padding-right: 6%;">
         <div class="flex flex-col w-full md:w-[660px]">
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
             class="mb-0"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 74px;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: clamp(36px, 5.5vw, 74px);"
           >
             當日活躍使用者
           </p>
           <!-- Figma API: 48px/weight600/gradient #94CCB9→#3FA4B6/ls3.84 — NOT solid teal -->
-          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: 3.84px; line-height: 74px;">
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: 3.84px; line-height: clamp(36px, 5.5vw, 74px);">
             3,500+
           </p>
         </div>
@@ -123,12 +123,12 @@
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p
             class="mb-0"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 74px;"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: clamp(36px, 5.5vw, 74px);"
           >
             使用次數
           </p>
           <!-- Figma API: 48px/weight600/gradient #94CCB9→#3FA4B6/ls3.84 — NOT solid teal -->
-          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: 3.84px; line-height: 74px;">
+          <p class="stats-gradient" style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 600; letter-spacing: 3.84px; line-height: clamp(36px, 5.5vw, 74px);">
             15,000+
           </p>
         </div>
@@ -138,8 +138,8 @@
       <div class="text-center">
         <!-- Figma API: "合作夥伴" 48px/weight300/#606060/ls3.84, Partners frame gap=48 — matches section title style -->
         <h3
-          class="mb-[48px]"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px;"
+          class="mb-[24px] md:mb-[48px]"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: clamp(32px, 5vw, 58px);"
         >
           合作夥伴
         </h3>
