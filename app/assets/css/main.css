@@ -21,7 +21,8 @@
   }
   .glass-nav {
     /* Figma API: white fill opacity=0.45, GLASS effect (blur + saturate) — DO NOT change opacity above 45% */
-    @apply bg-white/45 border border-white/50 shadow-sm;
+    /* Figma API: white fill 45% opacity + GLASS effect, NO strokes, NO border, NO shadow-sm */
+    @apply bg-white/45;
     backdrop-filter: blur(24px) saturate(180%);
     -webkit-backdrop-filter: blur(24px) saturate(180%);
   }

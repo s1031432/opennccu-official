@@ -70,9 +70,9 @@
                   class="text-[#aeaeb2]"
                   style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; letter-spacing: 2.4px; line-height: 20.16px;"
                 >{{ news.date }}</span>
-                <!-- Figma API: title Noto Sans 16px w900 #3d3d3d ls2.4 lh21.8 -->
+                <!-- Figma API: title Noto Sans 16px w900 #3e3e3e ls2.4 lh21.8 — rgba(0.242,0.242,0.242) -->
                 <p
-                  class="text-[#3d3d3d] line-clamp-1"
+                  class="text-[#3e3e3e] line-clamp-1"
                   style="font-family: 'Noto Sans', 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 900; letter-spacing: 2.4px; line-height: 21.8px;"
                 >{{ news.title }}</p>
                 <!-- Figma API: desc Noto Sans TC 12px w500 #aeaeb2 ls1.2 lh14.4 -->
@@ -117,14 +117,14 @@ const activeItems = computed(() =>
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* Figma API: Indicator 217×80px, cr=200, gradient fill white→white 1%,
-   DROP_SHADOW(3,3,7.5px black 36%) + DROP_SHADOW(-3,-3,3.6px white 90%),
-   INNER_SHADOW(1,1,20.6px black 6%) + INNER_SHADOW(-3,-3,9.7px white 100%) — NO spread in Figma */
+   DROP_SHADOW(3,3,7.5px spread=-4 black 36%) + DROP_SHADOW(-3,-3,3.6px spread=-7 white 90%),
+   INNER_SHADOW(1,1,20.6px black 6%) + INNER_SHADOW(-3,-3,9.7px white 100%) */
 .news-badge-pill {
   background: linear-gradient(145deg, rgba(255,255,255,1) 1%, rgba(255,255,255,0.01) 100%);
   border-radius: 200px;
   box-shadow:
-    3px 3px 7.5px rgba(0, 0, 0, 0.36),
-    -3px -3px 3.6px rgba(255, 255, 255, 0.9),
+    3px 3px 7.5px -4px rgba(0, 0, 0, 0.36),
+    -3px -3px 3.6px -7px rgba(255, 255, 255, 0.9),
     inset 1px 1px 20.6px rgba(0, 0, 0, 0.06),
     inset -3px -3px 9.7px rgba(255, 255, 255, 1);
 }
