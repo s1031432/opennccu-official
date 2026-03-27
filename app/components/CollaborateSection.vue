@@ -105,7 +105,8 @@
       <!-- Stats row — Figma API: Achievement x=252 w=660 and x=1008 w=660. LEFT-ALIGNED, not centered -->
       <!-- Figma: gap between Body bottom (y=4648) and Achievement top (y=4500) → Achievement is INSIDE Body frame -->
       <!-- Figma: 87px gap between Body bottom and Partners top -->
-      <div class="flex flex-col md:flex-row gap-8 md:gap-16 mb-[40px] md:mb-[87px]" style="padding-left: 6%; padding-right: 6%;">
+      <!-- Figma API: Achievement gap=96px between two Content frames, primaryAxisAlignItems=CENTER -->
+      <div class="flex flex-col md:flex-row gap-8 md:gap-[96px] mb-[40px] md:mb-[87px]" style="padding-left: 6%; padding-right: 6%;">
         <div class="flex flex-col w-full md:w-[660px]">
           <!-- Figma API: 48px/weight300/#606060/ls3.84 -->
           <p

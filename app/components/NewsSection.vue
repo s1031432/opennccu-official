@@ -63,8 +63,8 @@
                   >New</span>
                 </div>
               </div>
-              <!-- Card content -->
-              <div class="absolute left-4 md:left-[32px] top-1/2 -translate-y-1/2 w-[190px] sm:w-[220px] md:w-[300px] lg:w-[329px] flex flex-col gap-1">
+              <!-- Card content — Figma: Text frame at x=32 from card left, y=63 from card top -->
+              <div class="absolute left-4 md:left-[32px] top-[40px] md:top-[63px] w-[190px] sm:w-[220px] md:w-[300px] lg:w-[329px] flex flex-col gap-1">
                 <!-- Figma API: date Outfit 16px w500 #aeaeb2 ls2.4 lh20.16 -->
                 <span
                   class="text-[#aeaeb2]"
@@ -75,9 +75,9 @@
                   class="text-[#3e3e3e] line-clamp-1"
                   style="font-family: 'Noto Sans', 'Noto Sans TC', sans-serif; font-size: 16px; font-weight: 900; letter-spacing: 2.4px; line-height: 21.8px;"
                 >{{ news.title }}</p>
-                <!-- Figma API: desc Noto Sans TC 12px w500 #aeaeb2 ls1.2 lh14.4 -->
+                <!-- Figma API: desc Noto Sans TC 12px w500 #aeaeb2 ls1.2 lh14.4 — gap=4px handled by parent flex gap-1 -->
                 <p
-                  class="text-[#aeaeb2] mt-1 line-clamp-2"
+                  class="text-[#aeaeb2] line-clamp-2"
                   style="font-family: 'Noto Sans TC', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 1.2px; line-height: 14.4px;"
                 >{{ news.description }}</p>
               </div>
