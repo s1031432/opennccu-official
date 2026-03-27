@@ -1,9 +1,10 @@
 <template>
-  <section id="products" class="py-24 relative overflow-hidden" style="background: radial-gradient(ellipse at 50% 45%, rgba(255,255,255,0.35) 0%, rgba(240,240,240,0) 55%);">
+  <!-- Figma API: Product & Service section fill = solid rgba(0.9416...) = #F0F0F0, NO gradient -->
+  <section id="products" class="relative overflow-hidden" style="padding-top: 82px; padding-bottom: 96px; background: #F0F0F0;">
     <!-- Decorative curve + endpoint orb removed — now handled by BackgroundCurve -->
 
     <div class="max-w-6xl mx-auto px-6 relative">
-      <!-- Title -->
+      <!-- Figma API: Title "我們打造了⋯" at x=696 (36.2%), y_rel=82px, Noto Sans TC 80px w300 ls9.6 #616161 -->
       <h2
         class="text-center mb-4"
         style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px);"
@@ -13,18 +14,14 @@
 
       <!-- Watermark text + phone mockups -->
       <div class="relative mt-16">
-        <!-- OPEN NCCU watermark (top right) - neumorphic emboss -->
-        <div class="absolute right-0 -top-4 leading-none select-none tracking-wide text-right">
-          <span class="watermark-text">OPEN</span>
-          <br />
-          <span class="watermark-text">NCCU</span>
-        </div>
-        <!-- WEB APP watermark (bottom left) - neumorphic emboss -->
-        <div class="absolute left-0 bottom-16 leading-none select-none tracking-wide">
-          <span class="watermark-text">WEB</span>
-          <br />
-          <span class="watermark-text">APP</span>
-        </div>
+        <!-- Figma API: "OPEN" at x=1090 (56.8%), y_rel=302px; "NCCU" at x=1245 (64.8%), y_rel=434px -->
+        <!-- Montserrat 108px Bold Italic, #F0F0F0, DROP_SHADOW(4,4,8px black 16%) + DROP_SHADOW(-5,-5,8px white 100%) -->
+        <span class="watermark-text watermark-open-nccu absolute select-none" style="right: 8%; top: 220px;">OPEN</span>
+        <span class="watermark-text watermark-open-nccu absolute select-none" style="right: 0%; top: 352px;">NCCU</span>
+        <!-- Figma API: "WEB" at x=285 (14.8%), y_rel=971px; "APP" at x=419 (21.8%), y_rel=1110px -->
+        <!-- Same font but DROP_SHADOW white blur=5px (not 8px) -->
+        <span class="watermark-text watermark-web-app absolute select-none" style="left: 14.8%; bottom: 28%;">WEB</span>
+        <span class="watermark-text watermark-web-app absolute select-none" style="left: 21.8%; bottom: 18%;">APP</span>
 
         <!-- Phone mockups center — Figma: BOTH phones tilt counter-clockwise, overlap ~20-25% -->
         <!-- DO NOT make right phone clockwise. Both are CCW per Figma. -->
@@ -321,18 +318,27 @@ defineProps<{
 </script>
 
 <style scoped>
-/* Figma: watermark text is italic/oblique with 3D embossed effect */
+/* Figma API: watermark text — Montserrat 108px Bold Italic, fill #F0F0F0, neumorphic emboss */
 .watermark-text {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(48px, 8vw, 108px);
   font-weight: 700;
   font-style: italic;
-  /* Figma: fill #f0f0f0 (same as bg), DROP_SHADOW(4,4,8px, black 16%) + DROP_SHADOW(-5,-5,8px, white 100%) = neumorphic emboss */
   color: #f0f0f0;
+  letter-spacing: 9.72px;
+  line-height: 1;
+}
+/* Figma API: OPEN/NCCU — DROP_SHADOW(4,4,8px black 16%) + DROP_SHADOW(-5,-5,8px white 100%) */
+.watermark-open-nccu {
   text-shadow:
     4px 4px 8px rgba(0, 0, 0, 0.16),
     -5px -5px 8px rgba(255, 255, 255, 1);
-  letter-spacing: 9.72px;
+}
+/* Figma API: WEB/APP — DROP_SHADOW(4,4,8px black 16%) + DROP_SHADOW(-5,-5,5px white 100%) (blur=5 not 8) */
+.watermark-web-app {
+  text-shadow:
+    4px 4px 8px rgba(0, 0, 0, 0.16),
+    -5px -5px 5px rgba(255, 255, 255, 1);
 }
 
 /* Figma CTA: 260×260 circle, fill white 32% opacity, GLASS effect, cornerRadius=200 */
@@ -406,7 +412,7 @@ defineProps<{
 
 @media (max-width: 768px) {
   .watermark-text {
-    font-size: 56px;
+    font-size: 48px;
   }
   .glass-arc-svg {
     display: none;
