@@ -143,20 +143,20 @@
         >
           合作夥伴
         </h3>
-        <!-- Figma API: PartnerList gap=64px — DO NOT shrink -->
-        <div class="flex justify-center items-center gap-[64px] flex-wrap">
+        <!-- Figma API: PartnerList gap=64px desktop, 32px mobile for fit -->
+        <div class="flex justify-center items-center gap-[32px] md:gap-[64px] flex-wrap">
           <div
             v-for="partner in partners"
             :key="partner.name"
             class="partner-item flex flex-col items-center gap-2.5 group cursor-pointer"
           >
-            <!-- Figma API: Partner circles 120×120px, fill #f0f0f0, logos 96×96px — DO NOT shrink below 120px -->
-            <div class="partner-circle relative w-[120px] h-[120px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <!-- Figma API: Partner circles 120×120px desktop, 80×80px mobile for viewport fit -->
+            <div class="partner-circle relative w-[80px] h-[80px] md:w-[120px] md:h-[120px] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
               <div class="partner-bg-neumorphic absolute inset-0 rounded-full transition-shadow duration-300" />
               <img
                 :src="partner.logo"
                 :alt="partner.name"
-                class="partner-logo relative z-10 w-[96px] h-[96px] object-contain rounded-full transition-all duration-300"
+                class="partner-logo relative z-10 w-[64px] h-[64px] md:w-[96px] md:h-[96px] object-contain rounded-full transition-all duration-300"
               />
             </div>
             <span

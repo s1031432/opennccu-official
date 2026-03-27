@@ -51,7 +51,7 @@
               :href="news.url || '#'"
               :target="news.url ? '_blank' : undefined"
               :rel="news.url ? 'noopener noreferrer' : undefined"
-              class="news-card rounded-[16px] md:rounded-[20px] w-[300px] md:w-[420px] lg:w-[485px] h-[160px] md:h-[190px] flex-shrink-0 cursor-pointer transition-all relative block no-underline"
+              class="news-card rounded-[16px] md:rounded-[20px] w-[260px] sm:w-[300px] md:w-[420px] lg:w-[485px] h-[150px] sm:h-[160px] md:h-[190px] flex-shrink-0 cursor-pointer transition-all relative block no-underline"
             >
               <!-- New badge — Figma: Label frame at right=16px, top=16px from card; New badge at 4px padding inside Label = top 20px from card -->
               <div v-if="news.isNew" class="absolute right-3 md:right-[16px] top-3 md:top-[20px]">
@@ -64,7 +64,7 @@
                 </div>
               </div>
               <!-- Card content -->
-              <div class="absolute left-4 md:left-[32px] top-1/2 -translate-y-1/2 w-[220px] md:w-[300px] lg:w-[329px] flex flex-col gap-1">
+              <div class="absolute left-4 md:left-[32px] top-1/2 -translate-y-1/2 w-[190px] sm:w-[220px] md:w-[300px] lg:w-[329px] flex flex-col gap-1">
                 <!-- Figma API: date Outfit 16px w500 #aeaeb2 ls2.4 lh20.16 -->
                 <span
                   class="text-[#aeaeb2]"

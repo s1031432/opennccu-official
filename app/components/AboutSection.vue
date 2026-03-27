@@ -48,8 +48,10 @@
           <div class="hidden lg:block relative" :style="{ minHeight: '355px' }">
             <!-- Text — First entry: Figma x=183 (overlays photo). Others: opposite side of photo -->
             <!-- Figma: First entry text intentionally overlays photo 1. z-20 ensures readability -->
+            <!-- Semi-transparent bg on first entry for readability over photo -->
             <div
               class="absolute z-20"
+              :class="idx === 0 ? 'about-text-overlay rounded-[16px] px-4 py-3' : ''"
               :style="{
                 left: idx === 0 ? '9.5%' : (item.photoSide === 'left' ? '55%' : '9.5%'),
                 width: '449px',
@@ -204,4 +206,10 @@ const timelineItems = [
 
 <style scoped>
 /* Figma API: NO card/box around timeline text — plain text, no background, no shadow, no border */
+/* Exception: first entry overlays photo, needs subtle frosted bg for readability */
+.about-text-overlay {
+  background: rgba(240, 240, 240, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
 </style>
