@@ -10,14 +10,14 @@
       class="crew-sticky"
       :class="{ 'position-sticky': !isMobile }"
     >
-      <div class="max-w-7xl mx-auto px-6 relative h-full flex flex-col md:flex-row items-center">
+      <div class="px-6 md:px-0 relative h-full flex flex-col md:flex-row items-center">
         <!-- Decorative flowing curve (left side per Figma API): rendered by ScrollTrack, removed from here to avoid duplication -->
 
-        <!-- Figma layout: title on left (x=356), cards on right (x=842) — side by side on desktop -->
-        <div class="relative z-10 flex-shrink-0 self-center mb-8 md:mb-0" style="width: clamp(200px, 25vw, 380px);">
+        <!-- Figma layout: title at x=356 (18.5%), cards at x=842 (43.9%) — side by side on desktop -->
+        <div class="relative z-10 flex-shrink-0 self-center mb-8 md:mb-0 md:ml-[18.5%]" style="width: clamp(200px, 25vw, 380px);">
           <!-- Figma: crew.png shows 團隊成員 in LIGHT weight (300) matching other section titles — DO NOT change to bold -->
           <h2
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 7.5vw, 96px);"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 7.5vw, 115.84px);"
           >
             團隊成員
           </h2>
@@ -101,13 +101,14 @@
     <!-- JOIN US! neumorphic circle (Figma Ellipse 186: 223×223px at bottom-left) -->
     <!-- NOTE: The circle is rendered inside ScrollTrack SVG for the marble animation.
          This hidden anchor is kept for layout measurement only. -->
-    <div class="absolute bottom-16 max-w-7xl mx-auto left-0 right-0 px-6">
+    <!-- Figma API: Ellipse 186 at x=80, y=9044 (rel to Crew-1 y=7878 → bottom-offset). 223×223px -->
+    <div class="absolute bottom-16 left-0 right-0 px-6 md:px-0">
       <a
         id="join-us-btn"
         href="https://instagram.com/open.nccu"
         target="_blank"
         rel="noopener noreferrer"
-        class="join-us-circle flex items-center justify-center ml-4"
+        class="join-us-circle flex items-center justify-center ml-4 md:ml-[80px]"
       >
         <!-- Figma: "JOIN US !" is a vector text in #F0F0F0 with drop shadow 4,4,6px black 7% -->
         <div class="join-us-text">
