@@ -10,11 +10,11 @@
       class="crew-sticky"
       :class="{ 'position-sticky': !isMobile }"
     >
-      <div class="px-6 md:px-0 relative h-full flex flex-col md:flex-row items-center">
+      <div class="px-6 md:px-0 relative h-full flex flex-col md:flex-row items-start">
         <!-- Decorative flowing curve (left side per Figma API): rendered by ScrollTrack, removed from here to avoid duplication -->
 
-        <!-- Figma layout: title at x=356 (18.5%), cards at x=842 (43.9%) — side by side on desktop -->
-        <div class="relative z-10 flex-shrink-0 self-center mb-8 md:mb-0 md:ml-[18.5%]" style="width: clamp(200px, 25vw, 380px);">
+        <!-- Figma layout: title at x=356 (18.5%), y_rel=175px from section top; cards at x=842 (43.9%), y_rel=123px -->
+        <div class="relative z-10 flex-shrink-0 mb-8 md:mb-0 md:ml-[18.5%] md:mt-[175px]" style="width: clamp(200px, 25vw, 380px);">
           <!-- Figma: crew.png shows 團隊成員 in LIGHT weight (300) matching other section titles — DO NOT change to bold -->
           <h2
             style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 7.5vw, 115.84px);"
@@ -23,8 +23,9 @@
           </h2>
         </div>
 
-        <!-- Desktop: scroll-animated cards (right side per Figma x=842) -->
-        <div v-if="!isMobile" class="crew-card-area relative flex-1 overflow-visible" style="height: 480px;">
+        <!-- Desktop: scroll-animated cards (right side per Figma x=842, y_rel=123px) -->
+        <!-- Figma API: Cards group at x=842 on 1920px = 43.9% from left. Use absolute positioning instead of flex-1 -->
+        <div v-if="!isMobile" class="crew-card-area absolute overflow-visible" style="height: 480px; left: 43.9%; top: 123px;">
           <!-- State 1 & 2: Team group cards (3 cards) -->
           <CrewCard
             v-for="(group, i) in teamGroups"
