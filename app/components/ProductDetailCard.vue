@@ -225,32 +225,35 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   height: 100%;
 }
 /* DO NOT SHRINK below 80px — Figma 44537:23355: 80px/w300/ls9.6/lh97.5 */
+/* Figma API: text fill rgba(0.3791666) = #616161 — different from section titles (#606060) */
 .title {
   font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
   font-weight: 300;
   font-size: 80px;
-  color: #606060;
+  color: #616161;
   text-align: right;
   letter-spacing: 9.6px;
   line-height: 97.5px;
 }
 /* Figma 44537:23357: 32px/w300/ls1.28/lh48 */
+/* Figma API: text fill rgba(0.3791666) = #616161 */
 .subtitle {
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
   font-size: 32px;
-  color: #606060;
+  color: #616161;
   text-align: right;
   letter-spacing: 1.28px;
   line-height: 48px;
   margin-top: 16px;
 }
 /* Figma 44537:23359: 28px/w300/ls1.12/lh50 */
+/* Figma API: text fill rgba(0.3791666) = #616161 */
 .desc {
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
   font-size: 28px;
-  color: #606060;
+  color: #616161;
   text-align: justify;
   letter-spacing: 1.12px;
   line-height: 50px;
@@ -276,7 +279,8 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
 }
 .cta-icon { flex-shrink: 0; }
 
-/* ── Icon bar — Figma FuncSection 44537:23370: cr=20, pad=28/32, bg=#f0f0f0 ── */
+/* ── Icon bar — Figma FuncSection 44537:23370: w=1482, cr=20, pad=28/32, bg=#f0f0f0 ── */
+/* Figma API: FuncSection itemSpacing=4 (outer), inner Frame 48095628 itemSpacing=32 */
 .icons-bar {
   display: flex;
   align-items: center;
@@ -286,6 +290,8 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   background: #f0f0f0;
   border-radius: 20px;
   width: 100%;
+  max-width: 1482px;
+  margin: 0 auto;
 }
 /* Figma Divider 44537:23377: 2x163px, neumorphic groove */
 .icon-divider {
@@ -342,9 +348,10 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   height: 100%;
   object-fit: contain;
 }
-/* Figma label: 20px/w300/ls0.8/lh30 color=#aeaeb2 */
+/* Figma API: label fill rgba(0.682,0.682,0.698) = #aeaeb2. English labels use Outfit, Chinese use Noto Sans TC */
+/* Using Outfit with Noto Sans TC fallback to cover both per Figma API node data */
 .icon-label {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Outfit', 'Noto Sans TC', sans-serif;
   font-weight: 300;
   font-size: 20px;
   color: #aeaeb2;
