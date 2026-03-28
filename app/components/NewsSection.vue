@@ -131,8 +131,9 @@ const activeItems = computed(() =>
 
 /* Figma API: Card 485×190 cr=20, gradient fill white→transparent,
    DROP_SHADOW: (-17,21,52px rgba(42,80,121,0.1)) */
+/* Figma API: Card gradient handles (0.5,0)→(0.779,0.96) ≈ 160deg, stops: white@0.65% → transparent@100% */
 .news-card {
-  background: linear-gradient(155deg, rgba(255,255,255,1) 0.6%, rgba(255,255,255,0) 100%);
+  background: linear-gradient(160deg, rgba(255,255,255,1) 0.6%, rgba(255,255,255,0) 100%);
   border: none;
   box-shadow: -16.9px 21.4px 51.9px rgba(42, 80, 121, 0.1);
 }
@@ -148,9 +149,11 @@ const activeItems = computed(() =>
   }
 }
 
+/* Figma API: New badge BACKGROUND_BLUR radius=21px, gradient #94CCB9→#3FA4B6 */
 .new-badge {
   background: linear-gradient(162deg, rgb(148, 204, 185) 5%, rgb(63, 164, 182) 95%);
-  backdrop-filter: blur(10.5px);
+  backdrop-filter: blur(21px);
+  -webkit-backdrop-filter: blur(21px);
   box-shadow:
     -4px -4px 12px 0px rgba(182, 182, 182, 0.25),
     6px 12px 45px -22px #999,

@@ -12,11 +12,11 @@
 
       <!-- Nav Links (desktop) -->
       <template v-for="link in navLinks" :key="link.label">
-        <!-- Figma API: active="產品 & 服務" uses Montserrat 24px/500/#77e5b0, others use Noto Sans TC 24px/400/#616161 -->
+        <!-- Figma API: active="產品 & 服務" uses Montserrat 24px/500/rgba(0.467,0.901,0.692)=#77e6b1, others use Noto Sans TC 24px/400/#616161 -->
         <a
           :href="link.href"
           class="hidden md:flex transition-colors whitespace-nowrap"
-          :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#616161] hover:text-[#77e6b0]'"
+          :class="activeSection === link.href ? 'text-[#77e6b1]' : 'text-[#616161] hover:text-[#77e6b1]'"
           :style="{
             fontFamily: link.font === 'Montserrat' ? '\'Montserrat\', sans-serif' : '\'Noto Sans TC\', sans-serif',
             fontSize: '24px', /* Figma spec: 24px — DO NOT SHRINK */
@@ -76,7 +76,7 @@
         :key="link.label"
         :href="link.href"
         class="transition-colors whitespace-nowrap"
-        :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#616161] hover:text-[#77e6b0]'"
+        :class="activeSection === link.href ? 'text-[#77e6b1]' : 'text-[#616161] hover:text-[#77e6b1]'"
         :style="{
           fontFamily: '\'Noto Sans TC\', sans-serif',
           fontSize: '20px',
