@@ -12,7 +12,7 @@
 
       <!-- Nav Links (desktop) -->
       <template v-for="link in navLinks" :key="link.label">
-        <!-- Figma API: active="產品 & 服務" uses Montserrat 24px/500/#77e5b0, others use Noto Sans TC 24px/400/#606060 -->
+        <!-- Figma API: active="產品 & 服務" uses Montserrat 24px/500/#77e5b0, others use Noto Sans TC 24px/400/#616161 -->
         <a
           :href="link.href"
           class="hidden md:flex transition-colors whitespace-nowrap"

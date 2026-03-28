@@ -4,10 +4,10 @@
     <!-- Decorative curve + endpoint orb removed — now handled by BackgroundCurve -->
 
     <div class="max-w-6xl mx-auto px-6 relative">
-      <!-- Figma API: Title "我們打造了⋯" at x=696 (36.2%), y_rel=82px, Noto Sans TC 80px w300 ls9.6 lh115.84 #606060 -->
+      <!-- Figma API: Title "我們打造了⋯" at x=696 (36.2%), y_rel=82px, Noto Sans TC 80px w300 ls9.6 lh115.84 #616161 -->
       <h2
         class="text-center mb-4"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #606060; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 9vw, 115.84px);"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 9vw, 115.84px);"
       >
         我們打造了⋯
       </h2>
@@ -211,7 +211,7 @@
                     </div>
                     <span class="text-[9px] text-[#4ECBA5] font-bold tracking-wide">Open NCCU</span>
                   </div>
-                  <div class="text-[11px] text-[#606060] font-bold mb-0.5">我是政大人</div>
+                  <div class="text-[11px] text-[#616161] font-bold mb-0.5">我是政大人</div>
                   <div class="text-[9px] text-[#888]">XXX 系</div>
                   <div class="text-[8px] text-[#999] mb-1">@iamfrom_nccu</div>
                   <div class="w-[32px] h-[32px] bg-gray-200/40 rounded-sm grid grid-cols-4 gap-px p-0.5">

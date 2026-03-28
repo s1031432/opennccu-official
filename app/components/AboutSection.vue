@@ -7,18 +7,18 @@
       <!-- Title — Figma API: y=5195, h=96. Description at y=5389. Gap = 98px -->
       <h2
         class="text-center mb-[40px] md:mb-[98px] max-w-6xl mx-auto"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #606060; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 7.5vw, 96px);"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 7.5vw, 96px);"
       >
         我們是誰？
       </h2>
 
       <!-- Description — Figma API: x=140 w=1609 on 1920px canvas = nearly full width, NOT centered narrow block -->
-      <!-- Figma API: 28px/weight300/#606060/ls1.12/lineHeight50px — DO NOT SHRINK below 28px -->
+      <!-- Figma API: 28px/weight300/#616161/ls1.12/lineHeight50px — DO NOT SHRINK below 28px -->
       <!-- Figma API: description bottom y=5489, first photo y=5661 → gap=172px. NO separator line in Figma -->
       <!-- Figma API: textAlignHorizontal=CENTER on description text -->
       <div class="mb-[80px] md:mb-[172px]" style="max-width: 1609px; margin-left: auto; margin-right: auto; padding-left: 8px; padding-right: 8px;">
         <p
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(16px, 2.5vw, 28px); font-weight: 300; color: #606060; letter-spacing: 1.12px; line-height: clamp(28px, 4vw, 50px); text-align: center;"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(16px, 2.5vw, 28px); font-weight: 300; color: #616161; letter-spacing: 1.12px; line-height: clamp(28px, 4vw, 50px); text-align: center;"
         >
           我們是 <span style="font-family: 'Montserrat', sans-serif; font-weight: 300;">OpenNCCU</span>，一群熱愛開發和設計的政大學生所發起的非營利組織！
           我們從優化校園的數位體驗出發，打造專屬政大的數位工具並推廣開放資源，期許為校園數位化創造更多可能。
@@ -62,12 +62,12 @@
               <!-- Figma API: year bottom y=5762 (5703+59), description y=5791 → gap=29px -->
               <h3
                 class="mb-[29px]"
-                style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 300; color: #606060; letter-spacing: 3.84px; line-height: 58.5px;"
+                style="font-family: 'Montserrat', sans-serif; font-size: 48px; font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 58.5px;"
               >
                 {{ item.year }}
               </h3>
               <p
-                style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; color: #606060; letter-spacing: 0.96px; line-height: 36px;"
+                style="font-family: 'Noto Sans TC', sans-serif; font-size: 24px; font-weight: 300; color: #616161; letter-spacing: 0.96px; line-height: 36px;"
               >
                 {{ item.description }}
               </p>
@@ -108,12 +108,12 @@
             <div class="px-2">
               <h3
                 class="mb-2"
-                style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 6vw, 48px); font-weight: 300; color: #606060; letter-spacing: 3.84px; line-height: 58.5px;"
+                style="font-family: 'Montserrat', sans-serif; font-size: clamp(24px, 6vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: 58.5px;"
               >
                 {{ item.year }}
               </h3>
               <p
-                style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(16px, 3.5vw, 24px); font-weight: 300; color: #606060; letter-spacing: 0.96px; line-height: 36px;"
+                style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(16px, 3.5vw, 24px); font-weight: 300; color: #616161; letter-spacing: 0.96px; line-height: 36px;"
               >
                 {{ item.description }}
               </p>

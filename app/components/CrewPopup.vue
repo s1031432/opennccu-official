@@ -9,7 +9,7 @@
         <div class="popup-glass">
           <!-- Close button -->
           <button
-            class="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-[#aeaeb2] hover:text-[#606060] hover:bg-white/50 transition-all z-10"
+            class="absolute top-6 right-6 w-10 h-10 rounded-full flex items-center justify-center text-[#aeaeb2] hover:text-[#616161] hover:bg-white/50 transition-all z-10"
             @click="emit('close')"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -20,7 +20,7 @@
           <!-- Title -->
           <h3
             class="popup-title"
-            style="font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 400; color: #606060;"
+            style="font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 400; color: #616161;"
           >
             現任 {{ role.name }}
           </h3>
@@ -64,7 +64,7 @@
             <div v-if="selectedMember" class="member-details">
               <h4
                 class="mb-4"
-                style="font-family: 'Noto Sans TC', sans-serif; font-size: 32px; font-weight: 500; color: #606060;"
+                style="font-family: 'Noto Sans TC', sans-serif; font-size: 32px; font-weight: 500; color: #616161;"
               >
                 {{ selectedMember.title }} {{ selectedMember.name }}
               </h4>
@@ -213,7 +213,7 @@ function onKeydown(e: KeyboardEvent) {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 18px;
   font-weight: 300;
-  color: #606060;
+  color: #616161;
   line-height: 1.6;
 }
 

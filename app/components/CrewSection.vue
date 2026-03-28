@@ -17,7 +17,7 @@
         <div class="relative z-10 flex-shrink-0 mb-8 md:mb-0 md:ml-[18.5%] md:mt-[175px]" style="width: clamp(200px, 25vw, 380px);">
           <!-- Figma: crew.png shows 團隊成員 in LIGHT weight (300) matching other section titles — DO NOT change to bold -->
           <h2
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #606060; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 7.5vw, 115.84px);"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 7.5vw, 115.84px);"
           >
             團隊成員
           </h2>
