@@ -226,7 +226,7 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
   font-weight: 300;
   font-size: 80px;
-  color: #616161;
+  color: #606060;
   text-align: right;
   letter-spacing: 9.6px;
   line-height: 97.5px;
@@ -236,7 +236,7 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
   font-size: 32px;
-  color: #616161;
+  color: #606060;
   text-align: right;
   letter-spacing: 1.28px;
   line-height: 48px;
@@ -247,7 +247,7 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
   font-size: 28px;
-  color: #616161;
+  color: #606060;
   text-align: justify;
   letter-spacing: 1.12px;
   line-height: 50px;
@@ -370,7 +370,7 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 700;
   font-size: 18px;
-  color: #616161;
+  color: #606060;
   cursor: pointer;
   transition: transform .2s;
 }

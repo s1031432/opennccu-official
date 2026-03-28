@@ -20,7 +20,7 @@
                 fontWeight: 400,
                 letterSpacing: '1.12px',
                 lineHeight: '42px',
-                color: activeTab === 'news' ? '#616161' : '#aeaeb2',
+                color: activeTab === 'news' ? '#606060' : '#aeaeb2',
               }"
             >最新消息</span>
           </button>
@@ -36,7 +36,7 @@
                 fontWeight: 400,
                 letterSpacing: '1.12px',
                 lineHeight: '42px',
-                color: activeTab === 'press' ? '#616161' : '#aeaeb2',
+                color: activeTab === 'press' ? '#606060' : '#aeaeb2',
               }"
             >新聞報導</span>
           </button>

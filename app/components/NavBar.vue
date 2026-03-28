@@ -16,7 +16,7 @@
         <a
           :href="link.href"
           class="hidden md:flex transition-colors whitespace-nowrap"
-          :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#616161] hover:text-[#77e6b0]'"
+          :class="activeSection === link.href ? 'text-[#77e6b0]' : 'text-[#606060] hover:text-[#77e6b0]'"
           :style="{
             fontFamily: link.font === 'Montserrat' ? '\'Montserrat\', sans-serif' : '\'Noto Sans TC\', sans-serif',
             fontSize: '24px', /* Figma spec: 24px — DO NOT SHRINK */

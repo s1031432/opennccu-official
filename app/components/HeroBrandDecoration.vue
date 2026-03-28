@@ -89,13 +89,13 @@
         <path d="M104.033 23.0074L251.673 214.641C261.175 226.975 262.659 243.701 255.478 257.516L23.0099 704.703" stroke="#77E6B0" stroke-opacity="0.35" stroke-width="32" stroke-linecap="round" />
       </g>
 
-      <!-- Vector 7 (gray) — Figma: x=1161, y=591→y_rel=572, w=500, h=1168 -->
-      <g filter="url(#hero-groove-gray)" transform="translate(1161, 572)">
+      <!-- Vector 7 (gray) — Figma: x=1160, y=590→y_rel=571, w=500, h=1168 -->
+      <g filter="url(#hero-groove-gray)" transform="translate(1160, 571)">
         <path d="M282.021 551.535L129.84 350.746C120.482 338.4 119.095 321.762 126.277 308.036L238.019 94.506C255.686 68.8377 305.154 23.0018 362.527 23.0015C411.53 23.0012 446.032 42.0027 461.533 54.0037C474.7 64.1976 497.535 84.5057 513.536 125.008C529.537 165.511 524.037 212.514 506.036 247.516C491.635 275.518 178.015 887.89 23.0049 1190.58" stroke="#F0F0F0" stroke-width="32" stroke-linecap="round" />
       </g>
 
-      <!-- Vector 8 (green 35%) — Figma: x=1252, y=591→y_rel=572, w=408, h=529 -->
-      <g filter="url(#hero-groove-green)" transform="translate(1252, 572)">
+      <!-- Vector 8 (green 35%) — Figma: x=1252, y=590→y_rel=571, w=408, h=529 -->
+      <g filter="url(#hero-groove-green)" transform="translate(1252, 571)">
         <path d="M183.449 551.966L31.1481 351.02C21.7836 338.665 20.3947 322.013 27.5829 308.277L139.412 94.5799C157.093 68.8915 206.599 23.0198 264.017 23.0194C313.058 23.0191 347.587 42.0355 363.1 54.0459C376.278 64.2478 399.131 84.5717 415.144 125.106C431.158 165.64 425.653 212.68 407.638 247.71" stroke="#77E6B0" stroke-opacity="0.35" stroke-width="32" stroke-linecap="round" />
       </g>
 

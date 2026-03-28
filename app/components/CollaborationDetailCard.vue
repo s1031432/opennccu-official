@@ -69,7 +69,7 @@ defineEmits<{
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: 300;
   font-size: 52px;
-  color: #616161;
+  color: #606060;
   text-align: right;
   letter-spacing: 9.6px;
   line-height: 1.2;
@@ -132,7 +132,7 @@ defineEmits<{
 .intro-heading {
   font-weight: 300;
   font-size: 22px;
-  color: #616161;
+  color: #606060;
   letter-spacing: 1.28px;
   margin-bottom: 16px;
   line-height: 1.5;
@@ -141,7 +141,7 @@ defineEmits<{
 .intro-text {
   font-weight: 300;
   font-size: 16px;
-  color: #616161;
+  color: #606060;
   letter-spacing: 0.96px;
   line-height: 1.5;
 }
@@ -156,7 +156,7 @@ defineEmits<{
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   font-size: 22px;
-  color: #616161;
+  color: #606060;
   letter-spacing: 1.28px;
   line-height: 1.5;
 }

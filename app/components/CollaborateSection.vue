@@ -16,7 +16,7 @@
       <!-- Figma: LARGE LIGHT GRAY title matching other sections — 80px weight300 #606060 per DESIGN-SPEC.md + verified from case-studies.png — DO NOT change to teal or shrink -->
       <h2
         class="text-center mb-[40px] md:mb-[81px]"
-        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #616161; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 7.5vw, 96px);"
+        style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(36px, 6vw, 80px); font-weight: 300; color: #606060; letter-spacing: clamp(3px, 0.5vw, 9.6px); line-height: clamp(44px, 7.5vw, 96px);"
       >
         與我們合作
       </h2>
@@ -39,7 +39,7 @@
             <!-- Figma API: 48px/weight300/#606060/ls3.84/lh57.6 — matches other section titles -->
             <h3
               class="mb-[12px]"
-              style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: clamp(32px, 4.5vw, 57.6px);"
+              style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #606060; letter-spacing: 3.84px; line-height: clamp(32px, 4.5vw, 57.6px);"
             >
               徵才月
             </h3>
@@ -93,11 +93,11 @@
         </div>
 
         <!-- Figma API: Carousel arrow Btn 58×241px, cornerRadius=10, fill #f0f0f0, neumorphic 3x DROP_SHADOW -->
-        <!-- Figma API: arrow icon 18×30px filled #616161 (not stroked) — exported from node 44537:23158 -->
+        <!-- Figma API: arrow icon 18×30px filled #606060 (not stroked) — exported from node 44537:23158 -->
         <!-- Figma: Btn at x=1734 relative to CM Card x=126 → right=1668-1608-58=2px, top=198px. Vertically NOT centered. -->
         <button class="absolute right-[2px] top-[198px] carousel-arrow w-[58px] h-[241px] hidden lg:flex items-center justify-center transition-colors rounded-[10px]">
           <svg width="18" height="30" viewBox="0 0 18 30" fill="none">
-            <path d="M18 15C18 15.5763 17.7699 16.0678 17.292 16.5085L3.48673 29.4407C3.11504 29.8136 2.61947 30 2.0531 30C0.902655 30 0 29.1525 0 28.0339C0 27.4915 0.230087 27 0.619469 26.6271L13.0619 15L0.619469 3.37288C0.230087 2.98305 0 2.49153 0 1.94915C0 0.847458 0.902655 0 2.0531 0C2.61947 0 3.11504 0.186441 3.48673 0.559322L17.292 13.4915C17.7699 13.9322 17.9823 14.4237 18 15Z" fill="#616161"/>
+            <path d="M18 15C18 15.5763 17.7699 16.0678 17.292 16.5085L3.48673 29.4407C3.11504 29.8136 2.61947 30 2.0531 30C0.902655 30 0 29.1525 0 28.0339C0 27.4915 0.230087 27 0.619469 26.6271L13.0619 15L0.619469 3.37288C0.230087 2.98305 0 2.49153 0 1.94915C0 0.847458 0.902655 0 2.0531 0C2.61947 0 3.11504 0.186441 3.48673 0.559322L17.292 13.4915C17.7699 13.9322 17.9823 14.4237 18 15Z" fill="#606060"/>
           </svg>
         </button>
       </div>
@@ -112,7 +112,7 @@
           <!-- Figma API: 48px/weight300/#606060/ls3.84/lh57.6/textAlignHorizontal=CENTER — bbox h=74 but actual lineHeight=57.6 -->
           <p
             class="mb-0"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: clamp(32px, 4.5vw, 57.6px);"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #606060; letter-spacing: 3.84px; line-height: clamp(32px, 4.5vw, 57.6px);"
           >
             當日活躍使用者
           </p>
@@ -125,7 +125,7 @@
           <!-- Figma API: 48px/weight300/#606060/ls3.84/lh57.6/textAlignHorizontal=CENTER — bbox h=74 but actual lineHeight=57.6 -->
           <p
             class="mb-0"
-            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: clamp(32px, 4.5vw, 57.6px);"
+            style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #606060; letter-spacing: 3.84px; line-height: clamp(32px, 4.5vw, 57.6px);"
           >
             使用次數
           </p>
@@ -141,7 +141,7 @@
         <!-- Figma API: "合作夥伴" 48px/weight300/#606060/ls3.84/lh57.6, Partners frame gap=48 — matches section title style -->
         <h3
           class="mb-[24px] md:mb-[48px]"
-          style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #616161; letter-spacing: 3.84px; line-height: clamp(32px, 4.5vw, 57.6px);"
+          style="font-family: 'Noto Sans TC', sans-serif; font-size: clamp(24px, 4vw, 48px); font-weight: 300; color: #606060; letter-spacing: 3.84px; line-height: clamp(32px, 4.5vw, 57.6px);"
         >
           合作夥伴
         </h3>
