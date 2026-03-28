@@ -19,9 +19,9 @@
             <path d="M15 18l-6-6 6-6" />
           </svg>
         </button>
-        <!-- Stat badges -->
+        <!-- Stat badges — Figma: staggered, Label1 at (52,73.5%) Label2 at (122,84.3%) -->
         <div class="badges">
-          <div v-for="(stat, i) in product.stats" :key="i" class="badge">
+          <div v-for="(stat, i) in product.stats" :key="i" class="badge" :style="{ left: i === 0 ? '52px' : '122px', top: i === 0 ? '73.5%' : '84.3%' }">
             <span class="badge-val">{{ stat.value }}</span>
             <span class="badge-lbl"> {{ stat.label }}</span>
           </div>
@@ -152,11 +152,11 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
   object-fit: cover;
 }
 
-/* Figma ReturnBtn 44537:23349: 80x80, Ellipse56 neumorphic */
+/* Figma ReturnBtn 44537:23349: 80x80, at (2158,2044) relative to mockup (2137,2020) = left=21, top=24 */
 .back-btn {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 24px;
+  left: 21px;
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -174,15 +174,16 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
 }
 .back-btn:hover { background: rgba(240,240,240,.95); }
 
-/* ── Badges — Figma: Label1 at x=52,y=730 from mockup origin; Label2 at x=122,y=837 ── */
+/* ── Badges — Figma: Label1 at (52, 73.5%) Label2 at (122, 84.3%) — staggered positions ── */
 .badges {
   position: absolute;
-  left: 52px;
-  bottom: 10%;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  inset: 0;
+  pointer-events: none;
   z-index: 5;
+}
+.badge {
+  position: absolute;
+  pointer-events: auto;
 }
 /* Figma Label 44537:23364: cr=200, GLASS effect, DROP_SHADOW(-17,21,52px) */
 .badge {
@@ -210,16 +211,21 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
 
 /* ── Right (text) — Figma Rectangle 156373: w=722 at x=1036 in 1758 frame, overlaps mockup by 240px ── */
 /* 722/1758 = 41.1% width. Position: (1758-722)/1758 = 58.9% from left, achieved via margin-left: -13.6% (72.6%-58.9%=13.7% overlap) */
+/* Figma: Rectangle 156373 extends 34px above and 38px below the card frame (y=1986 vs card y=2020, h=1065 vs card h=993) */
 .card-right {
   width: 41.1%;
   flex-shrink: 0;
   background: #ffffff;
   position: relative;
   margin-left: -13.7%;
+  margin-top: -34px;
+  margin-bottom: -38px;
   z-index: 2;
+  border-radius: 0;
 }
 .card-right-inner {
-  padding: 40px 36px;
+  /* Figma: Title at x=3249 relative to Rectangle x=3173 = 76px left padding. Top: Title y=2079 - Rectangle y=1986 = 93px */
+  padding: 93px 76px 40px 76px;
   display: flex;
   flex-direction: column;
   height: 100%;
