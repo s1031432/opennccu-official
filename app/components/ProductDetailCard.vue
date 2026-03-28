@@ -109,7 +109,7 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
 /* ── Left (mockup) — Figma: mockup w=1276 in 1758 frame = 72.6%, overlaps right panel by 240px ── */
 .card-left {
   position: relative;
-  width: 59%;
+  width: 72.6%;
   min-height: 480px;
   overflow: hidden;
   flex-shrink: 0;
@@ -208,12 +208,15 @@ const formattedTitle = computed(() => props.product.title.replace(/\n/g, '<br>')
 .badge-val { font-family: 'Outfit', sans-serif; }
 .badge-lbl { font-family: 'Noto Sans TC', sans-serif; }
 
-/* ── Right (text) — Figma Rectangle 156373: w=722 in 1758 frame = 41.1%, pure white fill ── */
+/* ── Right (text) — Figma Rectangle 156373: w=722 at x=1036 in 1758 frame, overlaps mockup by 240px ── */
+/* 722/1758 = 41.1% width. Position: (1758-722)/1758 = 58.9% from left, achieved via margin-left: -13.6% (72.6%-58.9%=13.7% overlap) */
 .card-right {
-  width: 41%;
+  width: 41.1%;
   flex-shrink: 0;
   background: #ffffff;
   position: relative;
+  margin-left: -13.7%;
+  z-index: 2;
 }
 .card-right-inner {
   padding: 40px 36px;
